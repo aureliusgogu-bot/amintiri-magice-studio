@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PortfolioGallery, photos } from "@/components/portfolio-gallery";
+import { PortfolioRecommender } from "@/components/portfolio-recommender";
 import { ParallaxPhoto } from "@/components/parallax-photo";
 import {
   CountUp,
@@ -426,6 +427,7 @@ function Index() {
           items={["Nunți", "Cununii civile", "Botezuri", "Majorate", "Evenimente", "Foto", "Video"]}
         />
         <PortfolioGallery />
+        <PortfolioRecommender />
         <section id="despre" className="story-section">
           <div className="section-inner story-layout">
             <div className="story-intro">
