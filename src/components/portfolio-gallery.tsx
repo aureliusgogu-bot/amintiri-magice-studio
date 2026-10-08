@@ -553,9 +553,15 @@ export function PortfolioGallery() {
           }}
           onMouseLeave={() => drift.set(0)}
         >
-          {enhanced && [0, 1].map((index) => (
-            <GalleryLight key={index} index={index} scrollProgress={scrollYProgress} drift={drift} />
-          ))}
+          {enhanced &&
+            [0, 1].map((index) => (
+              <GalleryLight
+                key={index}
+                index={index}
+                scrollProgress={scrollYProgress}
+                drift={drift}
+              />
+            ))}
           <div className={`gallery-columns ${enhanced ? "" : "gallery-simple"}`}>
             {columns.map((items, index) => (
               <PhotoColumn
