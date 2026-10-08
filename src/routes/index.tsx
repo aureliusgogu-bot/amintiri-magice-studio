@@ -587,6 +587,9 @@ function Page() {
         <p className="footer-brand">
           #facemceneplace <span>· © {new Date().getFullYear()}</span>
         </p>
+        <p className="footer-legal">
+          FACEM CE NE PLACE S.R.L · C.U.I. 52881469
+        </p>
         <p className="footer-phones">
           {people.map((person) => (
             <a key={person.phone} href={phoneHref(person.phone)}>
