@@ -12,7 +12,7 @@ import {
   X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PortfolioGallery } from "@/components/portfolio-gallery";
+import { PortfolioGallery, photos } from "@/components/portfolio-gallery";
 import { ParallaxPhoto } from "@/components/parallax-photo";
 import {
   CountUp,
@@ -34,6 +34,32 @@ import instagramQr from "@/assets/qr/instagram-qr.jpg";
 const title = "#facemceneplace — Foto și video de peste 20 de ani";
 const description =
   "De peste 20 de ani, transformăm clipe în amintiri. Descoperă poveștile #facemceneplace: fotografie și video pentru nunți, cununii civile, botezuri, majorate și evenimente în Ilfov și București.";
+
+// Origin where the site is actually served, so every structured-data image URL is
+// absolute. Point it at https://facemceneplace.ro once that domain is connected.
+const SITE_ORIGIN = "https://facemceneplace.lovable.app";
+const BUSINESS_ID = `${SITE_ORIGIN}/#facemceneplace`;
+const heroAlt = "Un cuplu de miri, împreună în lumina caldă a apusului";
+
+// Images the page really shows: the hero plus every gallery photo, described with
+// the same Romanian titles and categories visitors see.
+const imageObjects = [
+  {
+    "@type": "ImageObject",
+    contentUrl: new URL(hero.url, SITE_ORIGIN).href,
+    caption: heroAlt,
+    name: "#facemceneplace",
+    creator: { "@id": BUSINESS_ID },
+  },
+  ...photos.map((photo) => ({
+    "@type": "ImageObject",
+    contentUrl: new URL(photo.highRes, SITE_ORIGIN).href,
+    thumbnailUrl: new URL(photo.src, SITE_ORIGIN).href,
+    name: photo.title,
+    caption: `${photo.title} — ${photo.category}`,
+    creator: { "@id": BUSINESS_ID },
+  })),
+];
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
   head: () => ({
@@ -52,9 +78,11 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Photographer",
+          "@type": ["LocalBusiness", "Photographer"],
+          "@id": BUSINESS_ID,
           name: "#facemceneplace",
           description,
+          url: `${SITE_ORIGIN}/`,
           email: "facemceneplace@gmail.com",
           areaServed: ["Ilfov", "București"],
           address: { "@type": "PostalAddress", addressRegion: "Ilfov", addressCountry: "RO" },
@@ -67,6 +95,7 @@ export const Route = createFileRoute("/")({
             { "@type": "Person", name: "George Constantin" },
             { "@type": "Person", name: "Petrișor Stan" },
           ],
+          image: imageObjects,
         }),
       },
     ],
@@ -372,7 +401,7 @@ function Index() {
         <section id="acasa" className="hero">
           <ParallaxPhoto
             src={hero.url}
-            alt="Un cuplu de miri, împreună în lumina caldă a apusului"
+            alt={heroAlt}
             className="hero-photo"
             distance={85}
             eager
