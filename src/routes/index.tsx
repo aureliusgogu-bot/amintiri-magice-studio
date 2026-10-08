@@ -20,6 +20,7 @@ import hero from "@/assets/hero.jpg.asset.json";
 
 import storyPhoto from "@/assets/nunta/nunta-1-large.jpg";
 import contactPhoto from "@/assets/nunta/nunta-7-large.jpg";
+import instagramQr from "@/assets/qr/instagram-qr.jpg";
 
 const title = "#facemceneplace — Foto și video de peste 20 de ani";
 const description =
@@ -494,6 +495,27 @@ function Index() {
                   <ArrowUpRight size={20} />
                 </a>
                 <SocialLinks />
+                <a
+                  className="qr-card"
+                  href={instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Deschide Instagram @george.constantin1701"
+                >
+                  <img
+                    src={instagramQr}
+                    alt="Cod QR pentru Instagram @george.constantin1701"
+                    width={176}
+                    height={176}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span>
+                    Scanează și urmărește-ne
+                    <br />
+                    pe Instagram
+                  </span>
+                </a>
               </div>
               <ContactForm />
             </Reveal>
