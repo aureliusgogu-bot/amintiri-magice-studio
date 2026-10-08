@@ -79,7 +79,7 @@ export function ReviewsTab() {
   async function move(i: number, to: number) {
     const next = [...rows];
     const [item] = next.splice(i, 1);
-    next.splice(to, 0, item);
+    if (item) next.splice(to, 0, item);
     setRows(next.map((r, k) => ({ ...r, sort_order: k })));
     const res = await Promise.all(
       next.map((r, k) => supabase.from("reviews").update({ sort_order: k }).eq("id", r.id)),

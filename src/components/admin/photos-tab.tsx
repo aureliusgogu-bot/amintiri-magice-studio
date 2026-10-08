@@ -149,7 +149,7 @@ export function PhotosTab() {
   function move(index: number, to: number) {
     const next = [...rows];
     const [item] = next.splice(index, 1);
-    next.splice(to, 0, item);
+    if (item) next.splice(to, 0, item);
     void reorder(next);
   }
 
