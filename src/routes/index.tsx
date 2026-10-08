@@ -359,17 +359,32 @@ function VisitorReviewForm() {
           </div>
           <label>
             Recenzia ta
-            <textarea name="quote" placeholder="Cum a fost experiența cu #facemceneplace?" required minLength={10} maxLength={1200} rows={4} />
+            <textarea
+              name="quote"
+              placeholder="Cum a fost experiența cu #facemceneplace?"
+              required
+              minLength={10}
+              maxLength={1200}
+              rows={4}
+            />
           </label>
           <div hidden aria-hidden="true">
-            <label>Website<input name="website" tabIndex={-1} autoComplete="off" maxLength={200} /></label>
+            <label>
+              Website
+              <input name="website" tabIndex={-1} autoComplete="off" maxLength={200} />
+            </label>
           </div>
           <p className="text-sm text-muted-foreground">
             Numele și recenzia vor fi publice după aprobare. Nu include date personale de contact.
           </p>
-          {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
+          {error && (
+            <p role="alert" className="text-sm text-destructive">
+              {error}
+            </p>
+          )}
           <Button variant="studio" type="submit" disabled={busy}>
-            {busy ? "Se trimite…" : "Trimite recenzia"}<ArrowUpRight aria-hidden />
+            {busy ? "Se trimite…" : "Trimite recenzia"}
+            <ArrowUpRight aria-hidden />
           </Button>
         </form>
       )}
@@ -566,9 +581,7 @@ function Page() {
               </div>
             ) : null}
             <Reveal className="reviews-cta">
-              <p>
-                Părerea celor pentru care am păstrat momentele contează cel mai mult.
-              </p>
+              <p>Părerea celor pentru care am păstrat momentele contează cel mai mult.</p>
               <Magnetic>
                 <Button variant="cinematic" asChild>
                   <a href={facebook} target="_blank" rel="noopener noreferrer">

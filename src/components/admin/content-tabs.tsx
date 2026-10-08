@@ -6,7 +6,13 @@ import { DEFAULT_SETTINGS, type Person } from "@/lib/site-data";
 import { Field, Notice, friendlyError, inputClass } from "./admin-shared";
 
 type Review = { id: string; quote: string; author: string; event: string; sort_order: number };
-type PendingReview = { id: string; quote: string; author: string; event: string; created_at: string };
+type PendingReview = {
+  id: string;
+  quote: string;
+  author: string;
+  event: string;
+  created_at: string;
+};
 
 function useMessages() {
   const [error, setError] = useState("");
@@ -40,7 +46,10 @@ export function ReviewsTab() {
   const load = useCallback(async () => {
     const [{ data, error }, submissions] = await Promise.all([
       supabase.from("reviews").select("*").order("sort_order"),
-      supabase.from("review_submissions").select("id,quote,author,event,created_at").order("created_at", { ascending: false }),
+      supabase
+        .from("review_submissions")
+        .select("id,quote,author,event,created_at")
+        .order("created_at", { ascending: false }),
     ]);
     if (error) msg.fail(error);
     else setRows(data);
@@ -61,7 +70,9 @@ export function ReviewsTab() {
         ? await supabase.rpc("approve_visitor_review", { p_id: review.id })
         : await supabase.from("review_submissions").delete().eq("id", review.id);
       if (error) return msg.fail(error);
-      msg.success(approve ? "Recenzia a fost aprobată și apare pe site." : "Recenzia a fost respinsă.");
+      msg.success(
+        approve ? "Recenzia a fost aprobată și apare pe site." : "Recenzia a fost respinsă.",
+      );
       await load();
     } catch (error) {
       msg.fail(error);
@@ -122,17 +133,40 @@ export function ReviewsTab() {
     <div className="flex flex-col gap-8">
       {msg.view}
       <section aria-labelledby="pending-reviews-title">
-        <h2 id="pending-reviews-title" className="font-display text-2xl">Recenzii de aprobat ({pending.length})</h2>
-        {pending.length === 0 && <p className="mt-2 text-sm text-muted-foreground">Nu sunt recenzii noi în așteptare.</p>}
+        <h2 id="pending-reviews-title" className="font-display text-2xl">
+          Recenzii de aprobat ({pending.length})
+        </h2>
+        {pending.length === 0 && (
+          <p className="mt-2 text-sm text-muted-foreground">Nu sunt recenzii noi în așteptare.</p>
+        )}
         <ul className="mt-4 flex flex-col gap-3">
           {pending.map((review) => (
             <li key={review.id} className="rounded-md border border-border bg-card/40 p-4">
-              <p className="text-sm text-primary">{review.author}{review.event && ` · ${review.event}`}</p>
+              <p className="text-sm text-primary">
+                {review.author}
+                {review.event && ` · ${review.event}`}
+              </p>
               <p className="mt-3 whitespace-pre-wrap break-words">{review.quote}</p>
-              <p className="mt-2 text-xs text-muted-foreground">{new Date(review.created_at).toLocaleDateString("ro-RO")}</p>
+              <p className="mt-2 text-xs text-muted-foreground">
+                {new Date(review.created_at).toLocaleDateString("ro-RO")}
+              </p>
               <div className="mt-4 flex flex-wrap gap-2">
-                <Button variant="studio" size="sm" disabled={processing} onClick={() => moderate(review, true)}><Check size={16} /> Aprobă și publică</Button>
-                <Button variant="outline" size="sm" disabled={processing} onClick={() => moderate(review, false)}><Trash2 size={16} /> Respinge</Button>
+                <Button
+                  variant="studio"
+                  size="sm"
+                  disabled={processing}
+                  onClick={() => moderate(review, true)}
+                >
+                  <Check size={16} /> Aprobă și publică
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  disabled={processing}
+                  onClick={() => moderate(review, false)}
+                >
+                  <Trash2 size={16} /> Respinge
+                </Button>
               </div>
             </li>
           ))}
