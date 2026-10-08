@@ -591,8 +591,8 @@ main {
   margin-top: 48px;
 }
 .contact-title {
-  font-size: 57px;
-  max-width: 650px;
+  font-size: 64px;
+  max-width: 680px;
 }
 .email-link {
   display: inline-flex;
@@ -754,7 +754,7 @@ main {
     gap: 45px;
   }
   .section-title {
-    font-size: 52px;
+    font-size: 58px;
   }
   .email-link {
     font-size: 16px;
@@ -832,7 +832,7 @@ main {
     padding: 68px 6%;
   }
   .section-title {
-    font-size: 43px;
+    font-size: 46px;
   }
   .section-kicker {
     font-size: 9px;
@@ -898,7 +898,7 @@ main {
     font-size: 22px;
   }
   .contact-title {
-    font-size: 41px;
+    font-size: 44px;
   }
   .contact-layout {
     grid-template-columns: 1fr;
