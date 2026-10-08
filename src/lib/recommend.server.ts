@@ -20,7 +20,7 @@ export async function recommendPhotos(description: string, catalog: CatalogItem[
   const result = streamText({
     model: provider.responses(MODEL),
     system:
-      "Ești asistentul unui studio foto-video. Primești descrierea unui eveniment sau a unei ședințe foto și catalogul portofoliului. Alege între 3 și 6 fotografii cele mai relevante. Răspunde DOAR cu JSON de forma {\"ids\":[numere],\"motiv\":\"o frază scurtă în română\"}. Nu inventa prețuri, pachete sau servicii.",
+      'Ești asistentul unui studio foto-video. Primești descrierea unui eveniment sau a unei ședințe foto și catalogul portofoliului. Alege între 3 și 6 fotografii cele mai relevante. Răspunde DOAR cu JSON de forma {"ids":[numere],"motiv":"o frază scurtă în română"}. Nu inventa prețuri, pachete sau servicii.',
     prompt: `Catalog:\n${list}\n\nDescrierea vizitatorului:\n${description}`,
     providerOptions: {
       openai: {

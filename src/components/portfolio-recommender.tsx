@@ -24,7 +24,8 @@ export function PortfolioRecommender() {
       const res = await recommendPortfolio({ data: { description, catalog } });
       if (res.ok) {
         setResult({ ids: res.ids, reason: res.reason });
-        if (res.ids.length === 0) setError("Nu am găsit fotografii potrivite. Încearcă o altă descriere.");
+        if (res.ids.length === 0)
+          setError("Nu am găsit fotografii potrivite. Încearcă o altă descriere.");
       } else setError(res.error);
     } catch {
       setError("Nu am putut genera recomandări acum. Încearcă din nou mai târziu.");
@@ -34,14 +35,18 @@ export function PortfolioRecommender() {
   }
 
   return (
-    <section id="recomandari" className="mx-auto max-w-6xl px-6 py-24" aria-labelledby="recomandari-titlu">
+    <section
+      id="recomandari"
+      className="mx-auto max-w-6xl px-6 py-24"
+      aria-labelledby="recomandari-titlu"
+    >
       <p className="text-xs uppercase tracking-[0.3em] text-primary">Recomandări</p>
       <h2 id="recomandari-titlu" className="mt-3 font-display text-3xl sm:text-5xl">
         Spune-ne ce îți dorești
       </h2>
       <p className="mt-4 max-w-2xl text-muted-foreground">
-        Descrie evenimentul sau ședința foto la care visezi, iar noi îți arătăm fotografiile din portofoliu care se
-        potrivesc cel mai bine.
+        Descrie evenimentul sau ședința foto la care visezi, iar noi îți arătăm fotografiile din
+        portofoliu care se potrivesc cel mai bine.
       </p>
       <form onSubmit={onSubmit} className="mt-8 flex flex-col gap-4">
         <label htmlFor="recomandari-descriere" className="sr-only">
@@ -72,7 +77,10 @@ export function PortfolioRecommender() {
               {result.ids.map((id) => {
                 const p = photos[id];
                 return (
-                  <li key={id} className="overflow-hidden rounded-lg bg-gradient-to-br from-card to-muted">
+                  <li
+                    key={id}
+                    className="overflow-hidden rounded-lg bg-gradient-to-br from-card to-muted"
+                  >
                     <img
                       src={p.src}
                       alt={`${p.title} — ${p.category}`}
