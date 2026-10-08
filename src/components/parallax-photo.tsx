@@ -61,10 +61,13 @@ export function ParallaxPhoto({
       step = step >= swap.length - 1 ? -1 : step + 1;
       setActive(step);
     };
-    const start = window.setTimeout(() => {
-      tick();
-      interval = window.setInterval(tick, swapEvery);
-    }, Math.round(swapEvery * 0.6));
+    const start = window.setTimeout(
+      () => {
+        tick();
+        interval = window.setInterval(tick, swapEvery);
+      },
+      Math.round(swapEvery * 0.6),
+    );
     return () => {
       window.clearTimeout(start);
       if (interval) window.clearInterval(interval);
