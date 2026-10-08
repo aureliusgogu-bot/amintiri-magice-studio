@@ -6,9 +6,7 @@
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system_tailwind",
-    "theme_files": [
-      "src/styles.css"
-    ],
+    "theme_files": ["src/styles.css"],
     "source_type": "local",
     "source_manifest": {
       "#enrichment": "55ecbe2a2bbf4497686da3a634835fb30e7e012943b5507f08ff40084fe84f33",
@@ -355,12 +353,7 @@
         {
           "name": "size",
           "type": "enum",
-          "values": [
-            "default",
-            "sm",
-            "lg",
-            "icon"
-          ],
+          "values": ["default", "sm", "lg", "icon"],
           "default": "default"
         },
         {

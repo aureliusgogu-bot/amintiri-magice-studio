@@ -63,4 +63,3 @@ The full machine-readable catalog lives in this library's `design-system.json` (
 - `@/design-system/{slug}/assets/nunta/nunta-1-small.jpg` (jpg)
 - `@/design-system/{slug}/assets/nunta/nunta-2-large.jpg` (jpg)
 - …and 16 more — full list in `design-system.json`
-

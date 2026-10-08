@@ -399,13 +399,7 @@ function Index() {
       <Navigation />
       <main>
         <section id="acasa" className="hero">
-          <ParallaxPhoto
-            src={hero.url}
-            alt={heroAlt}
-            className="hero-photo"
-            distance={85}
-            eager
-          />
+          <ParallaxPhoto src={hero.url} alt={heroAlt} className="hero-photo" distance={85} eager />
           <div className="hero-overlay" />
           <div className="hero-content">
             <HeroText />
