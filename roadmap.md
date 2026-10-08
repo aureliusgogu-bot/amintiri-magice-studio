@@ -15,3 +15,4 @@
 - [x] Add LocalBusiness + ImageObject JSON-LD from the page's own photos, with no invented business details; verified the served JSON parses and every image URL is absolute.
 - [x] Show FACEM CE NE PLACE S.R.L · C.U.I. 52881469 in the footer and in the Google data; verified live.
 - [x] Opening photo now takes turns with one photo from each part of the portfolio (desktop only, slow cross-fade); arrow icons removed from the opening screen; verified swap cycle, no arrows, zero console errors on reload.
+- [ ] Google Maps / local presence: blocked until the studio's Google Business Profile exists (needs a real street address or a service-area choice, and Google verification). A review itself can only be written by a real customer's Google account, so the plan is a profile plus a "write a review" link for clients.
