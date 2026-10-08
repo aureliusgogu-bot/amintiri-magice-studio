@@ -14,4 +14,3 @@ The design system's theme is delivered through the following files. The author's
 
 - `@ws-1062323c948fe9abd9f7/c0abf0ef-62c9-4d0c-a176-953f5ccc36d3/styles.css` (source — preferred import)
 - `@ws-1062323c948fe9abd9f7/c0abf0ef-62c9-4d0c-a176-953f5ccc36d3/dist/tokens.css` (auto-generated flat list of CSS custom properties — a raw-values fallback only; does NOT carry framework-specific wiring that the source files above provide)
-

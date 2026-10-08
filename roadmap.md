@@ -8,3 +8,4 @@
 - [x] Strengthen desktop depth and parallax; preserve opacity-only mobile/reduced motion and native scrolling.
 - [x] Verify depth, image fallbacks, lightbox, Romanian metadata and responsive behavior; photos themselves remain unavailable.
 - [x] Add sitemap.xml and robots.txt for facemceneplace.ro; verified served XML, single URL entry, and green format/lint/type checks.
+- [x] Add LocalBusiness + ImageObject JSON-LD from the page's own photos, with no invented business details; verified the served JSON parses and every image URL is absolute.
