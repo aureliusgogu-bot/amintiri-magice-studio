@@ -1,0 +1,704 @@
+{
+  "meta": {
+    "name": "Amintiri Magice Studio",
+    "package": "@ws-1062323c948fe9abd9f7/c0abf0ef-62c9-4d0c-a176-953f5ccc36d3",
+    "version": "1.0.0",
+    "framework": "react",
+    "css_framework": "tailwind",
+    "starter_template": "custom_design_system_tailwind",
+    "theme_files": [
+      "src/styles.css"
+    ],
+    "source_type": "local",
+    "source_manifest": {
+      "#enrichment": "55ecbe2a2bbf4497686da3a634835fb30e7e012943b5507f08ff40084fe84f33",
+      ".github/workflows/ci.yml": "720d769c4391390e078e9376d907bddb",
+      ".gitignore": "6d9e901a692b46a83707c245fb03bc91",
+      ".lovable/project.json": "8a614b0de0ec719c6a3c839b39ebb7b9",
+      ".prettierignore": "7279a476f196a2da5f7edd18db568dc6",
+      ".prettierrc": "185ef0234746ab738ac1ab6cec5e2bd9",
+      "AGENTS.md": "b4dee238c08cada737d12da18dc93d29",
+      "README.md": "fd20856a24f9e374ab1457701edb250a",
+      "bunfig.toml": "89115995d9de72fdfc894e16b1e75297",
+      "components.json": "30d3d035361ce807021f5c54620962e9",
+      "eslint.config.js": "345bdd57e188e0e4525edcd00e5003f5",
+      "package.json": "788d0456b24c4d9e7554035332732311",
+      "public/favicon.ico": "9f504444f85a5af2eef9264b02ae40be",
+      "public/robots.txt": "f9dff89adf98833e676de2205921996a",
+      "roadmap.md": "18f2832cf041ab5be034f254b4dc06ae",
+      "src/assets/botez/botez-1-large.jpg": "38b34cc283ea23f38e9fbbdce9a3b0b8",
+      "src/assets/botez/botez-1-small.jpg": "3fa7bb17d08eb087b8e64731bc7402c8",
+      "src/assets/botez/botez-2-large.jpg": "df120f4194863ab8a62a021f16d7d262",
+      "src/assets/botez/botez-2-small.jpg": "594ae8fe1fbd59fa4bd1f92464184be4",
+      "src/assets/botez/botez-3-large.jpg": "374794df1f909c98d72427db9e754cff",
+      "src/assets/botez/botez-3-small.jpg": "eb91365211db1e2df1bd8e3e8073f106",
+      "src/assets/botez/botez-4-large.jpg": "bef8edad93c4656436b715d926f59458",
+      "src/assets/botez/botez-4-small.jpg": "a6cf3af30e3d48fa16dd08e1f95847c5",
+      "src/assets/cununie/cununie-1-large.jpg": "5d7f8762db53cc2d5cf70aab13069711",
+      "src/assets/cununie/cununie-1-small.jpg": "2546087aaa249bb091f32207d8400574",
+      "src/assets/cununie/cununie-2-large.jpg": "a8773f1dd30ce17ae7969079087f6475",
+      "src/assets/cununie/cununie-2-small.jpg": "3ba8c5315b8f3e5822997721c49e255c",
+      "src/assets/cununie/cununie-3-large.jpg": "236c0775b984bd4b8807feb75f8975dd",
+      "src/assets/cununie/cununie-3-small.jpg": "4730320c7f0e8c3ea23a6f6aab247782",
+      "src/assets/cununie/cununie-4-large.jpg": "f95c80df71c4a00ca61ffb87b37fdb80",
+      "src/assets/cununie/cununie-4-small.jpg": "1e032b849aff5608410a194ee763a472",
+      "src/assets/cununie/cununie-5-large.jpg": "58a37fc13dbc9230cf56613387042a1d",
+      "src/assets/cununie/cununie-5-small.jpg": "8fb0d04a4c9f9149e40bf9e842749bef",
+      "src/assets/cununie/cununie-6-large.jpg": "c9d05445a2dc1eb189f8c3ed84c0a987",
+      "src/assets/cununie/cununie-6-small.jpg": "a40e699f16b8a1e715413305fcbee376",
+      "src/assets/cununie/cununie-7-large.jpg": "b57f691add3501f79cc7d5db6634da03",
+      "src/assets/cununie/cununie-7-small.jpg": "333129c91acd81e63bd5d6fffabe4280",
+      "src/assets/cununie/cununie-8-large.jpg": "d971cb1ce705ebec84cfd096e7378df5",
+      "src/assets/cununie/cununie-8-small.jpg": "45cca2d940f89084202df5b8b12a225c",
+      "src/assets/cununie/cununie-9-large.jpg": "421f3ceaf3fe70f8933a474f16964ce9",
+      "src/assets/cununie/cununie-9-small.jpg": "c3efa2607ae5f1831c6e923547c6b6bd",
+      "src/assets/evenimente/eveniment-1-large.jpg": "2e9a5e327b5f4296765a2e8959459033",
+      "src/assets/evenimente/eveniment-1-small.jpg": "8a7d8da466fd7877a9a8c3723f8bd423",
+      "src/assets/evenimente/eveniment-2-large.jpg": "9e71165589966115355be32c97ce8e44",
+      "src/assets/evenimente/eveniment-2-small.jpg": "bf5bf87620e78410c16d21818c62ef1b",
+      "src/assets/evenimente/eveniment-3-large.jpg": "bf1626ed8bbff7bc671444d9add83725",
+      "src/assets/evenimente/eveniment-3-small.jpg": "bd35bfc5df839859b58c1a439212e4a9",
+      "src/assets/evenimente/eveniment-4-large.jpg": "310a7c2af70a481da97f6be8785952c4",
+      "src/assets/evenimente/eveniment-4-small.jpg": "e49aab44159bf141e438c2e079d33d45",
+      "src/assets/evenimente/eveniment-5-large.jpg": "0bc9889a16e689db2cfe6cb2871017a4",
+      "src/assets/evenimente/eveniment-5-small.jpg": "4edd1b952339ab6a761cd061096e7fbe",
+      "src/assets/hero.jpg.asset.json": "eb3903366a00f55e96f4a70a57a05477",
+      "src/assets/majorat/majorat-1-large.jpg": "796403ec7618dd1da3d7782277470617",
+      "src/assets/majorat/majorat-1-small.jpg": "c7d4c23354fa6beedc99c17c21c6b824",
+      "src/assets/majorat/majorat-2-large.jpg": "9ce1fe394836a7c038fcd8298f3a867e",
+      "src/assets/majorat/majorat-2-small.jpg": "2ae65c2a1755254cd4085610df2bb554",
+      "src/assets/majorat/majorat-3-large.jpg": "f648696cfe41bb36d253f7f210b74433",
+      "src/assets/majorat/majorat-3-small.jpg": "1c2fcd85f2cbb4bdaf213a2b44b2535d",
+      "src/assets/majorat/majorat-4-large.jpg": "ae701616dba8970d20cb92dbb354c417",
+      "src/assets/majorat/majorat-4-small.jpg": "512646af42caf95147009123196b3a7b",
+      "src/assets/majorat/majorat-5-large.jpg": "662e01ae4a7ef763e65d49bedf319578",
+      "src/assets/majorat/majorat-5-small.jpg": "fbc948f9d4d8ffd1f54513dc533582ff",
+      "src/assets/nunta/nunta-1-large.jpg": "60670a9257a9b2c73e12f4d9e8214ffd",
+      "src/assets/nunta/nunta-1-small.jpg": "7f2aa91a280ae8f8a23ba351343efed5",
+      "src/assets/nunta/nunta-2-large.jpg": "d8fd76d5ff5d3d9514d882d2f73da18c",
+      "src/assets/nunta/nunta-2-small.jpg": "8706eca00921d7dd8be3a241922f3903",
+      "src/assets/nunta/nunta-3-large.jpg": "25c99bb9b6824d469df705f0db6fbd0a",
+      "src/assets/nunta/nunta-3-small.jpg": "814edbae76fdf3999950603ee064786f",
+      "src/assets/nunta/nunta-4-large.jpg": "c82e2f291a3b713876eb9c79fd5c5484",
+      "src/assets/nunta/nunta-4-small.jpg": "1faf130fdaafb6a3fab7f9baef2d599a",
+      "src/assets/nunta/nunta-5-large.jpg": "a76647c6da1d6f9ae351081ddabd8876",
+      "src/assets/nunta/nunta-5-small.jpg": "43547fd4ade4fd6f4fcbca6cd2e68737",
+      "src/assets/nunta/nunta-6-large.jpg": "53bc2ebf3dac31b52462f638db3a26ff",
+      "src/assets/nunta/nunta-6-small.jpg": "2f6f798af619a7c85a6074100e078f7b",
+      "src/assets/nunta/nunta-7-large.jpg": "3bf79bd499d51343772518337d5ada40",
+      "src/assets/nunta/nunta-7-small.jpg": "3a53330244102524efb7dc1557b458c4",
+      "src/assets/nunta/nunta-8-large.jpg": "132a4280122d5a0e93409b65145930a3",
+      "src/assets/nunta/nunta-8-small.jpg": "b666a01ddefcf00e0376437dca2e5981",
+      "src/assets/nunta/nunta-9-large.jpg": "d17e24e0431285475a6d84385d658732",
+      "src/assets/nunta/nunta-9-small.jpg": "cf38eb18c39e0e950d1f3e004429d9f9",
+      "src/assets/qr/instagram-qr.jpg": "b0ffded3d4de34c2b8e5a1899bbc1387",
+      "src/components/motion-kit.tsx": "e6e045eddd3fbe3592b442f217db70dc",
+      "src/components/parallax-photo.tsx": "88ad6f3341b3d2e062bdc7895cb0f8c5",
+      "src/components/portfolio-gallery.tsx": "2ce03fd9f80a1603945246f40dc19119",
+      "src/components/ui/accordion.tsx": "55f9dda62b4e3913c9b23e5015a86aef",
+      "src/components/ui/alert-dialog.tsx": "96350e949e9b7b674545430a410ab89c",
+      "src/components/ui/alert.tsx": "f993d7e96b1e25ce50e68ed97e11d2a8",
+      "src/components/ui/aspect-ratio.tsx": "c5c364545e1b25a94e9e752cd67ad048",
+      "src/components/ui/avatar.tsx": "72989cd32f72c4122802540ef32525a5",
+      "src/components/ui/badge.tsx": "81cade001fc4260f9943e18dcd79449b",
+      "src/components/ui/breadcrumb.tsx": "bb9ac254f12662b20d5d50b84308bf3a",
+      "src/components/ui/button.tsx": "5f614ce9afb8d3d26ce2935a4dddffa9",
+      "src/components/ui/calendar.tsx": "d849cc610e2683271f3f1c47d093cf30",
+      "src/components/ui/card.tsx": "d6c48ea36221b9cdc3576d305d12d5d5",
+      "src/components/ui/carousel.tsx": "e324c68ae00cd5aed49317638abd429a",
+      "src/components/ui/chart.tsx": "6a3baf94f2e89f1f97d4d7a28f3622d2",
+      "src/components/ui/checkbox.tsx": "f78aac270ca482c8c2cb907ef6260462",
+      "src/components/ui/collapsible.tsx": "767631bbc344945c236f185f4078d71d",
+      "src/components/ui/command.tsx": "014782599cc838b021ec68b07ad4ea02",
+      "src/components/ui/context-menu.tsx": "3ba8244ea23df34a1dba92f3a1230dad",
+      "src/components/ui/dialog.tsx": "ef4fe8e7de8675730afe3d633b260e09",
+      "src/components/ui/drawer.tsx": "8be333e8fd8e42576b1b5f72f07f4337",
+      "src/components/ui/dropdown-menu.tsx": "28d6e98d3c7811fc0514bfa69416f087",
+      "src/components/ui/form.tsx": "1b0aa6302b9017ea2a1307c22a1d2983",
+      "src/components/ui/hover-card.tsx": "1442794c5ca2a78d69e4e613b315ed3d",
+      "src/components/ui/input-otp.tsx": "65625f2f1c4d731a760aeed7b54459d1",
+      "src/components/ui/input.tsx": "1d4cc52a4cd8afb3e18e45bda942bb8a",
+      "src/components/ui/label.tsx": "7e35df4ca8edd0835efd97ca7937ef92",
+      "src/components/ui/menubar.tsx": "3c4121a1e78d3f424a7295381a8997d3",
+      "src/components/ui/navigation-menu.tsx": "e85351147a02b29577ff83d188b63c24",
+      "src/components/ui/pagination.tsx": "fac6cdbb4bbf78b273d85cd36d6cbb49",
+      "src/components/ui/popover.tsx": "f18aa1da2144f25ee60795c539c51bcd",
+      "src/components/ui/progress.tsx": "55c462e5c9dd678dcf2c0c510b014ac4",
+      "src/components/ui/radio-group.tsx": "0e1ace237a5da3197e3eb1e6683faba9",
+      "src/components/ui/resizable.tsx": "d9fcb9203c749fcab4e125a99bb12a86",
+      "src/components/ui/scroll-area.tsx": "87b65d3eb26f2b02ff35a7acea585ba5",
+      "src/components/ui/select.tsx": "31ea1bbd6671833b010b2e852c8a55d0",
+      "src/components/ui/separator.tsx": "433d163c4ffa00b59398a0c293198b5e",
+      "src/components/ui/sheet.tsx": "0221fbf97b69611b47fcbc10bb27669a",
+      "src/components/ui/sidebar.tsx": "83c1623eb50ebc370d7b1b84a542e369",
+      "src/components/ui/skeleton.tsx": "41b182e6e2fc3805960d41e767d4a972",
+      "src/components/ui/slider.tsx": "4752f1bfa26426988d325599e01c335b",
+      "src/components/ui/sonner.tsx": "97f59f60be3413196d095fcbf7383216",
+      "src/components/ui/switch.tsx": "82f5d8b0c59bb7ff305caa9f502e79ff",
+      "src/components/ui/table.tsx": "7cc889989d53894b659903c73aded96e",
+      "src/components/ui/tabs.tsx": "56e725558c2ce72c18243bf51717f385",
+      "src/components/ui/textarea.tsx": "c7aad96fb9545210d53135a96c76ed6b",
+      "src/components/ui/toggle-group.tsx": "ac26383acf721d116ca8e3ab5c5355d5",
+      "src/components/ui/toggle.tsx": "ee8c5adac74e7242b85b544db1a8fbad",
+      "src/components/ui/tooltip.tsx": "67d71db5a1ab935695d1def497f5b8a6",
+      "src/hooks/use-enhanced-motion.ts": "f2bd5f688f517e39fb4d014759fc0e9a",
+      "src/hooks/use-mobile.tsx": "c0a0bdd4638c391a1dd06ac82074e60b",
+      "src/lib/error-capture.ts": "f630d9686a9a989170f22eff4de7b30d",
+      "src/lib/error-page.ts": "8da0ddd7569bac2676b9a5c8edff8a36",
+      "src/lib/lovable-error-reporting.ts": "920280997099588d609de792663bcbf0",
+      "src/lib/utils.ts": "d9837f38cc05303254571985e3164050",
+      "src/routeTree.gen.ts": "6c278a80c7c7d379a9edc475e4c8309f",
+      "src/router.tsx": "8f905e713b0eba7fa8148b7995a708c9",
+      "src/routes/README.md": "0044790c298aeb33868a7525d79f1585",
+      "src/routes/__root.tsx": "a60d5e15722f41cf7e696072e845e548",
+      "src/routes/index.tsx": "b2160e3cdf92b701d5c1ab5c60be82a3",
+      "src/server.ts": "c7bbc49bb70e318af618d92775ee0f27",
+      "src/start.ts": "0502f82c58afce5012b4c102e6fe2437",
+      "src/styles.css": "929cd0dffaa008985a878f941da1eb10",
+      "src/test/app-routing.test.tsx": "dda0393c89450a1e5b7874b424dca80d",
+      "src/test/setup.ts": "ef5807c07db57482ab718e40246688a2",
+      "tsconfig.json": "3d34aff71739a382bec105bad1c6948f",
+      "vite.config.ts": "d67e8217e5f31b87c276b6357c9aedcf",
+      "vitest.config.ts": "cdf9aff9538e6bc3eb92842264b030a9"
+    },
+    "pipeline_version": 8
+  },
+  "tokens": {
+    "color": [
+      {
+        "name": "--background",
+        "raw": "oklch(0.135 0.003 75)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--foreground",
+        "raw": "oklch(0.935 0.012 80)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--card",
+        "raw": "oklch(0.18 0.004 75)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--primary",
+        "raw": "oklch(0.77 0.082 68)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--primary-foreground",
+        "raw": "oklch(0.15 0.01 65)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--secondary",
+        "raw": "oklch(0.21 0.005 75)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--muted-foreground",
+        "raw": "oklch(0.64 0.01 80)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--border",
+        "raw": "oklch(0.32 0.007 75)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--destructive",
+        "raw": "oklch(0.65 0.18 25)",
+        "source": "src/styles.css"
+      }
+    ],
+    "typography": [
+      {
+        "name": "--font-sans",
+        "raw": "\"DM Sans\", sans-serif",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--font-display",
+        "raw": "\"Playfair Display\", Georgia, serif",
+        "source": "src/styles.css"
+      }
+    ],
+    "radius": [
+      {
+        "name": "--radius-md",
+        "raw": "0.25rem",
+        "source": "src/styles.css"
+      }
+    ],
+    "shadow": [
+      {
+        "name": "--photo-shadow",
+        "raw": "0 35px 45px oklch(0 0 0 / 0.8)",
+        "source": "src/styles.css"
+      }
+    ],
+    "other": [
+      {
+        "name": "--hero-shade",
+        "raw": "linear-gradient(\n    180deg,\n    oklch(0.08 0.004 75 / 0.4) 0%,\n    oklch(0.08 0.004 75 / 0.23) 30%,\n    oklch(0.08 0.004 75 / 0.64) 76%,\n    var(--background) 100%\n  )",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--photo-shade",
+        "raw": "linear-gradient(transparent 35%, oklch(0.08 0.003 75 / 0.82))",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--photo-fallback",
+        "raw": "linear-gradient(\n    135deg,\n    var(--secondary),\n    oklch(0.34 0.05 68),\n    var(--background)\n  )",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--ease",
+        "raw": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--glare",
+        "raw": "radial-gradient(ellipse at center, oklch(1 0 0 / 0.22), transparent 65%)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--contact-shade",
+        "raw": "linear-gradient(\n    90deg,\n    oklch(0.135 0.003 75 / 0.97),\n    oklch(0.135 0.003 75 / 0.85)\n  )",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--gallery-light-warm",
+        "raw": "linear-gradient(\n    115deg,\n    transparent 10%,\n    oklch(0.77 0.082 68 / 0.1) 45%,\n    transparent 75%\n  )",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--gallery-light-neutral",
+        "raw": "linear-gradient(\n    65deg,\n    transparent 15%,\n    oklch(0.935 0.012 80 / 0.045) 50%,\n    transparent 80%\n  )",
+        "source": "src/styles.css"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "ScrollProgress",
+      "file": "src/components/motion-kit",
+      "import_path": ""
+    },
+    {
+      "name": "Reveal",
+      "file": "src/components/motion-kit",
+      "import_path": ""
+    },
+    {
+      "name": "MaskReveal",
+      "file": "src/components/motion-kit",
+      "import_path": ""
+    },
+    {
+      "name": "Magnetic",
+      "file": "src/components/motion-kit",
+      "import_path": ""
+    },
+    {
+      "name": "CountUp",
+      "file": "src/components/motion-kit",
+      "import_path": ""
+    },
+    {
+      "name": "Marquee",
+      "file": "src/components/motion-kit",
+      "import_path": ""
+    },
+    {
+      "name": "CursorRing",
+      "file": "src/components/motion-kit",
+      "import_path": ""
+    },
+    {
+      "name": "ParallaxPhoto",
+      "file": "src/components/parallax-photo",
+      "import_path": ""
+    },
+    {
+      "name": "PortfolioGallery",
+      "file": "src/components/portfolio-gallery",
+      "import_path": ""
+    },
+    {
+      "name": "Button",
+      "file": "src/components/ui/button",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "studio",
+            "cinematic",
+            "nav",
+            "photo",
+            "lightbox",
+            "default",
+            "destructive",
+            "outline",
+            "secondary",
+            "ghost",
+            "link"
+          ],
+          "default": "default"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "default",
+            "sm",
+            "lg",
+            "icon"
+          ],
+          "default": "default"
+        },
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "default": "false"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "file": "src/assets/botez/botez-1-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/botez/botez-1-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/botez/botez-2-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/botez/botez-2-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/botez/botez-3-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/botez/botez-3-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/botez/botez-4-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/botez/botez-4-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-1-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-1-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-2-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-2-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-3-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-3-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-4-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-4-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-5-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-5-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-6-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-6-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-7-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-7-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-8-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-8-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-9-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/cununie/cununie-9-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/evenimente/eveniment-1-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/evenimente/eveniment-1-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/evenimente/eveniment-2-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/evenimente/eveniment-2-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/evenimente/eveniment-3-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/evenimente/eveniment-3-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/evenimente/eveniment-4-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/evenimente/eveniment-4-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/evenimente/eveniment-5-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/evenimente/eveniment-5-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/hero.jpg.asset.json",
+      "kind": "image",
+      "format": "jpg",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/majorat/majorat-1-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/majorat/majorat-1-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/majorat/majorat-2-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/majorat/majorat-2-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/majorat/majorat-3-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/majorat/majorat-3-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/majorat/majorat-4-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/majorat/majorat-4-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/majorat/majorat-5-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/majorat/majorat-5-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-1-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-1-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-2-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-2-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-3-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-3-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-4-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-4-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-5-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-5-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-6-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-6-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-7-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-7-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-8-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-8-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-9-large.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/nunta/nunta-9-small.jpg",
+      "kind": "image",
+      "format": "jpg"
+    },
+    {
+      "file": "src/assets/qr/instagram-qr.jpg",
+      "kind": "image",
+      "format": "jpg"
+    }
+  ]
+}
