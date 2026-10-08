@@ -10,10 +10,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         studio: "bg-primary text-primary-foreground rounded-none hover:bg-primary/90 h-12 px-6",
-        cinematic: "border border-foreground/30 bg-transparent text-foreground rounded-none hover:bg-foreground/10 h-12 px-6",
+        cinematic:
+          "border border-foreground/30 bg-transparent text-foreground rounded-none hover:bg-foreground/10 h-12 px-6",
         nav: "bg-transparent text-foreground/75 rounded-none hover:text-primary hover:bg-transparent px-0",
-        photo: "block w-full h-full p-0 rounded-none bg-transparent text-foreground whitespace-normal",
-        lightbox: "bg-background/60 text-foreground border border-foreground/20 rounded-full hover:bg-primary hover:text-primary-foreground",
+        photo:
+          "block w-full h-full p-0 rounded-none bg-transparent text-foreground whitespace-normal",
+        lightbox:
+          "bg-background/60 text-foreground border border-foreground/20 rounded-full hover:bg-primary hover:text-primary-foreground",
         default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
