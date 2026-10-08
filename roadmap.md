@@ -1,5 +1,9 @@
 # Roadmap
 
+- [x] Restore the brand-only page title and retain wedding, baptism and civil-ceremony photographer search terms.
+- [x] Add direct visitor reviews and private admin approval; verified real submission, private storage, anonymous approval/write denial, tests and build.
+- [ ] Verify George's signed-in approval flow: blocked because no authorized admin session is available; George must sign in in the preview.
+
 - [x] Create the cinematic Romanian single-page site and exact studio story.
 - [x] Add 16-photo animated gallery and accessible fullscreen lightbox.
 - [x] Add contact email form, social links, mobile navigation and metadata.

@@ -62,6 +62,30 @@ export type Database = {
         }
         Relationships: []
       }
+      review_submissions: {
+        Row: {
+          author: string
+          created_at: string
+          event: string
+          id: string
+          quote: string
+        }
+        Insert: {
+          author: string
+          created_at?: string
+          event?: string
+          id?: string
+          quote: string
+        }
+        Update: {
+          author?: string
+          created_at?: string
+          event?: string
+          id?: string
+          quote?: string
+        }
+        Relationships: []
+      }
       reviews: {
         Row: {
           author: string
@@ -124,7 +148,12 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      approve_visitor_review: { Args: { p_id: string }; Returns: undefined }
       is_admin: { Args: never; Returns: boolean }
+      submit_visitor_review: {
+        Args: { p_author: string; p_event?: string; p_quote: string }
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never

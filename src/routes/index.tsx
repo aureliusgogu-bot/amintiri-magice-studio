@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowUpRight, Instagram, Facebook, MapPin, Menu, X } from "lucide-react";
@@ -20,14 +21,16 @@ import { useEnhancedMotion } from "@/hooks/use-enhanced-motion";
 import hero from "@/assets/hero.jpg.asset.json";
 import { DEFAULT_SITE_DATA, SiteContext, useSite } from "@/lib/site-data";
 import { getSiteData } from "@/lib/site-data.functions";
+import { submitVisitorReview } from "@/lib/review-submissions.functions";
+import { visitorReviewSchema } from "@/lib/review-schema";
 
 import storyPhoto from "@/assets/nunta/nunta-1-large.jpg";
 import contactPhoto from "@/assets/nunta/nunta-7-large.jpg";
 import instagramQr from "@/assets/qr/instagram-qr.jpg";
 
-const title = "Fotograf și Video Nunți, Cununii și Botezuri | #facemceneplace";
+const title = "#facemceneplace";
 const description =
-  "Fotograf și video pentru nunți, cununii și botezuri — peste 20 de ani transformăm clipe în amintiri. Sediul în Ilfov, deplasări în toată țara. Vezi portofoliul și scrie-ne azi.";
+  "Fotograf nuntă, fotograf botez și fotograf cununie în Ilfov și în toată România. #facemceneplace — fotografie și video, peste 20 de ani de amintiri.";
 
 // Public origin of the site, so every structured-data image URL is absolute.
 const SITE_ORIGIN = "https://facemceneplace.com";
@@ -62,10 +65,10 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: `${SITE_ORIGIN}/` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: `${SITE_ORIGIN}/` }],
     scripts: [
       {
         type: "application/ld+json",
@@ -309,6 +312,85 @@ function ContactForm() {
     </form>
   );
 }
+function VisitorReviewForm() {
+  const send = useServerFn(submitVisitorReview);
+  const [busy, setBusy] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (busy) return;
+    const form = new FormData(event.currentTarget);
+    const parsed = visitorReviewSchema.safeParse(Object.fromEntries(form));
+    if (!parsed.success) {
+      setError(parsed.error.issues[0]?.message ?? "Verifică datele completate.");
+      return;
+    }
+    setBusy(true);
+    setError("");
+    try {
+      const result = await send({ data: parsed.data });
+      if (!result.ok) throw new Error("submission");
+      setSent(true);
+    } catch {
+      setError("Recenzia nu a fost trimisă. Verifică internetul și încearcă din nou.");
+    } finally {
+      setBusy(false);
+    }
+  }
+  return (
+    <div className="mt-12 max-w-2xl border-t border-border pt-8">
+      <h3 className="font-display text-3xl">Povestește-ne experiența ta</h3>
+      {sent ? (
+        <p role="status" className="mt-4 text-primary">
+          Mulțumim! Recenzia ta a fost trimisă și va apărea pe site după aprobare.
+        </p>
+      ) : (
+        <form className="contact-form mt-6" onSubmit={submit} aria-label="Scrie o recenzie">
+          <div className="form-row">
+            <label>
+              Numele tău
+              <input name="author" autoComplete="name" required minLength={2} maxLength={80} />
+            </label>
+            <label>
+              Evenimentul (opțional)
+              <input name="event" placeholder="Nuntă, botez, cununie…" maxLength={60} />
+            </label>
+          </div>
+          <label>
+            Recenzia ta
+            <textarea
+              name="quote"
+              placeholder="Cum a fost experiența cu #facemceneplace?"
+              required
+              minLength={10}
+              maxLength={1200}
+              rows={4}
+            />
+          </label>
+          <div hidden aria-hidden="true">
+            <label>
+              Website
+              <input name="website" tabIndex={-1} autoComplete="off" maxLength={200} />
+            </label>
+          </div>
+          <p className="text-sm text-muted-foreground">
+            Numele și recenzia vor fi publice după aprobare. Nu include date personale de contact.
+          </p>
+          {error && (
+            <p role="alert" className="text-sm text-destructive">
+              {error}
+            </p>
+          )}
+          <Button variant="studio" type="submit" disabled={busy}>
+            {busy ? "Se trimite…" : "Trimite recenzia"}
+            <ArrowUpRight aria-hidden />
+          </Button>
+        </form>
+      )}
+    </div>
+  );
+}
 function HeroText() {
   const { people, locationHero } = useSite().settings;
   const enhanced = useEnhancedMotion();
@@ -320,7 +402,7 @@ function HeroText() {
   return (
     <div>
       <motion.p className="eyebrow" {...item(0.15)}>
-        Fotografie & videografie · Povești cu suflet
+        Fotograf nuntă · Fotograf botez · Fotograf cununie
       </motion.p>
       <motion.h1 {...item(0.3)}>#facemceneplace</motion.h1>
       <motion.p className="hero-subline mx-auto" {...item(0.55)}>
@@ -499,10 +581,7 @@ function Page() {
               </div>
             ) : null}
             <Reveal className="reviews-cta">
-              <p>
-                Părerea celor pentru care am păstrat momentele contează cel mai mult. Citește
-                recenziile lor pe pagina noastră de Facebook.
-              </p>
+              <p>Părerea celor pentru care am păstrat momentele contează cel mai mult.</p>
               <Magnetic>
                 <Button variant="cinematic" asChild>
                   <a href={facebook} target="_blank" rel="noopener noreferrer">
@@ -513,6 +592,7 @@ function Page() {
                 </Button>
               </Magnetic>
             </Reveal>
+            <VisitorReviewForm />
           </div>
         </section>
         <section id="contact" className="contact-section">

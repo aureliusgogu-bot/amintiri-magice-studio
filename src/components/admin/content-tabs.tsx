@@ -1,11 +1,18 @@
 import { useCallback, useEffect, useState, type FormEvent } from "react";
-import { ArrowDown, ArrowUp, Trash2 } from "lucide-react";
+import { ArrowDown, ArrowUp, Check, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { DEFAULT_SETTINGS, type Person } from "@/lib/site-data";
 import { Field, Notice, friendlyError, inputClass } from "./admin-shared";
 
 type Review = { id: string; quote: string; author: string; event: string; sort_order: number };
+type PendingReview = {
+  id: string;
+  quote: string;
+  author: string;
+  event: string;
+  created_at: string;
+};
 
 function useMessages() {
   const [error, setError] = useState("");
@@ -32,18 +39,47 @@ function useMessages() {
 
 export function ReviewsTab() {
   const [rows, setRows] = useState<Review[]>([]);
+  const [pending, setPending] = useState<PendingReview[]>([]);
+  const [processing, setProcessing] = useState(false);
   const [draft, setDraft] = useState({ quote: "", author: "", event: "" });
   const msg = useMessages();
   const load = useCallback(async () => {
-    const { data, error } = await supabase.from("reviews").select("*").order("sort_order");
+    const [{ data, error }, submissions] = await Promise.all([
+      supabase.from("reviews").select("*").order("sort_order"),
+      supabase
+        .from("review_submissions")
+        .select("id,quote,author,event,created_at")
+        .order("created_at", { ascending: false }),
+    ]);
     if (error) msg.fail(error);
     else setRows(data);
+    if (submissions.error) msg.fail(submissions.error);
+    else setPending(submissions.data);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     void load();
   }, [load]);
 
+  async function moderate(review: PendingReview, approve: boolean) {
+    if (processing) return;
+    if (!approve && !window.confirm(`Respingi recenzia lui ${review.author}?`)) return;
+    setProcessing(true);
+    try {
+      const { error } = approve
+        ? await supabase.rpc("approve_visitor_review", { p_id: review.id })
+        : await supabase.from("review_submissions").delete().eq("id", review.id);
+      if (error) return msg.fail(error);
+      msg.success(
+        approve ? "Recenzia a fost aprobată și apare pe site." : "Recenzia a fost respinsă.",
+      );
+      await load();
+    } catch (error) {
+      msg.fail(error);
+    } finally {
+      setProcessing(false);
+    }
+  }
   async function add(e: FormEvent) {
     e.preventDefault();
     if (!draft.quote.trim() || !draft.author.trim())
@@ -95,6 +131,47 @@ export function ReviewsTab() {
 
   return (
     <div className="flex flex-col gap-8">
+      {msg.view}
+      <section aria-labelledby="pending-reviews-title">
+        <h2 id="pending-reviews-title" className="font-display text-2xl">
+          Recenzii de aprobat ({pending.length})
+        </h2>
+        {pending.length === 0 && (
+          <p className="mt-2 text-sm text-muted-foreground">Nu sunt recenzii noi în așteptare.</p>
+        )}
+        <ul className="mt-4 flex flex-col gap-3">
+          {pending.map((review) => (
+            <li key={review.id} className="rounded-md border border-border bg-card/40 p-4">
+              <p className="text-sm text-primary">
+                {review.author}
+                {review.event && ` · ${review.event}`}
+              </p>
+              <p className="mt-3 whitespace-pre-wrap break-words">{review.quote}</p>
+              <p className="mt-2 text-xs text-muted-foreground">
+                {new Date(review.created_at).toLocaleDateString("ro-RO")}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <Button
+                  variant="studio"
+                  size="sm"
+                  disabled={processing}
+                  onClick={() => moderate(review, true)}
+                >
+                  <Check size={16} /> Aprobă și publică
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  disabled={processing}
+                  onClick={() => moderate(review, false)}
+                >
+                  <Trash2 size={16} /> Respinge
+                </Button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
       <form
         onSubmit={add}
         className="flex flex-col gap-3 rounded-xl border border-border bg-card/40 p-4 sm:p-6"
@@ -129,7 +206,6 @@ export function ReviewsTab() {
           Adaugă recenzia
         </Button>
       </form>
-      {msg.view}
       <section>
         <h2 className="font-display text-2xl">Recenzii pe site ({rows.length})</h2>
         {rows.length === 0 && (
