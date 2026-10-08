@@ -1192,6 +1192,33 @@ a:hover > .lucide-arrow-right {
     transform-origin: 50% 0;
     animation: scroll-cue 2.6s var(--ease) infinite;
   }
+  /* Fine gold sheen sweeping the hero buttons on hover. */
+  .hero-actions a {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-actions a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--gold-sheen);
+    transform: translateX(-130%);
+    transition: transform 0.9s var(--ease);
+    pointer-events: none;
+  }
+  .hero-actions a:hover::after {
+    transform: translateX(130%);
+  }
+  /* Review cards rise softly toward the reader. */
+  .review-card {
+    transition:
+      transform 0.7s var(--ease),
+      border-color 0.7s var(--ease);
+  }
+  .review-card:hover {
+    transform: translateY(-6px);
+    border-color: oklch(0.77 0.082 68 / 0.45);
+  }
   .film-grain {
     position: fixed;
     inset: 0;
