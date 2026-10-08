@@ -14,6 +14,7 @@ export function ParallaxPhoto({
   eager = false,
   swap,
   swapEvery = 5000,
+  swapDelay = 8000,
 }: {
   src: string;
   alt: string;
@@ -24,6 +25,8 @@ export function ParallaxPhoto({
   swap?: SwapPhoto[];
   /** How long each photo stays on screen, in milliseconds. */
   swapEvery?: number;
+  /** How long the main photo is held before the first swap. */
+  swapDelay?: number;
 }) {
   const frame = useRef<HTMLDivElement>(null);
   const enhanced = useEnhancedMotion();
