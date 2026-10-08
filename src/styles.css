@@ -69,6 +69,17 @@
     oklch(0.935 0.012 80 / 0.045) 50%,
     transparent 80%
   );
+  --vignette: radial-gradient(
+    ellipse 90% 85% at center,
+    transparent 55%,
+    oklch(0.08 0.003 75 / 0.5) 100%
+  );
+  --hero-glow: radial-gradient(
+    ellipse 70% 45% at 50% 0%,
+    oklch(0.77 0.082 68 / 0.12),
+    transparent 70%
+  );
+  --gold-sheen: linear-gradient(105deg, transparent 40%, oklch(1 0 0 / 0.16) 50%, transparent 60%);
 }
 @layer base {
   * {
@@ -155,7 +166,9 @@
   font-size: 12px;
 }
 .nav-links a {
-  font-size: 12px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 .social-divider {
   height: 16px;
@@ -203,6 +216,13 @@
   position: absolute;
   inset: 0;
   background: var(--hero-shade);
+}
+.hero-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--hero-glow);
+  pointer-events: none;
 }
 .hero-content {
   position: relative;
@@ -283,6 +303,9 @@
   margin: auto;
   padding: 100px 5%;
 }
+main {
+  counter-reset: section;
+}
 .section-kicker {
   display: flex;
   align-items: center;
@@ -290,18 +313,25 @@
   color: var(--primary);
   text-transform: uppercase;
   font-size: 10px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.22em;
+  counter-increment: section;
 }
 .section-kicker::before {
   content: "";
-  width: 28px;
+  width: 44px;
   height: 1px;
   background: var(--primary);
 }
+.section-kicker::after {
+  content: "· 0" counter(section);
+  opacity: 0.5;
+  letter-spacing: 0.3em;
+}
 .section-title {
-  font-size: 62px;
-  line-height: 1.18;
-  margin: 18px 0;
+  font-size: 74px;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 22px 0;
 }
 .section-title em {
   color: var(--primary);
@@ -481,13 +511,33 @@
   background: var(--border);
 }
 .story-section {
+  position: relative;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+}
+.story-section::before,
+.reviews-section::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  transform: translateX(-50%) rotate(45deg);
+  background: var(--primary);
+  pointer-events: none;
 }
 .story-photo {
   position: relative;
   aspect-ratio: 4 / 3;
   margin-top: 32px;
+}
+.story-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--vignette);
+  pointer-events: none;
 }
 .story-photo img {
   object-position: center;
@@ -511,6 +561,14 @@
   position: absolute;
   inset: 0;
   background: var(--contact-shade);
+  z-index: -1;
+  pointer-events: none;
+}
+.contact-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--vignette);
   z-index: -1;
   pointer-events: none;
 }
@@ -565,8 +623,8 @@
   margin-top: 48px;
 }
 .contact-title {
-  font-size: 57px;
-  max-width: 650px;
+  font-size: 64px;
+  max-width: 680px;
 }
 .email-link {
   display: inline-flex;
@@ -634,6 +692,7 @@
 }
 .footer-brand {
   font-size: 13px;
+  letter-spacing: 0.06em;
 }
 .footer-brand span {
   color: var(--muted-foreground);
@@ -728,7 +787,7 @@
     gap: 45px;
   }
   .section-title {
-    font-size: 52px;
+    font-size: 58px;
   }
   .email-link {
     font-size: 16px;
@@ -806,7 +865,7 @@
     padding: 68px 6%;
   }
   .section-title {
-    font-size: 43px;
+    font-size: 46px;
   }
   .section-kicker {
     font-size: 9px;
@@ -872,7 +931,7 @@
     font-size: 22px;
   }
   .contact-title {
-    font-size: 41px;
+    font-size: 44px;
   }
   .contact-layout {
     grid-template-columns: 1fr;
@@ -1128,6 +1187,33 @@ a:hover > .lucide-arrow-right {
     transform-origin: 50% 0;
     animation: scroll-cue 2.6s var(--ease) infinite;
   }
+  /* Fine gold sheen sweeping the hero buttons on hover. */
+  .hero-actions a {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-actions a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--gold-sheen);
+    transform: translateX(-130%);
+    transition: transform 0.9s var(--ease);
+    pointer-events: none;
+  }
+  .hero-actions a:hover::after {
+    transform: translateX(130%);
+  }
+  /* Review cards rise softly toward the reader. */
+  .review-card {
+    transition:
+      transform 0.7s var(--ease),
+      border-color 0.7s var(--ease);
+  }
+  .review-card:hover {
+    transform: translateY(-6px);
+    border-color: oklch(0.77 0.082 68 / 0.45);
+  }
   .film-grain {
     position: fixed;
     inset: 0;
@@ -1276,6 +1362,7 @@ a:hover > .lucide-arrow-right {
   color: var(--primary);
 }
 .reviews-section {
+  position: relative;
   border-bottom: 1px solid var(--border);
 }
 .reviews-grid {
@@ -1298,8 +1385,18 @@ a:hover > .lucide-arrow-right {
 .review-card blockquote {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 20px;
-  line-height: 1.6;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.65;
+}
+.review-card blockquote::before {
+  content: "“";
+  display: block;
+  font-size: 64px;
+  line-height: 0.5;
+  color: var(--primary);
+  opacity: 0.55;
+  margin-bottom: 18px;
 }
 .review-card figcaption {
   display: flex;

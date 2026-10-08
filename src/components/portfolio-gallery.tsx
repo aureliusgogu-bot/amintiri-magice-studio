@@ -567,7 +567,7 @@ function Lightbox({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.25 }}
+      transition={{ duration: 0.5, ease: EASE }}
       onClick={onClose}
     >
       <div
@@ -580,14 +580,14 @@ function Lightbox({
         <motion.div
           className="lightbox-image"
           {...(enhanced ? { layoutId: `photo-${selected.src}` } : {})}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.65, ease: EASE }}
           onClick={(event) => event.stopPropagation()}
         >
           <SafeImage src={selected.src} alt={selected.title} eager />
           <motion.div
             className="absolute inset-0"
             animate={{ opacity: sharp ? 1 : 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.6, ease: EASE }}
           >
             <SafeImage
               key={selected.highRes}
