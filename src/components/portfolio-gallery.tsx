@@ -1,3 +1,13 @@
+import cununie5small from "@/assets/cununie/cununie-5-small.jpg";
+import cununie5large from "@/assets/cununie/cununie-5-large.jpg";
+import cununie6small from "@/assets/cununie/cununie-6-small.jpg";
+import cununie6large from "@/assets/cununie/cununie-6-large.jpg";
+import cununie7small from "@/assets/cununie/cununie-7-small.jpg";
+import cununie7large from "@/assets/cununie/cununie-7-large.jpg";
+import cununie8small from "@/assets/cununie/cununie-8-small.jpg";
+import cununie8large from "@/assets/cununie/cununie-8-large.jpg";
+import cununie9small from "@/assets/cununie/cununie-9-small.jpg";
+import cununie9large from "@/assets/cununie/cununie-9-large.jpg";
 import cununie1small from "@/assets/cununie/cununie-1-small.jpg";
 import cununie1large from "@/assets/cununie/cununie-1-large.jpg";
 import cununie2small from "@/assets/cununie/cununie-2-small.jpg";
@@ -159,6 +169,41 @@ export const photos = [
     aspectRatio: 0.67,
     category: "Cununie civilă",
     title: "Semnătura",
+  },
+  {
+    src: cununie5small,
+    highRes: cununie5large,
+    aspectRatio: 0.67,
+    category: "Cununie civilă",
+    title: "Capul pe umăr",
+  },
+  {
+    src: cununie6small,
+    highRes: cununie6large,
+    aspectRatio: 0.67,
+    category: "Cununie civilă",
+    title: "Semnătura miresei",
+  },
+  {
+    src: cununie7small,
+    highRes: cununie7large,
+    aspectRatio: 0.67,
+    category: "Cununie civilă",
+    title: "Sărut la semnătură",
+  },
+  {
+    src: cununie8small,
+    highRes: cununie8large,
+    aspectRatio: 0.67,
+    category: "Cununie civilă",
+    title: "Îmbrățișare în parc",
+  },
+  {
+    src: cununie9small,
+    highRes: cununie9large,
+    aspectRatio: 1.5,
+    category: "Cununie civilă",
+    title: "Pe banca din parc",
   },
   {
     src: majorat1small,
