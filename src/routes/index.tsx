@@ -310,20 +310,20 @@ function Index() {
             distance={0}
           />
           <div className="section-inner">
-          <p className="section-kicker">Fiecare poveste începe cu un salut</p>
-          <h2 className="section-title contact-title">
-            Hai să păstrăm împreună <em>momentul tău.</em>
-          </h2>
-          <div className="contact-layout">
-            <div>
-              <a className="email-link" href="mailto:facemceneplace@gmail.com">
-                facemceneplace@gmail.com
-                <ArrowUpRight size={20} />
-              </a>
-              <SocialLinks />
+            <p className="section-kicker">Fiecare poveste începe cu un salut</p>
+            <h2 className="section-title contact-title">
+              Hai să păstrăm împreună <em>momentul tău.</em>
+            </h2>
+            <div className="contact-layout">
+              <div>
+                <a className="email-link" href="mailto:facemceneplace@gmail.com">
+                  facemceneplace@gmail.com
+                  <ArrowUpRight size={20} />
+                </a>
+                <SocialLinks />
+              </div>
+              <ContactForm />
             </div>
-            <ContactForm />
-          </div>
           </div>
         </section>
       </main>
