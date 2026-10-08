@@ -1389,3 +1389,34 @@ a:hover > .lucide-arrow-right {
     display: none;
   }
 }
+
+/* ---------- Hero legibility over the photo ---------- */
+.hero-content {
+  padding-bottom: 150px;
+}
+.hero-content .eyebrow,
+.hero-content h1,
+.hero-subline,
+.hero-contacts span,
+.hero-contacts strong,
+.hero-location {
+  text-shadow:
+    0 1px 2px oklch(0 0 0 / 0.55),
+    0 4px 28px oklch(0 0 0 / 0.5);
+}
+.hero-content .eyebrow {
+  font-weight: 600;
+  color: oklch(0.86 0.09 72);
+}
+.hero-subline {
+  opacity: 0.95;
+}
+.hero-location {
+  color: var(--foreground);
+  opacity: 0.9;
+}
+@media (max-width: 767px) {
+  .hero-content {
+    padding-bottom: 130px;
+  }
+}
