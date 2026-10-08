@@ -14,13 +14,117 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      admin_emails: {
+        Row: {
+          created_at: string
+          email: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+        }
+        Relationships: []
+      }
+      photos: {
+        Row: {
+          aspect_ratio: number
+          category: string
+          created_at: string
+          id: string
+          large_path: string
+          small_path: string
+          sort_order: number
+          title: string
+        }
+        Insert: {
+          aspect_ratio?: number
+          category?: string
+          created_at?: string
+          id?: string
+          large_path: string
+          small_path: string
+          sort_order?: number
+          title?: string
+        }
+        Update: {
+          aspect_ratio?: number
+          category?: string
+          created_at?: string
+          id?: string
+          large_path?: string
+          small_path?: string
+          sort_order?: number
+          title?: string
+        }
+        Relationships: []
+      }
+      reviews: {
+        Row: {
+          author: string
+          created_at: string
+          event: string
+          id: string
+          quote: string
+          sort_order: number
+        }
+        Insert: {
+          author: string
+          created_at?: string
+          event?: string
+          id?: string
+          quote: string
+          sort_order?: number
+        }
+        Update: {
+          author?: string
+          created_at?: string
+          event?: string
+          id?: string
+          quote?: string
+          sort_order?: number
+        }
+        Relationships: []
+      }
+      site_settings: {
+        Row: {
+          email: string
+          facebook_url: string
+          id: number
+          instagram_url: string
+          location_contact: string
+          location_hero: string
+          people: Json
+        }
+        Insert: {
+          email?: string
+          facebook_url?: string
+          id?: number
+          instagram_url?: string
+          location_contact?: string
+          location_hero?: string
+          people?: Json
+        }
+        Update: {
+          email?: string
+          facebook_url?: string
+          id?: number
+          instagram_url?: string
+          location_contact?: string
+          location_hero?: string
+          people?: Json
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_admin: { Args: never; Returns: boolean }
     }
     Enums: {
       [_ in never]: never
