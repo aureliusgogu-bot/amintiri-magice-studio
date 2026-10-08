@@ -1,3 +1,13 @@
+import nunta1small from "@/assets/nunta/nunta-1-small.jpg";
+import nunta1large from "@/assets/nunta/nunta-1-large.jpg";
+import nunta2small from "@/assets/nunta/nunta-2-small.jpg";
+import nunta2large from "@/assets/nunta/nunta-2-large.jpg";
+import nunta3small from "@/assets/nunta/nunta-3-small.jpg";
+import nunta3large from "@/assets/nunta/nunta-3-large.jpg";
+import nunta4small from "@/assets/nunta/nunta-4-small.jpg";
+import nunta4large from "@/assets/nunta/nunta-4-large.jpg";
+import nunta5small from "@/assets/nunta/nunta-5-small.jpg";
+import nunta5large from "@/assets/nunta/nunta-5-large.jpg";
 import majorat1small from "@/assets/majorat/majorat-1-small.jpg";
 import majorat1large from "@/assets/majorat/majorat-1-large.jpg";
 import majorat2small from "@/assets/majorat/majorat-2-small.jpg";
@@ -57,6 +67,41 @@ import { useEnhancedMotion } from "@/hooks/use-enhanced-motion";
 
 // Înlocuiți src și highRes cu fotografiile studioului; proporțiile păstrează stabilă compoziția.
 export const photos = [
+  {
+    src: nunta1small,
+    highRes: nunta1large,
+    aspectRatio: 0.67,
+    category: "Nunți",
+    title: "Tandrețe lângă apă",
+  },
+  {
+    src: nunta2small,
+    highRes: nunta2large,
+    aspectRatio: 1.5,
+    category: "Nunți",
+    title: "Drumul spre fericire",
+  },
+  {
+    src: nunta3small,
+    highRes: nunta3large,
+    aspectRatio: 1.5,
+    category: "Nunți",
+    title: "Mână în mână",
+  },
+  {
+    src: nunta4small,
+    highRes: nunta4large,
+    aspectRatio: 1.5,
+    category: "Nunți",
+    title: "Privirea ei",
+  },
+  {
+    src: nunta5small,
+    highRes: nunta5large,
+    aspectRatio: 1.5,
+    category: "Nunți",
+    title: "Împreună la drum",
+  },
   {
     src: majorat1small,
     highRes: majorat1large,
