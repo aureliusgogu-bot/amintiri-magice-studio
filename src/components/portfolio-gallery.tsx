@@ -1,3 +1,13 @@
+import eveniment1small from "@/assets/evenimente/eveniment-1-small.jpg";
+import eveniment1large from "@/assets/evenimente/eveniment-1-large.jpg";
+import eveniment2small from "@/assets/evenimente/eveniment-2-small.jpg";
+import eveniment2large from "@/assets/evenimente/eveniment-2-large.jpg";
+import eveniment3small from "@/assets/evenimente/eveniment-3-small.jpg";
+import eveniment3large from "@/assets/evenimente/eveniment-3-large.jpg";
+import eveniment4small from "@/assets/evenimente/eveniment-4-small.jpg";
+import eveniment4large from "@/assets/evenimente/eveniment-4-large.jpg";
+import eveniment5small from "@/assets/evenimente/eveniment-5-small.jpg";
+import eveniment5large from "@/assets/evenimente/eveniment-5-large.jpg";
 import nunta6small from "@/assets/nunta/nunta-6-small.jpg";
 import nunta6large from "@/assets/nunta/nunta-6-large.jpg";
 import nunta7small from "@/assets/nunta/nunta-7-small.jpg";
@@ -42,14 +52,6 @@ import photo2small from "@/assets/photo-2-small.jpg.asset.json";
 import photo2large from "@/assets/photo-2-large.jpg.asset.json";
 import photo3small from "@/assets/photo-3-small.jpg.asset.json";
 import photo3large from "@/assets/photo-3-large.jpg.asset.json";
-import photo8small from "@/assets/photo-8-small.jpg.asset.json";
-import photo8large from "@/assets/photo-8-large.jpg.asset.json";
-import photo9small from "@/assets/photo-9-small.jpg.asset.json";
-import photo9large from "@/assets/photo-9-large.jpg.asset.json";
-import photo10small from "@/assets/photo-10-small.jpg.asset.json";
-import photo10large from "@/assets/photo-10-large.jpg.asset.json";
-import photo11small from "@/assets/photo-11-small.jpg.asset.json";
-import photo11large from "@/assets/photo-11-large.jpg.asset.json";
 import { useEffect, useRef, useState, useCallback, type MouseEvent } from "react";
 import { createPortal } from "react-dom";
 import {
@@ -222,32 +224,39 @@ export const photos = [
     title: "Cel mai mic star",
   },
   {
-    src: photo8small.url,
-    highRes: photo8large.url,
-    aspectRatio: 1.2,
+    src: eveniment1small,
+    highRes: eveniment1large,
+    aspectRatio: 0.67,
     category: "Evenimente",
-    title: "O masă, o mie de povești",
+    title: "Mireasa, în lumina serii",
   },
   {
-    src: photo10small.url,
-    highRes: photo10large.url,
-    aspectRatio: 1.15,
+    src: eveniment2small,
+    highRes: eveniment2large,
+    aspectRatio: 1.5,
     category: "Evenimente",
-    title: "Oamenii care ne sunt acasă",
+    title: "Privire peste umăr",
   },
   {
-    src: photo9small.url,
-    highRes: photo9large.url,
-    aspectRatio: 0.9,
+    src: eveniment3small,
+    highRes: eveniment3large,
+    aspectRatio: 0.67,
     category: "Evenimente",
-    title: "Ecoul unei seri",
+    title: "Frunte lângă frunte",
   },
   {
-    src: photo11small.url,
-    highRes: photo11large.url,
-    aspectRatio: 0.8,
+    src: eveniment4small,
+    highRes: eveniment4large,
+    aspectRatio: 0.67,
     category: "Evenimente",
-    title: "Bucuria de a fi împreună",
+    title: "Printre brazi",
+  },
+  {
+    src: eveniment5small,
+    highRes: eveniment5large,
+    aspectRatio: 0.67,
+    category: "Evenimente",
+    title: "Pe treptele salonului",
   },
 ];
 type Photo = (typeof photos)[number];
