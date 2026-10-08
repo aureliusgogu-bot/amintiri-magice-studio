@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowUpRight, ArrowDown, ArrowRight, Instagram, Facebook, Menu, X } from "lucide-react";
+import { ArrowUpRight, ArrowDown, ArrowRight, Instagram, Facebook, MapPin, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PortfolioGallery } from "@/components/portfolio-gallery";
 import { ParallaxPhoto } from "@/components/parallax-photo";
@@ -23,7 +23,7 @@ import contactPhoto from "@/assets/nunta/nunta-7-large.jpg";
 
 const title = "#facemceneplace — Foto și video de peste 20 de ani";
 const description =
-  "De peste 20 de ani, transformăm clipe în amintiri. Descoperă poveștile #facemceneplace: fotografie și video pentru nunți, cununii civile, botezuri, majorate și evenimente.";
+  "De peste 20 de ani, transformăm clipe în amintiri. Descoperă poveștile #facemceneplace: fotografie și video pentru nunți, cununii civile, botezuri, majorate și evenimente în Ilfov și București.";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -45,9 +45,11 @@ export const Route = createFileRoute("/")({
           name: "#facemceneplace",
           description,
           email: "facemceneplace@gmail.com",
+          areaServed: ["Ilfov", "București"],
+          address: { "@type": "PostalAddress", addressRegion: "Ilfov", addressCountry: "RO" },
           telephone: ["+40727113893", "+40720179744"],
           sameAs: [
-            "https://www.facebook.com/share/1FYnSYK1N4/",
+            "https://www.facebook.com/share/1BagDkJcXJ/",
             "https://www.instagram.com/george.constantin1701",
           ],
           employee: [{ "@type": "Person", name: "George Constantin" }, { "@type": "Person", name: "Petrișor Stan" }],
@@ -61,9 +63,21 @@ const people = [
   { name: "George Constantin", phone: "0727113893" },
   { name: "Petrișor Stan", phone: "0720179744" },
 ] as const;
+/**
+ * Recenzii reale ale clienților. Adăugați aici citate cu acordul clienților, de forma:
+ * { quote: "…", author: "Nume", event: "Nuntă" }
+ * Cât timp lista este goală, secțiunea trimite vizitatorii către recenziile de pe Facebook.
+ */
+const reviews: { quote: string; author: string; event: string }[] = [];
+const navItems = [
+  ["Portofoliu", "portofoliu"],
+  ["Despre", "despre"],
+  ["Recenzii", "recenzii"],
+  ["Contact", "contact"],
+] as const;
 const phoneLabel = (phone: string) => `${phone.slice(0, 4)} ${phone.slice(4, 7)} ${phone.slice(7)}`;
 const phoneHref = (phone: string) => `tel:+4${phone}`;
-const facebook = "https://www.facebook.com/share/1FYnSYK1N4/";
+const facebook = "https://www.facebook.com/share/1BagDkJcXJ/";
 const instagram = "https://www.instagram.com/george.constantin1701";
 const story = [
   "De peste 20 de ani, nu doar fotografiem și filmăm.",
@@ -124,7 +138,8 @@ function Navigation() {
     return () => window.removeEventListener("scroll", update);
   }, []);
   useEffect(() => {
-    const sections = ["portofoliu", "despre", "contact"]
+    const sections = navItems
+      .map(([, id]) => id)
       .map((id) => document.getElementById(id))
       .filter((element): element is HTMLElement => Boolean(element));
     const observer = new IntersectionObserver(
@@ -153,11 +168,7 @@ function Navigation() {
           <span className="hash">#</span>facemceneplace
         </a>
         <nav className="nav-links" aria-label="Navigație principală">
-          {[
-            ["Portofoliu", "portofoliu"],
-            ["Despre", "despre"],
-            ["Contact", "contact"],
-          ].map(([label, id]) => (
+          {navItems.map(([label, id]) => (
             <Button key={id} variant="nav" asChild>
               <a href={`#${id}`} className="nav-link" data-active={active === id}>
                 {label}
@@ -190,11 +201,7 @@ function Navigation() {
       </div>
       {open && (
         <nav id="meniu-mobil" className="mobile-menu" aria-label="Navigație mobilă">
-          {[
-            ["Portofoliu", "portofoliu"],
-            ["Despre", "despre"],
-            ["Contact", "contact"],
-          ].map(([label, id]) => (
+          {navItems.map(([label, id]) => (
             <Button variant="nav" key={id} asChild>
               <a href={`#${id}`} onClick={() => setOpen(false)}>
                 {label}
@@ -308,6 +315,9 @@ function HeroText() {
           </a>
         ))}
       </motion.div>
+      <motion.p className="hero-location" {...item(1.1)}>
+        <MapPin size={13} aria-hidden /> Ilfov · București
+      </motion.p>
     </div>
   );
 }
@@ -402,6 +412,46 @@ function Index() {
             </div>
           </div>
         </section>
+        <section id="recenzii" className="reviews-section">
+          <div className="section-inner">
+            <p className="section-kicker">Cuvintele celor dragi</p>
+            <h2 className="section-title">
+              <MaskReveal as="div">
+                Recenzii<span className="text-primary">.</span>
+              </MaskReveal>
+            </h2>
+            {reviews.length > 0 ? (
+              <div className="reviews-grid">
+                {reviews.map((review, index) => (
+                  <Reveal key={review.author} delay={index * 0.1}>
+                    <figure className="review-card">
+                      <blockquote>{review.quote}</blockquote>
+                      <figcaption>
+                        <strong>{review.author}</strong>
+                        <span>{review.event}</span>
+                      </figcaption>
+                    </figure>
+                  </Reveal>
+                ))}
+              </div>
+            ) : null}
+            <Reveal className="reviews-cta">
+              <p>
+                Părerea celor pentru care am păstrat momentele contează cel mai mult. Citește
+                recenziile lor pe pagina noastră de Facebook.
+              </p>
+              <Magnetic>
+                <Button variant="cinematic" asChild>
+                  <a href={facebook} target="_blank" rel="noopener noreferrer">
+                    <Facebook size={16} />
+                    Citește recenziile pe Facebook
+                    <ArrowUpRight />
+                  </a>
+                </Button>
+              </Magnetic>
+            </Reveal>
+          </div>
+        </section>
         <section id="contact" className="contact-section">
           <ParallaxPhoto
             src={contactPhoto}
@@ -417,6 +467,15 @@ function Index() {
                 <em>momentul tău.</em>
               </MaskReveal>
             </h2>
+            <Reveal className="contact-intro">
+              <p>
+                Fiecare poveste e diferită, așa că oferta și prețurile le stabilim împreună, în
+                funcție de eveniment. Sună-ne sau scrie-ne și îți răspundem personal.
+              </p>
+              <p className="contact-location">
+                <MapPin size={14} aria-hidden /> Lucrăm în Ilfov și București
+              </p>
+            </Reveal>
             <Reveal className="contact-layout">
               <div>
                 <ul className="contact-people">
