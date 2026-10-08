@@ -83,6 +83,8 @@ export const Route = createFileRoute("/")({
           "@type": ["LocalBusiness", "Photographer"],
           "@id": BUSINESS_ID,
           name: "#facemceneplace",
+          legalName: "FACEM CE NE PLACE S.R.L",
+          vatID: "52881469",
           description,
           url: `${SITE_ORIGIN}/`,
           email: "facemceneplace@gmail.com",
@@ -582,9 +584,12 @@ function Page() {
         </section>
       </main>
       <footer className="footer">
-        <p className="footer-brand">
-          #facemceneplace <span>· © {new Date().getFullYear()}</span>
-        </p>
+        <div className="footer-ident">
+          <p className="footer-brand">
+            #facemceneplace <span>· © {new Date().getFullYear()}</span>
+          </p>
+          <p className="footer-legal">FACEM CE NE PLACE S.R.L · C.U.I. 52881469</p>
+        </div>
         <p className="footer-phones">
           {people.map((person) => (
             <a key={person.phone} href={phoneHref(person.phone)}>
