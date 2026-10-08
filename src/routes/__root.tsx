@@ -82,6 +82,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "#facemceneplace" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "google-site-verification",
+        content: "2KoEbTM1jPGUGHFisXIIQ0prF6zRKSmGEwljP-kPjEY",
+      },
     ],
     links: [
       {
