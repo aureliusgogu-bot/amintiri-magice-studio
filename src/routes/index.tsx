@@ -1,16 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { motion, useInView } from "framer-motion";
-import {
-  ArrowUpRight,
-  ArrowDown,
-  ArrowRight,
-  Instagram,
-  Facebook,
-  MapPin,
-  Menu,
-  X,
-} from "lucide-react";
+import { ArrowUpRight, Instagram, Facebook, MapPin, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PortfolioGallery, photos } from "@/components/portfolio-gallery";
 import { PortfolioRecommender } from "@/components/portfolio-recommender";

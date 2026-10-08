@@ -195,6 +195,14 @@
   position: absolute;
   inset: 0;
 }
+.parallax-photo-stack {
+  position: absolute;
+  inset: 0;
+}
+.parallax-photo-frame {
+  position: absolute;
+  inset: 0;
+}
 .parallax-photo img,
 .photo-fallback {
   display: block;
