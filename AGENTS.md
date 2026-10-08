@@ -12,7 +12,11 @@
 <!-- LOVABLE:END -->
 
 - Keep the portfolio as one anchor-navigated index route because its sections belong to the requested single scrolling experience.
-- Store replaceable photo data at the top of the gallery module and import CDN asset pointers for small and large renditions to keep the page fast and replacement simple.
+- Keep the bundled photo array at the top of the gallery module only as the fallback for when the database is unreachable or empty, so the site never looks empty.
+- Site content (photos, reviews, contact details) lives in Lovable Cloud tables edited from the private `/admin` route; the index loader reads it through the public `getSiteData` server function and falls back to bundled defaults, so the owner can update the site without code.
+- Gate every admin write (tables and the private `portfolio` bucket) with the `is_admin()` security-definer check against the verified email in `admin_emails`, because signing up must never grant access.
+- Serve portfolio images through the `/foto/$` server route from the private bucket, because the workspace blocks public buckets.
+- Resize and re-encode uploads in the browser (small ≈800px, large ≈1800px JPEG) before storing them, so files stay light and EXIF/GPS data is stripped.
 - Gate all photo and gallery transform animations through the shared desktop/hover/reduced-motion hook; use opacity-only transitions otherwise for accessible mobile browsing.
 - Use clipped reusable parallax photo frames and native passive pointer tracking without wheel/drag interception so images stay covered and page scrolling remains available.
 - Keep contact submission entirely client-side through an encoded mailto URL because no backend is required.

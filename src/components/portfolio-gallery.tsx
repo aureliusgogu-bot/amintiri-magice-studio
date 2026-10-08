@@ -77,9 +77,10 @@ import { ArrowLeft, ArrowRight, X, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEnhancedMotion } from "@/hooks/use-enhanced-motion";
 import { EASE, MaskReveal } from "@/components/motion-kit";
+import { orderedCategories, type GalleryPhoto } from "@/lib/site-data";
 
 // Înlocuiți src și highRes cu fotografiile studioului; proporțiile păstrează stabilă compoziția.
-export const photos = [
+export const photos: GalleryPhoto[] = [
   {
     src: nunta1small,
     highRes: nunta1large,
@@ -305,7 +306,7 @@ export const photos = [
     title: "Pe treptele salonului",
   },
 ];
-type Photo = (typeof photos)[number];
+type Photo = GalleryPhoto;
 function SafeImage({
   src,
   alt,
@@ -644,7 +645,7 @@ function Lightbox({
     </motion.div>
   );
 }
-export function PortfolioGallery() {
+export function PortfolioGallery({ items = photos }: { items?: GalleryPhoto[] }) {
   const enhanced = useEnhancedMotion();
   const section = useRef<HTMLDivElement>(null);
   const source = useRef<HTMLButtonElement | null>(null);
@@ -652,8 +653,9 @@ export function PortfolioGallery() {
   const [selected, setSelected] = useState<Photo | null>(null);
   const { scrollYProgress } = useScroll({ target: section, offset: ["start end", "end start"] });
   const drift = useMotionValue(0);
-  const list =
-    category === "Toate" ? photos : photos.filter((photo) => photo.category === category);
+  const categories = ["Toate", ...orderedCategories(items)];
+  const active = categories.includes(category) ? category : "Toate";
+  const list = active === "Toate" ? items : items.filter((photo) => photo.category === active);
   const columns = Array.from({ length: enhanced ? 4 : 2 }, (_, column) =>
     list.filter((_, index) => index % (enhanced ? 4 : 2) === column),
   );
@@ -679,12 +681,12 @@ export function PortfolioGallery() {
             <p className="portfolio-description">Clipe care trec. Emoții care rămân.</p>
           </div>
           <div className="filters" role="group" aria-label="Categorii de fotografii">
-            {["Toate", "Nunți", "Cununie civilă", "Majorat", "Botez", "Evenimente"].map((item) => (
+            {categories.map((item) => (
               <Button
                 key={item}
                 variant="nav"
-                data-active={category === item}
-                aria-pressed={category === item}
+                data-active={active === item}
+                aria-pressed={active === item}
                 onClick={() => setCategory(item)}
               >
                 {item}
@@ -713,7 +715,7 @@ export function PortfolioGallery() {
           <div className={`gallery-columns ${enhanced ? "" : "gallery-simple"}`}>
             {columns.map((items, index) => (
               <PhotoColumn
-                key={`${category}-${index}-${enhanced}`}
+                key={`${active}-${index}-${enhanced}`}
                 items={items}
                 index={index}
                 enhanced={enhanced}
