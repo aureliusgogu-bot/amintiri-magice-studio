@@ -1,3 +1,13 @@
+import majorat1small from "@/assets/majorat/majorat-1-small.jpg";
+import majorat1large from "@/assets/majorat/majorat-1-large.jpg";
+import majorat2small from "@/assets/majorat/majorat-2-small.jpg";
+import majorat2large from "@/assets/majorat/majorat-2-large.jpg";
+import majorat3small from "@/assets/majorat/majorat-3-small.jpg";
+import majorat3large from "@/assets/majorat/majorat-3-large.jpg";
+import majorat4small from "@/assets/majorat/majorat-4-small.jpg";
+import majorat4large from "@/assets/majorat/majorat-4-large.jpg";
+import majorat5small from "@/assets/majorat/majorat-5-small.jpg";
+import majorat5large from "@/assets/majorat/majorat-5-large.jpg";
 import photo0small from "@/assets/photo-0-small.jpg.asset.json";
 import photo0large from "@/assets/photo-0-large.jpg.asset.json";
 import photo1small from "@/assets/photo-1-small.jpg.asset.json";
@@ -47,6 +57,41 @@ import { useEnhancedMotion } from "@/hooks/use-enhanced-motion";
 
 // Înlocuiți src și highRes cu fotografiile studioului; proporțiile păstrează stabilă compoziția.
 export const photos = [
+  {
+    src: majorat1small,
+    highRes: majorat1large,
+    aspectRatio: 0.67,
+    category: "Majorat",
+    title: "Rochie de seară, lângă piscină",
+  },
+  {
+    src: majorat2small,
+    highRes: majorat2large,
+    aspectRatio: 0.67,
+    category: "Majorat",
+    title: "Privire peste umăr",
+  },
+  {
+    src: majorat3small,
+    highRes: majorat3large,
+    aspectRatio: 1.5,
+    category: "Majorat",
+    title: "Zâmbet de majorat",
+  },
+  {
+    src: majorat4small,
+    highRes: majorat4large,
+    aspectRatio: 0.67,
+    category: "Majorat",
+    title: "Eleganță în mișcare",
+  },
+  {
+    src: majorat5small,
+    highRes: majorat5large,
+    aspectRatio: 0.67,
+    category: "Majorat",
+    title: "Povești în foișor",
+  },
   {
     src: photo0small.url,
     highRes: photo0large.url,
@@ -531,7 +576,7 @@ export function PortfolioGallery() {
             <p className="portfolio-description">Clipe care trec. Emoții care rămân.</p>
           </div>
           <div className="filters" role="group" aria-label="Categorii de fotografii">
-            {["Toate", "Nunți", "Portrete", "Evenimente", "Cinematic"].map((item) => (
+            {["Toate", "Majorat", "Nunți", "Portrete", "Evenimente", "Cinematic"].map((item) => (
               <Button
                 key={item}
                 variant="nav"
