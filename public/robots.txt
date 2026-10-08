@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://facemceneplace.ro/sitemap.xml
+Sitemap: https://facemceneplace.com/sitemap.xml

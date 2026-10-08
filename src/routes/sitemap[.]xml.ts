@@ -3,8 +3,8 @@ import { getRouterInstance } from "@tanstack/react-start";
 import { sitemapStaticPaths, sitemapXML, type SitemapEntry } from "@/lib/sitemap";
 
 // Public origin of the site. The site is one scrolling page, so the sitemap
-// carries a single URL once facemceneplace.ro is connected.
-const BASE_URL = "https://facemceneplace.ro";
+// carries a single URL for the facemceneplace.com domain.
+const BASE_URL = "https://facemceneplace.com";
 
 export const Route = createFileRoute("/sitemap.xml")({
   staticData: { sitemap: false },

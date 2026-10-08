@@ -39,7 +39,7 @@ const description =
   "De peste 20 de ani, transformăm clipe în amintiri. Descoperă poveștile #facemceneplace: fotografie și video pentru nunți, cununii civile, botezuri, majorate și evenimente, cu sediul în Ilfov și deplasări în toată țara.";
 
 // Public origin of the site, so every structured-data image URL is absolute.
-const SITE_ORIGIN = "https://facemceneplace.ro";
+const SITE_ORIGIN = "https://facemceneplace.com";
 const BUSINESS_ID = `${SITE_ORIGIN}/#facemceneplace`;
 const heroAlt = "Un cuplu de miri, împreună în lumina caldă a apusului";
 
