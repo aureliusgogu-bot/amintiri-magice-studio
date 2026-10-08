@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowDown, ArrowRight, Instagram, Facebook, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { PortfolioGallery } from '@/components/portfolio-gallery';
-import hero from '@/assets/photo-1-large.jpg.asset.json';
+import hero from '@/assets/hero.jpg.asset.json';
 
 const title = '#facemceneplace — Foto și video de peste 20 de ani';
 const description = 'De peste 20 de ani, transformăm clipe în amintiri. Descoperă poveștile #facemceneplace: fotografie și video pentru nunți, portrete și evenimente.';
