@@ -44,14 +44,6 @@ import majorat4small from "@/assets/majorat/majorat-4-small.jpg";
 import majorat4large from "@/assets/majorat/majorat-4-large.jpg";
 import majorat5small from "@/assets/majorat/majorat-5-small.jpg";
 import majorat5large from "@/assets/majorat/majorat-5-large.jpg";
-import photo0small from "@/assets/photo-0-small.jpg.asset.json";
-import photo0large from "@/assets/photo-0-large.jpg.asset.json";
-import photo1small from "@/assets/photo-1-small.jpg.asset.json";
-import photo1large from "@/assets/photo-1-large.jpg.asset.json";
-import photo2small from "@/assets/photo-2-small.jpg.asset.json";
-import photo2large from "@/assets/photo-2-large.jpg.asset.json";
-import photo3small from "@/assets/photo-3-small.jpg.asset.json";
-import photo3large from "@/assets/photo-3-large.jpg.asset.json";
 import { useEffect, useRef, useState, useCallback, type MouseEvent } from "react";
 import { createPortal } from "react-dom";
 import {
@@ -103,34 +95,6 @@ export const photos = [
     aspectRatio: 1.5,
     category: "Nunți",
     title: "Împreună la drum",
-  },
-  {
-    src: photo0small.url,
-    highRes: photo0large.url,
-    aspectRatio: 0.78,
-    category: "Nunți",
-    title: "O promisiune pentru totdeauna",
-  },
-  {
-    src: photo3small.url,
-    highRes: photo3large.url,
-    aspectRatio: 0.8,
-    category: "Nunți",
-    title: "Doar noi doi",
-  },
-  {
-    src: photo1small.url,
-    highRes: photo1large.url,
-    aspectRatio: 0.78,
-    category: "Nunți",
-    title: "Împreună, până la orizont",
-  },
-  {
-    src: photo2small.url,
-    highRes: photo2large.url,
-    aspectRatio: 0.85,
-    category: "Nunți",
-    title: "Începutul poveștii noastre",
   },
   {
     src: nunta6small,

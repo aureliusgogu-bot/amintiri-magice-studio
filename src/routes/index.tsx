@@ -7,9 +7,8 @@ import { PortfolioGallery } from "@/components/portfolio-gallery";
 import { ParallaxPhoto } from "@/components/parallax-photo";
 import hero from "@/assets/hero.jpg.asset.json";
 
-// Fotografii demonstrative exacte; înlocuiți cu pointeri CDN după încărcarea fișierelor.
-const storyPhoto = "https://unsplash.com/photos/_Mt1U6SfYwk/download?force=true";
-const contactPhoto = "https://unsplash.com/photos/GCPAiY0jrHc/download?force=true";
+import storyPhoto from "@/assets/nunta/nunta-1-large.jpg";
+import contactPhoto from "@/assets/nunta/nunta-7-large.jpg";
 
 const title = "#facemceneplace — Foto și video de peste 20 de ani";
 const description =
@@ -276,7 +275,7 @@ function Index() {
               </div>
               <ParallaxPhoto
                 src={storyPhoto}
-                alt="Aparate foto și accesorii fotografice așezate pe o masă de lemn"
+                alt="Miri îmbrățișați lângă apă, fotografie alb-negru"
                 className="story-photo"
                 distance={45}
               />
@@ -305,7 +304,7 @@ function Index() {
         <section id="contact" className="contact-section">
           <ParallaxPhoto
             src={contactPhoto}
-            alt="Un aparat foto mirrorless Sony așezat pe o masă"
+            alt="Verighete agățate de un ornament din fier forjat"
             className="contact-photo"
             distance={0}
           />
