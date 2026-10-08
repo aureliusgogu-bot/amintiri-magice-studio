@@ -690,11 +690,21 @@ main {
   gap: 24px;
   padding: 30px 5%;
 }
+.footer-ident {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 .footer-brand {
   font-size: 13px;
   letter-spacing: 0.06em;
 }
 .footer-brand span {
+  color: var(--muted-foreground);
+}
+.footer-legal {
+  font-size: 11px;
+  letter-spacing: 0.04em;
   color: var(--muted-foreground);
 }
 .lightbox-backdrop {
