@@ -1,3 +1,11 @@
+import cununie1small from "@/assets/cununie/cununie-1-small.jpg";
+import cununie1large from "@/assets/cununie/cununie-1-large.jpg";
+import cununie2small from "@/assets/cununie/cununie-2-small.jpg";
+import cununie2large from "@/assets/cununie/cununie-2-large.jpg";
+import cununie3small from "@/assets/cununie/cununie-3-small.jpg";
+import cununie3large from "@/assets/cununie/cununie-3-large.jpg";
+import cununie4small from "@/assets/cununie/cununie-4-small.jpg";
+import cununie4large from "@/assets/cununie/cununie-4-large.jpg";
 import eveniment1small from "@/assets/evenimente/eveniment-1-small.jpg";
 import eveniment1large from "@/assets/evenimente/eveniment-1-large.jpg";
 import eveniment2small from "@/assets/evenimente/eveniment-2-small.jpg";
@@ -123,6 +131,34 @@ export const photos = [
     aspectRatio: 1.5,
     category: "Nunți",
     title: "Mireasa pe scări",
+  },
+  {
+    src: cununie1small,
+    highRes: cununie1large,
+    aspectRatio: 0.67,
+    category: "Cununie civilă",
+    title: "Culorile cununiei",
+  },
+  {
+    src: cununie2small,
+    highRes: cununie2large,
+    aspectRatio: 1.5,
+    category: "Cununie civilă",
+    title: "Cu martorii alături",
+  },
+  {
+    src: cununie3small,
+    highRes: cununie3large,
+    aspectRatio: 0.67,
+    category: "Cununie civilă",
+    title: "Sărutul de după «da»",
+  },
+  {
+    src: cununie4small,
+    highRes: cununie4large,
+    aspectRatio: 0.67,
+    category: "Cununie civilă",
+    title: "Semnătura",
   },
   {
     src: majorat1small,
@@ -594,7 +630,7 @@ export function PortfolioGallery() {
             <p className="portfolio-description">Clipe care trec. Emoții care rămân.</p>
           </div>
           <div className="filters" role="group" aria-label="Categorii de fotografii">
-            {["Toate", "Nunți", "Botez", "Majorat", "Evenimente"].map((item) => (
+            {["Toate", "Nunți", "Cununie civilă", "Majorat", "Botez", "Evenimente"].map((item) => (
               <Button
                 key={item}
                 variant="nav"

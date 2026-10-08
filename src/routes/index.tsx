@@ -12,7 +12,7 @@ import contactPhoto from "@/assets/nunta/nunta-7-large.jpg";
 
 const title = "#facemceneplace — Foto și video de peste 20 de ani";
 const description =
-  "De peste 20 de ani, transformăm clipe în amintiri. Descoperă poveștile #facemceneplace: fotografie și video pentru nunți, botezuri, majorate și evenimente.";
+  "De peste 20 de ani, transformăm clipe în amintiri. Descoperă poveștile #facemceneplace: fotografie și video pentru nunți, cununii civile, botezuri, majorate și evenimente.";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
