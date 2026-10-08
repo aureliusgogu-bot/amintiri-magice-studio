@@ -3,7 +3,14 @@ import { ArrowDown, ArrowUp, ChevronsUp, Trash2, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { photoUrl } from "@/lib/site-data";
-import { CategoryPicker, Field, Notice, friendlyError, inputClass, resizeImage } from "./admin-shared";
+import {
+  CategoryPicker,
+  Field,
+  Notice,
+  friendlyError,
+  inputClass,
+  resizeImage,
+} from "./admin-shared";
 
 type Row = {
   id: string;
@@ -69,12 +76,19 @@ export function PhotosTab() {
     for (const [i, p] of pending.entries()) {
       setProgress(`Se încarcă fotografia ${i + 1} din ${pending.length}…`);
       try {
-        const [small, large] = await Promise.all([resizeImage(p.file, 800), resizeImage(p.file, 1800)]);
+        const [small, large] = await Promise.all([
+          resizeImage(p.file, 800),
+          resizeImage(p.file, 1800),
+        ]);
         const base = `uploads/${crypto.randomUUID()}`;
         const opts = { contentType: "image/jpeg", upsert: false };
-        const a = await supabase.storage.from("portfolio").upload(`${base}-small.jpg`, small.blob, opts);
+        const a = await supabase.storage
+          .from("portfolio")
+          .upload(`${base}-small.jpg`, small.blob, opts);
         if (a.error) throw a.error;
-        const b = await supabase.storage.from("portfolio").upload(`${base}-large.jpg`, large.blob, opts);
+        const b = await supabase.storage
+          .from("portfolio")
+          .upload(`${base}-large.jpg`, large.blob, opts);
         if (b.error) throw b.error;
         const { error } = await supabase.from("photos").insert({
           title: p.title.trim() || p.category.trim(),
@@ -86,7 +100,9 @@ export function PhotosTab() {
           sort_order: top - pending.length + i,
         });
         if (error) {
-          await supabase.storage.from("portfolio").remove([`${base}-small.jpg`, `${base}-large.jpg`]);
+          await supabase.storage
+            .from("portfolio")
+            .remove([`${base}-small.jpg`, `${base}-large.jpg`]);
           throw error;
         }
         URL.revokeObjectURL(p.preview);
@@ -99,7 +115,8 @@ export function PhotosTab() {
     setPending(failed);
     setProgress("");
     setBusy(false);
-    if (done) setOk(done === 1 ? "Fotografia a fost adăugată." : `${done} fotografii au fost adăugate.`);
+    if (done)
+      setOk(done === 1 ? "Fotografia a fost adăugată." : `${done} fotografii au fost adăugate.`);
     await load();
   }
 
@@ -119,7 +136,9 @@ export function PhotosTab() {
       .filter((r, i) => rows.find((o) => o.id === r.id)?.sort_order !== i);
     setRows(next.map((r, i) => ({ ...r, sort_order: i })));
     const results = await Promise.all(
-      changed.map((r) => supabase.from("photos").update({ sort_order: r.sort_order }).eq("id", r.id)),
+      changed.map((r) =>
+        supabase.from("photos").update({ sort_order: r.sort_order }).eq("id", r.id),
+      ),
     );
     const failed = results.find((r) => r.error);
     if (failed) {
@@ -169,7 +188,11 @@ export function PhotosTab() {
           <ul className="mt-4 flex flex-col gap-4">
             {pending.map((p, i) => (
               <li key={p.preview} className="flex gap-3">
-                <img src={p.preview} alt="" className="h-20 w-20 shrink-0 rounded-md object-cover" />
+                <img
+                  src={p.preview}
+                  alt=""
+                  className="h-20 w-20 shrink-0 rounded-md object-cover"
+                />
                 <div className="flex flex-1 flex-col gap-2">
                   <input
                     className={inputClass}
@@ -178,7 +201,9 @@ export function PhotosTab() {
                     value={p.title}
                     maxLength={80}
                     onChange={(e) =>
-                      setPending((list) => list.map((x, j) => (j === i ? { ...x, title: e.target.value } : x)))
+                      setPending((list) =>
+                        list.map((x, j) => (j === i ? { ...x, title: e.target.value } : x)),
+                      )
                     }
                   />
                   <CategoryPicker
@@ -202,8 +227,15 @@ export function PhotosTab() {
           </ul>
         )}
         {pending.length > 0 && (
-          <Button variant="studio" className="mt-4 w-full sm:w-auto" disabled={busy} onClick={upload}>
-            {busy ? "Se încarcă…" : `Încarcă ${pending.length === 1 ? "fotografia" : `${pending.length} fotografii`}`}
+          <Button
+            variant="studio"
+            className="mt-4 w-full sm:w-auto"
+            disabled={busy}
+            onClick={upload}
+          >
+            {busy
+              ? "Se încarcă…"
+              : `Încarcă ${pending.length === 1 ? "fotografia" : `${pending.length} fotografii`}`}
           </Button>
         )}
         <div className="mt-3 flex flex-col gap-1" aria-live="polite">
@@ -218,13 +250,18 @@ export function PhotosTab() {
 
       <section>
         <h2 className="font-display text-2xl">Fotografiile de pe site ({rows.length})</h2>
-        <p className="mt-1 text-sm text-muted-foreground">Prima fotografie din listă apare prima pe site.</p>
+        <p className="mt-1 text-sm text-muted-foreground">
+          Prima fotografie din listă apare prima pe site.
+        </p>
         {loading ? (
           <Notice kind="info">Se încarcă…</Notice>
         ) : (
           <ul className="mt-4 flex flex-col gap-3">
             {rows.map((row, i) => (
-              <li key={row.id} className="flex flex-col gap-3 rounded-xl border border-border bg-card/40 p-3 sm:flex-row">
+              <li
+                key={row.id}
+                className="flex flex-col gap-3 rounded-xl border border-border bg-card/40 p-3 sm:flex-row"
+              >
                 <img
                   src={photoUrl(row.small_path)}
                   alt={row.title}
@@ -238,7 +275,9 @@ export function PhotosTab() {
                       value={row.title}
                       maxLength={80}
                       onChange={(e) =>
-                        setRows((r) => r.map((x) => (x.id === row.id ? { ...x, title: e.target.value } : x)))
+                        setRows((r) =>
+                          r.map((x) => (x.id === row.id ? { ...x, title: e.target.value } : x)),
+                        )
                       }
                     />
                   </Field>
@@ -255,16 +294,38 @@ export function PhotosTab() {
                     <Button variant="studio" size="sm" onClick={() => save(row)}>
                       Salvează
                     </Button>
-                    <Button variant="outline" size="sm" disabled={i === 0} onClick={() => move(i, i - 1)} aria-label="Mută mai sus">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      disabled={i === 0}
+                      onClick={() => move(i, i - 1)}
+                      aria-label="Mută mai sus"
+                    >
                       <ArrowUp size={16} />
                     </Button>
-                    <Button variant="outline" size="sm" disabled={i === rows.length - 1} onClick={() => move(i, i + 1)} aria-label="Mută mai jos">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      disabled={i === rows.length - 1}
+                      onClick={() => move(i, i + 1)}
+                      aria-label="Mută mai jos"
+                    >
                       <ArrowDown size={16} />
                     </Button>
-                    <Button variant="outline" size="sm" disabled={i === 0} onClick={() => move(i, 0)}>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      disabled={i === 0}
+                      onClick={() => move(i, 0)}
+                    >
                       <ChevronsUp size={16} /> Mută la început
                     </Button>
-                    <Button variant="outline" size="sm" className="text-destructive" onClick={() => remove(row)}>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="text-destructive"
+                      onClick={() => remove(row)}
+                    >
                       <Trash2 size={16} /> Șterge
                     </Button>
                   </div>

@@ -46,7 +46,8 @@ export function ReviewsTab() {
 
   async function add(e: FormEvent) {
     e.preventDefault();
-    if (!draft.quote.trim() || !draft.author.trim()) return msg.fail("Completează recenzia și numele clientului.");
+    if (!draft.quote.trim() || !draft.author.trim())
+      return msg.fail("Completează recenzia și numele clientului.");
     const sort_order = rows.length ? Math.max(...rows.map((r) => r.sort_order)) + 1 : 0;
     const { error } = await supabase.from("reviews").insert({
       quote: draft.quote.trim(),
@@ -80,27 +81,49 @@ export function ReviewsTab() {
     const [item] = next.splice(i, 1);
     next.splice(to, 0, item);
     setRows(next.map((r, k) => ({ ...r, sort_order: k })));
-    const res = await Promise.all(next.map((r, k) => supabase.from("reviews").update({ sort_order: k }).eq("id", r.id)));
+    const res = await Promise.all(
+      next.map((r, k) => supabase.from("reviews").update({ sort_order: k }).eq("id", r.id)),
+    );
     const bad = res.find((r) => r.error);
     if (bad) {
       msg.fail(bad.error);
       await load();
     }
   }
-  const set = (id: string, patch: Partial<Review>) => setRows((x) => x.map((r) => (r.id === id ? { ...r, ...patch } : r)));
+  const set = (id: string, patch: Partial<Review>) =>
+    setRows((x) => x.map((r) => (r.id === id ? { ...r, ...patch } : r)));
 
   return (
     <div className="flex flex-col gap-8">
-      <form onSubmit={add} className="flex flex-col gap-3 rounded-xl border border-border bg-card/40 p-4 sm:p-6">
+      <form
+        onSubmit={add}
+        className="flex flex-col gap-3 rounded-xl border border-border bg-card/40 p-4 sm:p-6"
+      >
         <h2 className="font-display text-2xl">Adaugă o recenzie</h2>
         <Field label="Recenzia">
-          <textarea className={inputClass} rows={4} maxLength={1200} value={draft.quote} onChange={(e) => setDraft({ ...draft, quote: e.target.value })} />
+          <textarea
+            className={inputClass}
+            rows={4}
+            maxLength={1200}
+            value={draft.quote}
+            onChange={(e) => setDraft({ ...draft, quote: e.target.value })}
+          />
         </Field>
         <Field label="Numele clientului">
-          <input className={inputClass} maxLength={80} value={draft.author} onChange={(e) => setDraft({ ...draft, author: e.target.value })} />
+          <input
+            className={inputClass}
+            maxLength={80}
+            value={draft.author}
+            onChange={(e) => setDraft({ ...draft, author: e.target.value })}
+          />
         </Field>
         <Field label="Tipul evenimentului (ex. Nuntă)">
-          <input className={inputClass} maxLength={60} value={draft.event} onChange={(e) => setDraft({ ...draft, event: e.target.value })} />
+          <input
+            className={inputClass}
+            maxLength={60}
+            value={draft.event}
+            onChange={(e) => setDraft({ ...draft, event: e.target.value })}
+          />
         </Field>
         <Button variant="studio" type="submit" className="self-start">
           Adaugă recenzia
@@ -116,23 +139,67 @@ export function ReviewsTab() {
         )}
         <ul className="mt-4 flex flex-col gap-3">
           {rows.map((r, i) => (
-            <li key={r.id} className="flex flex-col gap-2 rounded-xl border border-border bg-card/40 p-3">
+            <li
+              key={r.id}
+              className="flex flex-col gap-2 rounded-xl border border-border bg-card/40 p-3"
+            >
               <Field label="Recenzia">
-                <textarea className={inputClass} rows={3} maxLength={1200} value={r.quote} onChange={(e) => set(r.id, { quote: e.target.value })} />
+                <textarea
+                  className={inputClass}
+                  rows={3}
+                  maxLength={1200}
+                  value={r.quote}
+                  onChange={(e) => set(r.id, { quote: e.target.value })}
+                />
               </Field>
               <div className="grid gap-2 sm:grid-cols-2">
                 <Field label="Nume">
-                  <input className={inputClass} maxLength={80} value={r.author} onChange={(e) => set(r.id, { author: e.target.value })} />
+                  <input
+                    className={inputClass}
+                    maxLength={80}
+                    value={r.author}
+                    onChange={(e) => set(r.id, { author: e.target.value })}
+                  />
                 </Field>
                 <Field label="Eveniment">
-                  <input className={inputClass} maxLength={60} value={r.event} onChange={(e) => set(r.id, { event: e.target.value })} />
+                  <input
+                    className={inputClass}
+                    maxLength={60}
+                    value={r.event}
+                    onChange={(e) => set(r.id, { event: e.target.value })}
+                  />
                 </Field>
               </div>
               <div className="flex flex-wrap gap-2">
-                <Button variant="studio" size="sm" onClick={() => save(r)}>Salvează</Button>
-                <Button variant="outline" size="sm" disabled={i === 0} onClick={() => move(i, i - 1)} aria-label="Mută mai sus"><ArrowUp size={16} /></Button>
-                <Button variant="outline" size="sm" disabled={i === rows.length - 1} onClick={() => move(i, i + 1)} aria-label="Mută mai jos"><ArrowDown size={16} /></Button>
-                <Button variant="outline" size="sm" className="text-destructive" onClick={() => remove(r)}><Trash2 size={16} /> Șterge</Button>
+                <Button variant="studio" size="sm" onClick={() => save(r)}>
+                  Salvează
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  disabled={i === 0}
+                  onClick={() => move(i, i - 1)}
+                  aria-label="Mută mai sus"
+                >
+                  <ArrowUp size={16} />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  disabled={i === rows.length - 1}
+                  onClick={() => move(i, i + 1)}
+                  aria-label="Mută mai jos"
+                >
+                  <ArrowDown size={16} />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="text-destructive"
+                  onClick={() => remove(r)}
+                >
+                  <Trash2 size={16} /> Șterge
+                </Button>
               </div>
             </li>
           ))}
@@ -163,7 +230,9 @@ export function DetailsTab() {
       .maybeSingle()
       .then(({ data, error }) => {
         if (error) msg.fail(error);
-        const people = Array.isArray(data?.people) ? (data.people as Person[]) : DEFAULT_SETTINGS.people;
+        const people = Array.isArray(data?.people)
+          ? (data.people as Person[])
+          : DEFAULT_SETTINGS.people;
         setS({
           people: [0, 1].map((i) => people[i] ?? { name: "", phone: "" }),
           email: data?.email ?? DEFAULT_SETTINGS.email,
@@ -184,10 +253,14 @@ export function DetailsTab() {
       .map((p) => ({ name: p.name.trim(), phone: p.phone.replace(/[^\d]/g, "") }))
       .filter((p) => p.name || p.phone);
     if (people.some((p) => !p.name || p.phone.length !== 10))
-      return msg.fail("Fiecare persoană are nevoie de nume și de un număr de telefon cu 10 cifre (ex. 0727113893).");
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.email.trim())) return msg.fail("Adresa de email nu pare corectă.");
+      return msg.fail(
+        "Fiecare persoană are nevoie de nume și de un număr de telefon cu 10 cifre (ex. 0727113893).",
+      );
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.email.trim()))
+      return msg.fail("Adresa de email nu pare corectă.");
     for (const url of [s.facebook_url, s.instagram_url])
-      if (!/^https:\/\/\S+$/.test(url.trim())) return msg.fail("Linkurile trebuie să înceapă cu https://");
+      if (!/^https:\/\/\S+$/.test(url.trim()))
+        return msg.fail("Linkurile trebuie să înceapă cu https://");
     setSaving(true);
     const { error } = await supabase
       .from("site_settings")
@@ -210,31 +283,74 @@ export function DetailsTab() {
   return (
     <form onSubmit={save} className="flex flex-col gap-6">
       {s.people.map((p, i) => (
-        <fieldset key={i} className="grid gap-3 rounded-xl border border-border bg-card/40 p-4 sm:grid-cols-2">
+        <fieldset
+          key={i}
+          className="grid gap-3 rounded-xl border border-border bg-card/40 p-4 sm:grid-cols-2"
+        >
           <legend className="px-1 text-sm text-primary">Persoana {i + 1}</legend>
           <Field label="Nume">
-            <input className={inputClass} maxLength={60} value={p.name} onChange={(e) => setPerson(i, { name: e.target.value })} />
+            <input
+              className={inputClass}
+              maxLength={60}
+              value={p.name}
+              onChange={(e) => setPerson(i, { name: e.target.value })}
+            />
           </Field>
           <Field label="Telefon">
-            <input className={inputClass} type="tel" inputMode="tel" maxLength={14} value={p.phone} onChange={(e) => setPerson(i, { phone: e.target.value })} />
+            <input
+              className={inputClass}
+              type="tel"
+              inputMode="tel"
+              maxLength={14}
+              value={p.phone}
+              onChange={(e) => setPerson(i, { phone: e.target.value })}
+            />
           </Field>
         </fieldset>
       ))}
       <div className="grid gap-3 rounded-xl border border-border bg-card/40 p-4">
         <Field label="Email de contact">
-          <input className={inputClass} type="email" maxLength={120} value={s.email} onChange={(e) => setS({ ...s, email: e.target.value })} />
+          <input
+            className={inputClass}
+            type="email"
+            maxLength={120}
+            value={s.email}
+            onChange={(e) => setS({ ...s, email: e.target.value })}
+          />
         </Field>
         <Field label="Link Facebook">
-          <input className={inputClass} type="url" maxLength={300} value={s.facebook_url} onChange={(e) => setS({ ...s, facebook_url: e.target.value })} />
+          <input
+            className={inputClass}
+            type="url"
+            maxLength={300}
+            value={s.facebook_url}
+            onChange={(e) => setS({ ...s, facebook_url: e.target.value })}
+          />
         </Field>
         <Field label="Link Instagram">
-          <input className={inputClass} type="url" maxLength={300} value={s.instagram_url} onChange={(e) => setS({ ...s, instagram_url: e.target.value })} />
+          <input
+            className={inputClass}
+            type="url"
+            maxLength={300}
+            value={s.instagram_url}
+            onChange={(e) => setS({ ...s, instagram_url: e.target.value })}
+          />
         </Field>
         <Field label="Locația din prima parte a site-ului">
-          <input className={inputClass} maxLength={80} value={s.location_hero} onChange={(e) => setS({ ...s, location_hero: e.target.value })} />
+          <input
+            className={inputClass}
+            maxLength={80}
+            value={s.location_hero}
+            onChange={(e) => setS({ ...s, location_hero: e.target.value })}
+          />
         </Field>
         <Field label="Locația din secțiunea de contact">
-          <input className={inputClass} maxLength={120} value={s.location_contact} onChange={(e) => setS({ ...s, location_contact: e.target.value })} />
+          <input
+            className={inputClass}
+            maxLength={120}
+            value={s.location_contact}
+            onChange={(e) => setS({ ...s, location_contact: e.target.value })}
+          />
         </Field>
       </div>
       {msg.view}
@@ -262,7 +378,8 @@ export function AccessTab({ me }: { me: string }) {
   async function add(e: FormEvent) {
     e.preventDefault();
     const value = email.trim().toLowerCase();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return msg.fail("Adresa de email nu pare corectă.");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
+      return msg.fail("Adresa de email nu pare corectă.");
     const { error } = await supabase.from("admin_emails").insert({ email: value });
     if (error) return msg.fail(error);
     setEmail("");
@@ -272,7 +389,14 @@ export function AccessTab({ me }: { me: string }) {
   async function remove(value: string) {
     if (rows.length <= 1) return msg.fail("Nu poți șterge ultimul administrator.");
     const self = value === me;
-    if (!window.confirm(self ? "Îți retragi propriul acces? Vei fi deconectat." : `Retragi accesul pentru ${value}?`)) return;
+    if (
+      !window.confirm(
+        self
+          ? "Îți retragi propriul acces? Vei fi deconectat."
+          : `Retragi accesul pentru ${value}?`,
+      )
+    )
+      return;
     const { error } = await supabase.from("admin_emails").delete().eq("email", value);
     if (error) return msg.fail(error);
     if (self) return void supabase.auth.signOut();
@@ -282,24 +406,45 @@ export function AccessTab({ me }: { me: string }) {
 
   return (
     <div className="flex flex-col gap-6">
-      <form onSubmit={add} className="flex flex-col gap-3 rounded-xl border border-border bg-card/40 p-4 sm:p-6">
+      <form
+        onSubmit={add}
+        className="flex flex-col gap-3 rounded-xl border border-border bg-card/40 p-4 sm:p-6"
+      >
         <h2 className="font-display text-2xl">Dă acces cuiva</h2>
         <p className="text-sm text-muted-foreground">
-          Persoana va putea intra pe această pagină cu adresa ei de email și va putea modifica tot site-ul.
+          Persoana va putea intra pe această pagină cu adresa ei de email și va putea modifica tot
+          site-ul.
         </p>
         <Field label="Adresa de email">
-          <input className={inputClass} type="email" maxLength={120} value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input
+            className={inputClass}
+            type="email"
+            maxLength={120}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </Field>
-        <Button variant="studio" type="submit" className="self-start">Adaugă</Button>
+        <Button variant="studio" type="submit" className="self-start">
+          Adaugă
+        </Button>
       </form>
       {msg.view}
       <ul className="flex flex-col gap-2">
         {rows.map((r) => (
-          <li key={r} className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card/40 p-3">
+          <li
+            key={r}
+            className="flex items-center justify-between gap-3 rounded-xl border border-border bg-card/40 p-3"
+          >
             <span className="break-all">
               {r} {r === me && <span className="text-sm text-primary">(tu)</span>}
             </span>
-            <Button variant="outline" size="sm" className="text-destructive" disabled={rows.length <= 1} onClick={() => remove(r)}>
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-destructive"
+              disabled={rows.length <= 1}
+              onClick={() => remove(r)}
+            >
               <Trash2 size={16} /> Retrage
             </Button>
           </li>

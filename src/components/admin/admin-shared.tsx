@@ -15,7 +15,11 @@ export function Field({ label, children }: { label: string; children: ReactNode 
 
 export function Notice({ kind, children }: { kind: "error" | "ok" | "info"; children: ReactNode }) {
   const color =
-    kind === "error" ? "text-destructive" : kind === "ok" ? "text-primary" : "text-muted-foreground";
+    kind === "error"
+      ? "text-destructive"
+      : kind === "ok"
+        ? "text-primary"
+        : "text-muted-foreground";
   return (
     <p role={kind === "error" ? "alert" : "status"} className={`text-sm ${color}`}>
       {children}
@@ -77,13 +81,19 @@ export function CategoryPicker({
 }
 
 export function friendlyError(error: unknown) {
-  const msg = error instanceof Error ? error.message : typeof error === "object" && error && "message" in error ? String((error as { message: unknown }).message) : "";
+  const msg =
+    error instanceof Error
+      ? error.message
+      : typeof error === "object" && error && "message" in error
+        ? String((error as { message: unknown }).message)
+        : "";
   if (/ultimul administrator/i.test(msg)) return "Nu poți șterge ultimul administrator.";
   if (/row-level security|permission|not authorized|unauthorized|403/i.test(msg))
     return "Nu ai permisiunea pentru această acțiune. Încearcă să te autentifici din nou.";
   if (/duplicate key/i.test(msg)) return "Această adresă există deja în listă.";
   if (/payload too large|exceeded|size/i.test(msg)) return "Fișierul este prea mare.";
-  if (/fetch|network/i.test(msg)) return "Nu există conexiune la internet. Verifică rețeaua și încearcă din nou.";
+  if (/fetch|network/i.test(msg))
+    return "Nu există conexiune la internet. Verifică rețeaua și încearcă din nou.";
   return "A apărut o eroare. Încearcă din nou.";
 }
 

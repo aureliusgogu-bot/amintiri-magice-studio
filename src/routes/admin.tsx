@@ -17,7 +17,10 @@ export const Route = createFileRoute("/admin")({
       { name: "description", content: "Zona privată de administrare a site-ului #facemceneplace." },
       { name: "robots", content: "noindex, nofollow" },
       { property: "og:title", content: "Administrare — #facemceneplace" },
-      { property: "og:description", content: "Zona privată de administrare a site-ului #facemceneplace." },
+      {
+        property: "og:description",
+        content: "Zona privată de administrare a site-ului #facemceneplace.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -48,7 +51,8 @@ function AdminPage() {
   useEffect(() => {
     void supabase.auth.getSession().then(({ data }) => setSession(data.session));
     const { data } = supabase.auth.onAuthStateChange((event, s) => {
-      if (event === "SIGNED_IN" || event === "SIGNED_OUT" || event === "USER_UPDATED") setSession(s);
+      if (event === "SIGNED_IN" || event === "SIGNED_OUT" || event === "USER_UPDATED")
+        setSession(s);
     });
     return () => data.subscription.unsubscribe();
   }, []);
@@ -72,8 +76,9 @@ function AdminPage() {
         <div className="mt-20 flex flex-col items-start gap-4">
           <h1 className="font-display text-4xl">Acest cont nu are acces</h1>
           <p className="text-muted-foreground">
-            Ești conectat ca <strong className="text-foreground">{email}</strong>, dar această adresă nu poate
-            administra site-ul. Dacă e o greșeală, cere unui administrator să te adauge.
+            Ești conectat ca <strong className="text-foreground">{email}</strong>, dar această
+            adresă nu poate administra site-ul. Dacă e o greșeală, cere unui administrator să te
+            adauge.
           </p>
           <Button variant="studio" onClick={() => supabase.auth.signOut()}>
             <LogOut size={16} /> Deconectează-te
@@ -94,7 +99,8 @@ function Login() {
   async function send(e: FormEvent) {
     e.preventDefault();
     const value = email.trim().toLowerCase();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return setError("Adresa de email nu pare corectă.");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
+      return setError("Adresa de email nu pare corectă.");
     setBusy(true);
     setError("");
     const { error } = await supabase.auth.signInWithOtp({
@@ -114,7 +120,11 @@ function Login() {
     e.preventDefault();
     setBusy(true);
     setError("");
-    const { error } = await supabase.auth.verifyOtp({ email: email.trim().toLowerCase(), token: code.trim(), type: "email" });
+    const { error } = await supabase.auth.verifyOtp({
+      email: email.trim().toLowerCase(),
+      token: code.trim(),
+      type: "email",
+    });
     setBusy(false);
     if (error) setError("Codul nu este corect sau a expirat. Cere un email nou.");
   }
@@ -132,7 +142,14 @@ function Login() {
               Scrie adresa ta de email. Îți trimitem un link de conectare, fără parolă.
             </p>
             <Field label="Adresa de email">
-              <input className={inputClass} type="email" autoComplete="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
+              <input
+                className={inputClass}
+                type="email"
+                autoComplete="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </Field>
             <Button variant="studio" type="submit" disabled={busy}>
               {busy ? "Se trimite…" : "Trimite-mi linkul"}
@@ -141,16 +158,28 @@ function Login() {
         ) : (
           <form onSubmit={verify} className="flex flex-col gap-4">
             <p className="text-muted-foreground">
-              Ți-am trimis un email la <strong className="text-foreground">{email}</strong>. Deschide-l pe acest
-              telefon și apasă pe link. Dacă emailul conține un cod, îl poți scrie mai jos.
+              Ți-am trimis un email la <strong className="text-foreground">{email}</strong>.
+              Deschide-l pe acest telefon și apasă pe link. Dacă emailul conține un cod, îl poți
+              scrie mai jos.
             </p>
             <Field label="Cod din email (opțional)">
-              <input className={inputClass} inputMode="numeric" autoComplete="one-time-code" maxLength={10} value={code} onChange={(e) => setCode(e.target.value)} />
+              <input
+                className={inputClass}
+                inputMode="numeric"
+                autoComplete="one-time-code"
+                maxLength={10}
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
+              />
             </Field>
             <Button variant="studio" type="submit" disabled={busy || code.trim().length < 6}>
               Conectează-te cu codul
             </Button>
-            <button type="button" className="self-start text-sm text-muted-foreground underline" onClick={() => setSent(false)}>
+            <button
+              type="button"
+              className="self-start text-sm text-muted-foreground underline"
+              onClick={() => setSent(false)}
+            >
               Folosește altă adresă sau trimite din nou
             </button>
           </form>
@@ -174,9 +203,16 @@ function Dashboard({ email }: { email: string }) {
         </div>
         <div className="flex gap-2">
           <Button variant="outline" size="sm" asChild>
-            <a href="/" target="_blank" rel="noopener">Vezi site-ul</a>
+            <a href="/" target="_blank" rel="noopener">
+              Vezi site-ul
+            </a>
           </Button>
-          <Button variant="outline" size="sm" onClick={() => supabase.auth.signOut()} aria-label="Deconectează-te">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => supabase.auth.signOut()}
+            aria-label="Deconectează-te"
+          >
             <LogOut size={16} />
           </Button>
         </div>
@@ -192,7 +228,9 @@ function Dashboard({ email }: { email: string }) {
             aria-current={tab === id ? "page" : undefined}
             onClick={() => setTab(id)}
             className={`shrink-0 rounded-full px-4 py-2 text-sm transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
-              tab === id ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              tab === id
+                ? "bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             {label}
