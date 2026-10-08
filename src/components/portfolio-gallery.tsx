@@ -76,7 +76,7 @@ function PhotoCard({photo,enhanced,onOpen}:{photo:Photo;enhanced:boolean;onOpen:
  function move(event:MouseEvent<HTMLDivElement>){if(!enhanced)return;const rect=event.currentTarget.getBoundingClientRect();mx.set((event.clientX-rect.left)/rect.width-.5);my.set((event.clientY-rect.top)/rect.height-.5);}
  return <motion.div className="photo-wrapper" initial={{opacity:0}} whileInView={{opacity:1}} viewport={{once:true,amount:.1}} transition={{duration:.6}} onMouseMove={move} onMouseEnter={()=>setHover(true)} onMouseLeave={()=>{setHover(false);mx.set(0);my.set(0);}}>
   <motion.div className="photo-shadow" animate={{opacity:enhanced&&hover?1:.15,scale:enhanced&&hover?1.08:.95,y:enhanced&&hover?20:0}} transition={{duration:.35}}/>
-  <motion.div className="photo-surface" layoutId={enhanced?`photo-${photo.src}`:undefined} style={{aspectRatio:photo.aspectRatio,rotateX:enhanced?rx:0,rotateY:enhanced?ry:0}} animate={enhanced?{scale:hover?1.045:1,y:hover?-12:0,z:hover?50:0}:{}} transition={{type:'spring',stiffness:220,damping:26}}>
+  <motion.div className="photo-surface" {...(enhanced?{layoutId:`photo-${photo.src}`}:{})} style={{aspectRatio:photo.aspectRatio,rotateX:enhanced?rx:0,rotateY:enhanced?ry:0}} animate={enhanced?{scale:hover?1.045:1,y:hover?-12:0,z:hover?50:0}:{}} transition={{type:'spring',stiffness:220,damping:26}}>
    <Button variant="photo" className="photo-button" aria-label={`Deschide fotografia: ${photo.title}`} onFocus={()=>setHover(true)} onBlur={()=>setHover(false)} onClick={event=>onOpen(photo,event.currentTarget)}>
     <SafeImage src={photo.src} alt={`${photo.title} — ${photo.category}`}/>
     <motion.div className="photo-info" initial={false} animate={{opacity:hover?1:0}} transition={{duration:.25}}><Maximize2 size={16} className="photo-expand"/><h3>{photo.title}</h3><span>{photo.category}</span></motion.div>
@@ -95,7 +95,7 @@ function Lightbox({selected,list,enhanced,onClose,onSelect}:{selected:Photo;list
  const dialog=useRef<HTMLDivElement>(null);
  const [sharp,setSharp]=useState(false);
  const index=list.indexOf(selected);
- const next=useCallback((direction:number)=>onSelect(list[(index+direction+list.length)%list.length]),[index,list,onSelect]);
+ const next=useCallback((direction:number)=>{const photo=list[(index+direction+list.length)%list.length];if(photo)onSelect(photo);},[index,list,onSelect]);
  useEffect(()=>setSharp(false),[selected.src]);
  useEffect(()=>{
   const previous=document.activeElement;const oldOverflow=document.body.style.overflow;document.body.style.overflow='hidden';
@@ -111,6 +111,7 @@ function Lightbox({selected,list,enhanced,onClose,onSelect}:{selected:Photo;list
    if(event.key==='Tab'){
     const controls=dialog.current?.querySelectorAll<HTMLButtonElement>('button');if(!controls?.length)return;
     const first=controls[0],last=controls[controls.length-1];
+    if(!first||!last)return;
     if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
     else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
    }
@@ -119,7 +120,7 @@ function Lightbox({selected,list,enhanced,onClose,onSelect}:{selected:Photo;list
  },[next,onClose]);
  return <motion.div className="lightbox-backdrop" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration:.25}} onClick={onClose}>
   <div ref={dialog} role="dialog" aria-modal="true" aria-label={`Fotografie: ${selected.title}`} className="lightbox-dialog">
-   <motion.div className="lightbox-image" layoutId={enhanced?`photo-${selected.src}`:undefined} transition={{type:'spring',stiffness:250,damping:30}} onClick={event=>event.stopPropagation()}>
+   <motion.div className="lightbox-image" {...(enhanced?{layoutId:`photo-${selected.src}`}:{})} transition={{duration:.45,ease:[.22,1,.36,1]}} onClick={event=>event.stopPropagation()}>
     <SafeImage src={selected.src} alt={selected.title} eager/>
     <motion.div className="absolute inset-0" animate={{opacity:sharp?1:0}} transition={{duration:.4}}><SafeImage key={selected.highRes} src={selected.highRes} alt={`${selected.title} — fotografie de înaltă rezoluție`} eager onLoad={()=>setSharp(true)}/></motion.div>
    </motion.div>
