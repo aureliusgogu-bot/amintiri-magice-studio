@@ -171,7 +171,9 @@
   font-size: 12px;
 }
 .nav-links a {
-  font-size: 12px;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 .social-divider {
   height: 16px;
@@ -514,8 +516,21 @@ main {
   background: var(--border);
 }
 .story-section {
+  position: relative;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+}
+.story-section::before,
+.reviews-section::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  transform: translateX(-50%) rotate(45deg);
+  background: var(--primary);
+  pointer-events: none;
 }
 .story-photo {
   position: relative;
@@ -682,6 +697,7 @@ main {
 }
 .footer-brand {
   font-size: 13px;
+  letter-spacing: 0.06em;
 }
 .footer-brand span {
   color: var(--muted-foreground);
@@ -1324,6 +1340,7 @@ a:hover > .lucide-arrow-right {
   color: var(--primary);
 }
 .reviews-section {
+  position: relative;
   border-bottom: 1px solid var(--border);
 }
 .reviews-grid {
