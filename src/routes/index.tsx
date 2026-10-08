@@ -441,7 +441,9 @@ function Page() {
         <section id="despre" className="story-section">
           <div className="section-inner story-layout">
             <div className="story-intro">
-              <p className="section-kicker">Din pasiune. Cu suflet.</p>
+              <Reveal>
+                <p className="section-kicker">Din pasiune. Cu suflet.</p>
+              </Reveal>
               <h2 className="section-title">
                 <MaskReveal as="div">Povestea</MaskReveal>
                 <MaskReveal as="div" delay={0.12}>
@@ -468,7 +470,9 @@ function Page() {
         </section>
         <section id="recenzii" className="reviews-section">
           <div className="section-inner">
-            <p className="section-kicker">Cuvintele celor dragi</p>
+            <Reveal>
+              <p className="section-kicker">Cuvintele celor dragi</p>
+            </Reveal>
             <h2 className="section-title">
               <MaskReveal as="div">
                 Recenzii<span className="text-primary">.</span>
@@ -514,7 +518,9 @@ function Page() {
             distance={0}
           />
           <div className="section-inner">
-            <p className="section-kicker">Fiecare poveste începe cu un salut</p>
+            <Reveal>
+              <p className="section-kicker">Fiecare poveste începe cu un salut</p>
+            </Reveal>
             <h2 className="section-title contact-title">
               <MaskReveal as="div">Hai să păstrăm împreună</MaskReveal>
               <MaskReveal as="div" delay={0.12}>
