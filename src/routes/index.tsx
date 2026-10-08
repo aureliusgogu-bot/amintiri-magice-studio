@@ -25,9 +25,9 @@ import storyPhoto from "@/assets/nunta/nunta-1-large.jpg";
 import contactPhoto from "@/assets/nunta/nunta-7-large.jpg";
 import instagramQr from "@/assets/qr/instagram-qr.jpg";
 
-const title = "#facemceneplace — Foto și video de peste 20 de ani";
+const title = "Fotograf și Video Nunți, Cununii și Botezuri | #facemceneplace";
 const description =
-  "De peste 20 de ani, transformăm clipe în amintiri. Descoperă poveștile #facemceneplace: fotografie și video pentru nunți, cununii civile, botezuri, majorate și evenimente, cu sediul în Ilfov și deplasări în toată țara.";
+  "Fotograf și video pentru nunți, cununii și botezuri — peste 20 de ani transformăm clipe în amintiri. Sediul în Ilfov, deplasări în toată țara. Vezi portofoliul și scrie-ne azi.";
 
 // Public origin of the site, so every structured-data image URL is absolute.
 const SITE_ORIGIN = "https://facemceneplace.com";
