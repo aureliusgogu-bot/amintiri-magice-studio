@@ -79,12 +79,7 @@
     oklch(0.77 0.082 68 / 0.12),
     transparent 70%
   );
-  --gold-sheen: linear-gradient(
-    105deg,
-    transparent 40%,
-    oklch(1 0 0 / 0.16) 50%,
-    transparent 60%
-  );
+  --gold-sheen: linear-gradient(105deg, transparent 40%, oklch(1 0 0 / 0.16) 50%, transparent 60%);
 }
 @layer base {
   * {
