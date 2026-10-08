@@ -33,7 +33,7 @@ import instagramQr from "@/assets/qr/instagram-qr.jpg";
 
 const title = "#facemceneplace — Foto și video de peste 20 de ani";
 const description =
-  "De peste 20 de ani, transformăm clipe în amintiri. Descoperă poveștile #facemceneplace: fotografie și video pentru nunți, cununii civile, botezuri, majorate și evenimente în Ilfov și București.";
+  "De peste 20 de ani, transformăm clipe în amintiri. Descoperă poveștile #facemceneplace: fotografie și video pentru nunți, cununii civile, botezuri, majorate și evenimente, cu sediul în Ilfov și deplasări în toată țara.";
 
 // Origin where the site is actually served, so every structured-data image URL is
 // absolute. Point it at https://facemceneplace.ro once that domain is connected.
@@ -84,7 +84,7 @@ export const Route = createFileRoute("/")({
           description,
           url: `${SITE_ORIGIN}/`,
           email: "facemceneplace@gmail.com",
-          areaServed: ["Ilfov", "București"],
+          areaServed: { "@type": "Country", name: "România" },
           address: { "@type": "PostalAddress", addressRegion: "Ilfov", addressCountry: "RO" },
           telephone: ["+40727113893", "+40720179744"],
           sameAs: [
@@ -359,7 +359,7 @@ function HeroText() {
         ))}
       </motion.div>
       <motion.p className="hero-location" {...item(1.1)}>
-        <MapPin size={13} aria-hidden /> Ilfov · București
+        <MapPin size={13} aria-hidden /> Ilfov · În toată țara
       </motion.p>
     </div>
   );
@@ -515,7 +515,7 @@ function Index() {
                 funcție de eveniment. Sună-ne sau scrie-ne și îți răspundem personal.
               </p>
               <p className="contact-location">
-                <MapPin size={14} aria-hidden /> Lucrăm în Ilfov și București
+                <MapPin size={14} aria-hidden /> Sediul în Ilfov · Ne deplasăm în toată țara
               </p>
             </Reveal>
             <Reveal className="contact-layout">
