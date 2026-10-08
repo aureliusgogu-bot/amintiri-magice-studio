@@ -1,3 +1,11 @@
+import botez1small from "@/assets/botez/botez-1-small.jpg";
+import botez1large from "@/assets/botez/botez-1-large.jpg";
+import botez2small from "@/assets/botez/botez-2-small.jpg";
+import botez2large from "@/assets/botez/botez-2-large.jpg";
+import botez3small from "@/assets/botez/botez-3-small.jpg";
+import botez3large from "@/assets/botez/botez-3-large.jpg";
+import botez4small from "@/assets/botez/botez-4-small.jpg";
+import botez4large from "@/assets/botez/botez-4-large.jpg";
 import nunta1small from "@/assets/nunta/nunta-1-small.jpg";
 import nunta1large from "@/assets/nunta/nunta-1-large.jpg";
 import nunta2small from "@/assets/nunta/nunta-2-small.jpg";
@@ -26,14 +34,6 @@ import photo2small from "@/assets/photo-2-small.jpg.asset.json";
 import photo2large from "@/assets/photo-2-large.jpg.asset.json";
 import photo3small from "@/assets/photo-3-small.jpg.asset.json";
 import photo3large from "@/assets/photo-3-large.jpg.asset.json";
-import photo4small from "@/assets/photo-4-small.jpg.asset.json";
-import photo4large from "@/assets/photo-4-large.jpg.asset.json";
-import photo5small from "@/assets/photo-5-small.jpg.asset.json";
-import photo5large from "@/assets/photo-5-large.jpg.asset.json";
-import photo6small from "@/assets/photo-6-small.jpg.asset.json";
-import photo6large from "@/assets/photo-6-large.jpg.asset.json";
-import photo7small from "@/assets/photo-7-small.jpg.asset.json";
-import photo7large from "@/assets/photo-7-large.jpg.asset.json";
 import photo8small from "@/assets/photo-8-small.jpg.asset.json";
 import photo8large from "@/assets/photo-8-large.jpg.asset.json";
 import photo9small from "@/assets/photo-9-small.jpg.asset.json";
@@ -42,14 +42,6 @@ import photo10small from "@/assets/photo-10-small.jpg.asset.json";
 import photo10large from "@/assets/photo-10-large.jpg.asset.json";
 import photo11small from "@/assets/photo-11-small.jpg.asset.json";
 import photo11large from "@/assets/photo-11-large.jpg.asset.json";
-import photo12small from "@/assets/photo-12-small.jpg.asset.json";
-import photo12large from "@/assets/photo-12-large.jpg.asset.json";
-import photo13small from "@/assets/photo-13-small.jpg.asset.json";
-import photo13large from "@/assets/photo-13-large.jpg.asset.json";
-import photo14small from "@/assets/photo-14-small.jpg.asset.json";
-import photo14large from "@/assets/photo-14-large.jpg.asset.json";
-import photo15small from "@/assets/photo-15-small.jpg.asset.json";
-import photo15large from "@/assets/photo-15-large.jpg.asset.json";
 import { useEffect, useRef, useState, useCallback, type MouseEvent } from "react";
 import { createPortal } from "react-dom";
 import {
@@ -67,6 +59,34 @@ import { useEnhancedMotion } from "@/hooks/use-enhanced-motion";
 
 // Înlocuiți src și highRes cu fotografiile studioului; proporțiile păstrează stabilă compoziția.
 export const photos = [
+  {
+    src: botez1small,
+    highRes: botez1large,
+    aspectRatio: 1.5,
+    category: "Botez",
+    title: "Pregătit pentru soare",
+  },
+  {
+    src: botez2small,
+    highRes: botez2large,
+    aspectRatio: 1.5,
+    category: "Botez",
+    title: "Lumea de deasupra",
+  },
+  {
+    src: botez3small,
+    highRes: botez3large,
+    aspectRatio: 0.67,
+    category: "Botez",
+    title: "Privire printre gratii",
+  },
+  {
+    src: botez4small,
+    highRes: botez4large,
+    aspectRatio: 1.5,
+    category: "Botez",
+    title: "Cel mai mic star",
+  },
   {
     src: nunta1small,
     highRes: nunta1large,
@@ -145,32 +165,11 @@ export const photos = [
     title: "O promisiune pentru totdeauna",
   },
   {
-    src: photo7small.url,
-    highRes: photo7large.url,
-    aspectRatio: 0.75,
-    category: "Portrete",
-    title: "Dincolo de privire",
-  },
-  {
-    src: photo12small.url,
-    highRes: photo12large.url,
-    aspectRatio: 1.2,
-    category: "Cinematic",
-    title: "Liniștea dintre munți",
-  },
-  {
     src: photo3small.url,
     highRes: photo3large.url,
     aspectRatio: 0.8,
     category: "Nunți",
     title: "Doar noi doi",
-  },
-  {
-    src: photo4small.url,
-    highRes: photo4large.url,
-    aspectRatio: 0.8,
-    category: "Portrete",
-    title: "În lumina ta",
   },
   {
     src: photo8small.url,
@@ -187,27 +186,6 @@ export const photos = [
     title: "Împreună, până la orizont",
   },
   {
-    src: photo14small.url,
-    highRes: photo14large.url,
-    aspectRatio: 0.8,
-    category: "Cinematic",
-    title: "Prin lumina pădurii",
-  },
-  {
-    src: photo15small.url,
-    highRes: photo15large.url,
-    aspectRatio: 1.2,
-    category: "Cinematic",
-    title: "Ultima rază de soare",
-  },
-  {
-    src: photo5small.url,
-    highRes: photo5large.url,
-    aspectRatio: 0.78,
-    category: "Portrete",
-    title: "Un moment de sinceritate",
-  },
-  {
     src: photo10small.url,
     highRes: photo10large.url,
     aspectRatio: 1.15,
@@ -220,20 +198,6 @@ export const photos = [
     aspectRatio: 0.85,
     category: "Nunți",
     title: "Începutul poveștii noastre",
-  },
-  {
-    src: photo13small.url,
-    highRes: photo13large.url,
-    aspectRatio: 1.2,
-    category: "Cinematic",
-    title: "Acolo unde timpul se oprește",
-  },
-  {
-    src: photo6small.url,
-    highRes: photo6large.url,
-    aspectRatio: 0.8,
-    category: "Portrete",
-    title: "Povești fără cuvinte",
   },
   {
     src: photo9small.url,
@@ -621,7 +585,7 @@ export function PortfolioGallery() {
             <p className="portfolio-description">Clipe care trec. Emoții care rămân.</p>
           </div>
           <div className="filters" role="group" aria-label="Categorii de fotografii">
-            {["Toate", "Majorat", "Nunți", "Portrete", "Evenimente", "Cinematic"].map((item) => (
+            {["Toate", "Nunți", "Botez", "Majorat", "Evenimente"].map((item) => (
               <Button
                 key={item}
                 variant="nav"

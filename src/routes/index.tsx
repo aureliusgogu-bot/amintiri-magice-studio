@@ -13,7 +13,7 @@ const contactPhoto = "https://unsplash.com/photos/GCPAiY0jrHc/download?force=tru
 
 const title = "#facemceneplace — Foto și video de peste 20 de ani";
 const description =
-  "De peste 20 de ani, transformăm clipe în amintiri. Descoperă poveștile #facemceneplace: fotografie și video pentru nunți, portrete și evenimente.";
+  "De peste 20 de ani, transformăm clipe în amintiri. Descoperă poveștile #facemceneplace: fotografie și video pentru nunți, botezuri, majorate și evenimente.";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
