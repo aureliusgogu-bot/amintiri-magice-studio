@@ -36,7 +36,11 @@ export const DEFAULT_SETTINGS: SiteSettings = {
   locationContact: "Sediul în Ilfov · Ne deplasăm în toată țara",
 };
 
-export const DEFAULT_SITE_DATA: SiteData = { settings: DEFAULT_SETTINGS, reviews: [], photos: null };
+export const DEFAULT_SITE_DATA: SiteData = {
+  settings: DEFAULT_SETTINGS,
+  reviews: [],
+  photos: null,
+};
 
 /** Fixed order for the known categories; new ones follow in first-seen order. */
 export const BASE_CATEGORIES = ["Nunți", "Cununie civilă", "Majorat", "Botez", "Evenimente"];
@@ -48,7 +52,8 @@ export function orderedCategories(list: { category: string }[]) {
 }
 
 /** Photos live in a private bucket and are served through the /foto/ route. */
-export const photoUrl = (path: string) => `/foto/${path.split("/").map(encodeURIComponent).join("/")}`;
+export const photoUrl = (path: string) =>
+  `/foto/${path.split("/").map(encodeURIComponent).join("/")}`;
 
 export const SiteContext = createContext<SiteData>(DEFAULT_SITE_DATA);
 export const useSite = () => useContext(SiteContext);

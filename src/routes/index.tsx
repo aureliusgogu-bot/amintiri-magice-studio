@@ -26,6 +26,8 @@ import {
 } from "@/components/motion-kit";
 import { useEnhancedMotion } from "@/hooks/use-enhanced-motion";
 import hero from "@/assets/hero.jpg.asset.json";
+import { DEFAULT_SITE_DATA, SiteContext, useSite } from "@/lib/site-data";
+import { getSiteData } from "@/lib/site-data.functions";
 
 import storyPhoto from "@/assets/nunta/nunta-1-large.jpg";
 import contactPhoto from "@/assets/nunta/nunta-7-large.jpg";
@@ -100,18 +102,15 @@ export const Route = createFileRoute("/")({
       },
     ],
   }),
+  loader: async () => {
+    try {
+      return await getSiteData();
+    } catch {
+      return null;
+    }
+  },
   component: Index,
 });
-const people = [
-  { name: "George Constantin", phone: "0727113893" },
-  { name: "Petrișor Stan", phone: "0720179744" },
-] as const;
-/**
- * Recenzii reale ale clienților. Adăugați aici citate cu acordul clienților, de forma:
- * { quote: "…", author: "Nume", event: "Nuntă" }
- * Cât timp lista este goală, secțiunea trimite vizitatorii către recenziile de pe Facebook.
- */
-const reviews: { quote: string; author: string; event: string }[] = [];
 const navItems = [
   ["Portofoliu", "portofoliu"],
   ["Despre", "despre"],
@@ -120,8 +119,6 @@ const navItems = [
 ] as const;
 const phoneLabel = (phone: string) => `${phone.slice(0, 4)} ${phone.slice(4, 7)} ${phone.slice(7)}`;
 const phoneHref = (phone: string) => `tel:+4${phone}`;
-const facebook = "https://www.facebook.com/share/1BagDkJcXJ/";
-const instagram = "https://www.instagram.com/george.constantin1701";
 const story = [
   "De peste 20 de ani, nu doar fotografiem și filmăm.",
   "Păstrăm emoții. Păstrăm povești. Păstrăm oameni.",
@@ -140,6 +137,7 @@ const story = [
   "De peste 20 de ani, transformăm clipe în amintiri.",
 ];
 function SocialLinks() {
+  const { facebook, instagram } = useSite().settings;
   return (
     <div className="social-links">
       <Button variant="nav" asChild>
@@ -160,6 +158,7 @@ function SocialLinks() {
   );
 }
 function Navigation() {
+  const { facebook, instagram } = useSite().settings;
   const enhanced = useEnhancedMotion();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -258,6 +257,7 @@ function Navigation() {
   );
 }
 function ContactForm() {
+  const { email: studioEmail } = useSite().settings;
   const [opened, setOpened] = useState(false);
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -265,7 +265,7 @@ function ContactForm() {
     const name = String(data.get("name") || "");
     const email = String(data.get("email") || "");
     const message = String(data.get("message") || "");
-    window.location.href = `mailto:facemceneplace@gmail.com?subject=${encodeURIComponent(`O nouă poveste — ${name}`)}&body=${encodeURIComponent(`Nume: ${name}\nEmail: ${email}\n\n${message}`)}`;
+    window.location.href = `mailto:${studioEmail}?subject=${encodeURIComponent(`O nouă poveste — ${name}`)}&body=${encodeURIComponent(`Nume: ${name}\nEmail: ${email}\n\n${message}`)}`;
     setOpened(true);
   }
   return (
@@ -317,6 +317,7 @@ function ContactForm() {
   );
 }
 function HeroText() {
+  const { people, locationHero } = useSite().settings;
   const enhanced = useEnhancedMotion();
   const item = (delay: number) => ({
     initial: { opacity: 0, y: enhanced ? 26 : 0 },
@@ -359,7 +360,7 @@ function HeroText() {
         ))}
       </motion.div>
       <motion.p className="hero-location" {...item(1.1)}>
-        <MapPin size={13} aria-hidden /> Ilfov · În toată țara
+        <MapPin size={13} aria-hidden /> {locationHero}
       </motion.p>
     </div>
   );
@@ -391,6 +392,16 @@ function StoryLine({ line }: { line: string }) {
   );
 }
 function Index() {
+  const data = Route.useLoaderData();
+  return (
+    <SiteContext.Provider value={data ?? DEFAULT_SITE_DATA}>
+      <Page />
+    </SiteContext.Provider>
+  );
+}
+function Page() {
+  const { settings, reviews, photos: dbPhotos } = useSite();
+  const { people, facebook, instagram, email } = settings;
   return (
     <div id="studio-page">
       <ScrollProgress />
@@ -425,7 +436,7 @@ function Index() {
         <Marquee
           items={["Nunți", "Cununii civile", "Botezuri", "Majorate", "Evenimente", "Foto", "Video"]}
         />
-        <PortfolioGallery />
+        <PortfolioGallery items={dbPhotos ?? photos} />
         <section id="despre" className="story-section">
           <div className="section-inner story-layout">
             <div className="story-intro">
@@ -465,7 +476,7 @@ function Index() {
             {reviews.length > 0 ? (
               <div className="reviews-grid">
                 {reviews.map((review, index) => (
-                  <Reveal key={review.author} delay={index * 0.1}>
+                  <Reveal key={`${review.author}-${index}`} delay={index * 0.1}>
                     <figure className="review-card">
                       <blockquote>{review.quote}</blockquote>
                       <figcaption>
@@ -515,7 +526,7 @@ function Index() {
                 funcție de eveniment. Sună-ne sau scrie-ne și îți răspundem personal.
               </p>
               <p className="contact-location">
-                <MapPin size={14} aria-hidden /> Sediul în Ilfov · Ne deplasăm în toată țara
+                <MapPin size={14} aria-hidden /> {settings.locationContact}
               </p>
             </Reveal>
             <Reveal className="contact-layout">
@@ -531,8 +542,8 @@ function Index() {
                     </li>
                   ))}
                 </ul>
-                <a className="email-link" href="mailto:facemceneplace@gmail.com">
-                  facemceneplace@gmail.com
+                <a className="email-link" href={`mailto:${email}`}>
+                  {email}
                   <ArrowUpRight size={20} />
                 </a>
                 <SocialLinks />
