@@ -43,6 +43,7 @@ import {
 } from "framer-motion";
 import { ArrowLeft, ArrowRight, X, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useEnhancedMotion } from "@/hooks/use-enhanced-motion";
 
 // Înlocuiți src și highRes cu fotografiile studioului; proporțiile păstrează stabilă compoziția.
 export const photos = [
@@ -160,19 +161,6 @@ export const photos = [
   },
 ];
 type Photo = (typeof photos)[number];
-export function useEnhancedMotion() {
-  const [enhanced, setEnhanced] = useState(false);
-  useEffect(() => {
-    const query = window.matchMedia(
-      "(min-width: 768px) and (hover: hover) and (prefers-reduced-motion: no-preference)",
-    );
-    const update = () => setEnhanced(query.matches);
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
-  return enhanced;
-}
 function SafeImage({
   src,
   alt,
@@ -307,21 +295,50 @@ function PhotoColumn({
   drift: ReturnType<typeof useMotionValue<number>>;
   onOpen: (photo: Photo, button: HTMLButtonElement) => void;
 }) {
-  const back = index === 1 || index === 3;
-  const y = useTransform(scrollProgress, [0, 1], back ? [35, -55] : [75, -160]);
-  const x = useSpring(useTransform(drift, [-0.5, 0.5], back ? [-7, 7] : [-16, 16]), {
+  const speed = [0.4, 1.3, 0.8, 1.7][index] ?? 1;
+  const y = useTransform(scrollProgress, [0, 1], [100 * speed, -220 * speed]);
+  const x = useSpring(useTransform(drift, [-0.5, 0.5], [-28 * speed, 28 * speed]), {
     stiffness: 90,
     damping: 30,
   });
   return (
     <motion.div
       className="gallery-column"
-      style={enhanced ? { y, x, scale: back ? 0.95 : 1, opacity: back ? 0.78 : 1 } : {}}
+      data-depth={enhanced ? index : undefined}
+      data-speed={enhanced ? speed : undefined}
+      style={enhanced ? { y, x } : {}}
     >
       {items.map((photo) => (
         <PhotoCard key={photo.src} photo={photo} enhanced={enhanced} onOpen={onOpen} />
       ))}
     </motion.div>
+  );
+}
+function GalleryLight({
+  index,
+  scrollProgress,
+  drift,
+}: {
+  index: number;
+  scrollProgress: ReturnType<typeof useScroll>["scrollYProgress"];
+  drift: ReturnType<typeof useMotionValue<number>>;
+}) {
+  const speed = index === 0 ? 0.08 : 0.16;
+  const y = useTransform(scrollProgress, [0, 1], [20 * speed, -220 * speed]);
+  const x = useSpring(useTransform(drift, [-0.5, 0.5], [-28 * speed, 28 * speed]), {
+    stiffness: 60,
+    damping: 30,
+  });
+  return (
+    <motion.div
+      aria-hidden="true"
+      className={`gallery-light gallery-light-${index}`}
+      style={{ x, y }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1.2 }}
+    />
   );
 }
 function Lightbox({
@@ -536,6 +553,15 @@ export function PortfolioGallery() {
           }}
           onMouseLeave={() => drift.set(0)}
         >
+          {enhanced &&
+            [0, 1].map((index) => (
+              <GalleryLight
+                key={index}
+                index={index}
+                scrollProgress={scrollYProgress}
+                drift={drift}
+              />
+            ))}
           <div className={`gallery-columns ${enhanced ? "" : "gallery-simple"}`}>
             {columns.map((items, index) => (
               <PhotoColumn
