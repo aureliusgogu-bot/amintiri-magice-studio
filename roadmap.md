@@ -1,5 +1,8 @@
 # Roadmap
 
+- [ ] Restore the brand-only page title and retain wedding, baptism and civil-ceremony photographer search terms.
+- [ ] Add direct visitor reviews and private admin approval, and verify submission and publication controls.
+
 - [x] Create the cinematic Romanian single-page site and exact studio story.
 - [x] Add 16-photo animated gallery and accessible fullscreen lightbox.
 - [x] Add contact email form, social links, mobile navigation and metadata.
