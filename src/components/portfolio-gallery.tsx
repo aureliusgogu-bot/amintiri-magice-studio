@@ -76,6 +76,7 @@ import {
 import { ArrowLeft, ArrowRight, X, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEnhancedMotion } from "@/hooks/use-enhanced-motion";
+import { EASE, MaskReveal } from "@/components/motion-kit";
 
 // Înlocuiți src și highRes cu fotografiile studioului; proporțiile păstrează stabilă compoziția.
 export const photos = [
@@ -359,10 +360,10 @@ function PhotoCard({
   return (
     <motion.div
       className="photo-wrapper"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
+      initial={{ opacity: 0, y: enhanced ? 48 : 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: enhanced ? 1 : 0.5, ease: EASE }}
       onMouseMove={move}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => {
@@ -396,6 +397,7 @@ function PhotoCard({
         <Button
           variant="photo"
           className="photo-button"
+          data-cursor="Vezi"
           aria-label={`Deschide fotografia: ${photo.title}`}
           onFocus={() => setHover(true)}
           onBlur={() => setHover(false)}
@@ -670,7 +672,9 @@ export function PortfolioGallery() {
           <div>
             <p className="section-kicker">Povești în imagini</p>
             <h2 className="section-title">
-              Portofoliu<span className="text-primary">.</span>
+              <MaskReveal as="div">
+                Portofoliu<span className="text-primary">.</span>
+              </MaskReveal>
             </h2>
             <p className="portfolio-description">Clipe care trec. Emoții care rămân.</p>
           </div>

@@ -1,10 +1,21 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState, type FormEvent } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState, type FormEvent } from "react";
+import { motion, useInView } from "framer-motion";
 import { ArrowUpRight, ArrowDown, ArrowRight, Instagram, Facebook, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PortfolioGallery } from "@/components/portfolio-gallery";
 import { ParallaxPhoto } from "@/components/parallax-photo";
+import {
+  CountUp,
+  CursorRing,
+  EASE,
+  Magnetic,
+  Marquee,
+  MaskReveal,
+  Reveal,
+  ScrollProgress,
+} from "@/components/motion-kit";
+import { useEnhancedMotion } from "@/hooks/use-enhanced-motion";
 import hero from "@/assets/hero.jpg.asset.json";
 
 import storyPhoto from "@/assets/nunta/nunta-1-large.jpg";
@@ -68,13 +79,38 @@ function SocialLinks() {
   );
 }
 function Navigation() {
+  const enhanced = useEnhancedMotion();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [active, setActive] = useState("");
   useEffect(() => {
-    const update = () => setScrolled(window.scrollY > 30);
+    let last = window.scrollY;
+    const update = () => {
+      const y = window.scrollY;
+      setScrolled(y > 30);
+      // Slide away while reading down the page, come back the moment the visitor scrolls up.
+      if (Math.abs(y - last) > 6) {
+        setHidden(y > 240 && y > last);
+        last = y;
+      }
+    };
     update();
     window.addEventListener("scroll", update, { passive: true });
     return () => window.removeEventListener("scroll", update);
+  }, []);
+  useEffect(() => {
+    const sections = ["portofoliu", "despre", "contact"]
+      .map((id) => document.getElementById(id))
+      .filter((element): element is HTMLElement => Boolean(element));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) if (entry.isIntersecting) setActive(entry.target.id);
+      },
+      { rootMargin: "-45% 0px -45% 0px" },
+    );
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
   useEffect(() => {
     if (!open) return;
@@ -85,7 +121,9 @@ function Navigation() {
     return () => window.removeEventListener("keydown", key);
   }, [open]);
   return (
-    <header className={`site-nav ${scrolled || open ? "scrolled" : ""}`}>
+    <header
+      className={`site-nav ${scrolled || open ? "scrolled" : ""} ${enhanced && hidden && !open ? "is-hidden" : ""}`}
+    >
       <div className="nav-inner">
         <a className="wordmark" href="#acasa" aria-label="#facemceneplace — Acasă">
           <span className="hash">#</span>facemceneplace
@@ -97,7 +135,9 @@ function Navigation() {
             ["Contact", "contact"],
           ].map(([label, id]) => (
             <Button key={id} variant="nav" asChild>
-              <a href={`#${id}`}>{label}</a>
+              <a href={`#${id}`} className="nav-link" data-active={active === id}>
+                {label}
+              </a>
             </Button>
           ))}
           <span className="social-divider" />
@@ -188,10 +228,12 @@ function ContactForm() {
           maxLength={4000}
         />
       </label>
-      <Button variant="studio" type="submit">
-        Să începem povestea
-        <ArrowUpRight />
-      </Button>
+      <Magnetic>
+        <Button variant="studio" type="submit">
+          Să începem povestea
+          <ArrowUpRight />
+        </Button>
+      </Magnetic>
       {opened && (
         <p role="status" className="text-sm text-muted-foreground">
           Continuă în aplicația ta de email. Mesajul va fi trimis doar după confirmarea ta.
@@ -200,9 +242,72 @@ function ContactForm() {
     </form>
   );
 }
+function HeroText() {
+  const enhanced = useEnhancedMotion();
+  const item = (delay: number) => ({
+    initial: { opacity: 0, y: enhanced ? 26 : 0 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: enhanced ? 1.1 : 0.6, delay: enhanced ? delay : 0, ease: EASE },
+  });
+  return (
+    <div>
+      <motion.p className="eyebrow" {...item(0.15)}>
+        Fotografie & videografie · Povești cu suflet
+      </motion.p>
+      <motion.h1 {...item(0.3)}>#facemceneplace</motion.h1>
+      <motion.p className="hero-subline mx-auto" {...item(0.55)}>
+        De peste 20 de ani, transformăm clipe în amintiri.
+      </motion.p>
+      <motion.div className="hero-actions justify-center" {...item(0.75)}>
+        <Magnetic>
+          <Button variant="studio" asChild>
+            <a href="#portofoliu">
+              Vezi portofoliul
+              <ArrowUpRight />
+            </a>
+          </Button>
+        </Magnetic>
+        <Magnetic>
+          <Button variant="cinematic" asChild>
+            <a href="#contact">
+              Contact
+              <ArrowRight />
+            </a>
+          </Button>
+        </Magnetic>
+      </motion.div>
+    </div>
+  );
+}
+function StoryLine({ line }: { line: string }) {
+  const enhanced = useEnhancedMotion();
+  const ref = useRef<HTMLParagraphElement>(null);
+  const seen = useInView(ref, { once: true, amount: 0.4 });
+  // The line in the middle of the screen is lit; the rest rest at lower brightness.
+  const focused = useInView(ref, { margin: "-38% 0px -38% 0px" });
+  return (
+    <motion.p
+      ref={ref}
+      className="story-line"
+      initial={{ opacity: 0, y: enhanced ? 22 : 0 }}
+      animate={{ opacity: !seen ? 0 : enhanced && !focused ? 0.6 : 1, y: seen ? 0 : enhanced ? 22 : 0 }}
+      transition={{ duration: 0.8, ease: EASE }}
+    >
+      {line.split("#facemceneplace").map((part, i) => (
+        <span key={i}>
+          {i > 0 && <span className="text-primary">#facemceneplace</span>}
+          {part}
+        </span>
+      ))}
+    </motion.p>
+  );
+}
 function Index() {
   return (
     <div id="studio-page">
+      <ScrollProgress />
+      <CursorRing />
+      <span aria-hidden className="film-grain" />
       <Navigation />
       <main>
         <section id="acasa" className="hero">
@@ -215,31 +320,7 @@ function Index() {
           />
           <div className="hero-overlay" />
           <div className="hero-content">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1 }}
-            >
-              <p className="eyebrow">Fotografie & videografie · Povești cu suflet</p>
-              <h1>#facemceneplace</h1>
-              <p className="hero-subline mx-auto">
-                De peste 20 de ani, transformăm clipe în amintiri.
-              </p>
-              <div className="hero-actions justify-center">
-                <Button variant="studio" asChild>
-                  <a href="#portofoliu">
-                    Vezi portofoliul
-                    <ArrowUpRight />
-                  </a>
-                </Button>
-                <Button variant="cinematic" asChild>
-                  <a href="#contact">
-                    Contact
-                    <ArrowRight />
-                  </a>
-                </Button>
-              </div>
-            </motion.div>
+            <HeroText />
           </div>
           <div className="hero-bottom">
             <p>
@@ -259,18 +340,20 @@ function Index() {
             <i />
           </a>
         </section>
+        <Marquee items={["Nunți", "Cununii civile", "Botezuri", "Majorate", "Evenimente", "Foto", "Video"]} />
         <PortfolioGallery />
         <section id="despre" className="story-section">
           <div className="section-inner story-layout">
             <div className="story-intro">
               <p className="section-kicker">Din pasiune. Cu suflet.</p>
               <h2 className="section-title">
-                Povestea
-                <br />
-                <em>noastră.</em>
+                <MaskReveal as="div">Povestea</MaskReveal>
+                <MaskReveal as="div" delay={0.12}>
+                  <em>noastră.</em>
+                </MaskReveal>
               </h2>
               <div className="experience">
-                <strong>20+</strong>
+                <CountUp to={20} suffix="+" />
                 <p>ani de amintiri</p>
               </div>
               <ParallaxPhoto
@@ -282,21 +365,7 @@ function Index() {
             </div>
             <div className="story-copy">
               {story.map((line, index) => (
-                <motion.p
-                  key={index}
-                  className="story-line"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.7 }}
-                >
-                  {line.split("#facemceneplace").map((part, i) => (
-                    <span key={i}>
-                      {i > 0 && <span className="text-primary">#facemceneplace</span>}
-                      {part}
-                    </span>
-                  ))}
-                </motion.p>
+                <StoryLine key={index} line={line} />
               ))}
             </div>
           </div>
@@ -311,9 +380,12 @@ function Index() {
           <div className="section-inner">
             <p className="section-kicker">Fiecare poveste începe cu un salut</p>
             <h2 className="section-title contact-title">
-              Hai să păstrăm împreună <em>momentul tău.</em>
+              <MaskReveal as="div">Hai să păstrăm împreună</MaskReveal>
+              <MaskReveal as="div" delay={0.12}>
+                <em>momentul tău.</em>
+              </MaskReveal>
             </h2>
-            <div className="contact-layout">
+            <Reveal className="contact-layout">
               <div>
                 <a className="email-link" href="mailto:facemceneplace@gmail.com">
                   facemceneplace@gmail.com
@@ -322,7 +394,7 @@ function Index() {
                 <SocialLinks />
               </div>
               <ContactForm />
-            </div>
+            </Reveal>
           </div>
         </section>
       </main>
