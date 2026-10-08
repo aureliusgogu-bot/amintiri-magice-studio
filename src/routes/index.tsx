@@ -1,7 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowUpRight, ArrowDown, ArrowRight, Instagram, Facebook, MapPin, Menu, X } from "lucide-react";
+import {
+  ArrowUpRight,
+  ArrowDown,
+  ArrowRight,
+  Instagram,
+  Facebook,
+  MapPin,
+  Menu,
+  X,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PortfolioGallery } from "@/components/portfolio-gallery";
 import { ParallaxPhoto } from "@/components/parallax-photo";
@@ -26,6 +35,7 @@ const title = "#facemceneplace — Foto și video de peste 20 de ani";
 const description =
   "De peste 20 de ani, transformăm clipe în amintiri. Descoperă poveștile #facemceneplace: fotografie și video pentru nunți, cununii civile, botezuri, majorate și evenimente în Ilfov și București.";
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },
@@ -53,7 +63,10 @@ export const Route = createFileRoute("/")({
             "https://www.facebook.com/share/1BagDkJcXJ/",
             "https://www.instagram.com/george.constantin1701",
           ],
-          employee: [{ "@type": "Person", name: "George Constantin" }, { "@type": "Person", name: "Petrișor Stan" }],
+          employee: [
+            { "@type": "Person", name: "George Constantin" },
+            { "@type": "Person", name: "Petrișor Stan" },
+          ],
         }),
       },
     ],
@@ -333,7 +346,10 @@ function StoryLine({ line }: { line: string }) {
       ref={ref}
       className="story-line"
       initial={{ opacity: 0, y: enhanced ? 22 : 0 }}
-      animate={{ opacity: !seen ? 0 : enhanced && !focused ? 0.6 : 1, y: seen ? 0 : enhanced ? 22 : 0 }}
+      animate={{
+        opacity: !seen ? 0 : enhanced && !focused ? 0.6 : 1,
+        y: seen ? 0 : enhanced ? 22 : 0,
+      }}
       transition={{ duration: 0.8, ease: EASE }}
     >
       {line.split("#facemceneplace").map((part, i) => (
@@ -383,7 +399,9 @@ function Index() {
             <i />
           </a>
         </section>
-        <Marquee items={["Nunți", "Cununii civile", "Botezuri", "Majorate", "Evenimente", "Foto", "Video"]} />
+        <Marquee
+          items={["Nunți", "Cununii civile", "Botezuri", "Majorate", "Evenimente", "Foto", "Video"]}
+        />
         <PortfolioGallery />
         <section id="despre" className="story-section">
           <div className="section-inner story-layout">

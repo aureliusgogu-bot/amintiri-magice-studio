@@ -78,7 +78,13 @@ export function MaskReveal({
 }
 
 /** Pulls its content a few pixels toward the cursor. Desktop-with-mouse only. */
-export function Magnetic({ children, strength = 0.28 }: { children: ReactNode; strength?: number }) {
+export function Magnetic({
+  children,
+  strength = 0.28,
+}: {
+  children: ReactNode;
+  strength?: number;
+}) {
   const enhanced = useEnhancedMotion();
   const ref = useRef<HTMLSpanElement>(null);
   const x = useSpring(useMotionValue(0), { stiffness: 180, damping: 18, mass: 0.4 });

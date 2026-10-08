@@ -16,3 +16,4 @@
 - Gate all photo and gallery transform animations through the shared desktop/hover/reduced-motion hook; use opacity-only transitions otherwise for accessible mobile browsing.
 - Use clipped reusable parallax photo frames and native passive pointer tracking without wheel/drag interception so images stay covered and page scrolling remains available.
 - Keep contact submission entirely client-side through an encoded mailto URL because no backend is required.
+- Serve the sitemap from the server route `src/routes/sitemap[.]xml.ts` with `BASE_URL` set to the live public origin, and give every route an explicit `staticData.sitemap` decision, so the XML follows the router without a build-time sitemap plugin that would shadow it.
