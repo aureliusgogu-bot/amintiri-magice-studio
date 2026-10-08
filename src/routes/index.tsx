@@ -26,6 +26,7 @@ const title = "#facemceneplace — Foto și video de peste 20 de ani";
 const description =
   "De peste 20 de ani, transformăm clipe în amintiri. Descoperă poveștile #facemceneplace: fotografie și video pentru nunți, cununii civile, botezuri, majorate și evenimente în Ilfov și București.";
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title },
