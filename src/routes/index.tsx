@@ -83,6 +83,8 @@ export const Route = createFileRoute("/")({
           "@type": ["LocalBusiness", "Photographer"],
           "@id": BUSINESS_ID,
           name: "#facemceneplace",
+          legalName: "FACEM CE NE PLACE S.R.L",
+          vatID: "52881469",
           description,
           url: `${SITE_ORIGIN}/`,
           email: "facemceneplace@gmail.com",
