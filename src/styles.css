@@ -220,6 +220,13 @@
   inset: 0;
   background: var(--hero-shade);
 }
+.hero-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--hero-glow);
+  pointer-events: none;
+}
 .hero-content {
   position: relative;
   z-index: 1;
@@ -515,6 +522,13 @@ main {
   aspect-ratio: 4 / 3;
   margin-top: 32px;
 }
+.story-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--vignette);
+  pointer-events: none;
+}
 .story-photo img {
   object-position: center;
 }
@@ -537,6 +551,14 @@ main {
   position: absolute;
   inset: 0;
   background: var(--contact-shade);
+  z-index: -1;
+  pointer-events: none;
+}
+.contact-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--vignette);
   z-index: -1;
   pointer-events: none;
 }
@@ -1324,8 +1346,18 @@ a:hover > .lucide-arrow-right {
 .review-card blockquote {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 20px;
-  line-height: 1.6;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.65;
+}
+.review-card blockquote::before {
+  content: "“";
+  display: block;
+  font-size: 64px;
+  line-height: 0.5;
+  color: var(--primary);
+  opacity: 0.55;
+  margin-bottom: 18px;
 }
 .review-card figcaption {
   display: flex;
