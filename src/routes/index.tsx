@@ -36,9 +36,33 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Photographer",
+          name: "#facemceneplace",
+          description,
+          email: "facemceneplace@gmail.com",
+          telephone: ["+40727113893", "+40720179744"],
+          sameAs: [
+            "https://www.facebook.com/share/1FYnSYK1N4/",
+            "https://www.instagram.com/george.constantin1701",
+          ],
+          employee: [{ "@type": "Person", name: "George Constantin" }, { "@type": "Person", name: "Petrișor Stan" }],
+        }),
+      },
+    ],
   }),
   component: Index,
 });
+const people = [
+  { name: "George Constantin", phone: "0727113893" },
+  { name: "Petrișor Stan", phone: "0720179744" },
+] as const;
+const phoneLabel = (phone: string) => `${phone.slice(0, 4)} ${phone.slice(4, 7)} ${phone.slice(7)}`;
+const phoneHref = (phone: string) => `tel:+4${phone}`;
 const facebook = "https://www.facebook.com/share/1FYnSYK1N4/";
 const instagram = "https://www.instagram.com/george.constantin1701";
 const story = [
@@ -276,6 +300,14 @@ function HeroText() {
           </Button>
         </Magnetic>
       </motion.div>
+      <motion.div className="hero-contacts" {...item(0.95)}>
+        {people.map((person) => (
+          <a key={person.phone} href={phoneHref(person.phone)}>
+            <span>{person.name}</span>
+            <strong>{phoneLabel(person.phone)}</strong>
+          </a>
+        ))}
+      </motion.div>
     </div>
   );
 }
@@ -387,6 +419,17 @@ function Index() {
             </h2>
             <Reveal className="contact-layout">
               <div>
+                <ul className="contact-people">
+                  {people.map((person) => (
+                    <li key={person.phone}>
+                      <span>{person.name}</span>
+                      <a href={phoneHref(person.phone)}>
+                        {phoneLabel(person.phone)}
+                        <ArrowUpRight size={18} />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
                 <a className="email-link" href="mailto:facemceneplace@gmail.com">
                   facemceneplace@gmail.com
                   <ArrowUpRight size={20} />
@@ -401,6 +444,13 @@ function Index() {
       <footer className="footer">
         <p className="footer-brand">
           #facemceneplace <span>· © {new Date().getFullYear()}</span>
+        </p>
+        <p className="footer-phones">
+          {people.map((person) => (
+            <a key={person.phone} href={phoneHref(person.phone)}>
+              {person.name} · {phoneLabel(person.phone)}
+            </a>
+          ))}
         </p>
         <SocialLinks />
       </footer>

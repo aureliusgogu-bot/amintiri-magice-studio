@@ -1178,3 +1178,85 @@ a:hover > .lucide-arrow-right {
     animation: none;
   }
 }
+
+/* ---------- Contact people ---------- */
+.hero-contacts {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+.hero-contacts a {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+  transition: color 0.5s var(--ease);
+}
+.hero-contacts span {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+.hero-contacts strong {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: 0.04em;
+}
+.hero-contacts a:hover strong,
+.contact-people a:hover,
+.footer-phones a:hover {
+  color: var(--primary);
+}
+.contact-people {
+  list-style: none;
+  margin: 0 0 36px;
+  padding: 0;
+  display: grid;
+  gap: 22px;
+}
+.contact-people li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.contact-people span {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.contact-people a {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-display);
+  font-size: 34px;
+  line-height: 1.2;
+  transition: color 0.5s var(--ease);
+}
+.footer-phones {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+.footer-phones a {
+  transition: color 0.5s var(--ease);
+}
+@media (max-width: 767px) {
+  .hero-contacts {
+    gap: 22px;
+    margin-top: 28px;
+  }
+  .hero-contacts strong {
+    font-size: 19px;
+  }
+  .contact-people a {
+    font-size: 28px;
+  }
+}
