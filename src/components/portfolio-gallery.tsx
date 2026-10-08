@@ -31,6 +31,7 @@ import photo14large from "@/assets/photo-14-large.jpg.asset.json";
 import photo15small from "@/assets/photo-15-small.jpg.asset.json";
 import photo15large from "@/assets/photo-15-large.jpg.asset.json";
 import { useEffect, useRef, useState, useCallback, type MouseEvent } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, LayoutGroup, motion, useMotionValue, useSpring, useScroll, useTransform } from 'framer-motion';
 import { ArrowLeft, ArrowRight, X, Maximize2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -142,5 +143,5 @@ export function PortfolioGallery(){
   <div className="filters" role="group" aria-label="Categorii de fotografii">{['Toate','Nunți','Portrete','Evenimente','Cinematic'].map(item=><Button key={item} variant="nav" data-active={category===item} aria-pressed={category===item} onClick={()=>setCategory(item)}>{item}</Button>)}</div></div>
   <div className="gallery-wall" onMouseMove={event=>{if(!enhanced)return;const rect=event.currentTarget.getBoundingClientRect();drift.set((event.clientX-rect.left)/rect.width-.5);}} onMouseLeave={()=>drift.set(0)}><div className="gallery-columns">{columns.map((items,index)=><PhotoColumn key={`${category}-${index}-${enhanced}`} items={items} index={index} enhanced={enhanced} scrollProgress={scrollYProgress} drift={drift} onOpen={open}/>)}</div></div>
   <div className="gallery-end">{String(list.length).padStart(2,'0')} povești. Nenumărate emoții.</div>
- </section><AnimatePresence>{selected&&<Lightbox selected={selected} list={list} enhanced={enhanced} onClose={close} onSelect={setSelected}/>}</AnimatePresence></LayoutGroup>;
+ </section>{typeof document !== 'undefined'&&createPortal(<AnimatePresence>{selected&&<Lightbox selected={selected} list={list} enhanced={enhanced} onClose={close} onSelect={setSelected}/>}</AnimatePresence>,document.body)}</LayoutGroup>;
 }
