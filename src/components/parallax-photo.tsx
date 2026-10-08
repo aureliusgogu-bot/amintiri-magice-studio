@@ -69,13 +69,13 @@ export function ParallaxPhoto({
         tick();
         interval = window.setInterval(tick, swapEvery);
       },
-      Math.round(swapEvery * 0.6),
+      swapDelay,
     );
     return () => {
       window.clearTimeout(start);
       if (interval) window.clearInterval(interval);
     };
-  }, [enhanced, swap, swapEvery]);
+  }, [enhanced, swap, swapEvery, swapDelay]);
 
   return (
     <div ref={frame} className={`parallax-photo ${className}`}>
