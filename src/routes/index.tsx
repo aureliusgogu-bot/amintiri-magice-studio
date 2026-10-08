@@ -5,7 +5,7 @@ import { ArrowUpRight, Instagram, Facebook, MapPin, Menu, X } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { PortfolioGallery, photos } from "@/components/portfolio-gallery";
 import { PortfolioRecommender } from "@/components/portfolio-recommender";
-import { ParallaxPhoto } from "@/components/parallax-photo";
+import { ParallaxPhoto, type SwapPhoto } from "@/components/parallax-photo";
 import {
   CountUp,
   CursorRing,
@@ -329,18 +329,12 @@ function HeroText() {
       <motion.div className="hero-actions justify-center" {...item(0.75)}>
         <Magnetic>
           <Button variant="studio" asChild>
-            <a href="#portofoliu">
-              Vezi portofoliul
-              <ArrowUpRight />
-            </a>
+            <a href="#portofoliu">Vezi portofoliul</a>
           </Button>
         </Magnetic>
         <Magnetic>
           <Button variant="cinematic" asChild>
-            <a href="#contact">
-              Contact
-              <ArrowRight />
-            </a>
+            <a href="#contact">Contact</a>
           </Button>
         </Magnetic>
       </motion.div>
@@ -395,6 +389,18 @@ function Index() {
 function Page() {
   const { settings, reviews, photos: dbPhotos } = useSite();
   const { people, facebook, instagram, email } = settings;
+  // The opening photo slowly gives way to one photo from each part of the portfolio.
+  const heroSwap = useMemo(() => {
+    const seen = new Set<string>();
+    const picked: SwapPhoto[] = [];
+    for (const photo of dbPhotos ?? photos) {
+      if (seen.has(photo.category)) continue;
+      seen.add(photo.category);
+      picked.push({ src: photo.highRes, alt: `${photo.title} — ${photo.category}` });
+      if (picked.length === 4) break;
+    }
+    return picked;
+  }, [dbPhotos]);
   return (
     <div id="studio-page">
       <ScrollProgress />
@@ -403,7 +409,14 @@ function Page() {
       <Navigation />
       <main>
         <section id="acasa" className="hero">
-          <ParallaxPhoto src={hero.url} alt={heroAlt} className="hero-photo" distance={85} eager />
+          <ParallaxPhoto
+            src={hero.url}
+            alt={heroAlt}
+            className="hero-photo"
+            distance={85}
+            eager
+            swap={heroSwap}
+          />
           <div className="hero-overlay" />
           <div className="hero-content">
             <HeroText />
@@ -422,7 +435,6 @@ function Page() {
           </div>
           <a className="scroll-mark" href="#portofoliu" aria-label="Descoperă portofoliul">
             <span>Descoperă</span>
-            <ArrowDown size={13} />
             <i />
           </a>
         </section>
