@@ -4,6 +4,6 @@
 - [x] Add 16-photo animated gallery and accessible fullscreen lightbox.
 - [x] Add contact email form, social links, mobile navigation and metadata.
 - [x] Verify desktop, mobile, reduced motion and gallery interactions.
-- [ ] Add the requested Unsplash camera photos to story and contact with safe fallbacks.
-- [ ] Strengthen desktop depth and parallax; preserve opacity-only mobile/reduced motion and native scrolling.
-- [ ] Verify new photos, depth, fallbacks and responsive behavior.
+- [ ] Store the two exact camera photos as resized CDN assets: blocked by Unsplash HTTP 401; needs user-uploaded image files. Exact download URLs are wired with verified gradient fallbacks.
+- [x] Strengthen desktop depth and parallax; preserve opacity-only mobile/reduced motion and native scrolling.
+- [x] Verify depth, image fallbacks, lightbox, Romanian metadata and responsive behavior; photos themselves remain unavailable.
