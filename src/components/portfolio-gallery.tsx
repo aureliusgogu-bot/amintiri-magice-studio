@@ -1,3 +1,11 @@
+import nunta6small from "@/assets/nunta/nunta-6-small.jpg";
+import nunta6large from "@/assets/nunta/nunta-6-large.jpg";
+import nunta7small from "@/assets/nunta/nunta-7-small.jpg";
+import nunta7large from "@/assets/nunta/nunta-7-large.jpg";
+import nunta8small from "@/assets/nunta/nunta-8-small.jpg";
+import nunta8large from "@/assets/nunta/nunta-8-large.jpg";
+import nunta9small from "@/assets/nunta/nunta-9-small.jpg";
+import nunta9large from "@/assets/nunta/nunta-9-large.jpg";
 import botez1small from "@/assets/botez/botez-1-small.jpg";
 import botez1large from "@/assets/botez/botez-1-large.jpg";
 import botez2small from "@/assets/botez/botez-2-small.jpg";
@@ -60,34 +68,6 @@ import { useEnhancedMotion } from "@/hooks/use-enhanced-motion";
 // Înlocuiți src și highRes cu fotografiile studioului; proporțiile păstrează stabilă compoziția.
 export const photos = [
   {
-    src: botez1small,
-    highRes: botez1large,
-    aspectRatio: 1.5,
-    category: "Botez",
-    title: "Pregătit pentru soare",
-  },
-  {
-    src: botez2small,
-    highRes: botez2large,
-    aspectRatio: 1.5,
-    category: "Botez",
-    title: "Lumea de deasupra",
-  },
-  {
-    src: botez3small,
-    highRes: botez3large,
-    aspectRatio: 0.67,
-    category: "Botez",
-    title: "Privire printre gratii",
-  },
-  {
-    src: botez4small,
-    highRes: botez4large,
-    aspectRatio: 1.5,
-    category: "Botez",
-    title: "Cel mai mic star",
-  },
-  {
     src: nunta1small,
     highRes: nunta1large,
     aspectRatio: 0.67,
@@ -121,6 +101,62 @@ export const photos = [
     aspectRatio: 1.5,
     category: "Nunți",
     title: "Împreună la drum",
+  },
+  {
+    src: photo0small.url,
+    highRes: photo0large.url,
+    aspectRatio: 0.78,
+    category: "Nunți",
+    title: "O promisiune pentru totdeauna",
+  },
+  {
+    src: photo3small.url,
+    highRes: photo3large.url,
+    aspectRatio: 0.8,
+    category: "Nunți",
+    title: "Doar noi doi",
+  },
+  {
+    src: photo1small.url,
+    highRes: photo1large.url,
+    aspectRatio: 0.78,
+    category: "Nunți",
+    title: "Împreună, până la orizont",
+  },
+  {
+    src: photo2small.url,
+    highRes: photo2large.url,
+    aspectRatio: 0.85,
+    category: "Nunți",
+    title: "Începutul poveștii noastre",
+  },
+  {
+    src: nunta6small,
+    highRes: nunta6large,
+    aspectRatio: 1.5,
+    category: "Nunți",
+    title: "Detalii pentru ziua cea mare",
+  },
+  {
+    src: nunta7small,
+    highRes: nunta7large,
+    aspectRatio: 1.5,
+    category: "Nunți",
+    title: "Verighete",
+  },
+  {
+    src: nunta8small,
+    highRes: nunta8large,
+    aspectRatio: 1.5,
+    category: "Nunți",
+    title: "26 Septembrie",
+  },
+  {
+    src: nunta9small,
+    highRes: nunta9large,
+    aspectRatio: 1.5,
+    category: "Nunți",
+    title: "Mireasa pe scări",
   },
   {
     src: majorat1small,
@@ -158,18 +194,32 @@ export const photos = [
     title: "Povești în foișor",
   },
   {
-    src: photo0small.url,
-    highRes: photo0large.url,
-    aspectRatio: 0.78,
-    category: "Nunți",
-    title: "O promisiune pentru totdeauna",
+    src: botez1small,
+    highRes: botez1large,
+    aspectRatio: 1.5,
+    category: "Botez",
+    title: "Pregătit pentru soare",
   },
   {
-    src: photo3small.url,
-    highRes: photo3large.url,
-    aspectRatio: 0.8,
-    category: "Nunți",
-    title: "Doar noi doi",
+    src: botez2small,
+    highRes: botez2large,
+    aspectRatio: 1.5,
+    category: "Botez",
+    title: "Lumea de deasupra",
+  },
+  {
+    src: botez3small,
+    highRes: botez3large,
+    aspectRatio: 0.67,
+    category: "Botez",
+    title: "Privire printre gratii",
+  },
+  {
+    src: botez4small,
+    highRes: botez4large,
+    aspectRatio: 1.5,
+    category: "Botez",
+    title: "Cel mai mic star",
   },
   {
     src: photo8small.url,
@@ -179,25 +229,11 @@ export const photos = [
     title: "O masă, o mie de povești",
   },
   {
-    src: photo1small.url,
-    highRes: photo1large.url,
-    aspectRatio: 0.78,
-    category: "Nunți",
-    title: "Împreună, până la orizont",
-  },
-  {
     src: photo10small.url,
     highRes: photo10large.url,
     aspectRatio: 1.15,
     category: "Evenimente",
     title: "Oamenii care ne sunt acasă",
-  },
-  {
-    src: photo2small.url,
-    highRes: photo2large.url,
-    aspectRatio: 0.85,
-    category: "Nunți",
-    title: "Începutul poveștii noastre",
   },
   {
     src: photo9small.url,
