@@ -4,7 +4,12 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowDown, ArrowRight, Instagram, Facebook, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PortfolioGallery } from "@/components/portfolio-gallery";
+import { ParallaxPhoto } from "@/components/parallax-photo";
 import hero from "@/assets/hero.jpg.asset.json";
+
+// Fotografii demonstrative exacte; înlocuiți cu pointeri CDN după încărcarea fișierelor.
+const storyPhoto = "https://unsplash.com/photos/_Mt1U6SfYwk/download?force=true";
+const contactPhoto = "https://unsplash.com/photos/GCPAiY0jrHc/download?force=true";
 
 const title = "#facemceneplace — Foto și video de peste 20 de ani";
 const description =
@@ -197,21 +202,18 @@ function ContactForm() {
   );
 }
 function Index() {
-  const [heroFailed, setHeroFailed] = useState(false);
   return (
     <div id="studio-page">
       <Navigation />
       <main>
         <section id="acasa" className="hero">
-          {!heroFailed && (
-            <img
-              src={hero.url}
-              alt="Un cuplu de miri, împreună în lumina caldă a apusului"
-              className="hero-photo"
-              fetchPriority="high"
-              onError={() => setHeroFailed(true)}
-            />
-          )}
+          <ParallaxPhoto
+            src={hero.url}
+            alt="Un cuplu de miri, împreună în lumina caldă a apusului"
+            className="hero-photo"
+            distance={85}
+            eager
+          />
           <div className="hero-overlay" />
           <div className="hero-content">
             <motion.div
@@ -272,6 +274,12 @@ function Index() {
                 <strong>20+</strong>
                 <p>ani de amintiri</p>
               </div>
+              <ParallaxPhoto
+                src={storyPhoto}
+                alt="Aparate foto și accesorii fotografice așezate pe o masă de lemn"
+                className="story-photo"
+                distance={45}
+              />
             </div>
             <div className="story-copy">
               {story.map((line, index) => (
@@ -294,7 +302,14 @@ function Index() {
             </div>
           </div>
         </section>
-        <section id="contact" className="section-inner">
+        <section id="contact" className="contact-section">
+          <ParallaxPhoto
+            src={contactPhoto}
+            alt="Un aparat foto mirrorless Sony așezat pe o masă"
+            className="contact-photo"
+            distance={0}
+          />
+          <div className="section-inner">
           <p className="section-kicker">Fiecare poveste începe cu un salut</p>
           <h2 className="section-title contact-title">
             Hai să păstrăm împreună <em>momentul tău.</em>
@@ -308,6 +323,7 @@ function Index() {
               <SocialLinks />
             </div>
             <ContactForm />
+          </div>
           </div>
         </section>
       </main>
