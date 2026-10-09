@@ -402,7 +402,7 @@ function HeroText() {
   return (
     <div>
       <motion.p className="eyebrow" {...item(0.15)}>
-        Fotograf nuntă · Fotograf botez · Fotograf cununie
+        Foto & video · Povești cu suflet
       </motion.p>
       <motion.h1 {...item(0.3)}>#facemceneplace</motion.h1>
       <motion.p className="hero-subline mx-auto" {...item(0.55)}>

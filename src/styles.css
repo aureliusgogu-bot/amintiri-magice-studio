@@ -1611,3 +1611,154 @@ a:hover > .lucide-arrow-right {
 .recommend-grid p span {
   color: var(--muted-foreground);
 }
+
+/* ---------- Accessibility pass (Apple HIG): readable type, 44px touch targets ---------- */
+:root {
+  --text-min: 13px;
+  --tap-min: 44px;
+}
+/* 1. No text below 13px, and no faded captions */
+.nav-links a,
+.eyebrow,
+.hero-bottom p,
+.scroll-mark span,
+.section-kicker,
+.filters button,
+.photo-info span,
+.gallery-end,
+.contact-form label,
+.footer-legal,
+.lightbox-caption p,
+.hero-contacts span,
+.contact-people span,
+.hero-location,
+.contact-intro .contact-location,
+.hero-actions a,
+.footer-phones,
+.social-links a,
+.qr-card span {
+  font-size: max(var(--text-min), 1em);
+}
+.nav-links a,
+.hero-actions a,
+.filters button {
+  font-size: 14px;
+}
+.hero-bottom p {
+  opacity: 1;
+  color: oklch(0.935 0.012 80 / 0.85);
+  text-shadow: 0 1px 8px oklch(0 0 0 / 0.6);
+}
+.eyebrow,
+.section-kicker,
+.hero-contacts span,
+.contact-people span,
+.hero-location {
+  letter-spacing: 0.14em;
+}
+@media (max-width: 767px) {
+  .eyebrow,
+  .hero-bottom p,
+  .scroll-mark span,
+  .section-kicker,
+  .filters button,
+  .photo-info span,
+  .hero-actions a,
+  .hero-contacts span,
+  .hero-location {
+    font-size: var(--text-min);
+  }
+  .hero-bottom p {
+    letter-spacing: 0.06em;
+  }
+}
+
+/* 2. Touch targets: grow the hit area to 44px without changing how things look */
+.site-nav .nav-links a,
+.site-nav .nav-links button,
+.filters button,
+.social-links a,
+.footer-phones a,
+.footer a,
+.email-link,
+.contact-people a,
+.hero-contacts a,
+.wordmark,
+.scroll-mark,
+.qr-card,
+.reviews-cta a,
+.recommend-form button,
+.contact-form button,
+.hero-actions a,
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  min-height: var(--tap-min);
+  min-width: var(--tap-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-contacts a,
+.contact-people a {
+  justify-content: flex-start;
+}
+.footer-phones a,
+.social-links a,
+.email-link {
+  justify-content: flex-start;
+}
+.nav-links a,
+.filters button,
+.footer-phones a {
+  padding-inline: 6px;
+}
+.nav-links button {
+  width: var(--tap-min);
+  height: var(--tap-min);
+}
+.mobile-toggle {
+  min-width: var(--tap-min);
+  min-height: var(--tap-min);
+}
+.mobile-menu a {
+  min-height: var(--tap-min);
+  display: flex;
+  align-items: center;
+}
+.contact-form input,
+.contact-form textarea,
+.recommend-input {
+  min-height: var(--tap-min);
+  font-size: 16px; /* also stops iOS from zooming in when a field is tapped */
+}
+.filters {
+  row-gap: 4px;
+}
+@media (max-width: 767px) {
+  .filters {
+    gap: 2px 10px;
+  }
+  .hero-contacts {
+    gap: 12px 22px;
+  }
+  .footer-phones {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.experience p,
+.reviews-cta a,
+.contact-form button,
+.reviews-form button,
+.recommend-form button {
+  font-size: 14px;
+}
+
+/* Phones: the two corner captions repeat the hero text and no longer fit; the scroll cue stays. */
+@media (max-width: 767px) {
+  .hero-bottom p {
+    display: none;
+  }
+}
