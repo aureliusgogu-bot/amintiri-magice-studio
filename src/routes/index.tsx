@@ -36,6 +36,12 @@ const description =
 const SITE_ORIGIN = "https://facemceneplace.com";
 const BUSINESS_ID = `${SITE_ORIGIN}/#facemceneplace`;
 const heroAlt = "Un cuplu de miri, împreună în lumina caldă a apusului";
+// Google wants the creator of each image as a typed entity (Person/Organization), not a bare @id reference.
+const imageCredit = {
+  creator: { "@type": "Organization", name: "#facemceneplace", url: `${SITE_ORIGIN}/` },
+  creditText: "#facemceneplace",
+  copyrightNotice: `© ${new Date().getFullYear()} #facemceneplace`,
+};
 
 // Images the page really shows: the hero plus every gallery photo, described with
 // the same Romanian titles and categories visitors see.
@@ -45,7 +51,7 @@ const imageObjects = [
     contentUrl: new URL(hero.url, SITE_ORIGIN).href,
     caption: heroAlt,
     name: "#facemceneplace",
-    creator: { "@id": BUSINESS_ID },
+    ...imageCredit,
   },
   ...photos.map((photo) => ({
     "@type": "ImageObject",
@@ -53,7 +59,7 @@ const imageObjects = [
     thumbnailUrl: new URL(photo.src, SITE_ORIGIN).href,
     name: photo.title,
     caption: `${photo.title} — ${photo.category}`,
-    creator: { "@id": BUSINESS_ID },
+    ...imageCredit,
   })),
 ];
 export const Route = createFileRoute("/")({
