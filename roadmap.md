@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Compact homepage reviews into a swipe carousel with full-text dialogs and approved-review count; preserve all review text.
+- [ ] Add /recenzii with the complete grid, existing submission form, Facebook link, SEO and sitemap inclusion; verify desktop/mobile and navigation.
 - [x] Restore the brand-only page title and retain wedding, baptism and civil-ceremony photographer search terms.
 - [x] Add direct visitor reviews and private admin approval; verified real submission, private storage, anonymous approval/write denial, tests and build.
 - [ ] Verify George's signed-in approval flow: blocked because no authorized admin session is available; George must sign in in the preview.
