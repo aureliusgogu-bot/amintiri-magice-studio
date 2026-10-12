@@ -2,7 +2,7 @@
   "meta": {
     "name": "Https Facemceneplace Com",
     "package": "@ws-1062323c948fe9abd9f7/c0abf0ef-62c9-4d0c-a176-953f5ccc36d3",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system_tailwind",
@@ -11,7 +11,7 @@
     ],
     "source_type": "local",
     "source_manifest": {
-      "#enrichment": "cef4b98c19d416de391a5e54ac15b26e0c462c24f91a7aa2849de3011c38d125",
+      "#enrichment": "0a8de815f5ea2de17f02b773629b3c884df697f6802b5217e481afaf6df1c66f",
       ".dsignore": "9e3699d0e7e3f5fd4ae86e8f5e706d4b",
       ".github/workflows/ci.yml": "720d769c4391390e078e9376d907bddb",
       ".gitignore": "6d9e901a692b46a83707c245fb03bc91",
@@ -108,6 +108,7 @@
       "src/components/admin/admin-shared.tsx": "b1fec459e9b15192ba91d587dbf647e3",
       "src/components/admin/content-tabs.tsx": "977b0e5039f2b373ed15fdcd017ee794",
       "src/components/admin/photos-tab.tsx": "55d6d21064edcc6a61f1e9ed9945bb92",
+      "src/components/footer-credit.tsx": "c35dfde7f52fe7479b0f875550e1e1ab",
       "src/components/motion-kit.tsx": "77040776dd7d75a21251d138ec6f48fa",
       "src/components/parallax-photo.tsx": "5ec451173183e2f3ee859c7762e27921",
       "src/components/portfolio-gallery.tsx": "96b9fbbe1b39b29deddc25d365d8ffe1",
@@ -185,12 +186,12 @@
       "src/routes/__root.tsx": "1223d7e5036e514467db6ed9d8e952b2",
       "src/routes/admin.tsx": "7b8cef1db7747ce71030b51980e3d874",
       "src/routes/foto.$.ts": "ff84069f61e67543fd26846c2d825b8c",
-      "src/routes/index.tsx": "713ae7e6e392044cd46f85c1bd8820d4",
-      "src/routes/recenzii.tsx": "2e389da703e8b0e6526f81d7cdc07b37",
+      "src/routes/index.tsx": "d01e3068e3aab67ce3b82e01efaf63da",
+      "src/routes/recenzii.tsx": "a47bc0d103b8ca898b8253f81ae5d2d8",
       "src/routes/sitemap[.]xml.ts": "a53bed3f3cf7777b80ba770f8112a848",
       "src/server.ts": "c7bbc49bb70e318af618d92775ee0f27",
       "src/start.ts": "0502f82c58afce5012b4c102e6fe2437",
-      "src/styles.css": "7813ab6fd16636bf1514549e02f9a1d9",
+      "src/styles.css": "938d9d6939a9f1cea3acf8494ad564f5",
       "src/test/app-routing.test.tsx": "cd721a61f0943554f64f2e8c33c8a375",
       "src/test/review-schema.test.ts": "9adae42e879e926120719b40e8c8841e",
       "src/test/reviews.test.tsx": "58ca29be6df7fa34a2042aa44987f7ac",
@@ -378,6 +379,11 @@
     {
       "name": "PhotosTab",
       "file": "src/components/admin/photos-tab",
+      "import_path": ""
+    },
+    {
+      "name": "FooterCredit",
+      "file": "src/components/footer-credit",
       "import_path": ""
     },
     {

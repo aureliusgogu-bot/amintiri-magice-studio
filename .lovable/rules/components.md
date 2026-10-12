@@ -58,6 +58,12 @@ import { DetailsTab } from "@ws-1062323c948fe9abd9f7/c0abf0ef-62c9-4d0c-a176-953
 import { Field } from "@ws-1062323c948fe9abd9f7/c0abf0ef-62c9-4d0c-a176-953f5ccc36d3"
 ```
 
+### FooterCredit
+
+```ts
+import { FooterCredit } from "@ws-1062323c948fe9abd9f7/c0abf0ef-62c9-4d0c-a176-953f5ccc36d3"
+```
+
 ### Magnetic
 
 ```ts
