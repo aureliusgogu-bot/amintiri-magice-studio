@@ -1643,6 +1643,7 @@ a:hover > .lucide-arrow-right {
 .photo-info span,
 .gallery-end,
 .contact-form label,
+.footer-credit,
 .footer-legal,
 .lightbox-caption p,
 .hero-contacts span,
@@ -1696,6 +1697,7 @@ a:hover > .lucide-arrow-right {
 .social-links a,
 .footer-phones a,
 .footer a,
+.footer-credit-bar a,
 .email-link,
 .contact-people a,
 .hero-contacts a,
@@ -1777,4 +1779,28 @@ a:hover > .lucide-arrow-right {
   .hero-bottom p {
     display: none;
   }
+}
+
+/* Web-designer credit: discreet line under the studio's own footer details. */
+.footer-credit {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--muted-foreground);
+}
+.footer-credit a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
+  transition:
+    color 0.4s var(--ease),
+    text-decoration-color 0.4s var(--ease);
+}
+.footer-credit a:hover {
+  color: var(--primary);
+  text-decoration-color: var(--primary);
+}
+.footer-credit-bar {
+  border-top: 1px solid var(--border);
+  padding: 20px 5% 28px;
 }

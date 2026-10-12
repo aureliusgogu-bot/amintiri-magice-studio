@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { PortfolioGallery, photos } from "@/components/portfolio-gallery";
 import { PortfolioRecommender } from "@/components/portfolio-recommender";
 import { ParallaxPhoto, type SwapPhoto } from "@/components/parallax-photo";
+import { FooterCredit } from "@/components/footer-credit";
 import {
   CountUp,
   CursorRing,
@@ -558,6 +559,7 @@ function Page() {
             #facemceneplace <span>· © {new Date().getFullYear()}</span>
           </p>
           <p className="footer-legal">FACEM CE NE PLACE S.R.L · C.U.I. 52881469</p>
+          <FooterCredit />
         </div>
         <p className="footer-phones">
           {people.map((person) => (
