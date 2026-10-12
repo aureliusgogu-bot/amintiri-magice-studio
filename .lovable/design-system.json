@@ -1,31 +1,44 @@
 {
   "meta": {
-    "name": "Amintiri Magice Studio",
+    "name": "Https Facemceneplace Com",
     "package": "@ws-1062323c948fe9abd9f7/c0abf0ef-62c9-4d0c-a176-953f5ccc36d3",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system_tailwind",
-    "theme_files": ["src/styles.css"],
+    "theme_files": [
+      "src/styles.css"
+    ],
     "source_type": "local",
     "source_manifest": {
-      "#enrichment": "55ecbe2a2bbf4497686da3a634835fb30e7e012943b5507f08ff40084fe84f33",
+      "#enrichment": "cef4b98c19d416de391a5e54ac15b26e0c462c24f91a7aa2849de3011c38d125",
+      ".dsignore": "9e3699d0e7e3f5fd4ae86e8f5e706d4b",
       ".github/workflows/ci.yml": "720d769c4391390e078e9376d907bddb",
       ".gitignore": "6d9e901a692b46a83707c245fb03bc91",
       ".lovable/meta.yaml": "954a981e8847ec1692669dbb04ae9ae9",
+      ".lovable/plan/plan-aspect-premium-pentru-facemceneplace-2026-10-08.md": "d14c9c41772deca06704eaf292036399",
       ".lovable/project.json": "8a614b0de0ec719c6a3c839b39ebb7b9",
-      ".lovable/sources.yaml": "f39f708c65f19e1a4add806fe3098f6d",
+      ".lovable/sources.yaml": "b19e82a1dfacf00d893c4a23c9b33847",
       ".prettierignore": "7279a476f196a2da5f7edd18db568dc6",
       ".prettierrc": "185ef0234746ab738ac1ab6cec5e2bd9",
-      "AGENTS.md": "b4dee238c08cada737d12da18dc93d29",
+      "AGENTS.md": "07624916c1a95e7ff79e9c8bea14d52e",
       "README.md": "fd20856a24f9e374ab1457701edb250a",
       "bunfig.toml": "89115995d9de72fdfc894e16b1e75297",
       "components.json": "30d3d035361ce807021f5c54620962e9",
+      "drizzle.config.ts": "c2b6029fa56b49433380b7263b06e3f7",
+      "drizzle/migrations/0000_admin_cms.sql": "898f6307e9d8bef9e08248708bf2b59e",
+      "drizzle/migrations/0001_is_admin_no_anon.sql": "6521de0efe2428f15e944a08c1068055",
+      "drizzle/migrations/0002_visitor_review_submissions.sql": "e002884b2f464af723b99288c24b516e",
+      "drizzle/migrations/meta/0000_snapshot.json": "ef84b9c49a7fdc9f3bf9b952885cac46",
+      "drizzle/migrations/meta/0001_snapshot.json": "769945e7036be68399891b3bbe2c3a94",
+      "drizzle/migrations/meta/0002_snapshot.json": "d0babe957543fb4381827b480a371eee",
+      "drizzle/migrations/meta/_journal.json": "8f5146c9a37b07c1dba040e294ba12e4",
+      "drizzle/schema.ts": "a60267d05d7dd11572f02686241f37c6",
       "eslint.config.js": "345bdd57e188e0e4525edcd00e5003f5",
-      "package.json": "788d0456b24c4d9e7554035332732311",
+      "package.json": "ba977e890798e2ecb012686f02ea9b69",
       "public/favicon.ico": "9f504444f85a5af2eef9264b02ae40be",
-      "public/robots.txt": "f9dff89adf98833e676de2205921996a",
-      "roadmap.md": "18f2832cf041ab5be034f254b4dc06ae",
+      "public/robots.txt": "734d9768e185b4213e6b6777436eb2e8",
+      "roadmap.md": "fecab06a9734269972822cf0b12f0a60",
       "src/assets/botez/botez-1-large.jpg": "38b34cc283ea23f38e9fbbdce9a3b0b8",
       "src/assets/botez/botez-1-small.jpg": "3fa7bb17d08eb087b8e64731bc7402c8",
       "src/assets/botez/botez-2-large.jpg": "df120f4194863ab8a62a021f16d7d262",
@@ -92,9 +105,13 @@
       "src/assets/nunta/nunta-9-large.jpg": "d17e24e0431285475a6d84385d658732",
       "src/assets/nunta/nunta-9-small.jpg": "cf38eb18c39e0e950d1f3e004429d9f9",
       "src/assets/qr/instagram-qr.jpg": "b0ffded3d4de34c2b8e5a1899bbc1387",
-      "src/components/motion-kit.tsx": "e6e045eddd3fbe3592b442f217db70dc",
-      "src/components/parallax-photo.tsx": "88ad6f3341b3d2e062bdc7895cb0f8c5",
-      "src/components/portfolio-gallery.tsx": "2ce03fd9f80a1603945246f40dc19119",
+      "src/components/admin/admin-shared.tsx": "b1fec459e9b15192ba91d587dbf647e3",
+      "src/components/admin/content-tabs.tsx": "977b0e5039f2b373ed15fdcd017ee794",
+      "src/components/admin/photos-tab.tsx": "55d6d21064edcc6a61f1e9ed9945bb92",
+      "src/components/motion-kit.tsx": "77040776dd7d75a21251d138ec6f48fa",
+      "src/components/parallax-photo.tsx": "5ec451173183e2f3ee859c7762e27921",
+      "src/components/portfolio-gallery.tsx": "96b9fbbe1b39b29deddc25d365d8ffe1",
+      "src/components/portfolio-recommender.tsx": "d3b363be7cf89610bbb7b34bf5f95a39",
       "src/components/ui/accordion.tsx": "55f9dda62b4e3913c9b23e5015a86aef",
       "src/components/ui/alert-dialog.tsx": "96350e949e9b7b674545430a410ab89c",
       "src/components/ui/alert.tsx": "f993d7e96b1e25ce50e68ed97e11d2a8",
@@ -141,25 +158,46 @@
       "src/components/ui/toggle-group.tsx": "ac26383acf721d116ca8e3ab5c5355d5",
       "src/components/ui/toggle.tsx": "ee8c5adac74e7242b85b544db1a8fbad",
       "src/components/ui/tooltip.tsx": "67d71db5a1ab935695d1def497f5b8a6",
+      "src/features/reviews/reviews.tsx": "0594a4a82f2ee8a3047ad70dffe2ba81",
+      "src/features/reviews/visitor-review-form.tsx": "34a31c76a5eeb6c04a8bf5ada0f33591",
       "src/hooks/use-enhanced-motion.ts": "f2bd5f688f517e39fb4d014759fc0e9a",
       "src/hooks/use-mobile.tsx": "c0a0bdd4638c391a1dd06ac82074e60b",
-      "src/index.ts": "30eb4d1d9303bf1afe42aa8fef36a510",
+      "src/index.ts": "e2d6344b9fb442e912846c6dbc269187",
+      "src/integrations/supabase/auth-middleware.ts": "9877e7a04523e50505df8c4b1eb8dbf9",
+      "src/integrations/supabase/client.server.ts": "6f3a33a5b0a7884940926c338ae7b4af",
+      "src/integrations/supabase/client.ts": "a813c2b4fda29c2af71e9c6476af4200",
+      "src/integrations/supabase/previewAuthStorage.ts": "0a2d63e049bc63135b19c8e21cc0b1aa",
+      "src/integrations/supabase/types.ts": "11d91205b4038bba20a2bf30e96c0da5",
       "src/lib/error-capture.ts": "f630d9686a9a989170f22eff4de7b30d",
       "src/lib/error-page.ts": "8da0ddd7569bac2676b9a5c8edff8a36",
       "src/lib/lovable-error-reporting.ts": "920280997099588d609de792663bcbf0",
+      "src/lib/recommend.functions.ts": "6350dfd0342b1ddb2899c8bf97cb93bc",
+      "src/lib/recommend.server.ts": "d1a6a2dd9a29ffdbfa72fb0192c6df2b",
+      "src/lib/review-schema.ts": "a3f6501d36fbd2f836f653f99cb109b6",
+      "src/lib/review-submissions.functions.ts": "8f285358db45d23fd09e9694a1d47c44",
+      "src/lib/site-data.functions.ts": "58311e83f53065194c69d132f50bccb8",
+      "src/lib/site-data.ts": "67f50586c50deb8d9b055e68e317338c",
+      "src/lib/sitemap.ts": "4b2ca31806f0668f03e9d3235bebf692",
       "src/lib/utils.ts": "d9837f38cc05303254571985e3164050",
-      "src/routeTree.gen.ts": "6c278a80c7c7d379a9edc475e4c8309f",
+      "src/routeTree.gen.ts": "217e726611bca15afa1503beffa694a0",
       "src/router.tsx": "8f905e713b0eba7fa8148b7995a708c9",
       "src/routes/README.md": "0044790c298aeb33868a7525d79f1585",
-      "src/routes/__root.tsx": "a60d5e15722f41cf7e696072e845e548",
-      "src/routes/index.tsx": "b2160e3cdf92b701d5c1ab5c60be82a3",
+      "src/routes/__root.tsx": "1223d7e5036e514467db6ed9d8e952b2",
+      "src/routes/admin.tsx": "7b8cef1db7747ce71030b51980e3d874",
+      "src/routes/foto.$.ts": "ff84069f61e67543fd26846c2d825b8c",
+      "src/routes/index.tsx": "713ae7e6e392044cd46f85c1bd8820d4",
+      "src/routes/recenzii.tsx": "2e389da703e8b0e6526f81d7cdc07b37",
+      "src/routes/sitemap[.]xml.ts": "a53bed3f3cf7777b80ba770f8112a848",
       "src/server.ts": "c7bbc49bb70e318af618d92775ee0f27",
       "src/start.ts": "0502f82c58afce5012b4c102e6fe2437",
-      "src/styles.css": "929cd0dffaa008985a878f941da1eb10",
-      "src/test/app-routing.test.tsx": "dda0393c89450a1e5b7874b424dca80d",
+      "src/styles.css": "7813ab6fd16636bf1514549e02f9a1d9",
+      "src/test/app-routing.test.tsx": "cd721a61f0943554f64f2e8c33c8a375",
+      "src/test/review-schema.test.ts": "9adae42e879e926120719b40e8c8841e",
+      "src/test/reviews.test.tsx": "58ca29be6df7fa34a2042aa44987f7ac",
       "src/test/setup.ts": "ef5807c07db57482ab718e40246688a2",
+      "supabase/config.toml": "8c19701da7deea2e0ec49ff8e6778d8e",
       "tsconfig.json": "3d34aff71739a382bec105bad1c6948f",
-      "vite.config.ts": "d67e8217e5f31b87c276b6357c9aedcf",
+      "vite.config.ts": "c33473e387d641b18a596586ae38c5f5",
       "vitest.config.ts": "cdf9aff9538e6bc3eb92842264b030a9"
     },
     "pipeline_version": 8
@@ -222,6 +260,11 @@
         "name": "--font-display",
         "raw": "\"Playfair Display\", Georgia, serif",
         "source": "src/styles.css"
+      },
+      {
+        "name": "--text-min",
+        "raw": "13px",
+        "source": "src/styles.css"
       }
     ],
     "radius": [
@@ -278,10 +321,65 @@
         "name": "--gallery-light-neutral",
         "raw": "linear-gradient(\n    65deg,\n    transparent 15%,\n    oklch(0.935 0.012 80 / 0.045) 50%,\n    transparent 80%\n  )",
         "source": "src/styles.css"
+      },
+      {
+        "name": "--vignette",
+        "raw": "radial-gradient(\n    ellipse 90% 85% at center,\n    transparent 55%,\n    oklch(0.08 0.003 75 / 0.5) 100%\n  )",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--hero-glow",
+        "raw": "radial-gradient(\n    ellipse 70% 45% at 50% 0%,\n    oklch(0.77 0.082 68 / 0.12),\n    transparent 70%\n  )",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--gold-sheen",
+        "raw": "linear-gradient(105deg, transparent 40%, oklch(1 0 0 / 0.16) 50%, transparent 60%)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--tap-min",
+        "raw": "44px",
+        "source": "src/styles.css"
       }
     ]
   },
   "components": [
+    {
+      "name": "Field",
+      "file": "src/components/admin/admin-shared",
+      "import_path": ""
+    },
+    {
+      "name": "Notice",
+      "file": "src/components/admin/admin-shared",
+      "import_path": ""
+    },
+    {
+      "name": "CategoryPicker",
+      "file": "src/components/admin/admin-shared",
+      "import_path": ""
+    },
+    {
+      "name": "ReviewsTab",
+      "file": "src/components/admin/content-tabs",
+      "import_path": ""
+    },
+    {
+      "name": "DetailsTab",
+      "file": "src/components/admin/content-tabs",
+      "import_path": ""
+    },
+    {
+      "name": "AccessTab",
+      "file": "src/components/admin/content-tabs",
+      "import_path": ""
+    },
+    {
+      "name": "PhotosTab",
+      "file": "src/components/admin/photos-tab",
+      "import_path": ""
+    },
     {
       "name": "ScrollProgress",
       "file": "src/components/motion-kit",
@@ -328,6 +426,11 @@
       "import_path": ""
     },
     {
+      "name": "PortfolioRecommender",
+      "file": "src/components/portfolio-recommender",
+      "import_path": ""
+    },
+    {
       "name": "Button",
       "file": "src/components/ui/button",
       "import_path": "",
@@ -353,7 +456,12 @@
         {
           "name": "size",
           "type": "enum",
-          "values": ["default", "sm", "lg", "icon"],
+          "values": [
+            "default",
+            "sm",
+            "lg",
+            "icon"
+          ],
           "default": "default"
         },
         {
@@ -362,6 +470,16 @@
           "default": "false"
         }
       ]
+    },
+    {
+      "name": "Constants",
+      "file": "src/integrations/supabase/types",
+      "import_path": ""
+    },
+    {
+      "name": "SiteContext",
+      "file": "src/lib/site-data",
+      "import_path": ""
     }
   ],
   "assets": [

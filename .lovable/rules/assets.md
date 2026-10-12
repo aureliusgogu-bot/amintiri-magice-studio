@@ -1,8 +1,8 @@
 ---
-description: "Brand assets shipped by the Amintiri Magice Studio design system (logos, icons, illustrations, photography, fonts, videos) with exact import paths. Read before adding any logo, icon, illustration, image, video, or font to the app: use these real assets instead of placeholders, stock photos, or generated images."
+description: "Brand assets shipped by the Https Facemceneplace Com design system (logos, icons, illustrations, photography, fonts, videos) with exact import paths. Read before adding any logo, icon, illustration, image, video, or font to the app: use these real assets instead of placeholders, stock photos, or generated images."
 ---
 
-# Amintiri Magice Studio — Assets
+# Https Facemceneplace Com — Assets
 
 These files are copied into `src/design-system/{slug}/assets/` in this project — never generate, placeholder, or substitute an asset that exists here.
 
@@ -63,3 +63,4 @@ The full machine-readable catalog lives in this library's `design-system.json` (
 - `@/design-system/{slug}/assets/nunta/nunta-1-small.jpg` (jpg)
 - `@/design-system/{slug}/assets/nunta/nunta-2-large.jpg` (jpg)
 - …and 16 more — full list in `design-system.json`
+
