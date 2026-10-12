@@ -6,7 +6,8 @@ afterEach(cleanup);
 const review = {
   author: "Client de test",
   event: "Nuntă și botez",
-  quote: "Prima parte a recenziei.\n\nTextul complet rămâne exact la fel, inclusiv toate rândurile și semnele: ♥!",
+  quote:
+    "Prima parte a recenziei.\n\nTextul complet rămâne exact la fel, inclusiv toate rândurile și semnele: ♥!",
 };
 
 describe("Review cards", () => {
