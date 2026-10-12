@@ -1383,6 +1383,22 @@ a:hover > .lucide-arrow-right {
   position: relative;
   border-bottom: 1px solid var(--border);
 }
+.reviews-section .reviews-compact-inner {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+.reviews-compact-inner .section-title {
+  margin: 12px 0;
+}
+.reviews-page {
+  padding-top: 28px;
+}
+@media (max-width: 767px) {
+  .reviews-section .reviews-compact-inner {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+}
 .reviews-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

@@ -14,4 +14,10 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
+  it("matches /recenzii and includes it in the sitemap", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    const match = router.matchRoutes("/recenzii").at(-1);
+    expect(match?.routeId).toBe("/recenzii");
+    expect(router.routesById["/recenzii"].options.staticData?.sitemap).toBe(true);
+  });
 });
