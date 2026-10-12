@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowUpRight, Instagram, Facebook, MapPin, Menu, X } from "lucide-react";
@@ -21,8 +20,7 @@ import { useEnhancedMotion } from "@/hooks/use-enhanced-motion";
 import hero from "@/assets/hero.jpg.asset.json";
 import { DEFAULT_SITE_DATA, SiteContext, useSite } from "@/lib/site-data";
 import { getSiteData } from "@/lib/site-data.functions";
-import { submitVisitorReview } from "@/lib/review-submissions.functions";
-import { visitorReviewSchema } from "@/lib/review-schema";
+import { HomepageReviews } from "@/features/reviews/reviews";
 
 import storyPhoto from "@/assets/nunta/nunta-1-large.jpg";
 import contactPhoto from "@/assets/nunta/nunta-7-large.jpg";
@@ -318,85 +316,6 @@ function ContactForm() {
     </form>
   );
 }
-function VisitorReviewForm() {
-  const send = useServerFn(submitVisitorReview);
-  const [busy, setBusy] = useState(false);
-  const [sent, setSent] = useState(false);
-  const [error, setError] = useState("");
-  async function submit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (busy) return;
-    const form = new FormData(event.currentTarget);
-    const parsed = visitorReviewSchema.safeParse(Object.fromEntries(form));
-    if (!parsed.success) {
-      setError(parsed.error.issues[0]?.message ?? "Verifică datele completate.");
-      return;
-    }
-    setBusy(true);
-    setError("");
-    try {
-      const result = await send({ data: parsed.data });
-      if (!result.ok) throw new Error("submission");
-      setSent(true);
-    } catch {
-      setError("Recenzia nu a fost trimisă. Verifică internetul și încearcă din nou.");
-    } finally {
-      setBusy(false);
-    }
-  }
-  return (
-    <div className="mt-12 max-w-2xl border-t border-border pt-8">
-      <h3 className="font-display text-3xl">Povestește-ne experiența ta</h3>
-      {sent ? (
-        <p role="status" className="mt-4 text-primary">
-          Mulțumim! Recenzia ta a fost trimisă și va apărea pe site după aprobare.
-        </p>
-      ) : (
-        <form className="contact-form mt-6" onSubmit={submit} aria-label="Scrie o recenzie">
-          <div className="form-row">
-            <label>
-              Numele tău
-              <input name="author" autoComplete="name" required minLength={2} maxLength={80} />
-            </label>
-            <label>
-              Evenimentul (opțional)
-              <input name="event" placeholder="Nuntă, botez, cununie…" maxLength={60} />
-            </label>
-          </div>
-          <label>
-            Recenzia ta
-            <textarea
-              name="quote"
-              placeholder="Cum a fost experiența cu #facemceneplace?"
-              required
-              minLength={10}
-              maxLength={1200}
-              rows={4}
-            />
-          </label>
-          <div hidden aria-hidden="true">
-            <label>
-              Website
-              <input name="website" tabIndex={-1} autoComplete="off" maxLength={200} />
-            </label>
-          </div>
-          <p className="text-sm text-muted-foreground">
-            Numele și recenzia vor fi publice după aprobare. Nu include date personale de contact.
-          </p>
-          {error && (
-            <p role="alert" className="text-sm text-destructive">
-              {error}
-            </p>
-          )}
-          <Button variant="studio" type="submit" disabled={busy}>
-            {busy ? "Se trimite…" : "Trimite recenzia"}
-            <ArrowUpRight aria-hidden />
-          </Button>
-        </form>
-      )}
-    </div>
-  );
-}
 function HeroText() {
   const { people, locationHero } = useSite().settings;
   const enhanced = useEnhancedMotion();
@@ -561,46 +480,7 @@ function Page() {
             </div>
           </div>
         </section>
-        <section id="recenzii" className="reviews-section">
-          <div className="section-inner">
-            <Reveal>
-              <p className="section-kicker">Cuvintele celor dragi</p>
-            </Reveal>
-            <h2 className="section-title">
-              <MaskReveal as="div">
-                Recenzii<span className="text-primary">.</span>
-              </MaskReveal>
-            </h2>
-            {reviews.length > 0 ? (
-              <div className="reviews-grid">
-                {reviews.map((review, index) => (
-                  <Reveal key={`${review.author}-${index}`} delay={index * 0.1}>
-                    <figure className="review-card">
-                      <blockquote>{review.quote}</blockquote>
-                      <figcaption>
-                        <strong>{review.author}</strong>
-                        <span>{review.event}</span>
-                      </figcaption>
-                    </figure>
-                  </Reveal>
-                ))}
-              </div>
-            ) : null}
-            <Reveal className="reviews-cta">
-              <p>Părerea celor pentru care am păstrat momentele contează cel mai mult.</p>
-              <Magnetic>
-                <Button variant="cinematic" asChild>
-                  <a href={facebook} target="_blank" rel="noopener noreferrer">
-                    <Facebook size={16} />
-                    Citește recenziile pe Facebook
-                    <ArrowUpRight />
-                  </a>
-                </Button>
-              </Magnetic>
-            </Reveal>
-            <VisitorReviewForm />
-          </div>
-        </section>
+        <HomepageReviews reviews={reviews} facebook={facebook} />
         <section id="contact" className="contact-section">
           <ParallaxPhoto
             src={contactPhoto}
