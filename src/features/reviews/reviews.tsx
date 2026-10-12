@@ -18,19 +18,19 @@ export const ReviewCard = forwardRef<HTMLElement, ReviewCardProps>(
     <figure
       ref={ref}
       className={cn(
-        "m-0 flex min-w-0 flex-col gap-5 border border-border bg-card p-6",
-        variant === "compact" ? "h-80" : "h-full",
+        "m-0 flex min-w-0 flex-col border border-border bg-card p-6",
+        variant === "compact" ? "h-84 gap-3" : "h-auto gap-5",
         className,
       )}
       {...props}
     >
-      <span aria-hidden="true" className="h-6 font-display text-5xl text-primary">
+      <span aria-hidden="true" className="h-6 shrink-0 font-display text-5xl text-primary">
         “
       </span>
       <blockquote
         className={cn(
           "m-0 whitespace-pre-wrap break-words font-display text-lg italic leading-7",
-          variant === "compact" && "line-clamp-5",
+          variant === "compact" && "line-clamp-5 h-35 shrink-0",
         )}
       >
         {review.quote}
