@@ -7,7 +7,7 @@ import { PortfolioGallery, photos } from "@/components/portfolio-gallery";
 import { PortfolioRecommender } from "@/components/portfolio-recommender";
 import { ParallaxPhoto, type SwapPhoto } from "@/components/parallax-photo";
 import { FooterCredit } from "@/components/footer-credit";
-import studioLogo from "@/assets/logos/george-constantin-logo.png";
+import studioLogo from "@/assets/logos/george-constantin-logo-sharp.png";
 import {
   CountUp,
   CursorRing,
@@ -560,8 +560,8 @@ function Page() {
             className="footer-logo"
             src={studioLogo}
             alt="George Constantin Photography — #facemceneplace"
-            width={875}
-            height={173}
+            width={1017}
+            height={203}
             loading="lazy"
           />
           <p className="footer-brand">
