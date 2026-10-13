@@ -153,11 +153,16 @@
 }
 .wordmark {
   font-family: "Manrope", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: var(--foreground);
+  text-shadow: 0 0 18px rgba(var(--primary-rgb, 212 175 55), 0.25);
 }
 .wordmark .hash {
   color: var(--primary);
+  font-size: 1.15em;
+  filter: drop-shadow(0 0 8px rgba(var(--primary-rgb, 212 175 55), 0.5));
 }
 .nav-links {
   display: flex;
