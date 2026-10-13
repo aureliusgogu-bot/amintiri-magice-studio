@@ -2,10 +2,10 @@ import { forwardRef, useEffect, useState, type HTMLAttributes } from "react";
 import { Link } from "@tanstack/react-router";
 import useEmblaCarousel from "embla-carousel-react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Facebook, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Facebook, Star, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEnhancedMotion } from "@/hooks/use-enhanced-motion";
-import type { Review } from "@/lib/site-data";
+import { averageRatingLabel, type Review } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 export interface ReviewCardProps extends HTMLAttributes<HTMLElement> {
@@ -70,7 +70,23 @@ export const ReviewCard = forwardRef<HTMLElement, ReviewCardProps>(
         </Dialog.Root>
       )}
       <figcaption className="mt-auto min-w-0 border-t border-border pt-4 text-sm">
-        <strong className="block break-words font-medium text-primary">{review.author}</strong>
+        <span
+          className="flex gap-0.5"
+          role="img"
+          aria-label={`${review.rating} din 5 stele`}
+        >
+          {Array.from({ length: 5 }, (_, star) => (
+            <Star
+              key={star}
+              aria-hidden="true"
+              className={cn(
+                "h-4 w-4",
+                star < review.rating ? "fill-primary text-primary" : "text-muted-foreground/40",
+              )}
+            />
+          ))}
+        </span>
+        <strong className="mt-2 block break-words font-medium text-primary">{review.author}</strong>
         <span className="mt-1 block break-words text-muted-foreground">{review.event}</span>
       </figcaption>
     </figure>
@@ -141,7 +157,8 @@ export const HomepageReviews = forwardRef<HTMLElement, HomepageReviewsProps>(
               </h2>
               <p className="text-sm text-muted-foreground">
                 {reviews.length}{" "}
-                {reviews.length === 1 ? "recenzie de la clienți" : "recenzii de la clienți"}
+                {reviews.length === 1 ? "recenzie" : "recenzii"}
+                {reviews.length > 0 && <> · {averageRatingLabel(reviews)} medie de la clienți</>}
               </p>
             </div>
             {reviews.length > 0 && (

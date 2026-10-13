@@ -1,20 +1,26 @@
 import { useState, type FormEvent } from "react";
 import { useServerFn } from "@tanstack/react-start";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { submitVisitorReview } from "@/lib/review-submissions.functions";
 import { visitorReviewSchema } from "@/lib/review-schema";
+
+const RATING_VALUES = [1, 2, 3, 4, 5] as const;
 
 export function VisitorReviewForm() {
   const send = useServerFn(submitVisitorReview);
   const [busy, setBusy] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
+  const [rating, setRating] = useState(5);
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (busy) return;
     const form = new FormData(event.currentTarget);
-    const parsed = visitorReviewSchema.safeParse(Object.fromEntries(form));
+    const parsed = visitorReviewSchema.safeParse({
+      ...Object.fromEntries(form),
+      rating,
+    });
     if (!parsed.success) {
       setError(parsed.error.issues[0]?.message ?? "Verifică datele completate.");
       return;
@@ -50,6 +56,34 @@ export function VisitorReviewForm() {
               <input name="event" placeholder="Nuntă, botez, cununie…" maxLength={60} />
             </label>
           </div>
+          <fieldset className="border-0 p-0">
+            <legend className="text-sm text-muted-foreground">Nota ta</legend>
+            <div className="mt-2 flex gap-1">
+              {RATING_VALUES.map((value) => (
+                <label key={value} className="cursor-pointer">
+                  <input
+                    type="radio"
+                    name="rating"
+                    value={value}
+                    checked={rating === value}
+                    onChange={() => setRating(value)}
+                    className="sr-only"
+                  />
+                  <Star
+                    aria-hidden="true"
+                    className={
+                      value <= rating
+                        ? "h-7 w-7 fill-primary text-primary transition-colors"
+                        : "h-7 w-7 text-muted-foreground/40 transition-colors"
+                    }
+                  />
+                  <span className="sr-only">
+                    {value} {value === 1 ? "stea" : "stele"}
+                  </span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
           <label>
             Recenzia ta
             <textarea
