@@ -31,7 +31,7 @@ export const getSiteData = createServerFn({ method: "GET" }).handler(
         .order("sort_order")
         .order("created_at", { ascending: false }),
       db.from("reviews").select("quote,author,event,rating").order("sort_order"),
-      db.from("site_settings").select("*").eq("id", 1).maybeSingle(),
+      db.rpc("get_public_site_settings").maybeSingle(),
     ]);
     if (photos.error || reviews.error || settings.error)
       console.error(
