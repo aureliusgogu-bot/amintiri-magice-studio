@@ -80,6 +80,10 @@
     transparent 70%
   );
   --gold-sheen: linear-gradient(105deg, transparent 40%, oklch(1 0 0 / 0.16) 50%, transparent 60%);
+  --footer-logo-width: 22rem;
+  --footer-logo-gap: 1rem;
+  --footer-credit-size: 0.8125rem;
+  --footer-credit-link-size: 0.875rem;
 }
 @layer base {
   * {
@@ -709,16 +713,13 @@ main {
   gap: 6px;
 }
 .footer-logo {
-  height: 64px;
-  width: auto;
-  margin-bottom: 10px;
-  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.45));
-}
-@media (max-width: 767px) {
-  .footer-logo {
-    height: 48px;
-    margin-bottom: 6px;
-  }
+  display: block;
+  width: var(--footer-logo-width);
+  max-width: 100%;
+  height: auto;
+  align-self: flex-start;
+  object-fit: contain;
+  margin-bottom: var(--footer-logo-gap);
 }
 .footer-brand {
   font-size: 13px;
@@ -1800,11 +1801,13 @@ a:hover > .lucide-arrow-right {
 
 /* Web-designer credit: discreet line under the studio's own footer details. */
 .footer-credit {
-  font-size: 11px;
-  letter-spacing: 0.04em;
+  font-size: var(--footer-credit-size);
+  letter-spacing: 0;
   color: var(--muted-foreground);
 }
 .footer-credit a {
+  font-size: var(--footer-credit-link-size);
+  font-weight: 500;
   color: inherit;
   text-decoration: underline;
   text-decoration-color: var(--border);

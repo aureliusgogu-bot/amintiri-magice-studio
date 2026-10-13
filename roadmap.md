@@ -1,5 +1,7 @@
 # Roadmap
 
+- [ ] Increase the footer designer credit slightly and restore a crisp, proportionate studio logo; verify desktop and mobile without publishing.
+
 - [x] Compact homepage reviews into a swipe carousel with full-text dialogs and approved-review count; verified all 34 approved texts unchanged, equal-height cards, arrows and mobile swipe.
 - [x] Add /recenzii with the complete grid, existing submission form, Facebook link, SEO and sitemap inclusion; verified desktop/mobile, full-text dialogs, links and seven passing tests.
 - [x] Restore the brand-only page title and retain wedding, baptism and civil-ceremony photographer search terms.
