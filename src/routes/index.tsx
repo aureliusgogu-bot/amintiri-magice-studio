@@ -7,6 +7,7 @@ import { PortfolioGallery, photos } from "@/components/portfolio-gallery";
 import { PortfolioRecommender } from "@/components/portfolio-recommender";
 import { ParallaxPhoto, type SwapPhoto } from "@/components/parallax-photo";
 import { FooterCredit } from "@/components/footer-credit";
+import studioLogo from "@/assets/logos/george-constantin-logo.png";
 import {
   CountUp,
   CursorRing,
