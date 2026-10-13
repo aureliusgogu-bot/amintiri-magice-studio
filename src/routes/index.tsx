@@ -556,6 +556,14 @@ function Page() {
       </main>
       <footer className="footer">
         <div className="footer-ident">
+          <img
+            className="footer-logo"
+            src={studioLogo}
+            alt="George Constantin Photography — #facemceneplace"
+            width={875}
+            height={173}
+            loading="lazy"
+          />
           <p className="footer-brand">
             #facemceneplace <span>· © {new Date().getFullYear()}</span>
           </p>
