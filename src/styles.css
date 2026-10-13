@@ -1,3 +1,5 @@
+/* This theme needs "Playfair Display" (headings), "DM Sans" (body) and "Manrope"
+   (secondary UI). Load them with <link> tags in the document head — see .lovable/system.md. */
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
