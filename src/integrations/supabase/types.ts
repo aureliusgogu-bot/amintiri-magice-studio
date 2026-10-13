@@ -155,6 +155,17 @@ export type Database = {
     }
     Functions: {
       approve_visitor_review: { Args: { p_id: string }; Returns: undefined }
+      get_public_site_settings: {
+        Args: never
+        Returns: {
+          email: string
+          facebook_url: string
+          instagram_url: string
+          location_contact: string
+          location_hero: string
+          people: Json
+        }[]
+      }
       is_admin: { Args: never; Returns: boolean }
       submit_visitor_review:
         | {
