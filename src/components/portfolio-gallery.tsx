@@ -656,8 +656,12 @@ export function PortfolioGallery({ items = photos }: { items?: GalleryPhoto[] })
   const categories = ["Toate", ...orderedCategories(items)];
   const active = categories.includes(category) ? category : "Toate";
   const list = active === "Toate" ? items : items.filter((photo) => photo.category === active);
+  const step = enhanced ? 12 : 8;
+  const [limit, setLimit] = useState(step);
+  useEffect(() => setLimit(step), [active, step]);
+  const shown = list.slice(0, limit);
   const columns = Array.from({ length: enhanced ? 4 : 2 }, (_, column) =>
-    list.filter((_, index) => index % (enhanced ? 4 : 2) === column),
+    shown.filter((_, index) => index % (enhanced ? 4 : 2) === column),
   );
   const close = useCallback(() => {
     setSelected(null);
@@ -726,6 +730,13 @@ export function PortfolioGallery({ items = photos }: { items?: GalleryPhoto[] })
             ))}
           </div>
         </div>
+        {limit < list.length && (
+          <div className="mt-8 flex justify-center">
+            <Button variant="outline" onClick={() => setLimit((value) => value + step)}>
+              Vezi mai multe fotografii ({list.length - limit})
+            </Button>
+          </div>
+        )}
         <div className="gallery-end">
           {String(list.length).padStart(2, "0")} povești. Nenumărate emoții.
         </div>
