@@ -30,7 +30,7 @@ export const getSiteData = createServerFn({ method: "GET" }).handler(
         .select("title,category,small_path,large_path,aspect_ratio")
         .order("sort_order")
         .order("created_at", { ascending: false }),
-      db.from("reviews").select("quote,author,event").order("sort_order"),
+      db.from("reviews").select("quote,author,event,rating").order("sort_order"),
       db.from("site_settings").select("*").eq("id", 1).maybeSingle(),
     ]);
     if (photos.error || reviews.error || settings.error)
@@ -56,7 +56,8 @@ export const getSiteData = createServerFn({ method: "GET" }).handler(
         locationHero: clean(s?.location_hero, DEFAULT_SETTINGS.locationHero),
         locationContact: clean(s?.location_contact, DEFAULT_SETTINGS.locationContact),
       },
-      reviews: reviews.data ?? [],
+      reviews:
+        reviews.data?.map((r) => ({ ...r, rating: Number(r.rating) || 5 })) ?? [],
       photos: photos.data?.length
         ? photos.data.map((p) => ({
             src: photoUrl(p.small_path),

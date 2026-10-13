@@ -26,6 +26,7 @@ export const submitVisitorReview = createServerFn({ method: "POST" })
       p_author: data.author,
       p_quote: data.quote,
       p_event: data.event,
+      p_rating: data.rating,
     });
     return { ok: !error };
   });
