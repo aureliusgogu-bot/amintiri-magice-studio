@@ -72,6 +72,8 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_ORIGIN}/` },
+      { property: "og:image", content: new URL(hero.url, SITE_ORIGIN).href },
+      { name: "twitter:image", content: new URL(hero.url, SITE_ORIGIN).href },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: `${SITE_ORIGIN}/` }],
