@@ -159,6 +159,7 @@ export function ReviewsTab() {
               <p className="text-sm text-primary">
                 {review.author}
                 {review.event && ` · ${review.event}`}
+                {` · ${review.rating} ★`}
               </p>
               <p className="mt-3 whitespace-pre-wrap break-words">{review.quote}</p>
               <p className="mt-2 text-xs text-muted-foreground">
@@ -216,6 +217,19 @@ export function ReviewsTab() {
             onChange={(e) => setDraft({ ...draft, event: e.target.value })}
           />
         </Field>
+        <Field label="Nota (stele)">
+          <select
+            className={inputClass}
+            value={draft.rating}
+            onChange={(e) => setDraft({ ...draft, rating: Number(e.target.value) })}
+          >
+            {[1, 2, 3, 4, 5].map((value) => (
+              <option key={value} value={value}>
+                {value} ★
+              </option>
+            ))}
+          </select>
+        </Field>
         <Button variant="studio" type="submit" className="self-start">
           Adaugă recenzia
         </Button>
@@ -258,6 +272,19 @@ export function ReviewsTab() {
                     value={r.event}
                     onChange={(e) => set(r.id, { event: e.target.value })}
                   />
+                </Field>
+                <Field label="Nota (stele)">
+                  <select
+                    className={inputClass}
+                    value={r.rating}
+                    onChange={(e) => set(r.id, { rating: Number(e.target.value) })}
+                  >
+                    {[1, 2, 3, 4, 5].map((value) => (
+                      <option key={value} value={value}>
+                        {value} ★
+                      </option>
+                    ))}
+                  </select>
                 </Field>
               </div>
               <div className="flex flex-wrap gap-2">
