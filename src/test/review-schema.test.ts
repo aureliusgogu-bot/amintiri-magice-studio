@@ -12,6 +12,7 @@ describe("Visitor review validation", () => {
       author: "Client test",
       quote: "O experiență frumoasă, mulțumim!",
       event: "Nuntă",
+      rating: 5,
       website: "",
     });
   });
