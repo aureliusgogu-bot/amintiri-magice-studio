@@ -3,6 +3,7 @@ import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getSiteData } from "@/lib/site-data.functions";
+import { averageRatingLabel } from "@/lib/site-data";
 import { ReviewCard, ReviewFacebookLink } from "@/features/reviews/reviews";
 import { VisitorReviewForm } from "@/features/reviews/visitor-review-form";
 import { FooterCredit } from "@/components/footer-credit";
@@ -33,6 +34,9 @@ export const Route = createFileRoute("/recenzii")({
       <Button variant="link" asChild>
         <Link to="/">Înapoi acasă</Link>
       </Button>
+      <div className="mt-10">
+        <FooterCredit />
+      </div>
     </div>
   ),
   notFoundComponent: () => (
@@ -40,6 +44,9 @@ export const Route = createFileRoute("/recenzii")({
       <Button variant="link" asChild>
         <Link to="/">Înapoi acasă</Link>
       </Button>
+      <div className="mt-10">
+        <FooterCredit />
+      </div>
     </div>
   ),
   component: ReviewsPage,
@@ -66,7 +73,8 @@ function ReviewsPage() {
         </h1>
         <p className="text-sm text-muted-foreground">
           {data.reviews.length}{" "}
-          {data.reviews.length === 1 ? "recenzie de la clienți" : "recenzii de la clienți"}
+          {data.reviews.length === 1 ? "recenzie" : "recenzii"}
+          {data.reviews.length > 0 && <> · {averageRatingLabel(data.reviews)} medie de la clienți</>}
         </p>
         <div className="mt-6">
           <ReviewFacebookLink facebook={data.settings.facebook} />
