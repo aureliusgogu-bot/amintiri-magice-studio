@@ -15,6 +15,23 @@ export { PortfolioGallery } from "./components/portfolio-gallery";
 export { FooterCredit } from "./components/footer-credit";
 export { cn } from "./lib/utils";
 export { useEnhancedMotion } from "./hooks/use-enhanced-motion";
+export {
+  SiteContext,
+  useSite,
+  DEFAULT_SITE_DATA,
+  DEFAULT_SETTINGS,
+  BASE_CATEGORIES,
+  orderedCategories,
+  photoUrl,
+  averageRatingLabel,
+} from "./lib/site-data";
+export type {
+  Person,
+  Review,
+  GalleryPhoto,
+  SiteSettings,
+  SiteData,
+} from "./lib/site-data";
 
 export * from "./components/ui/accordion";
 export * from "./components/ui/alert";
