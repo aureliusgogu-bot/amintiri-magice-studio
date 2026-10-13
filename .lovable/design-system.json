@@ -2,7 +2,7 @@
   "meta": {
     "name": "Https Facemceneplace Com",
     "package": "@ws-1062323c948fe9abd9f7/c0abf0ef-62c9-4d0c-a176-953f5ccc36d3",
-    "version": "2.1.0",
+    "version": "2.2.0",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system_tailwind",
@@ -11,7 +11,7 @@
     ],
     "source_type": "local",
     "source_manifest": {
-      "#enrichment": "0a8de815f5ea2de17f02b773629b3c884df697f6802b5217e481afaf6df1c66f",
+      "#enrichment": "7ca89b655346f2f445f8b1c150c7a33a7624367b16302e38d60b02b2ffedd8e3",
       ".dsignore": "9e3699d0e7e3f5fd4ae86e8f5e706d4b",
       ".github/workflows/ci.yml": "720d769c4391390e078e9376d907bddb",
       ".gitignore": "6d9e901a692b46a83707c245fb03bc91",
@@ -19,6 +19,7 @@
       ".lovable/plan/plan-aspect-premium-pentru-facemceneplace-2026-10-08.md": "d14c9c41772deca06704eaf292036399",
       ".lovable/project.json": "8a614b0de0ec719c6a3c839b39ebb7b9",
       ".lovable/sources.yaml": "b19e82a1dfacf00d893c4a23c9b33847",
+      ".lovable/system.md": "27ec8c6baf42ba8b11bf3486f8e0439e",
       ".prettierignore": "7279a476f196a2da5f7edd18db568dc6",
       ".prettierrc": "185ef0234746ab738ac1ab6cec5e2bd9",
       "AGENTS.md": "07624916c1a95e7ff79e9c8bea14d52e",
@@ -29,16 +30,18 @@
       "drizzle/migrations/0000_admin_cms.sql": "898f6307e9d8bef9e08248708bf2b59e",
       "drizzle/migrations/0001_is_admin_no_anon.sql": "6521de0efe2428f15e944a08c1068055",
       "drizzle/migrations/0002_visitor_review_submissions.sql": "e002884b2f464af723b99288c24b516e",
+      "drizzle/migrations/0003_add_review_rating.sql": "d5933ae85f7b9e7bc5979417555310a8",
       "drizzle/migrations/meta/0000_snapshot.json": "ef84b9c49a7fdc9f3bf9b952885cac46",
       "drizzle/migrations/meta/0001_snapshot.json": "769945e7036be68399891b3bbe2c3a94",
       "drizzle/migrations/meta/0002_snapshot.json": "d0babe957543fb4381827b480a371eee",
-      "drizzle/migrations/meta/_journal.json": "8f5146c9a37b07c1dba040e294ba12e4",
+      "drizzle/migrations/meta/0003_snapshot.json": "ed2aa97567250b2fd8ff489af5bdbef2",
+      "drizzle/migrations/meta/_journal.json": "45e5733ec11104ced7d2299d45cdcf6a",
       "drizzle/schema.ts": "a60267d05d7dd11572f02686241f37c6",
       "eslint.config.js": "345bdd57e188e0e4525edcd00e5003f5",
       "package.json": "ba977e890798e2ecb012686f02ea9b69",
       "public/favicon.ico": "9f504444f85a5af2eef9264b02ae40be",
       "public/robots.txt": "734d9768e185b4213e6b6777436eb2e8",
-      "roadmap.md": "fecab06a9734269972822cf0b12f0a60",
+      "roadmap.md": "7e2a4f74f9858ab46483c9a7e959b9f2",
       "src/assets/botez/botez-1-large.jpg": "38b34cc283ea23f38e9fbbdce9a3b0b8",
       "src/assets/botez/botez-1-small.jpg": "3fa7bb17d08eb087b8e64731bc7402c8",
       "src/assets/botez/botez-2-large.jpg": "df120f4194863ab8a62a021f16d7d262",
@@ -106,7 +109,7 @@
       "src/assets/nunta/nunta-9-small.jpg": "cf38eb18c39e0e950d1f3e004429d9f9",
       "src/assets/qr/instagram-qr.jpg": "b0ffded3d4de34c2b8e5a1899bbc1387",
       "src/components/admin/admin-shared.tsx": "b1fec459e9b15192ba91d587dbf647e3",
-      "src/components/admin/content-tabs.tsx": "977b0e5039f2b373ed15fdcd017ee794",
+      "src/components/admin/content-tabs.tsx": "27ee35dbd95ec3be66bb8d09348c6a63",
       "src/components/admin/photos-tab.tsx": "55d6d21064edcc6a61f1e9ed9945bb92",
       "src/components/footer-credit.tsx": "c35dfde7f52fe7479b0f875550e1e1ab",
       "src/components/motion-kit.tsx": "77040776dd7d75a21251d138ec6f48fa",
@@ -159,42 +162,42 @@
       "src/components/ui/toggle-group.tsx": "ac26383acf721d116ca8e3ab5c5355d5",
       "src/components/ui/toggle.tsx": "ee8c5adac74e7242b85b544db1a8fbad",
       "src/components/ui/tooltip.tsx": "67d71db5a1ab935695d1def497f5b8a6",
-      "src/features/reviews/reviews.tsx": "0594a4a82f2ee8a3047ad70dffe2ba81",
-      "src/features/reviews/visitor-review-form.tsx": "34a31c76a5eeb6c04a8bf5ada0f33591",
+      "src/features/reviews/reviews.tsx": "96010148a43713adc9b18d7190eb9017",
+      "src/features/reviews/visitor-review-form.tsx": "d78361af453cf28e272435d90734189f",
       "src/hooks/use-enhanced-motion.ts": "f2bd5f688f517e39fb4d014759fc0e9a",
       "src/hooks/use-mobile.tsx": "c0a0bdd4638c391a1dd06ac82074e60b",
-      "src/index.ts": "e2d6344b9fb442e912846c6dbc269187",
+      "src/index.ts": "ba6b9f1ca1232e5614fd258396136834",
       "src/integrations/supabase/auth-middleware.ts": "9877e7a04523e50505df8c4b1eb8dbf9",
       "src/integrations/supabase/client.server.ts": "6f3a33a5b0a7884940926c338ae7b4af",
       "src/integrations/supabase/client.ts": "a813c2b4fda29c2af71e9c6476af4200",
       "src/integrations/supabase/previewAuthStorage.ts": "0a2d63e049bc63135b19c8e21cc0b1aa",
-      "src/integrations/supabase/types.ts": "11d91205b4038bba20a2bf30e96c0da5",
+      "src/integrations/supabase/types.ts": "08aaac4e3278218a935944ce15aacaf2",
       "src/lib/error-capture.ts": "f630d9686a9a989170f22eff4de7b30d",
       "src/lib/error-page.ts": "8da0ddd7569bac2676b9a5c8edff8a36",
       "src/lib/lovable-error-reporting.ts": "920280997099588d609de792663bcbf0",
       "src/lib/recommend.functions.ts": "6350dfd0342b1ddb2899c8bf97cb93bc",
       "src/lib/recommend.server.ts": "d1a6a2dd9a29ffdbfa72fb0192c6df2b",
-      "src/lib/review-schema.ts": "a3f6501d36fbd2f836f653f99cb109b6",
-      "src/lib/review-submissions.functions.ts": "8f285358db45d23fd09e9694a1d47c44",
-      "src/lib/site-data.functions.ts": "58311e83f53065194c69d132f50bccb8",
-      "src/lib/site-data.ts": "67f50586c50deb8d9b055e68e317338c",
+      "src/lib/review-schema.ts": "8166e93cd77d10dc7bb614690761fd63",
+      "src/lib/review-submissions.functions.ts": "3f36271a606998dfbe6c4f32baa5d017",
+      "src/lib/site-data.functions.ts": "ad9f3ca5c4a97c9712ba723b525f8f16",
+      "src/lib/site-data.ts": "86cf0baca620b74febbda74764614612",
       "src/lib/sitemap.ts": "4b2ca31806f0668f03e9d3235bebf692",
       "src/lib/utils.ts": "d9837f38cc05303254571985e3164050",
       "src/routeTree.gen.ts": "217e726611bca15afa1503beffa694a0",
       "src/router.tsx": "8f905e713b0eba7fa8148b7995a708c9",
       "src/routes/README.md": "0044790c298aeb33868a7525d79f1585",
-      "src/routes/__root.tsx": "1223d7e5036e514467db6ed9d8e952b2",
+      "src/routes/__root.tsx": "2242e74a846f4f85911b7e47d6798ea5",
       "src/routes/admin.tsx": "7b8cef1db7747ce71030b51980e3d874",
       "src/routes/foto.$.ts": "ff84069f61e67543fd26846c2d825b8c",
       "src/routes/index.tsx": "d01e3068e3aab67ce3b82e01efaf63da",
-      "src/routes/recenzii.tsx": "a47bc0d103b8ca898b8253f81ae5d2d8",
+      "src/routes/recenzii.tsx": "00b50e67b468c0424f24e374e8484de2",
       "src/routes/sitemap[.]xml.ts": "a53bed3f3cf7777b80ba770f8112a848",
       "src/server.ts": "c7bbc49bb70e318af618d92775ee0f27",
       "src/start.ts": "0502f82c58afce5012b4c102e6fe2437",
       "src/styles.css": "938d9d6939a9f1cea3acf8494ad564f5",
       "src/test/app-routing.test.tsx": "cd721a61f0943554f64f2e8c33c8a375",
-      "src/test/review-schema.test.ts": "9adae42e879e926120719b40e8c8841e",
-      "src/test/reviews.test.tsx": "58ca29be6df7fa34a2042aa44987f7ac",
+      "src/test/review-schema.test.ts": "e6ed1721fc3dd1414e78ae5ca4df27f8",
+      "src/test/reviews.test.tsx": "60819ea34121406e798e1092f219e85a",
       "src/test/setup.ts": "ef5807c07db57482ab718e40246688a2",
       "supabase/config.toml": "8c19701da7deea2e0ec49ff8e6778d8e",
       "tsconfig.json": "3d34aff71739a382bec105bad1c6948f",
@@ -437,6 +440,180 @@
       "import_path": ""
     },
     {
+      "name": "Accordion",
+      "file": "src/components/ui/accordion",
+      "import_path": ""
+    },
+    {
+      "name": "AccordionItem",
+      "file": "src/components/ui/accordion",
+      "import_path": ""
+    },
+    {
+      "name": "AccordionTrigger",
+      "file": "src/components/ui/accordion",
+      "import_path": ""
+    },
+    {
+      "name": "AccordionContent",
+      "file": "src/components/ui/accordion",
+      "import_path": ""
+    },
+    {
+      "name": "AlertDialog",
+      "file": "src/components/ui/alert-dialog",
+      "import_path": ""
+    },
+    {
+      "name": "AlertDialogPortal",
+      "file": "src/components/ui/alert-dialog",
+      "import_path": ""
+    },
+    {
+      "name": "AlertDialogOverlay",
+      "file": "src/components/ui/alert-dialog",
+      "import_path": ""
+    },
+    {
+      "name": "AlertDialogTrigger",
+      "file": "src/components/ui/alert-dialog",
+      "import_path": ""
+    },
+    {
+      "name": "AlertDialogContent",
+      "file": "src/components/ui/alert-dialog",
+      "import_path": ""
+    },
+    {
+      "name": "AlertDialogHeader",
+      "file": "src/components/ui/alert-dialog",
+      "import_path": ""
+    },
+    {
+      "name": "AlertDialogFooter",
+      "file": "src/components/ui/alert-dialog",
+      "import_path": ""
+    },
+    {
+      "name": "AlertDialogTitle",
+      "file": "src/components/ui/alert-dialog",
+      "import_path": ""
+    },
+    {
+      "name": "AlertDialogDescription",
+      "file": "src/components/ui/alert-dialog",
+      "import_path": ""
+    },
+    {
+      "name": "AlertDialogAction",
+      "file": "src/components/ui/alert-dialog",
+      "import_path": ""
+    },
+    {
+      "name": "AlertDialogCancel",
+      "file": "src/components/ui/alert-dialog",
+      "import_path": ""
+    },
+    {
+      "name": "Alert",
+      "file": "src/components/ui/alert",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "default",
+            "destructive"
+          ],
+          "default": "default"
+        }
+      ]
+    },
+    {
+      "name": "AlertTitle",
+      "file": "src/components/ui/alert",
+      "import_path": ""
+    },
+    {
+      "name": "AlertDescription",
+      "file": "src/components/ui/alert",
+      "import_path": ""
+    },
+    {
+      "name": "AspectRatio",
+      "file": "src/components/ui/aspect-ratio",
+      "import_path": ""
+    },
+    {
+      "name": "Avatar",
+      "file": "src/components/ui/avatar",
+      "import_path": ""
+    },
+    {
+      "name": "AvatarImage",
+      "file": "src/components/ui/avatar",
+      "import_path": ""
+    },
+    {
+      "name": "AvatarFallback",
+      "file": "src/components/ui/avatar",
+      "import_path": ""
+    },
+    {
+      "name": "Badge",
+      "file": "src/components/ui/badge",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "default",
+            "secondary",
+            "destructive",
+            "outline"
+          ],
+          "default": "default"
+        }
+      ]
+    },
+    {
+      "name": "Breadcrumb",
+      "file": "src/components/ui/breadcrumb",
+      "import_path": ""
+    },
+    {
+      "name": "BreadcrumbList",
+      "file": "src/components/ui/breadcrumb",
+      "import_path": ""
+    },
+    {
+      "name": "BreadcrumbItem",
+      "file": "src/components/ui/breadcrumb",
+      "import_path": ""
+    },
+    {
+      "name": "BreadcrumbLink",
+      "file": "src/components/ui/breadcrumb",
+      "import_path": ""
+    },
+    {
+      "name": "BreadcrumbPage",
+      "file": "src/components/ui/breadcrumb",
+      "import_path": ""
+    },
+    {
+      "name": "BreadcrumbSeparator",
+      "file": "src/components/ui/breadcrumb",
+      "import_path": ""
+    },
+    {
+      "name": "BreadcrumbEllipsis",
+      "file": "src/components/ui/breadcrumb",
+      "import_path": ""
+    },
+    {
       "name": "Button",
       "file": "src/components/ui/button",
       "import_path": "",
@@ -476,6 +653,1135 @@
           "default": "false"
         }
       ]
+    },
+    {
+      "name": "Calendar",
+      "file": "src/components/ui/calendar",
+      "import_path": ""
+    },
+    {
+      "name": "CalendarDayButton",
+      "file": "src/components/ui/calendar",
+      "import_path": ""
+    },
+    {
+      "name": "Card",
+      "file": "src/components/ui/card",
+      "import_path": ""
+    },
+    {
+      "name": "CardHeader",
+      "file": "src/components/ui/card",
+      "import_path": ""
+    },
+    {
+      "name": "CardFooter",
+      "file": "src/components/ui/card",
+      "import_path": ""
+    },
+    {
+      "name": "CardTitle",
+      "file": "src/components/ui/card",
+      "import_path": ""
+    },
+    {
+      "name": "CardDescription",
+      "file": "src/components/ui/card",
+      "import_path": ""
+    },
+    {
+      "name": "CardContent",
+      "file": "src/components/ui/card",
+      "import_path": ""
+    },
+    {
+      "name": "Carousel",
+      "file": "src/components/ui/carousel",
+      "import_path": "",
+      "props": [
+        {
+          "name": "opts",
+          "type": "any"
+        },
+        {
+          "name": "plugins",
+          "type": "any"
+        },
+        {
+          "name": "orientation",
+          "type": "enum",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        },
+        {
+          "name": "setApi",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "name": "CarouselContent",
+      "file": "src/components/ui/carousel",
+      "import_path": ""
+    },
+    {
+      "name": "CarouselItem",
+      "file": "src/components/ui/carousel",
+      "import_path": ""
+    },
+    {
+      "name": "CarouselPrevious",
+      "file": "src/components/ui/carousel",
+      "import_path": ""
+    },
+    {
+      "name": "CarouselNext",
+      "file": "src/components/ui/carousel",
+      "import_path": ""
+    },
+    {
+      "name": "ChartContainer",
+      "file": "src/components/ui/chart",
+      "import_path": ""
+    },
+    {
+      "name": "ChartTooltip",
+      "file": "src/components/ui/chart",
+      "import_path": ""
+    },
+    {
+      "name": "ChartTooltipContent",
+      "file": "src/components/ui/chart",
+      "import_path": ""
+    },
+    {
+      "name": "ChartLegend",
+      "file": "src/components/ui/chart",
+      "import_path": ""
+    },
+    {
+      "name": "ChartLegendContent",
+      "file": "src/components/ui/chart",
+      "import_path": ""
+    },
+    {
+      "name": "ChartStyle",
+      "file": "src/components/ui/chart",
+      "import_path": ""
+    },
+    {
+      "name": "Checkbox",
+      "file": "src/components/ui/checkbox",
+      "import_path": ""
+    },
+    {
+      "name": "Collapsible",
+      "file": "src/components/ui/collapsible",
+      "import_path": ""
+    },
+    {
+      "name": "CollapsibleTrigger",
+      "file": "src/components/ui/collapsible",
+      "import_path": ""
+    },
+    {
+      "name": "CollapsibleContent",
+      "file": "src/components/ui/collapsible",
+      "import_path": ""
+    },
+    {
+      "name": "Command",
+      "file": "src/components/ui/command",
+      "import_path": ""
+    },
+    {
+      "name": "CommandDialog",
+      "file": "src/components/ui/command",
+      "import_path": ""
+    },
+    {
+      "name": "CommandInput",
+      "file": "src/components/ui/command",
+      "import_path": ""
+    },
+    {
+      "name": "CommandList",
+      "file": "src/components/ui/command",
+      "import_path": ""
+    },
+    {
+      "name": "CommandEmpty",
+      "file": "src/components/ui/command",
+      "import_path": ""
+    },
+    {
+      "name": "CommandGroup",
+      "file": "src/components/ui/command",
+      "import_path": ""
+    },
+    {
+      "name": "CommandItem",
+      "file": "src/components/ui/command",
+      "import_path": ""
+    },
+    {
+      "name": "CommandShortcut",
+      "file": "src/components/ui/command",
+      "import_path": ""
+    },
+    {
+      "name": "CommandSeparator",
+      "file": "src/components/ui/command",
+      "import_path": ""
+    },
+    {
+      "name": "ContextMenu",
+      "file": "src/components/ui/context-menu",
+      "import_path": ""
+    },
+    {
+      "name": "ContextMenuTrigger",
+      "file": "src/components/ui/context-menu",
+      "import_path": ""
+    },
+    {
+      "name": "ContextMenuContent",
+      "file": "src/components/ui/context-menu",
+      "import_path": ""
+    },
+    {
+      "name": "ContextMenuItem",
+      "file": "src/components/ui/context-menu",
+      "import_path": ""
+    },
+    {
+      "name": "ContextMenuCheckboxItem",
+      "file": "src/components/ui/context-menu",
+      "import_path": ""
+    },
+    {
+      "name": "ContextMenuRadioItem",
+      "file": "src/components/ui/context-menu",
+      "import_path": ""
+    },
+    {
+      "name": "ContextMenuLabel",
+      "file": "src/components/ui/context-menu",
+      "import_path": ""
+    },
+    {
+      "name": "ContextMenuSeparator",
+      "file": "src/components/ui/context-menu",
+      "import_path": ""
+    },
+    {
+      "name": "ContextMenuShortcut",
+      "file": "src/components/ui/context-menu",
+      "import_path": ""
+    },
+    {
+      "name": "ContextMenuGroup",
+      "file": "src/components/ui/context-menu",
+      "import_path": ""
+    },
+    {
+      "name": "ContextMenuPortal",
+      "file": "src/components/ui/context-menu",
+      "import_path": ""
+    },
+    {
+      "name": "ContextMenuSub",
+      "file": "src/components/ui/context-menu",
+      "import_path": ""
+    },
+    {
+      "name": "ContextMenuSubContent",
+      "file": "src/components/ui/context-menu",
+      "import_path": ""
+    },
+    {
+      "name": "ContextMenuSubTrigger",
+      "file": "src/components/ui/context-menu",
+      "import_path": ""
+    },
+    {
+      "name": "ContextMenuRadioGroup",
+      "file": "src/components/ui/context-menu",
+      "import_path": ""
+    },
+    {
+      "name": "Dialog",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogPortal",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogOverlay",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogTrigger",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogClose",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogContent",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogHeader",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogFooter",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogTitle",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogDescription",
+      "file": "src/components/ui/dialog",
+      "import_path": ""
+    },
+    {
+      "name": "Drawer",
+      "file": "src/components/ui/drawer",
+      "import_path": ""
+    },
+    {
+      "name": "DrawerPortal",
+      "file": "src/components/ui/drawer",
+      "import_path": ""
+    },
+    {
+      "name": "DrawerOverlay",
+      "file": "src/components/ui/drawer",
+      "import_path": ""
+    },
+    {
+      "name": "DrawerTrigger",
+      "file": "src/components/ui/drawer",
+      "import_path": ""
+    },
+    {
+      "name": "DrawerClose",
+      "file": "src/components/ui/drawer",
+      "import_path": ""
+    },
+    {
+      "name": "DrawerContent",
+      "file": "src/components/ui/drawer",
+      "import_path": ""
+    },
+    {
+      "name": "DrawerHeader",
+      "file": "src/components/ui/drawer",
+      "import_path": ""
+    },
+    {
+      "name": "DrawerFooter",
+      "file": "src/components/ui/drawer",
+      "import_path": ""
+    },
+    {
+      "name": "DrawerTitle",
+      "file": "src/components/ui/drawer",
+      "import_path": ""
+    },
+    {
+      "name": "DrawerDescription",
+      "file": "src/components/ui/drawer",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenu",
+      "file": "src/components/ui/dropdown-menu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuTrigger",
+      "file": "src/components/ui/dropdown-menu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuContent",
+      "file": "src/components/ui/dropdown-menu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuItem",
+      "file": "src/components/ui/dropdown-menu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuCheckboxItem",
+      "file": "src/components/ui/dropdown-menu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuRadioItem",
+      "file": "src/components/ui/dropdown-menu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuLabel",
+      "file": "src/components/ui/dropdown-menu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuSeparator",
+      "file": "src/components/ui/dropdown-menu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuShortcut",
+      "file": "src/components/ui/dropdown-menu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuGroup",
+      "file": "src/components/ui/dropdown-menu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuPortal",
+      "file": "src/components/ui/dropdown-menu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuSub",
+      "file": "src/components/ui/dropdown-menu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuSubContent",
+      "file": "src/components/ui/dropdown-menu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuSubTrigger",
+      "file": "src/components/ui/dropdown-menu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuRadioGroup",
+      "file": "src/components/ui/dropdown-menu",
+      "import_path": ""
+    },
+    {
+      "name": "Form",
+      "file": "src/components/ui/form",
+      "import_path": ""
+    },
+    {
+      "name": "FormItem",
+      "file": "src/components/ui/form",
+      "import_path": ""
+    },
+    {
+      "name": "FormLabel",
+      "file": "src/components/ui/form",
+      "import_path": ""
+    },
+    {
+      "name": "FormControl",
+      "file": "src/components/ui/form",
+      "import_path": ""
+    },
+    {
+      "name": "FormDescription",
+      "file": "src/components/ui/form",
+      "import_path": ""
+    },
+    {
+      "name": "FormMessage",
+      "file": "src/components/ui/form",
+      "import_path": ""
+    },
+    {
+      "name": "FormField",
+      "file": "src/components/ui/form",
+      "import_path": ""
+    },
+    {
+      "name": "HoverCard",
+      "file": "src/components/ui/hover-card",
+      "import_path": ""
+    },
+    {
+      "name": "HoverCardTrigger",
+      "file": "src/components/ui/hover-card",
+      "import_path": ""
+    },
+    {
+      "name": "HoverCardContent",
+      "file": "src/components/ui/hover-card",
+      "import_path": ""
+    },
+    {
+      "name": "InputOTP",
+      "file": "src/components/ui/input-otp",
+      "import_path": ""
+    },
+    {
+      "name": "InputOTPGroup",
+      "file": "src/components/ui/input-otp",
+      "import_path": ""
+    },
+    {
+      "name": "InputOTPSlot",
+      "file": "src/components/ui/input-otp",
+      "import_path": ""
+    },
+    {
+      "name": "InputOTPSeparator",
+      "file": "src/components/ui/input-otp",
+      "import_path": ""
+    },
+    {
+      "name": "Input",
+      "file": "src/components/ui/input",
+      "import_path": ""
+    },
+    {
+      "name": "Label",
+      "file": "src/components/ui/label",
+      "import_path": ""
+    },
+    {
+      "name": "Menubar",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "MenubarMenu",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "MenubarTrigger",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "MenubarContent",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "MenubarItem",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "MenubarSeparator",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "MenubarLabel",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "MenubarCheckboxItem",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "MenubarRadioGroup",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "MenubarRadioItem",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "MenubarPortal",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "MenubarSubContent",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "MenubarSubTrigger",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "MenubarGroup",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "MenubarSub",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "MenubarShortcut",
+      "file": "src/components/ui/menubar",
+      "import_path": ""
+    },
+    {
+      "name": "NavigationMenu",
+      "file": "src/components/ui/navigation-menu",
+      "import_path": ""
+    },
+    {
+      "name": "NavigationMenuList",
+      "file": "src/components/ui/navigation-menu",
+      "import_path": ""
+    },
+    {
+      "name": "NavigationMenuItem",
+      "file": "src/components/ui/navigation-menu",
+      "import_path": ""
+    },
+    {
+      "name": "NavigationMenuContent",
+      "file": "src/components/ui/navigation-menu",
+      "import_path": ""
+    },
+    {
+      "name": "NavigationMenuTrigger",
+      "file": "src/components/ui/navigation-menu",
+      "import_path": ""
+    },
+    {
+      "name": "NavigationMenuLink",
+      "file": "src/components/ui/navigation-menu",
+      "import_path": ""
+    },
+    {
+      "name": "NavigationMenuIndicator",
+      "file": "src/components/ui/navigation-menu",
+      "import_path": ""
+    },
+    {
+      "name": "NavigationMenuViewport",
+      "file": "src/components/ui/navigation-menu",
+      "import_path": ""
+    },
+    {
+      "name": "Pagination",
+      "file": "src/components/ui/pagination",
+      "import_path": ""
+    },
+    {
+      "name": "PaginationContent",
+      "file": "src/components/ui/pagination",
+      "import_path": ""
+    },
+    {
+      "name": "PaginationLink",
+      "file": "src/components/ui/pagination",
+      "import_path": "",
+      "props": [
+        {
+          "name": "isActive",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "PaginationItem",
+      "file": "src/components/ui/pagination",
+      "import_path": ""
+    },
+    {
+      "name": "PaginationPrevious",
+      "file": "src/components/ui/pagination",
+      "import_path": ""
+    },
+    {
+      "name": "PaginationNext",
+      "file": "src/components/ui/pagination",
+      "import_path": ""
+    },
+    {
+      "name": "PaginationEllipsis",
+      "file": "src/components/ui/pagination",
+      "import_path": ""
+    },
+    {
+      "name": "Popover",
+      "file": "src/components/ui/popover",
+      "import_path": ""
+    },
+    {
+      "name": "PopoverTrigger",
+      "file": "src/components/ui/popover",
+      "import_path": ""
+    },
+    {
+      "name": "PopoverContent",
+      "file": "src/components/ui/popover",
+      "import_path": ""
+    },
+    {
+      "name": "PopoverAnchor",
+      "file": "src/components/ui/popover",
+      "import_path": ""
+    },
+    {
+      "name": "Progress",
+      "file": "src/components/ui/progress",
+      "import_path": ""
+    },
+    {
+      "name": "RadioGroup",
+      "file": "src/components/ui/radio-group",
+      "import_path": ""
+    },
+    {
+      "name": "RadioGroupItem",
+      "file": "src/components/ui/radio-group",
+      "import_path": ""
+    },
+    {
+      "name": "ResizablePanelGroup",
+      "file": "src/components/ui/resizable",
+      "import_path": ""
+    },
+    {
+      "name": "ResizablePanel",
+      "file": "src/components/ui/resizable",
+      "import_path": ""
+    },
+    {
+      "name": "ResizableHandle",
+      "file": "src/components/ui/resizable",
+      "import_path": ""
+    },
+    {
+      "name": "ScrollArea",
+      "file": "src/components/ui/scroll-area",
+      "import_path": ""
+    },
+    {
+      "name": "ScrollBar",
+      "file": "src/components/ui/scroll-area",
+      "import_path": ""
+    },
+    {
+      "name": "Select",
+      "file": "src/components/ui/select",
+      "import_path": ""
+    },
+    {
+      "name": "SelectGroup",
+      "file": "src/components/ui/select",
+      "import_path": ""
+    },
+    {
+      "name": "SelectValue",
+      "file": "src/components/ui/select",
+      "import_path": ""
+    },
+    {
+      "name": "SelectTrigger",
+      "file": "src/components/ui/select",
+      "import_path": ""
+    },
+    {
+      "name": "SelectContent",
+      "file": "src/components/ui/select",
+      "import_path": ""
+    },
+    {
+      "name": "SelectLabel",
+      "file": "src/components/ui/select",
+      "import_path": ""
+    },
+    {
+      "name": "SelectItem",
+      "file": "src/components/ui/select",
+      "import_path": ""
+    },
+    {
+      "name": "SelectSeparator",
+      "file": "src/components/ui/select",
+      "import_path": ""
+    },
+    {
+      "name": "SelectScrollUpButton",
+      "file": "src/components/ui/select",
+      "import_path": ""
+    },
+    {
+      "name": "SelectScrollDownButton",
+      "file": "src/components/ui/select",
+      "import_path": ""
+    },
+    {
+      "name": "Separator",
+      "file": "src/components/ui/separator",
+      "import_path": ""
+    },
+    {
+      "name": "Sheet",
+      "file": "src/components/ui/sheet",
+      "import_path": "",
+      "props": [
+        {
+          "name": "side",
+          "type": "enum",
+          "values": [
+            "top",
+            "bottom",
+            "left",
+            "right"
+          ],
+          "default": "right"
+        }
+      ]
+    },
+    {
+      "name": "SheetPortal",
+      "file": "src/components/ui/sheet",
+      "import_path": ""
+    },
+    {
+      "name": "SheetOverlay",
+      "file": "src/components/ui/sheet",
+      "import_path": ""
+    },
+    {
+      "name": "SheetTrigger",
+      "file": "src/components/ui/sheet",
+      "import_path": ""
+    },
+    {
+      "name": "SheetClose",
+      "file": "src/components/ui/sheet",
+      "import_path": ""
+    },
+    {
+      "name": "SheetContent",
+      "file": "src/components/ui/sheet",
+      "import_path": ""
+    },
+    {
+      "name": "SheetHeader",
+      "file": "src/components/ui/sheet",
+      "import_path": ""
+    },
+    {
+      "name": "SheetFooter",
+      "file": "src/components/ui/sheet",
+      "import_path": ""
+    },
+    {
+      "name": "SheetTitle",
+      "file": "src/components/ui/sheet",
+      "import_path": ""
+    },
+    {
+      "name": "SheetDescription",
+      "file": "src/components/ui/sheet",
+      "import_path": ""
+    },
+    {
+      "name": "Sidebar",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarContent",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarFooter",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarGroup",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarGroupAction",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarGroupContent",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarGroupLabel",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarHeader",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarInput",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarInset",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarMenu",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarMenuAction",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarMenuBadge",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarMenuButton",
+      "file": "src/components/ui/sidebar",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "default",
+            "outline"
+          ],
+          "default": "default"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "default",
+            "sm",
+            "lg"
+          ],
+          "default": "default"
+        }
+      ]
+    },
+    {
+      "name": "SidebarMenuItem",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarMenuSkeleton",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarMenuSub",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarMenuSubButton",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarMenuSubItem",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarProvider",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarRail",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarSeparator",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "SidebarTrigger",
+      "file": "src/components/ui/sidebar",
+      "import_path": ""
+    },
+    {
+      "name": "Skeleton",
+      "file": "src/components/ui/skeleton",
+      "import_path": ""
+    },
+    {
+      "name": "Slider",
+      "file": "src/components/ui/slider",
+      "import_path": ""
+    },
+    {
+      "name": "Toaster",
+      "file": "src/components/ui/sonner",
+      "import_path": ""
+    },
+    {
+      "name": "Switch",
+      "file": "src/components/ui/switch",
+      "import_path": ""
+    },
+    {
+      "name": "Table",
+      "file": "src/components/ui/table",
+      "import_path": ""
+    },
+    {
+      "name": "TableHeader",
+      "file": "src/components/ui/table",
+      "import_path": ""
+    },
+    {
+      "name": "TableBody",
+      "file": "src/components/ui/table",
+      "import_path": ""
+    },
+    {
+      "name": "TableFooter",
+      "file": "src/components/ui/table",
+      "import_path": ""
+    },
+    {
+      "name": "TableHead",
+      "file": "src/components/ui/table",
+      "import_path": ""
+    },
+    {
+      "name": "TableRow",
+      "file": "src/components/ui/table",
+      "import_path": ""
+    },
+    {
+      "name": "TableCell",
+      "file": "src/components/ui/table",
+      "import_path": ""
+    },
+    {
+      "name": "TableCaption",
+      "file": "src/components/ui/table",
+      "import_path": ""
+    },
+    {
+      "name": "Tabs",
+      "file": "src/components/ui/tabs",
+      "import_path": ""
+    },
+    {
+      "name": "TabsList",
+      "file": "src/components/ui/tabs",
+      "import_path": ""
+    },
+    {
+      "name": "TabsTrigger",
+      "file": "src/components/ui/tabs",
+      "import_path": ""
+    },
+    {
+      "name": "TabsContent",
+      "file": "src/components/ui/tabs",
+      "import_path": ""
+    },
+    {
+      "name": "Textarea",
+      "file": "src/components/ui/textarea",
+      "import_path": ""
+    },
+    {
+      "name": "ToggleGroup",
+      "file": "src/components/ui/toggle-group",
+      "import_path": ""
+    },
+    {
+      "name": "ToggleGroupItem",
+      "file": "src/components/ui/toggle-group",
+      "import_path": ""
+    },
+    {
+      "name": "Toggle",
+      "file": "src/components/ui/toggle",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "default",
+            "outline"
+          ],
+          "default": "default"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "default",
+            "sm",
+            "lg"
+          ],
+          "default": "default"
+        }
+      ]
+    },
+    {
+      "name": "Tooltip",
+      "file": "src/components/ui/tooltip",
+      "import_path": ""
+    },
+    {
+      "name": "TooltipTrigger",
+      "file": "src/components/ui/tooltip",
+      "import_path": ""
+    },
+    {
+      "name": "TooltipContent",
+      "file": "src/components/ui/tooltip",
+      "import_path": ""
+    },
+    {
+      "name": "TooltipProvider",
+      "file": "src/components/ui/tooltip",
+      "import_path": ""
     },
     {
       "name": "Constants",
