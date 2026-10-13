@@ -157,12 +157,12 @@
   font-weight: 800;
   letter-spacing: 0.01em;
   color: var(--foreground);
-  text-shadow: 0 0 18px rgba(var(--primary-rgb, 212 175 55), 0.25);
+  text-shadow: 0 0 18px color-mix(in oklab, var(--primary) 28%, transparent);
 }
 .wordmark .hash {
   color: var(--primary);
   font-size: 1.15em;
-  filter: drop-shadow(0 0 8px rgba(var(--primary-rgb, 212 175 55), 0.5));
+  filter: drop-shadow(0 0 8px color-mix(in oklab, var(--primary) 55%, transparent));
 }
 .nav-links {
   display: flex;
