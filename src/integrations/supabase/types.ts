@@ -69,6 +69,7 @@ export type Database = {
           event: string
           id: string
           quote: string
+          rating: number
         }
         Insert: {
           author: string
@@ -76,6 +77,7 @@ export type Database = {
           event?: string
           id?: string
           quote: string
+          rating?: number
         }
         Update: {
           author?: string
@@ -83,6 +85,7 @@ export type Database = {
           event?: string
           id?: string
           quote?: string
+          rating?: number
         }
         Relationships: []
       }
@@ -93,6 +96,7 @@ export type Database = {
           event: string
           id: string
           quote: string
+          rating: number
           sort_order: number
         }
         Insert: {
@@ -101,6 +105,7 @@ export type Database = {
           event?: string
           id?: string
           quote: string
+          rating?: number
           sort_order?: number
         }
         Update: {
@@ -109,6 +114,7 @@ export type Database = {
           event?: string
           id?: string
           quote?: string
+          rating?: number
           sort_order?: number
         }
         Relationships: []
@@ -150,10 +156,20 @@ export type Database = {
     Functions: {
       approve_visitor_review: { Args: { p_id: string }; Returns: undefined }
       is_admin: { Args: never; Returns: boolean }
-      submit_visitor_review: {
-        Args: { p_author: string; p_event?: string; p_quote: string }
-        Returns: string
-      }
+      submit_visitor_review:
+        | {
+            Args: { p_author: string; p_event?: string; p_quote: string }
+            Returns: string
+          }
+        | {
+            Args: {
+              p_author: string
+              p_event?: string
+              p_quote: string
+              p_rating?: number
+            }
+            Returns: string
+          }
     }
     Enums: {
       [_ in never]: never

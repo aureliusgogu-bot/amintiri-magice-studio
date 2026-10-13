@@ -5,12 +5,20 @@ import { supabase } from "@/integrations/supabase/client";
 import { DEFAULT_SETTINGS, type Person } from "@/lib/site-data";
 import { Field, Notice, friendlyError, inputClass } from "./admin-shared";
 
-type Review = { id: string; quote: string; author: string; event: string; sort_order: number };
+type Review = {
+  id: string;
+  quote: string;
+  author: string;
+  event: string;
+  rating: number;
+  sort_order: number;
+};
 type PendingReview = {
   id: string;
   quote: string;
   author: string;
   event: string;
+  rating: number;
   created_at: string;
 };
 
@@ -41,14 +49,14 @@ export function ReviewsTab() {
   const [rows, setRows] = useState<Review[]>([]);
   const [pending, setPending] = useState<PendingReview[]>([]);
   const [processing, setProcessing] = useState(false);
-  const [draft, setDraft] = useState({ quote: "", author: "", event: "" });
+  const [draft, setDraft] = useState({ quote: "", author: "", event: "", rating: 5 });
   const msg = useMessages();
   const load = useCallback(async () => {
     const [{ data, error }, submissions] = await Promise.all([
       supabase.from("reviews").select("*").order("sort_order"),
       supabase
         .from("review_submissions")
-        .select("id,quote,author,event,created_at")
+        .select("id,quote,author,event,rating,created_at")
         .order("created_at", { ascending: false }),
     ]);
     if (error) msg.fail(error);
@@ -89,10 +97,11 @@ export function ReviewsTab() {
       quote: draft.quote.trim(),
       author: draft.author.trim(),
       event: draft.event.trim(),
+      rating: draft.rating,
       sort_order,
     });
     if (error) return msg.fail(error);
-    setDraft({ quote: "", author: "", event: "" });
+    setDraft({ quote: "", author: "", event: "", rating: 5 });
     msg.success("Recenzia a fost adăugată.");
     await load();
   }
@@ -100,7 +109,12 @@ export function ReviewsTab() {
     if (!r.quote.trim() || !r.author.trim()) return msg.fail("Recenzia și numele nu pot fi goale.");
     const { error } = await supabase
       .from("reviews")
-      .update({ quote: r.quote.trim(), author: r.author.trim(), event: r.event.trim() })
+      .update({
+        quote: r.quote.trim(),
+        author: r.author.trim(),
+        event: r.event.trim(),
+        rating: r.rating,
+      })
       .eq("id", r.id);
     if (error) msg.fail(error);
     else msg.success("Recenzia a fost salvată.");
@@ -145,6 +159,7 @@ export function ReviewsTab() {
               <p className="text-sm text-primary">
                 {review.author}
                 {review.event && ` · ${review.event}`}
+                {` · ${review.rating} ★`}
               </p>
               <p className="mt-3 whitespace-pre-wrap break-words">{review.quote}</p>
               <p className="mt-2 text-xs text-muted-foreground">
@@ -202,6 +217,19 @@ export function ReviewsTab() {
             onChange={(e) => setDraft({ ...draft, event: e.target.value })}
           />
         </Field>
+        <Field label="Nota (stele)">
+          <select
+            className={inputClass}
+            value={draft.rating}
+            onChange={(e) => setDraft({ ...draft, rating: Number(e.target.value) })}
+          >
+            {[1, 2, 3, 4, 5].map((value) => (
+              <option key={value} value={value}>
+                {value} ★
+              </option>
+            ))}
+          </select>
+        </Field>
         <Button variant="studio" type="submit" className="self-start">
           Adaugă recenzia
         </Button>
@@ -244,6 +272,19 @@ export function ReviewsTab() {
                     value={r.event}
                     onChange={(e) => set(r.id, { event: e.target.value })}
                   />
+                </Field>
+                <Field label="Nota (stele)">
+                  <select
+                    className={inputClass}
+                    value={r.rating}
+                    onChange={(e) => set(r.id, { rating: Number(e.target.value) })}
+                  >
+                    {[1, 2, 3, 4, 5].map((value) => (
+                      <option key={value} value={value}>
+                        {value} ★
+                      </option>
+                    ))}
+                  </select>
                 </Field>
               </div>
               <div className="flex flex-wrap gap-2">

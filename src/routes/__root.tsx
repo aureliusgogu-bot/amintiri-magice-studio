@@ -12,6 +12,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { FooterCredit } from "@/components/footer-credit";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -29,6 +31,9 @@ function NotFoundComponent() {
           >
             Înapoi acasă
           </Link>
+        </div>
+        <div className="mt-12">
+          <FooterCredit />
         </div>
       </div>
     </div>
@@ -67,6 +72,9 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
           >
             Înapoi acasă
           </a>
+        </div>
+        <div className="mt-12">
+          <FooterCredit />
         </div>
       </div>
     </div>
@@ -128,6 +136,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <Toaster />
     </QueryClientProvider>
   );
 }

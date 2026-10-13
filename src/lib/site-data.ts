@@ -1,7 +1,7 @@
 import { createContext, useContext } from "react";
 
 export type Person = { name: string; phone: string };
-export type Review = { quote: string; author: string; event: string };
+export type Review = { quote: string; author: string; event: string; rating: number };
 export type GalleryPhoto = {
   src: string;
   highRes: string;
@@ -54,6 +54,13 @@ export function orderedCategories(list: { category: string }[]) {
 /** Photos live in a private bucket and are served through the /foto/ route. */
 export const photoUrl = (path: string) =>
   `/foto/${path.split("/").map(encodeURIComponent).join("/")}`;
+
+/** Romanian-formatted average star rating, e.g. "5,0★". Missing ratings count as 5. */
+export function averageRatingLabel(reviews: Review[]): string {
+  if (!reviews.length) return "";
+  const avg = reviews.reduce((sum, r) => sum + (Number(r.rating) || 5), 0) / reviews.length;
+  return `${avg.toFixed(1).replace(".", ",")}★`;
+}
 
 export const SiteContext = createContext<SiteData>(DEFAULT_SITE_DATA);
 export const useSite = () => useContext(SiteContext);

@@ -4,6 +4,9 @@
 - [x] Add /recenzii with the complete grid, existing submission form, Facebook link, SEO and sitemap inclusion; verified desktop/mobile, full-text dialogs, links and seven passing tests.
 - [x] Restore the brand-only page title and retain wedding, baptism and civil-ceremony photographer search terms.
 - [x] Add direct visitor reviews and private admin approval; verified real submission, private storage, anonymous approval/write denial, tests and build.
+- [ ] Add visitor star ratings (1–5, default 5) to the review form, approval queue and review cards, with the average shown in the homepage summary.
+- [ ] Show the webdesign.vale credit on the 404 and error screens (Contact is a homepage section, already covered by the homepage footer).
+- [ ] Apply design-system wiring fixes: complete library barrel exports, styles import, Toaster in the showcase, font note for consumers.
 - [ ] Verify George's signed-in approval flow: blocked because no authorized admin session is available; George must sign in in the preview.
 
 - [x] Create the cinematic Romanian single-page site and exact studio story.

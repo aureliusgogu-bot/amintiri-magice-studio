@@ -30,4 +30,12 @@ describe("Visitor review validation", () => {
       );
     }
   });
+  it("defaults the rating to 5 and coerces numeric strings", () => {
+    expect(visitorReviewSchema.parse(valid).rating).toBe(5);
+    expect(visitorReviewSchema.parse({ ...valid, rating: "4" }).rating).toBe(4);
+  });
+  it("rejects ratings outside 1-5", () => {
+    expect(visitorReviewSchema.safeParse({ ...valid, rating: 0 }).success).toBe(false);
+    expect(visitorReviewSchema.safeParse({ ...valid, rating: 6 }).success).toBe(false);
+  });
 });

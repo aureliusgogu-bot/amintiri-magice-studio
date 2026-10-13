@@ -6,6 +6,7 @@ afterEach(cleanup);
 const review = {
   author: "Client de test",
   event: "Nuntă și botez",
+  rating: 5,
   quote:
     "Prima parte a recenziei.\n\nTextul complet rămâne exact la fel, inclusiv toate rândurile și semnele: ♥!",
 };
