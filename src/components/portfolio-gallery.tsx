@@ -62,18 +62,10 @@ import majorat4small from "@/assets/majorat/majorat-4-small.jpg";
 import majorat4large from "@/assets/majorat/majorat-4-large.jpg";
 import majorat5small from "@/assets/majorat/majorat-5-small.jpg";
 import majorat5large from "@/assets/majorat/majorat-5-large.jpg";
-import { useEffect, useRef, useState, useCallback, type MouseEvent } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
-import {
-  AnimatePresence,
-  LayoutGroup,
-  motion,
-  useMotionValue,
-  useSpring,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import { ArrowLeft, ArrowRight, X, Maximize2 } from "lucide-react";
+import { AnimatePresence, LayoutGroup, motion, useScroll, useTransform } from "framer-motion";
+import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEnhancedMotion } from "@/hooks/use-enhanced-motion";
 import { EASE, MaskReveal } from "@/components/motion-kit";
@@ -336,158 +328,44 @@ function SafeImage({
     />
   );
 }
-function PhotoCard({
+function FilmFrame({
   photo,
-  enhanced,
+  number,
   onOpen,
 }: {
   photo: Photo;
-  enhanced: boolean;
+  number: number;
   onOpen: (photo: Photo, button: HTMLButtonElement) => void;
 }) {
-  const [hover, setHover] = useState(false);
-  const mx = useMotionValue(0),
-    my = useMotionValue(0);
-  const rx = useSpring(useTransform(my, [-0.5, 0.5], [7, -7]), { stiffness: 190, damping: 25 });
-  const ry = useSpring(useTransform(mx, [-0.5, 0.5], [-9, 9]), { stiffness: 190, damping: 25 });
-  const gx = useSpring(useTransform(mx, [-0.5, 0.5], [-90, 90]), { stiffness: 160, damping: 30 });
-  const gy = useSpring(useTransform(my, [-0.5, 0.5], [-80, 80]), { stiffness: 160, damping: 30 });
-  function move(event: MouseEvent<HTMLDivElement>) {
-    if (!enhanced) return;
-    const rect = event.currentTarget.getBoundingClientRect();
-    mx.set((event.clientX - rect.left) / rect.width - 0.5);
-    my.set((event.clientY - rect.top) / rect.height - 0.5);
-  }
   return (
-    <motion.div
-      className="photo-wrapper"
-      initial={{ opacity: 0, y: enhanced ? 48 : 0 }}
-      whileInView={{ opacity: 1, y: 0 }}
+    <motion.figure
+      className="film-frame"
+      style={{ width: `calc(min(52vh, 440px) * ${photo.aspectRatio})` }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: enhanced ? 1 : 0.5, ease: EASE }}
-      onMouseMove={move}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => {
-        setHover(false);
-        mx.set(0);
-        my.set(0);
-      }}
+      transition={{ duration: 0.6, ease: EASE }}
     >
-      <motion.div
-        className="photo-shadow"
-        animate={{
-          opacity: enhanced && hover ? 1 : 0.15,
-          scale: enhanced && hover ? 1.08 : 0.95,
-          y: enhanced && hover ? 20 : 0,
-        }}
-        transition={{ duration: 0.35 }}
-      />
-      <motion.div
-        className="photo-surface"
-        {...(enhanced ? { layoutId: `photo-${photo.src}` } : {})}
-        style={{
-          aspectRatio: photo.aspectRatio,
-          rotateX: enhanced ? rx : 0,
-          rotateY: enhanced ? ry : 0,
-        }}
-        animate={
-          enhanced ? { scale: hover ? 1.045 : 1, y: hover ? -12 : 0, z: hover ? 50 : 0 } : {}
-        }
-        transition={{ type: "spring", stiffness: 220, damping: 26 }}
-      >
+      <div className="film-photo">
         <Button
           variant="photo"
           className="photo-button"
           data-cursor="Vezi"
           aria-label={`Deschide fotografia: ${photo.title}`}
-          onFocus={() => setHover(true)}
-          onBlur={() => setHover(false)}
           onClick={(event) => onOpen(photo, event.currentTarget)}
         >
           <SafeImage src={photo.src} alt={`${photo.title} — ${photo.category}`} />
-          <motion.div
-            className="photo-info"
-            initial={false}
-            animate={{ opacity: hover ? 1 : 0 }}
-            transition={{ duration: 0.25 }}
-          >
-            <Maximize2 size={16} className="photo-expand" />
-            <h3>{photo.title}</h3>
-            <span>{photo.category}</span>
-          </motion.div>
         </Button>
-        {enhanced && (
-          <motion.div
-            className="photo-glare"
-            style={{ x: gx, y: gy }}
-            animate={{ opacity: hover ? 1 : 0 }}
-          />
-        )}
-      </motion.div>
-    </motion.div>
+      </div>
+      <figcaption className="film-caption">
+        <span className="film-number">{String(number).padStart(2, "0")}</span>
+        <span className="film-title">{photo.title}</span>
+        <span className="film-category">{photo.category}</span>
+      </figcaption>
+    </motion.figure>
   );
 }
-function PhotoColumn({
-  items,
-  index,
-  enhanced,
-  scrollProgress,
-  drift,
-  onOpen,
-}: {
-  items: Photo[];
-  index: number;
-  enhanced: boolean;
-  scrollProgress: ReturnType<typeof useScroll>["scrollYProgress"];
-  drift: ReturnType<typeof useMotionValue<number>>;
-  onOpen: (photo: Photo, button: HTMLButtonElement) => void;
-}) {
-  const speed = [0.4, 1.3, 0.8, 1.7][index] ?? 1;
-  const y = useTransform(scrollProgress, [0, 1], [100 * speed, -220 * speed]);
-  const x = useSpring(useTransform(drift, [-0.5, 0.5], [-28 * speed, 28 * speed]), {
-    stiffness: 90,
-    damping: 30,
-  });
-  return (
-    <motion.div
-      className="gallery-column"
-      data-depth={enhanced ? index : undefined}
-      data-speed={enhanced ? speed : undefined}
-      style={enhanced ? { y, x } : {}}
-    >
-      {items.map((photo) => (
-        <PhotoCard key={photo.src} photo={photo} enhanced={enhanced} onOpen={onOpen} />
-      ))}
-    </motion.div>
-  );
-}
-function GalleryLight({
-  index,
-  scrollProgress,
-  drift,
-}: {
-  index: number;
-  scrollProgress: ReturnType<typeof useScroll>["scrollYProgress"];
-  drift: ReturnType<typeof useMotionValue<number>>;
-}) {
-  const speed = index === 0 ? 0.08 : 0.16;
-  const y = useTransform(scrollProgress, [0, 1], [20 * speed, -220 * speed]);
-  const x = useSpring(useTransform(drift, [-0.5, 0.5], [-28 * speed, 28 * speed]), {
-    stiffness: 60,
-    damping: 30,
-  });
-  return (
-    <motion.div
-      aria-hidden="true"
-      className={`gallery-light gallery-light-${index}`}
-      style={{ x, y }}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 1.2 }}
-    />
-  );
-}
+
 function Lightbox({
   selected,
   list,
@@ -647,22 +525,34 @@ function Lightbox({
 }
 export function PortfolioGallery({ items = photos }: { items?: GalleryPhoto[] }) {
   const enhanced = useEnhancedMotion();
-  const section = useRef<HTMLDivElement>(null);
+  const track = useRef<HTMLDivElement>(null);
+  const viewport = useRef<HTMLDivElement>(null);
+  const strip = useRef<HTMLDivElement>(null);
   const source = useRef<HTMLButtonElement | null>(null);
   const [category, setCategory] = useState("Toate");
   const [selected, setSelected] = useState<Photo | null>(null);
-  const { scrollYProgress } = useScroll({ target: section, offset: ["start end", "end start"] });
-  const drift = useMotionValue(0);
+  const [distance, setDistance] = useState(0);
   const categories = ["Toate", ...orderedCategories(items)];
   const active = categories.includes(category) ? category : "Toate";
   const list = active === "Toate" ? items : items.filter((photo) => photo.category === active);
-  const step = enhanced ? 12 : 8;
-  const [limit, setLimit] = useState(step);
-  useEffect(() => setLimit(step), [active, step]);
-  const shown = list.slice(0, limit);
-  const columns = Array.from({ length: enhanced ? 4 : 2 }, (_, column) =>
-    shown.filter((_, index) => index % (enhanced ? 4 : 2) === column),
-  );
+  useLayoutEffect(() => {
+    const el = strip.current;
+    if (!el) return;
+    const measure = () => setDistance(Math.max(0, el.scrollWidth - window.innerWidth));
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    window.addEventListener("resize", measure);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, [list.length, active, enhanced]);
+  const { scrollYProgress } = useScroll({ target: track, offset: ["start start", "end end"] });
+  const x = useTransform(scrollYProgress, [0, 1], [0, -distance]);
+  const { scrollXProgress } = useScroll({ container: viewport });
+  const progress = enhanced ? scrollYProgress : scrollXProgress;
+  const pinned = enhanced && distance > 0;
   const close = useCallback(() => {
     setSelected(null);
     window.setTimeout(() => source.current?.focus(), 300);
@@ -673,7 +563,7 @@ export function PortfolioGallery({ items = photos }: { items?: GalleryPhoto[] })
   }
   return (
     <LayoutGroup id="studio-gallery">
-      <section id="portofoliu" className="section-inner" ref={section}>
+      <section id="portofoliu" className="section-inner">
         <div className="portfolio-top">
           <div>
             <p className="section-kicker">Povești în imagini</p>
@@ -699,46 +589,39 @@ export function PortfolioGallery({ items = photos }: { items?: GalleryPhoto[] })
           </div>
         </div>
         <div
-          className="gallery-wall"
-          onMouseMove={(event) => {
-            if (!enhanced) return;
-            const rect = event.currentTarget.getBoundingClientRect();
-            drift.set((event.clientX - rect.left) / rect.width - 0.5);
-          }}
-          onMouseLeave={() => drift.set(0)}
+          ref={track}
+          className={`film-track ${pinned ? "film-pinned" : "film-native"}`}
+          style={pinned ? { height: `calc(100vh + ${distance}px)` } : undefined}
         >
-          {enhanced &&
-            [0, 1].map((index) => (
-              <GalleryLight
-                key={index}
-                index={index}
-                scrollProgress={scrollYProgress}
-                drift={drift}
-              />
-            ))}
-          <div className={`gallery-columns ${enhanced ? "" : "gallery-simple"}`}>
-            {columns.map((items, index) => (
-              <PhotoColumn
-                key={`${active}-${index}-${enhanced}`}
-                items={items}
-                index={index}
-                enhanced={enhanced}
-                scrollProgress={scrollYProgress}
-                drift={drift}
-                onOpen={open}
-              />
-            ))}
+          <div className="film-sticky">
+            <div
+              ref={viewport}
+              className="film-viewport"
+              tabIndex={pinned ? undefined : 0}
+              role="region"
+              aria-label="Bandă de fotografii"
+            >
+              <motion.div
+                key={active}
+                ref={strip}
+                className="film-strip"
+                style={pinned ? { x } : undefined}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, ease: EASE }}
+              >
+                {list.map((photo, index) => (
+                  <FilmFrame key={photo.src} photo={photo} number={index + 1} onOpen={open} />
+                ))}
+              </motion.div>
+            </div>
+            <div className="film-progress" aria-hidden="true">
+              <motion.div className="film-progress-bar" style={{ scaleX: progress }} />
+            </div>
+            <div className="gallery-end">
+              {String(list.length).padStart(2, "0")} povești. Nenumărate emoții.
+            </div>
           </div>
-        </div>
-        {limit < list.length && (
-          <div className="mt-8 flex justify-center">
-            <Button variant="outline" onClick={() => setLimit((value) => value + step)}>
-              Vezi mai multe fotografii ({list.length - limit})
-            </Button>
-          </div>
-        )}
-        <div className="gallery-end">
-          {String(list.length).padStart(2, "0")} povești. Nenumărate emoții.
         </div>
       </section>
       {typeof document !== "undefined" &&
