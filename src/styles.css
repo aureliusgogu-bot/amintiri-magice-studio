@@ -52,24 +52,10 @@
     var(--background)
   );
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --glare: radial-gradient(ellipse at center, oklch(1 0 0 / 0.22), transparent 65%);
-  --photo-shadow: 0 35px 45px oklch(0 0 0 / 0.8);
   --contact-shade: linear-gradient(
     90deg,
     oklch(0.135 0.003 75 / 0.97),
     oklch(0.135 0.003 75 / 0.85)
-  );
-  --gallery-light-warm: linear-gradient(
-    115deg,
-    transparent 10%,
-    oklch(0.77 0.082 68 / 0.1) 45%,
-    transparent 75%
-  );
-  --gallery-light-neutral: linear-gradient(
-    65deg,
-    transparent 15%,
-    oklch(0.935 0.012 80 / 0.045) 50%,
-    transparent 80%
   );
   --vignette: radial-gradient(
     ellipse 90% 85% at center,
@@ -387,6 +373,125 @@ main {
   right: 0;
   height: 1px;
   background: var(--primary);
+}
+.film-track {
+  position: relative;
+}
+.film-sticky {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+.film-pinned .film-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+.film-viewport {
+  margin-inline: calc(50% - 50vw);
+  padding: 24px 0;
+}
+.film-native .film-viewport {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.film-native .film-viewport::-webkit-scrollbar {
+  display: none;
+}
+.film-strip {
+  --film-hole: oklch(0.04 0.002 75);
+  position: relative;
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  padding: 34px 6vw 30px;
+  background:
+    radial-gradient(circle at 50% 50%, var(--film-hole) 3px, transparent 3.6px) 0 9px / 22px 14px repeat-x,
+    radial-gradient(circle at 50% 50%, var(--film-hole) 3px, transparent 3.6px) 0 calc(100% - 9px) / 22px 14px repeat-x,
+    linear-gradient(180deg, oklch(0.17 0.006 70), oklch(0.13 0.004 70));
+  border-block: 1px solid color-mix(in oklch, var(--primary) 22%, transparent);
+  box-shadow: 0 30px 60px oklch(0 0 0 / 0.55);
+}
+.film-frame {
+  flex: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scroll-snap-align: center;
+}
+.film-photo {
+  position: relative;
+  height: min(52vh, 440px);
+  overflow: hidden;
+  background: var(--photo-fallback);
+  outline: 1px solid oklch(0 0 0 / 0.6);
+}
+.film-native .film-photo {
+  height: min(48vh, 340px);
+}
+.film-photo .photo-button {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: block;
+}
+.film-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.4s var(--ease);
+}
+.film-photo .photo-button:hover img {
+  opacity: 0.85;
+}
+.film-photo .photo-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -4px;
+}
+.film-caption {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  max-width: 100%;
+  font-size: 11px;
+  color: var(--muted-foreground);
+}
+.film-number {
+  font-family: ui-monospace, monospace;
+  color: var(--primary);
+  letter-spacing: 0.1em;
+}
+.film-title {
+  color: var(--foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.film-category {
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-size: 9px;
+  white-space: nowrap;
+}
+.film-progress {
+  height: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+.film-progress-bar {
+  height: 100%;
+  width: 100%;
+  background: var(--primary);
+  transform-origin: left;
 }
 .gallery-end {
   display: flex;
@@ -791,7 +896,6 @@ main {
   }
   .portfolio-top {
     margin-bottom: 14px;
-  }
   }
   .story-layout {
     grid-template-columns: 1fr;
