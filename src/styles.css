@@ -1826,3 +1826,222 @@ a:hover > .lucide-arrow-right {
   border-top: 1px solid var(--border);
   padding: 20px 5% 28px;
 }
+
+/* ---------- Premium scroll layer: pinned chapters, ivory story, section rail ---------- */
+.chapters-section {
+  position: relative;
+  border-top: 1px solid var(--border);
+}
+.chapters-intro {
+  max-width: 1400px;
+  margin: auto;
+  padding: 100px 5% 40px;
+}
+.chapters-track {
+  position: relative;
+}
+.chapters-stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--background);
+}
+.chapters-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.chapters-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+.chapters-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, oklch(0.08 0.004 75 / 0.85), oklch(0.08 0.004 75 / 0.15) 65%),
+    linear-gradient(180deg, var(--background), transparent 18%, transparent 80%, var(--background));
+}
+.chapters-copy {
+  position: absolute;
+  left: 7%;
+  bottom: 16%;
+  max-width: 34rem;
+}
+.chapters-count {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--muted-foreground);
+  margin: 0 0 18px;
+}
+.chapters-count span {
+  color: var(--primary);
+}
+.chapters-name {
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  line-height: 1;
+  font-style: italic;
+  margin: 0 0 18px;
+}
+.chapters-blurb {
+  color: var(--foreground);
+  opacity: 0.8;
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 0;
+}
+.chapters-thumbs {
+  position: absolute;
+  right: 9%;
+  bottom: 16%;
+  display: flex;
+  gap: 16px;
+}
+.chapters-thumbs img {
+  width: clamp(110px, 12vw, 190px);
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 1px solid oklch(1 0 0 / 0.18);
+  box-shadow: 0 25px 40px oklch(0 0 0 / 0.6);
+}
+.chapters-thumbs img:nth-child(2) {
+  transform: translateY(-36px);
+}
+.chapters-rail {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: 6%;
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.chapters-rail li {
+  flex: 1;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted-foreground);
+  transition: color 0.5s var(--ease);
+}
+.chapters-rail li i {
+  display: block;
+  height: 1px;
+  margin-top: 10px;
+  background: var(--border);
+  transform-origin: 0 50%;
+  transition:
+    background 0.5s var(--ease),
+    transform 0.8s var(--ease);
+}
+.chapters-rail li[data-active="true"] {
+  color: var(--primary);
+}
+.chapters-rail li[data-active="true"] i {
+  background: var(--primary);
+  transform: scaleY(2);
+}
+.chapters-stack {
+  display: grid;
+  gap: 28px;
+  padding: 0 5% 70px;
+}
+.chapters-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.chapters-card .chapters-name {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+.chapters-card .chapters-count {
+  margin-top: 16px;
+}
+.chapters-card .chapters-blurb {
+  font-size: 15px;
+}
+
+/* Warm ivory chapter: a clear change of light between the dark portfolio and the dark contact. */
+.paper {
+  --background: oklch(0.955 0.015 85);
+  --foreground: oklch(0.2 0.01 70);
+  --muted-foreground: oklch(0.42 0.012 70);
+  --primary: oklch(0.52 0.095 62);
+  --border: oklch(0.82 0.02 80);
+  --vignette: radial-gradient(
+    ellipse 90% 85% at center,
+    transparent 60%,
+    oklch(0.2 0.01 70 / 0.22) 100%
+  );
+  background: var(--background);
+  color: var(--foreground);
+}
+.paper .story-photo {
+  box-shadow: 0 30px 60px oklch(0.2 0.01 70 / 0.25);
+}
+
+/* Right-edge section index. Mix-blend keeps it readable over dark and ivory alike. */
+.section-rail {
+  position: fixed;
+  right: 22px;
+  top: 50%;
+  z-index: 35;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  mix-blend-mode: difference;
+  color: #fff;
+}
+.section-rail a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 6px 0;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+.section-rail a span {
+  opacity: 0;
+  transform: translateX(8px);
+  transition:
+    opacity 0.4s var(--ease),
+    transform 0.4s var(--ease);
+}
+.section-rail a:hover span,
+.section-rail a:focus-visible span,
+.section-rail a[data-active="true"] span {
+  opacity: 0.85;
+  transform: none;
+}
+.section-rail a i {
+  width: 7px;
+  height: 7px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  transition:
+    background 0.4s var(--ease),
+    transform 0.4s var(--ease);
+}
+.section-rail a[data-active="true"] i {
+  background: currentColor;
+  transform: scale(1.35);
+}
+@media (max-width: 1100px) {
+  .section-rail {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .chapters-intro {
+    padding: 70px 5% 24px;
+  }
+}

@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Instagram, Facebook, MapPin, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PortfolioGallery, photos } from "@/components/portfolio-gallery";
 import { PortfolioRecommender } from "@/components/portfolio-recommender";
 import { ParallaxPhoto, type SwapPhoto } from "@/components/parallax-photo";
+import { ChaptersScroll, SectionRail } from "@/components/chapters-scroll";
 import { FooterCredit } from "@/components/footer-credit";
 import studioLogo from "@/assets/logos/george-constantin-logo-sharp.png";
 import {
@@ -397,6 +398,20 @@ function Index() {
     </SiteContext.Provider>
   );
 }
+/** Hero copy lifts and fades as the visitor scrolls away, while the photo behind keeps its own parallax. */
+function HeroScrollFade({ children }: { children: React.ReactNode }) {
+  const enhanced = useEnhancedMotion();
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 600], [0, -90]);
+  const opacity = useTransform(scrollY, [0, 520], [1, 0]);
+  const scale = useTransform(scrollY, [0, 600], [1, 0.94]);
+  if (!enhanced) return <div className="hero-content">{children}</div>;
+  return (
+    <motion.div className="hero-content" style={{ y, opacity, scale }}>
+      {children}
+    </motion.div>
+  );
+}
 function Page() {
   const { settings, reviews, photos: dbPhotos } = useSite();
   const { people, facebook, instagram, email } = settings;
@@ -416,6 +431,7 @@ function Page() {
     <div id="studio-page">
       <ScrollProgress />
       <CursorRing />
+      <SectionRail />
       <span aria-hidden className="film-grain" />
       <Navigation />
       <main>
@@ -429,9 +445,9 @@ function Page() {
             swap={heroSwap}
           />
           <div className="hero-overlay" />
-          <div className="hero-content">
+          <HeroScrollFade>
             <HeroText />
-          </div>
+          </HeroScrollFade>
           <div className="hero-bottom">
             <p>
               Mai mult decât imagini.
@@ -453,8 +469,9 @@ function Page() {
           items={["Nunți", "Cununii civile", "Botezuri", "Majorate", "Evenimente", "Foto", "Video"]}
         />
         <PortfolioGallery items={dbPhotos ?? photos} />
+        <ChaptersScroll items={dbPhotos ?? photos} />
         <PortfolioRecommender items={dbPhotos ?? photos} />
-        <section id="despre" className="story-section">
+        <section id="despre" className="story-section paper">
           <div className="section-inner story-layout">
             <div className="story-intro">
               <Reveal>
