@@ -1,3 +1,4 @@
+import type * as React from "react";
 import cununie5small from "@/assets/cununie/cununie-5-small.jpg";
 import cununie5large from "@/assets/cununie/cununie-5-large.jpg";
 import cununie6small from "@/assets/cununie/cununie-6-small.jpg";
@@ -340,7 +341,7 @@ function FilmFrame({
   return (
     <motion.figure
       className="film-frame"
-      style={{ width: `calc(min(52vh, 440px) * ${photo.aspectRatio})` }}
+      style={{ "--ar": photo.aspectRatio } as React.CSSProperties}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.1 }}
@@ -457,7 +458,6 @@ function Lightbox({
       >
         <motion.div
           className="lightbox-image"
-          {...(enhanced ? { layoutId: `photo-${selected.src}` } : {})}
           transition={{ duration: 0.65, ease: EASE }}
           onClick={(event) => event.stopPropagation()}
         >

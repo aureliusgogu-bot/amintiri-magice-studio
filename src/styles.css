@@ -418,7 +418,9 @@ main {
   box-shadow: 0 30px 60px oklch(0 0 0 / 0.55);
 }
 .film-frame {
+  --film-h: min(52vh, 440px);
   flex: none;
+  width: calc(var(--film-h) * var(--ar, 1.5));
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -427,13 +429,13 @@ main {
 }
 .film-photo {
   position: relative;
-  height: min(52vh, 440px);
+  height: var(--film-h);
   overflow: hidden;
   background: var(--photo-fallback);
   outline: 1px solid oklch(0 0 0 / 0.6);
 }
-.film-native .film-photo {
-  height: min(48vh, 340px);
+.film-native .film-frame {
+  --film-h: min(48vh, 340px);
 }
 .film-photo .photo-button {
   position: absolute;
