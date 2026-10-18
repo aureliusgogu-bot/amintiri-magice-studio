@@ -52,24 +52,10 @@
     var(--background)
   );
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --glare: radial-gradient(ellipse at center, oklch(1 0 0 / 0.22), transparent 65%);
-  --photo-shadow: 0 35px 45px oklch(0 0 0 / 0.8);
   --contact-shade: linear-gradient(
     90deg,
     oklch(0.135 0.003 75 / 0.97),
     oklch(0.135 0.003 75 / 0.85)
-  );
-  --gallery-light-warm: linear-gradient(
-    115deg,
-    transparent 10%,
-    oklch(0.77 0.082 68 / 0.1) 45%,
-    transparent 75%
-  );
-  --gallery-light-neutral: linear-gradient(
-    65deg,
-    transparent 15%,
-    oklch(0.935 0.012 80 / 0.045) 50%,
-    transparent 80%
   );
   --vignette: radial-gradient(
     ellipse 90% 85% at center,
@@ -388,131 +374,127 @@ main {
   height: 1px;
   background: var(--primary);
 }
-.gallery-wall {
+.film-track {
   position: relative;
-  padding: 32px 0 70px;
-  isolation: isolate;
-  touch-action: auto;
 }
-.gallery-light {
-  position: absolute;
-  inset: -60px -4%;
-  z-index: -1;
-  pointer-events: none;
-  filter: blur(35px);
-}
-.gallery-light-0 {
-  background: var(--gallery-light-warm);
-}
-.gallery-light-1 {
-  background: var(--gallery-light-neutral);
-  inset: 15% -4% -60px;
-}
-.gallery-columns {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 23px;
-  align-items: start;
-}
-.gallery-column {
+.film-sticky {
+  margin-inline: calc(50% - 50vw);
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  justify-content: center;
+  gap: 18px;
 }
-.gallery-column[data-depth="0"] {
-  scale: 0.88;
-  opacity: 0.6;
-  z-index: 1;
-}
-.gallery-column[data-depth="1"] {
-  scale: 1.02;
-  opacity: 0.94;
-  z-index: 3;
-}
-.gallery-column[data-depth="2"] {
-  scale: 0.94;
-  opacity: 0.76;
-  z-index: 2;
-}
-.gallery-column[data-depth="3"] {
-  scale: 1.06;
-  z-index: 4;
-}
-.gallery-column:nth-child(2) {
-  padding-top: 85px;
-}
-.gallery-column:nth-child(4) {
-  padding-top: 130px;
-}
-.gallery-simple {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-.gallery-simple .gallery-column {
-  padding-top: 0;
-}
-.photo-wrapper {
-  position: relative;
-  perspective: 1000px;
-  isolation: isolate;
-}
-.photo-shadow {
-  position: absolute;
-  inset: 8px;
-  box-shadow: var(--photo-shadow);
-  z-index: -1;
-  pointer-events: none;
-}
-.photo-surface {
-  position: relative;
-  background: var(--photo-fallback);
+.film-pinned .film-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
   overflow: hidden;
-  transform-style: preserve-3d;
 }
-.photo-surface .photo-button {
+.film-viewport {
+  padding: 24px 0;
+}
+.film-native .film-viewport {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.film-native .film-viewport::-webkit-scrollbar {
+  display: none;
+}
+.film-strip {
+  --film-hole: oklch(0.04 0.002 75);
+  position: relative;
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  padding: 34px 6vw 30px;
+  background:
+    radial-gradient(circle at 50% 50%, var(--film-hole) 3px, transparent 3.6px) 0 9px / 22px 14px repeat-x,
+    radial-gradient(circle at 50% 50%, var(--film-hole) 3px, transparent 3.6px) 0 calc(100% - 9px) / 22px 14px repeat-x,
+    linear-gradient(180deg, oklch(0.17 0.006 70), oklch(0.13 0.004 70));
+  border-block: 1px solid color-mix(in oklch, var(--primary) 22%, transparent);
+  box-shadow: 0 30px 60px oklch(0 0 0 / 0.55);
+}
+.film-frame {
+  --film-h: min(52vh, 440px);
+  flex: none;
+  width: calc(var(--film-h) * var(--ar, 1.5));
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scroll-snap-align: center;
+}
+.film-photo {
+  position: relative;
+  height: var(--film-h);
+  overflow: hidden;
+  background: var(--photo-fallback);
+  outline: 1px solid oklch(0 0 0 / 0.6);
+}
+.film-native .film-frame {
+  --film-h: min(48vh, 340px);
+}
+.film-photo .photo-button {
   position: absolute;
   inset: 0;
-  height: 100%;
   width: 100%;
+  height: 100%;
   padding: 0;
   display: block;
 }
-.photo-surface img {
+.film-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: opacity 0.4s var(--ease);
 }
-.photo-glare {
-  position: absolute;
-  inset: -75%;
-  background: var(--glare);
-  pointer-events: none;
+.film-photo .photo-button:hover img {
+  opacity: 0.85;
 }
-.photo-info {
-  position: absolute;
-  inset: 0;
-  background: var(--photo-shade);
+.film-photo .photo-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -4px;
+}
+.film-caption {
   display: flex;
-  flex-direction: column;
-  justify-content: end;
-  padding: 22px;
-  pointer-events: none;
+  align-items: baseline;
+  gap: 10px;
+  max-width: 100%;
+  font-size: 11px;
+  color: var(--muted-foreground);
 }
-.photo-info h3 {
-  font-size: 23px;
-  margin: 0 0 7px;
-}
-.photo-info span {
-  font-size: 9px;
+.film-number {
+  font-family: ui-monospace, monospace;
   color: var(--primary);
+  letter-spacing: 0.1em;
+}
+.film-title {
+  color: var(--foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.film-category {
   text-transform: uppercase;
   letter-spacing: 0.13em;
+  font-size: 9px;
+  white-space: nowrap;
 }
-.photo-expand {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+.film-progress {
+  margin-inline: 6vw;
+  height: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+.film-progress-bar {
+  height: 100%;
+  width: 100%;
+  background: var(--primary);
+  transform-origin: left;
 }
 .gallery-end {
   display: flex;
@@ -917,30 +899,6 @@ main {
   }
   .portfolio-top {
     margin-bottom: 14px;
-  }
-  .gallery-columns {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 13px;
-  }
-  .gallery-column {
-    gap: 13px;
-  }
-  .gallery-column:nth-child(2),
-  .gallery-column:nth-child(4) {
-    padding-top: 0;
-  }
-  .gallery-wall {
-    padding-top: 15px;
-    padding-bottom: 35px;
-  }
-  .photo-info {
-    padding: 12px;
-  }
-  .photo-info h3 {
-    font-size: 18px;
-  }
-  .photo-info span {
-    font-size: 8px;
   }
   .story-layout {
     grid-template-columns: 1fr;
