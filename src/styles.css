@@ -378,6 +378,7 @@ main {
   position: relative;
 }
 .film-sticky {
+  margin-inline: calc(50% - 50vw);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -390,7 +391,6 @@ main {
   overflow: hidden;
 }
 .film-viewport {
-  margin-inline: calc(50% - 50vw);
   padding: 24px 0;
 }
 .film-native .film-viewport {
@@ -485,6 +485,7 @@ main {
   white-space: nowrap;
 }
 .film-progress {
+  margin-inline: 6vw;
   height: 2px;
   background: var(--border);
   overflow: hidden;
