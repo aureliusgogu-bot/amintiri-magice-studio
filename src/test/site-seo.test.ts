@@ -15,11 +15,11 @@ describe("Confirmed public studio information", () => {
     expect(build().openingHoursSpecification).toEqual({ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "00:00", closes: "23:59" });
   });
   it("uses database gallery photos rather than the bundled fallback when available", () => {
-    const schema = build({ ...DEFAULT_SITE_DATA, photos: [{ ...fallback[0], src: "/foto/db-small.jpg", highRes: "/foto/db.jpg", title: "Database" }] });
+    const schema = build({ ...DEFAULT_SITE_DATA, photos: [{ src: "/foto/db-small.jpg", highRes: "/foto/db.jpg", title: "Database", category: "Nunți", aspectRatio: 1 }] });
     expect(schema.image.map((image) => image.contentUrl)).toEqual(["https://facemceneplace.com/hero.jpg", "https://facemceneplace.com/foto/db.jpg"]);
   });
   it("keeps the bundled gallery only when the public data uses the fallback", () => {
-    expect(build().image[1].contentUrl).toBe("https://facemceneplace.com/fallback.jpg");
+    expect(build().image[1]?.contentUrl).toBe("https://facemceneplace.com/fallback.jpg");
   });
   it("preserves the confirmed legal identity and contacts", () => {
     expect(build().legalName).toBe("FACEM CE NE PLACE S.R.L");

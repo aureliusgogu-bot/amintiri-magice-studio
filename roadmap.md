@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Update SEO/local search information from confirmed business details, synchronize structured data with displayed content, and verify public pages without publishing.
+- [x] Update SEO/local search information from confirmed business details; synchronized structured data with the public settings and gallery, added confirmed address/hours to Contact, and verified homepage/reviews on desktop/mobile; not published.
 
 - [x] Increase the footer designer credit slightly and restore a crisp, proportionate studio logo; verified desktop/mobile and /recenzii, no overflow or runtime errors, build OK; not published.
 
