@@ -1,5 +1,5 @@
 const CREDIT_LABEL = "webdesign.vale";
-const CREDIT_URL = "https://gogu.site/";
+const CREDIT_URL = "https://webdesignvale.com/";
 
 /**
  * Discreet web-designer credit shown at the very bottom of every public page
