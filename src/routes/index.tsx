@@ -23,6 +23,7 @@ import hero from "@/assets/hero.jpg.asset.json";
 import { DEFAULT_SITE_DATA, SiteContext, useSite } from "@/lib/site-data";
 import { getSiteData } from "@/lib/site-data.functions";
 import { HomepageReviews } from "@/features/reviews/reviews";
+import { buildStudioSchema, SITE_ORIGIN, STUDIO_ADDRESS_LABEL, STUDIO_HOURS_LABEL } from "@/lib/site-seo";
 
 import storyPhoto from "@/assets/nunta/nunta-1-large.jpg";
 import contactPhoto from "@/assets/nunta/nunta-7-large.jpg";
@@ -30,41 +31,12 @@ import instagramQr from "@/assets/qr/instagram-qr.jpg";
 
 const title = "#facemceneplace";
 const description =
-  "Fotograf nuntă, fotograf botez și fotograf cununie în Ilfov și în toată România. #facemceneplace — fotografie și video, peste 20 de ani de amintiri.";
+  "Fotograf nuntă, botez și cununie în Domnești, Ilfov și în toată România. #facemceneplace — foto și video, peste 20 de ani de amintiri.";
 
-// Public origin of the site, so every structured-data image URL is absolute.
-const SITE_ORIGIN = "https://facemceneplace.com";
-const BUSINESS_ID = `${SITE_ORIGIN}/#facemceneplace`;
 const heroAlt = "Un cuplu de miri, împreună în lumina caldă a apusului";
-// Google wants the creator of each image as a typed entity (Person/Organization), not a bare @id reference.
-const imageCredit = {
-  creator: { "@type": "Organization", name: "#facemceneplace", url: `${SITE_ORIGIN}/` },
-  creditText: "#facemceneplace",
-  copyrightNotice: `© ${new Date().getFullYear()} #facemceneplace`,
-};
-
-// Images the page really shows: the hero plus every gallery photo, described with
-// the same Romanian titles and categories visitors see.
-const imageObjects = [
-  {
-    "@type": "ImageObject",
-    contentUrl: new URL(hero.url, SITE_ORIGIN).href,
-    caption: heroAlt,
-    name: "#facemceneplace",
-    ...imageCredit,
-  },
-  ...photos.map((photo) => ({
-    "@type": "ImageObject",
-    contentUrl: new URL(photo.highRes, SITE_ORIGIN).href,
-    thumbnailUrl: new URL(photo.src, SITE_ORIGIN).href,
-    name: photo.title,
-    caption: `${photo.title} — ${photo.category}`,
-    ...imageCredit,
-  })),
-];
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
-  head: () => ({
+  head: ({ loaderData }) => ({
     meta: [
       { title },
       { name: "description", content: description },
@@ -80,29 +52,7 @@ export const Route = createFileRoute("/")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": ["LocalBusiness", "Photographer"],
-          "@id": BUSINESS_ID,
-          name: "#facemceneplace",
-          legalName: "FACEM CE NE PLACE S.R.L",
-          vatID: "52881469",
-          description,
-          url: `${SITE_ORIGIN}/`,
-          email: "facemceneplace@gmail.com",
-          areaServed: { "@type": "Country", name: "România" },
-          address: { "@type": "PostalAddress", addressRegion: "Ilfov", addressCountry: "RO" },
-          telephone: ["+40727113893", "+40720179744"],
-          sameAs: [
-            "https://www.facebook.com/share/1BagDkJcXJ/",
-            "https://www.instagram.com/george.constantin1701",
-          ],
-          employee: [
-            { "@type": "Person", name: "George Constantin" },
-            { "@type": "Person", name: "Petrișor Stan" },
-          ],
-          image: imageObjects,
-        }),
+        children: JSON.stringify(buildStudioSchema(loaderData, photos, { url: hero.url, alt: heroAlt }, description)),
       },
     ],
   }),
@@ -510,6 +460,10 @@ function Page() {
               <p className="contact-location">
                 <MapPin size={14} aria-hidden /> {settings.locationContact}
               </p>
+              <p className="contact-location">
+                <MapPin size={14} aria-hidden /> {STUDIO_ADDRESS_LABEL}
+              </p>
+              <p className="text-sm text-muted-foreground">{STUDIO_HOURS_LABEL}</p>
             </Reveal>
             <Reveal className="contact-layout">
               <div>
