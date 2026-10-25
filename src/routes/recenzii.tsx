@@ -7,11 +7,12 @@ import { averageRatingLabel } from "@/lib/site-data";
 import { ReviewCard, ReviewFacebookLink } from "@/features/reviews/reviews";
 import { VisitorReviewForm } from "@/features/reviews/visitor-review-form";
 import { FooterCredit } from "@/components/footer-credit";
+import { SITE_ORIGIN, BUSINESS_ID } from "@/lib/site-seo";
 
 const reviewsQuery = queryOptions({ queryKey: ["site-reviews"], queryFn: () => getSiteData() });
 const title = "Recenzii clienți — #facemceneplace";
 const description =
-  "Citește experiențele clienților #facemceneplace: fotograf nuntă, fotograf botez și fotograf cununie în Ilfov și România. Lasă și tu o recenzie.";
+  "Citește recenziile clienților #facemceneplace: foto și video pentru nunți, botezuri și cununii în Domnești, Ilfov și România. Lasă și tu o recenzie.";
 
 export const Route = createFileRoute("/recenzii")({
   staticData: { sitemap: true },
@@ -22,10 +23,29 @@ export const Route = createFileRoute("/recenzii")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://facemceneplace.com/recenzii" },
+      { property: "og:url", content: `${SITE_ORIGIN}/recenzii` },
       { name: "twitter:card", content: "summary" },
     ],
-    links: [{ rel: "canonical", href: "https://facemceneplace.com/recenzii" }],
+    links: [{ rel: "canonical", href: `${SITE_ORIGIN}/recenzii` }],
+    scripts: [{
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: title,
+        description,
+        url: `${SITE_ORIGIN}/recenzii`,
+        inLanguage: "ro",
+        about: { "@id": BUSINESS_ID },
+        breadcrumb: {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "#facemceneplace", item: `${SITE_ORIGIN}/` },
+            { "@type": "ListItem", position: 2, name: "Recenzii", item: `${SITE_ORIGIN}/recenzii` },
+          ],
+        },
+      }),
+    }],
   }),
   loader: ({ context }) => context.queryClient.ensureQueryData(reviewsQuery),
   errorComponent: () => (

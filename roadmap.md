@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Update SEO/local search information from confirmed business details; synchronized structured data with the public settings and gallery, added confirmed address/hours to Contact, and verified homepage/reviews on desktop/mobile; not published.
+
 - [x] Increase the footer designer credit slightly and restore a crisp, proportionate studio logo; verified desktop/mobile and /recenzii, no overflow or runtime errors, build OK; not published.
 
 - [x] Compact homepage reviews into a swipe carousel with full-text dialogs and approved-review count; verified all 34 approved texts unchanged, equal-height cards, arrows and mobile swipe.
