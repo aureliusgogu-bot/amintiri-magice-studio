@@ -313,8 +313,14 @@ function SafeImage({
   className,
   onLoad,
   eager = false,
+  width,
+  height,
+  sizes,
 }: {
   src: string;
+  width?: number;
+  height?: number;
+  sizes?: string;
   alt: string;
   className?: string;
   onLoad?: () => void;
@@ -329,6 +335,9 @@ function SafeImage({
       src={src}
       alt={alt}
       className={className}
+      width={width}
+      height={height}
+      sizes={sizes}
       loading={eager ? "eager" : "lazy"}
       decoding="async"
       onError={() => setFailed(true)}
@@ -404,7 +413,12 @@ function PhotoCard({
           onBlur={() => setHover(false)}
           onClick={(event) => onOpen(photo, event.currentTarget)}
         >
-          <SafeImage src={photo.src} alt={`${photo.title} — ${photo.category}`} />
+          <SafeImage
+            src={photo.src}
+            alt={`${photo.title} — ${photo.category}`}
+            width={800}
+            height={Math.round(800 / (photo.aspectRatio || 0.67))}
+          />
           <motion.div
             className="photo-info"
             initial={false}
