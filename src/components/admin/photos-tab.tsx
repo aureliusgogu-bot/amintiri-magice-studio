@@ -156,7 +156,10 @@ export function PhotosTab() {
     if (!window.confirm(`Ștergi fotografia „${row.title}”? Acțiunea nu poate fi anulată.`)) return;
     const { error } = await supabase.from("photos").delete().eq("id", row.id);
     if (error) return setError(friendlyError(error));
-    await supabase.storage.from("portfolio").remove([row.small_path, row.large_path]);
+    // Also drop the JPG backups kept next to converted WebP files.
+    const paths = [row.small_path, row.large_path];
+    const backups = paths.filter((p) => p.endsWith(".webp")).map((p) => p.replace(/\.webp$/, ".jpg"));
+    await supabase.storage.from("portfolio").remove([...paths, ...backups]);
     setRows((r) => r.filter((x) => x.id !== row.id));
     setOk("Fotografia a fost ștearsă.");
   }
