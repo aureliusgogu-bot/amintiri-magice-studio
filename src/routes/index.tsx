@@ -7,7 +7,7 @@ import { PortfolioGallery, photos } from "@/components/portfolio-gallery";
 import { PortfolioRecommender } from "@/components/portfolio-recommender";
 import { ParallaxPhoto, type SwapPhoto } from "@/components/parallax-photo";
 import { FooterCredit } from "@/components/footer-credit";
-import studioLogo from "@/assets/logos/george-constantin-logo-sharp.png";
+import studioLogo from "@/assets/logos/george-constantin-logo-sharp.webp";
 import {
   CountUp,
   CursorRing,
@@ -25,9 +25,9 @@ import { getSiteData } from "@/lib/site-data.functions";
 import { HomepageReviews } from "@/features/reviews/reviews";
 import { buildStudioSchema, SITE_ORIGIN, STUDIO_ADDRESS_LABEL, STUDIO_HOURS_LABEL } from "@/lib/site-seo";
 
-import storyPhoto from "@/assets/nunta/nunta-1-large.jpg";
-import contactPhoto from "@/assets/nunta/nunta-7-large.jpg";
-import instagramQr from "@/assets/qr/instagram-qr.jpg";
+import storyPhoto from "@/assets/nunta/nunta-1-large.webp";
+import contactPhoto from "@/assets/nunta/nunta-7-large.webp";
+import instagramQr from "@/assets/qr/instagram-qr.webp";
 
 const title = "#facemceneplace";
 const description =
