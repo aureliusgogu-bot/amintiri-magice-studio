@@ -6,9 +6,23 @@ import { DEFAULT_SETTINGS, photoUrl, type SiteData, type Person } from "./site-d
 const clean = (value: unknown, fallback: string) =>
   typeof value === "string" && value.trim() ? value.trim() : fallback;
 
+// Short per-server-instance cache so every page view doesn't hit the database;
+// admin edits still appear within a minute.
+const CACHE_MS = 60_000;
+let cached: { at: number; data: SiteData } | null = null;
+
 /** Public, read-only: everything here is already visible on the site. */
 export const getSiteData = createServerFn({ method: "GET" }).handler(
   async (): Promise<SiteData> => {
+    if (cached && Date.now() - cached.at < CACHE_MS) return cached.data;
+    const data = await loadSiteData();
+    // Only cache real database answers, so a failed read is retried next request.
+    if (data.photos || data.reviews.length) cached = { at: Date.now(), data };
+    return data;
+  },
+);
+
+async function loadSiteData(): Promise<SiteData> {
     const url = process.env["SUPABASE_URL"];
     const key = process.env["SUPABASE_PUBLISHABLE_KEY"];
     if (!url || !key) return { settings: DEFAULT_SETTINGS, reviews: [], photos: null };
@@ -68,5 +82,4 @@ export const getSiteData = createServerFn({ method: "GET" }).handler(
           }))
         : null,
     };
-  },
-);
+}
