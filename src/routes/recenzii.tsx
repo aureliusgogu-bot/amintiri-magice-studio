@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getSiteData } from "@/lib/site-data.functions";
 import { averageRatingLabel } from "@/lib/site-data";
-import { ReviewCard, ReviewFacebookLink } from "@/features/reviews/reviews";
+import { ReviewCard, ReviewFacebookLink, ReviewGoogleLink } from "@/features/reviews/reviews";
 import { VisitorReviewForm } from "@/features/reviews/visitor-review-form";
 import { FooterCredit } from "@/components/footer-credit";
 import { SITE_ORIGIN, BUSINESS_ID } from "@/lib/site-seo";
@@ -96,7 +96,8 @@ function ReviewsPage() {
           {data.reviews.length === 1 ? "recenzie" : "recenzii"}
           {data.reviews.length > 0 && <> · {averageRatingLabel(data.reviews)} medie de la clienți</>}
         </p>
-        <div className="mt-6">
+        <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2">
+          <ReviewGoogleLink />
           <ReviewFacebookLink facebook={data.settings.facebook} />
         </div>
         <div className="mt-8 grid grid-cols-1 items-start gap-6 md:grid-cols-2 xl:grid-cols-3">
