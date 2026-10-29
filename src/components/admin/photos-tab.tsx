@@ -81,28 +81,27 @@ export function PhotosTab() {
           resizeImage(p.file, 1800),
         ]);
         const base = `uploads/${crypto.randomUUID()}`;
-        const opts = { contentType: "image/jpeg", upsert: false };
+        const smallPath = `${base}-small.${small.ext}`;
+        const largePath = `${base}-large.${large.ext}`;
         const a = await supabase.storage
           .from("portfolio")
-          .upload(`${base}-small.jpg`, small.blob, opts);
+          .upload(smallPath, small.blob, { contentType: small.type, upsert: false });
         if (a.error) throw a.error;
         const b = await supabase.storage
           .from("portfolio")
-          .upload(`${base}-large.jpg`, large.blob, opts);
+          .upload(largePath, large.blob, { contentType: large.type, upsert: false });
         if (b.error) throw b.error;
         const { error } = await supabase.from("photos").insert({
           title: p.title.trim() || p.category.trim(),
           category: p.category.trim(),
-          small_path: `${base}-small.jpg`,
-          large_path: `${base}-large.jpg`,
+          small_path: smallPath,
+          large_path: largePath,
           aspect_ratio: Math.round(large.ratio * 1000) / 1000,
           // First selected photo ends up first on the site.
           sort_order: top - pending.length + i,
         });
         if (error) {
-          await supabase.storage
-            .from("portfolio")
-            .remove([`${base}-small.jpg`, `${base}-large.jpg`]);
+          await supabase.storage.from("portfolio").remove([smallPath, largePath]);
           throw error;
         }
         URL.revokeObjectURL(p.preview);
@@ -157,7 +156,10 @@ export function PhotosTab() {
     if (!window.confirm(`Ștergi fotografia „${row.title}”? Acțiunea nu poate fi anulată.`)) return;
     const { error } = await supabase.from("photos").delete().eq("id", row.id);
     if (error) return setError(friendlyError(error));
-    await supabase.storage.from("portfolio").remove([row.small_path, row.large_path]);
+    // Also drop the JPG backups kept next to converted WebP files.
+    const paths = [row.small_path, row.large_path];
+    const backups = paths.filter((p) => p.endsWith(".webp")).map((p) => p.replace(/\.webp$/, ".jpg"));
+    await supabase.storage.from("portfolio").remove([...paths, ...backups]);
     setRows((r) => r.filter((x) => x.id !== row.id));
     setOk("Fotografia a fost ștearsă.");
   }
