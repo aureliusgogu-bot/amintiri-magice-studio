@@ -93,6 +93,21 @@ export const ReviewCard = forwardRef<HTMLElement, ReviewCardProps>(
   ),
 );
 
+/** Studio's Google Business review link (opens "Write a review" on Google Maps). */
+export const GOOGLE_REVIEW_URL = "https://g.page/r/CdtkZGe0auqXEBM/review";
+
+export function ReviewGoogleLink() {
+  return (
+    <Button variant="outline" size="sm" asChild className="h-auto whitespace-normal py-2">
+      <a href={GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer">
+        <Star aria-hidden="true" className="fill-primary text-primary" />
+        Lasă o recenzie pe Google
+        <ArrowUpRight aria-hidden="true" />
+      </a>
+    </Button>
+  );
+}
+
 export interface ReviewFacebookLinkProps {
   facebook: string;
 }
@@ -257,7 +272,10 @@ export const HomepageReviews = forwardRef<HTMLElement, HomepageReviewsProps>(
                 </Link>
               </Button>
             </div>
-            <ReviewFacebookLink facebook={facebook} />
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              <ReviewGoogleLink />
+              <ReviewFacebookLink facebook={facebook} />
+            </div>
           </div>
         </div>
       </section>
