@@ -27,6 +27,7 @@ import hero1920 from "@/assets/hero-1920.webp.asset.json";
 import { DEFAULT_SITE_DATA, SiteContext, useSite } from "@/lib/site-data";
 import { getSiteData } from "@/lib/site-data.functions";
 import { HomepageReviews } from "@/features/reviews/reviews";
+import { whatsappHref } from "@/lib/contact-links";
 import { buildStudioSchema, SITE_ORIGIN, STUDIO_ADDRESS_LABEL, STUDIO_HOURS_LABEL } from "@/lib/site-seo";
 
 import storyPhoto from "@/assets/nunta/nunta-1-large.webp";
@@ -285,7 +286,7 @@ function ContactForm() {
         </Button>
       </Magnetic>
       {whatsapp && (
-        <Button variant="outline" asChild className="contact-whatsapp">
+        <Button variant="cinematic" asChild>
           <a href={whatsapp} target="_blank" rel="noopener noreferrer">
             Scrie-ne pe WhatsApp
           </a>
