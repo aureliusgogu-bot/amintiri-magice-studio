@@ -75,9 +75,6 @@
 .parallax-photo-eager {
   animation: parallax-photo-in 0.8s ease both;
 }
-@media (prefers-reduced-motion: reduce) {
-  .parallax-photo-eager { animation: none; }
-}
 @custom-variant dark (&:is(.dark *));
 @theme inline {
   --font-sans: "DM Sans", sans-serif;

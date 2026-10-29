@@ -11,6 +11,8 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import dmSansLatin from "@/assets/fonts/dm-sans-latin-wght-normal.woff2?url";
+import playfairLatin from "@/assets/fonts/playfair-display-latin-wght-normal.woff2?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { FooterCredit } from "@/components/footer-credit";
 import { Toaster } from "@/components/ui/sonner";
@@ -97,21 +99,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico?v=3", sizes: "48x48" },
       { rel: "icon", href: "/favicon-48.png?v=3", type: "image/png", sizes: "48x48" },
       { rel: "icon", href: "/favicon-96.png?v=3", type: "image/png", sizes: "96x96" },
       { rel: "icon", href: "/favicon-192.png?v=3", type: "image/png", sizes: "192x192" },
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png?v=3", sizes: "180x180" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap",
-      },
+      // Self-hosted fonts used above the fold (headings + body text).
+      { rel: "preload", href: playfairLatin, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+      { rel: "preload", href: dmSansLatin, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
     ],
   }),
   shellComponent: RootShell,
