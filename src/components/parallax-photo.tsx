@@ -15,8 +15,13 @@ export function ParallaxPhoto({
   swap,
   swapEvery = 5000,
   swapDelay = 8000,
+  srcSet,
+  sizes,
 }: {
   src: string;
+  /** Responsive candidates so phones download a small file. */
+  srcSet?: string;
+  sizes?: string;
   alt: string;
   className: string;
   distance?: number;
@@ -33,6 +38,9 @@ export function ParallaxPhoto({
   const [failed, setFailed] = useState(false);
   // -1 means the main photo is showing; 0..n means one of the swap photos.
   const [active, setActive] = useState(-1);
+  // Swap photos are only fetched shortly before the first swap, so they never
+  // compete with the opening photo for bandwidth.
+  const [primed, setPrimed] = useState(false);
   const { scrollYProgress } = useScroll({ target: frame, offset: ["start end", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [-distance, distance]);
   const pointer = useMotionValue(0);
@@ -60,6 +68,7 @@ export function ParallaxPhoto({
     if (!enhanced || !swap || swap.length === 0) return;
     let step = -1;
     let interval = 0;
+    const prime = window.setTimeout(() => setPrimed(true), Math.max(0, swapDelay - 3000));
     const tick = () => {
       step = step >= swap.length - 1 ? -1 : step + 1;
       setActive(step);
@@ -69,6 +78,7 @@ export function ParallaxPhoto({
       interval = window.setInterval(tick, swapEvery);
     }, swapDelay);
     return () => {
+      window.clearTimeout(prime);
       window.clearTimeout(start);
       if (interval) window.clearInterval(interval);
     };
@@ -85,12 +95,27 @@ export function ParallaxPhoto({
           >
             {failed ? (
               <span className="photo-fallback" role="img" aria-label={alt} />
+            ) : eager ? (
+              // The opening photo fades in with CSS so it paints before the page's
+              // scripts finish loading (same 0.8s fade as the other photos).
+              <img
+                className="parallax-photo-eager"
+                src={src}
+                srcSet={srcSet}
+                sizes={sizes}
+                alt={alt}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+                onError={() => setFailed(true)}
+              />
             ) : (
               <motion.img
                 src={src}
+                srcSet={srcSet}
+                sizes={sizes}
                 alt={alt}
-                loading={eager ? "eager" : "lazy"}
-                fetchPriority={eager ? "high" : "auto"}
+                loading="lazy"
                 decoding="async"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -101,6 +126,7 @@ export function ParallaxPhoto({
             )}
           </motion.div>
           {enhanced &&
+            primed &&
             swap?.map((photo, i) => (
               <motion.div
                 key={photo.src}

@@ -26,3 +26,5 @@
 - Serve the sitemap from the server route `src/routes/sitemap[.]xml.ts` with `BASE_URL` set to the live public origin, and give every route an explicit `staticData.sitemap` decision, so the XML follows the router without a build-time sitemap plugin that would shadow it.
 - Keep confirmed business facts and the public origin in the shared site SEO module; build homepage JSON-LD from loader settings and the effective database-or-fallback gallery so search data matches displayed content, and never invent business facts or coordinates.
 - Run portfolio recommendations through a createServerFn that calls Lovable AI server-side with only photo titles/categories, so the key stays private and results map back to the local photos array.
+- Ship bundled photos as WebP with small/large srcset, the hero via preloaded CDN WebP variants, and fonts self-hosted from `src/assets/fonts`, because render-blocking Google Fonts and JPEGs dominated mobile load time.
+- Cache `getSiteData` in memory for 60s per server instance so page views don't each hit the database while admin edits still appear within a minute.

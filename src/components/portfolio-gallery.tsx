@@ -1,67 +1,67 @@
-import cununie5small from "@/assets/cununie/cununie-5-small.jpg";
-import cununie5large from "@/assets/cununie/cununie-5-large.jpg";
-import cununie6small from "@/assets/cununie/cununie-6-small.jpg";
-import cununie6large from "@/assets/cununie/cununie-6-large.jpg";
-import cununie7small from "@/assets/cununie/cununie-7-small.jpg";
-import cununie7large from "@/assets/cununie/cununie-7-large.jpg";
-import cununie8small from "@/assets/cununie/cununie-8-small.jpg";
-import cununie8large from "@/assets/cununie/cununie-8-large.jpg";
-import cununie9small from "@/assets/cununie/cununie-9-small.jpg";
-import cununie9large from "@/assets/cununie/cununie-9-large.jpg";
-import cununie1small from "@/assets/cununie/cununie-1-small.jpg";
-import cununie1large from "@/assets/cununie/cununie-1-large.jpg";
-import cununie2small from "@/assets/cununie/cununie-2-small.jpg";
-import cununie2large from "@/assets/cununie/cununie-2-large.jpg";
-import cununie3small from "@/assets/cununie/cununie-3-small.jpg";
-import cununie3large from "@/assets/cununie/cununie-3-large.jpg";
-import cununie4small from "@/assets/cununie/cununie-4-small.jpg";
-import cununie4large from "@/assets/cununie/cununie-4-large.jpg";
-import eveniment1small from "@/assets/evenimente/eveniment-1-small.jpg";
-import eveniment1large from "@/assets/evenimente/eveniment-1-large.jpg";
-import eveniment2small from "@/assets/evenimente/eveniment-2-small.jpg";
-import eveniment2large from "@/assets/evenimente/eveniment-2-large.jpg";
-import eveniment3small from "@/assets/evenimente/eveniment-3-small.jpg";
-import eveniment3large from "@/assets/evenimente/eveniment-3-large.jpg";
-import eveniment4small from "@/assets/evenimente/eveniment-4-small.jpg";
-import eveniment4large from "@/assets/evenimente/eveniment-4-large.jpg";
-import eveniment5small from "@/assets/evenimente/eveniment-5-small.jpg";
-import eveniment5large from "@/assets/evenimente/eveniment-5-large.jpg";
-import nunta6small from "@/assets/nunta/nunta-6-small.jpg";
-import nunta6large from "@/assets/nunta/nunta-6-large.jpg";
-import nunta7small from "@/assets/nunta/nunta-7-small.jpg";
-import nunta7large from "@/assets/nunta/nunta-7-large.jpg";
-import nunta8small from "@/assets/nunta/nunta-8-small.jpg";
-import nunta8large from "@/assets/nunta/nunta-8-large.jpg";
-import nunta9small from "@/assets/nunta/nunta-9-small.jpg";
-import nunta9large from "@/assets/nunta/nunta-9-large.jpg";
-import botez1small from "@/assets/botez/botez-1-small.jpg";
-import botez1large from "@/assets/botez/botez-1-large.jpg";
-import botez2small from "@/assets/botez/botez-2-small.jpg";
-import botez2large from "@/assets/botez/botez-2-large.jpg";
-import botez3small from "@/assets/botez/botez-3-small.jpg";
-import botez3large from "@/assets/botez/botez-3-large.jpg";
-import botez4small from "@/assets/botez/botez-4-small.jpg";
-import botez4large from "@/assets/botez/botez-4-large.jpg";
-import nunta1small from "@/assets/nunta/nunta-1-small.jpg";
-import nunta1large from "@/assets/nunta/nunta-1-large.jpg";
-import nunta2small from "@/assets/nunta/nunta-2-small.jpg";
-import nunta2large from "@/assets/nunta/nunta-2-large.jpg";
-import nunta3small from "@/assets/nunta/nunta-3-small.jpg";
-import nunta3large from "@/assets/nunta/nunta-3-large.jpg";
-import nunta4small from "@/assets/nunta/nunta-4-small.jpg";
-import nunta4large from "@/assets/nunta/nunta-4-large.jpg";
-import nunta5small from "@/assets/nunta/nunta-5-small.jpg";
-import nunta5large from "@/assets/nunta/nunta-5-large.jpg";
-import majorat1small from "@/assets/majorat/majorat-1-small.jpg";
-import majorat1large from "@/assets/majorat/majorat-1-large.jpg";
-import majorat2small from "@/assets/majorat/majorat-2-small.jpg";
-import majorat2large from "@/assets/majorat/majorat-2-large.jpg";
-import majorat3small from "@/assets/majorat/majorat-3-small.jpg";
-import majorat3large from "@/assets/majorat/majorat-3-large.jpg";
-import majorat4small from "@/assets/majorat/majorat-4-small.jpg";
-import majorat4large from "@/assets/majorat/majorat-4-large.jpg";
-import majorat5small from "@/assets/majorat/majorat-5-small.jpg";
-import majorat5large from "@/assets/majorat/majorat-5-large.jpg";
+import cununie5small from "@/assets/cununie/cununie-5-small.webp";
+import cununie5large from "@/assets/cununie/cununie-5-large.webp";
+import cununie6small from "@/assets/cununie/cununie-6-small.webp";
+import cununie6large from "@/assets/cununie/cununie-6-large.webp";
+import cununie7small from "@/assets/cununie/cununie-7-small.webp";
+import cununie7large from "@/assets/cununie/cununie-7-large.webp";
+import cununie8small from "@/assets/cununie/cununie-8-small.webp";
+import cununie8large from "@/assets/cununie/cununie-8-large.webp";
+import cununie9small from "@/assets/cununie/cununie-9-small.webp";
+import cununie9large from "@/assets/cununie/cununie-9-large.webp";
+import cununie1small from "@/assets/cununie/cununie-1-small.webp";
+import cununie1large from "@/assets/cununie/cununie-1-large.webp";
+import cununie2small from "@/assets/cununie/cununie-2-small.webp";
+import cununie2large from "@/assets/cununie/cununie-2-large.webp";
+import cununie3small from "@/assets/cununie/cununie-3-small.webp";
+import cununie3large from "@/assets/cununie/cununie-3-large.webp";
+import cununie4small from "@/assets/cununie/cununie-4-small.webp";
+import cununie4large from "@/assets/cununie/cununie-4-large.webp";
+import eveniment1small from "@/assets/evenimente/eveniment-1-small.webp";
+import eveniment1large from "@/assets/evenimente/eveniment-1-large.webp";
+import eveniment2small from "@/assets/evenimente/eveniment-2-small.webp";
+import eveniment2large from "@/assets/evenimente/eveniment-2-large.webp";
+import eveniment3small from "@/assets/evenimente/eveniment-3-small.webp";
+import eveniment3large from "@/assets/evenimente/eveniment-3-large.webp";
+import eveniment4small from "@/assets/evenimente/eveniment-4-small.webp";
+import eveniment4large from "@/assets/evenimente/eveniment-4-large.webp";
+import eveniment5small from "@/assets/evenimente/eveniment-5-small.webp";
+import eveniment5large from "@/assets/evenimente/eveniment-5-large.webp";
+import nunta6small from "@/assets/nunta/nunta-6-small.webp";
+import nunta6large from "@/assets/nunta/nunta-6-large.webp";
+import nunta7small from "@/assets/nunta/nunta-7-small.webp";
+import nunta7large from "@/assets/nunta/nunta-7-large.webp";
+import nunta8small from "@/assets/nunta/nunta-8-small.webp";
+import nunta8large from "@/assets/nunta/nunta-8-large.webp";
+import nunta9small from "@/assets/nunta/nunta-9-small.webp";
+import nunta9large from "@/assets/nunta/nunta-9-large.webp";
+import botez1small from "@/assets/botez/botez-1-small.webp";
+import botez1large from "@/assets/botez/botez-1-large.webp";
+import botez2small from "@/assets/botez/botez-2-small.webp";
+import botez2large from "@/assets/botez/botez-2-large.webp";
+import botez3small from "@/assets/botez/botez-3-small.webp";
+import botez3large from "@/assets/botez/botez-3-large.webp";
+import botez4small from "@/assets/botez/botez-4-small.webp";
+import botez4large from "@/assets/botez/botez-4-large.webp";
+import nunta1small from "@/assets/nunta/nunta-1-small.webp";
+import nunta1large from "@/assets/nunta/nunta-1-large.webp";
+import nunta2small from "@/assets/nunta/nunta-2-small.webp";
+import nunta2large from "@/assets/nunta/nunta-2-large.webp";
+import nunta3small from "@/assets/nunta/nunta-3-small.webp";
+import nunta3large from "@/assets/nunta/nunta-3-large.webp";
+import nunta4small from "@/assets/nunta/nunta-4-small.webp";
+import nunta4large from "@/assets/nunta/nunta-4-large.webp";
+import nunta5small from "@/assets/nunta/nunta-5-small.webp";
+import nunta5large from "@/assets/nunta/nunta-5-large.webp";
+import majorat1small from "@/assets/majorat/majorat-1-small.webp";
+import majorat1large from "@/assets/majorat/majorat-1-large.webp";
+import majorat2small from "@/assets/majorat/majorat-2-small.webp";
+import majorat2large from "@/assets/majorat/majorat-2-large.webp";
+import majorat3small from "@/assets/majorat/majorat-3-small.webp";
+import majorat3large from "@/assets/majorat/majorat-3-large.webp";
+import majorat4small from "@/assets/majorat/majorat-4-small.webp";
+import majorat4large from "@/assets/majorat/majorat-4-large.webp";
+import majorat5small from "@/assets/majorat/majorat-5-small.webp";
+import majorat5large from "@/assets/majorat/majorat-5-large.webp";
 import { useEffect, useRef, useState, useCallback, type MouseEvent } from "react";
 import { createPortal } from "react-dom";
 import {
@@ -313,8 +313,14 @@ function SafeImage({
   className,
   onLoad,
   eager = false,
+  width,
+  height,
+  sizes,
 }: {
   src: string;
+  width?: number;
+  height?: number;
+  sizes?: string;
   alt: string;
   className?: string;
   onLoad?: () => void;
@@ -329,6 +335,9 @@ function SafeImage({
       src={src}
       alt={alt}
       className={className}
+      width={width}
+      height={height}
+      sizes={sizes}
       loading={eager ? "eager" : "lazy"}
       decoding="async"
       onError={() => setFailed(true)}
@@ -404,7 +413,12 @@ function PhotoCard({
           onBlur={() => setHover(false)}
           onClick={(event) => onOpen(photo, event.currentTarget)}
         >
-          <SafeImage src={photo.src} alt={`${photo.title} — ${photo.category}`} />
+          <SafeImage
+            src={photo.src}
+            alt={`${photo.title} — ${photo.category}`}
+            width={800}
+            height={Math.round(800 / (photo.aspectRatio || 0.67))}
+          />
           <motion.div
             className="photo-info"
             initial={false}
