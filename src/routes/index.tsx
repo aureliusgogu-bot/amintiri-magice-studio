@@ -28,7 +28,12 @@ import { DEFAULT_SITE_DATA, SiteContext, useSite } from "@/lib/site-data";
 import { getSiteData } from "@/lib/site-data.functions";
 import { HomepageReviews } from "@/features/reviews/reviews";
 import { whatsappHref } from "@/lib/contact-links";
-import { buildStudioSchema, SITE_ORIGIN, STUDIO_ADDRESS_LABEL, STUDIO_HOURS_LABEL } from "@/lib/site-seo";
+import {
+  buildStudioSchema,
+  SITE_ORIGIN,
+  STUDIO_ADDRESS_LABEL,
+  STUDIO_HOURS_LABEL,
+} from "@/lib/site-seo";
 
 import storyPhoto from "@/assets/nunta/nunta-1-large.webp";
 import storyPhotoSmall from "@/assets/nunta/nunta-1-small.webp";
@@ -74,7 +79,9 @@ export const Route = createFileRoute("/")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(buildStudioSchema(loaderData, photos, { url: hero.url, alt: heroAlt }, description)),
+        children: JSON.stringify(
+          buildStudioSchema(loaderData, photos, { url: hero.url, alt: heroAlt }, description),
+        ),
       },
     ],
   }),
