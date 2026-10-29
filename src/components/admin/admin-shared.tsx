@@ -97,8 +97,11 @@ export function friendlyError(error: unknown) {
   return "A apărut o eroare. Încearcă din nou.";
 }
 
-/** Re-encodes a photo into a JPEG of at most `width` px; drawing to canvas drops EXIF/GPS. */
-export async function resizeImage(file: File, width: number, quality = 0.82) {
+/**
+ * Re-encodes a photo as WebP (JPEG fallback if the browser can't encode WebP) of at most
+ * `width` px; drawing to canvas drops EXIF/GPS.
+ */
+export async function resizeImage(file: File, width: number) {
   const bitmap = await createImageBitmap(file, { imageOrientation: "from-image" });
   const scale = Math.min(1, width / bitmap.width);
   const canvas = document.createElement("canvas");
@@ -109,8 +112,12 @@ export async function resizeImage(file: File, width: number, quality = 0.82) {
   ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
   const ratio = bitmap.width / bitmap.height;
   bitmap.close();
-  const blob = await new Promise<Blob>((resolve, reject) =>
-    canvas.toBlob((b) => (b ? resolve(b) : reject(new Error("encode"))), "image/jpeg", quality),
-  );
-  return { blob, ratio };
+  const encode = (type: string, quality: number) =>
+    new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, type, quality));
+  const webp = await encode("image/webp", 0.78);
+  // Browsers that can't encode WebP silently return PNG (or null).
+  if (webp && webp.type === "image/webp") return { blob: webp, ratio, ext: "webp", type: "image/webp" };
+  const jpg = await encode("image/jpeg", 0.82);
+  if (!jpg) throw new Error("encode");
+  return { blob: jpg, ratio, ext: "jpg", type: "image/jpeg" };
 }

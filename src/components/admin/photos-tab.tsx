@@ -81,28 +81,27 @@ export function PhotosTab() {
           resizeImage(p.file, 1800),
         ]);
         const base = `uploads/${crypto.randomUUID()}`;
-        const opts = { contentType: "image/jpeg", upsert: false };
+        const smallPath = `${base}-small.${small.ext}`;
+        const largePath = `${base}-large.${large.ext}`;
         const a = await supabase.storage
           .from("portfolio")
-          .upload(`${base}-small.jpg`, small.blob, opts);
+          .upload(smallPath, small.blob, { contentType: small.type, upsert: false });
         if (a.error) throw a.error;
         const b = await supabase.storage
           .from("portfolio")
-          .upload(`${base}-large.jpg`, large.blob, opts);
+          .upload(largePath, large.blob, { contentType: large.type, upsert: false });
         if (b.error) throw b.error;
         const { error } = await supabase.from("photos").insert({
           title: p.title.trim() || p.category.trim(),
           category: p.category.trim(),
-          small_path: `${base}-small.jpg`,
-          large_path: `${base}-large.jpg`,
+          small_path: smallPath,
+          large_path: largePath,
           aspect_ratio: Math.round(large.ratio * 1000) / 1000,
           // First selected photo ends up first on the site.
           sort_order: top - pending.length + i,
         });
         if (error) {
-          await supabase.storage
-            .from("portfolio")
-            .remove([`${base}-small.jpg`, `${base}-large.jpg`]);
+          await supabase.storage.from("portfolio").remove([smallPath, largePath]);
           throw error;
         }
         URL.revokeObjectURL(p.preview);
