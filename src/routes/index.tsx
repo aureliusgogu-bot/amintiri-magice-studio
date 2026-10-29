@@ -20,19 +20,29 @@ import {
 } from "@/components/motion-kit";
 import { useEnhancedMotion } from "@/hooks/use-enhanced-motion";
 import hero from "@/assets/hero.jpg.asset.json";
+import hero640 from "@/assets/hero-640.webp.asset.json";
+import hero1024 from "@/assets/hero-1024.webp.asset.json";
+import hero1600 from "@/assets/hero-1600.webp.asset.json";
+import hero1920 from "@/assets/hero-1920.webp.asset.json";
 import { DEFAULT_SITE_DATA, SiteContext, useSite } from "@/lib/site-data";
 import { getSiteData } from "@/lib/site-data.functions";
 import { HomepageReviews } from "@/features/reviews/reviews";
 import { buildStudioSchema, SITE_ORIGIN, STUDIO_ADDRESS_LABEL, STUDIO_HOURS_LABEL } from "@/lib/site-seo";
 
 import storyPhoto from "@/assets/nunta/nunta-1-large.webp";
+import storyPhotoSmall from "@/assets/nunta/nunta-1-small.webp";
 import contactPhoto from "@/assets/nunta/nunta-7-large.webp";
+import contactPhotoSmall from "@/assets/nunta/nunta-7-small.webp";
 import instagramQr from "@/assets/qr/instagram-qr.webp";
 
-const title = "#facemceneplace";
+const title = "Fotograf nuntă și botez Domnești, Ilfov | #facemceneplace";
 const description =
   "Fotograf nuntă, botez și cununie în Domnești, Ilfov și în toată România. #facemceneplace — foto și video, peste 20 de ani de amintiri.";
 
+// The hero fills the screen (cover), so on tall phone screens it is wider than the viewport.
+const heroSrcSet = `${hero640.url} 640w, ${hero1024.url} 1024w, ${hero1600.url} 1600w, ${hero1920.url} 1920w`;
+const heroSizes = "(max-aspect-ratio: 16/9) 178vh, 100vw";
+const photoSizes = "(max-width: 768px) 100vw, 50vw";
 const heroAlt = "Un cuplu de miri, împreună în lumina caldă a apusului";
 export const Route = createFileRoute("/")({
   staticData: { sitemap: true },
@@ -43,12 +53,23 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "ro_RO" },
       { property: "og:url", content: `${SITE_ORIGIN}/` },
       { property: "og:image", content: new URL(hero.url, SITE_ORIGIN).href },
       { name: "twitter:image", content: new URL(hero.url, SITE_ORIGIN).href },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: `${SITE_ORIGIN}/` }],
+    links: [
+      { rel: "canonical", href: `${SITE_ORIGIN}/` },
+      {
+        rel: "preload",
+        as: "image",
+        href: hero1920.url,
+        imageSrcSet: heroSrcSet,
+        imageSizes: heroSizes,
+        fetchPriority: "high",
+      },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -211,7 +232,8 @@ function Navigation() {
   );
 }
 function ContactForm() {
-  const { email: studioEmail } = useSite().settings;
+  const { email: studioEmail, people } = useSite().settings;
+  const whatsapp = whatsappHref(people[0]?.phone);
   const [opened, setOpened] = useState(false);
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -262,9 +284,18 @@ function ContactForm() {
           <ArrowUpRight />
         </Button>
       </Magnetic>
+      {whatsapp && (
+        <Button variant="outline" asChild className="contact-whatsapp">
+          <a href={whatsapp} target="_blank" rel="noopener noreferrer">
+            Scrie-ne pe WhatsApp
+          </a>
+        </Button>
+      )}
       {opened && (
         <p role="status" className="text-sm text-muted-foreground">
           Continuă în aplicația ta de email. Mesajul va fi trimis doar după confirmarea ta.
+          <br />
+          Nu ți s-a deschis aplicația de email? Scrie-ne pe WhatsApp sau sună-ne.
         </p>
       )}
     </form>
@@ -371,7 +402,9 @@ function Page() {
       <main>
         <section id="acasa" className="hero">
           <ParallaxPhoto
-            src={hero.url}
+            src={hero1920.url}
+            srcSet={heroSrcSet}
+            sizes={heroSizes}
             alt={heroAlt}
             className="hero-photo"
             distance={85}
@@ -422,6 +455,8 @@ function Page() {
               </div>
               <ParallaxPhoto
                 src={storyPhoto}
+                srcSet={`${storyPhotoSmall} 800w, ${storyPhoto} 1333w`}
+                sizes={photoSizes}
                 alt="Miri îmbrățișați lângă apă, fotografie alb-negru"
                 className="story-photo"
                 distance={45}
@@ -438,6 +473,8 @@ function Page() {
         <section id="contact" className="contact-section">
           <ParallaxPhoto
             src={contactPhoto}
+            srcSet={`${contactPhotoSmall} 800w, ${contactPhoto} 1333w`}
+            sizes="100vw"
             alt="Verighete agățate de un ornament din fier forjat"
             className="contact-photo"
             distance={0}
@@ -519,6 +556,7 @@ function Page() {
             width={1017}
             height={203}
             loading="lazy"
+            decoding="async"
           />
           <p className="footer-brand">
             #facemceneplace <span>· © {new Date().getFullYear()}</span>
