@@ -96,7 +96,8 @@ function ReviewsPage() {
           {data.reviews.length === 1 ? "recenzie" : "recenzii"}
           {data.reviews.length > 0 && <> · {averageRatingLabel(data.reviews)} medie de la clienți</>}
         </p>
-        <div className="mt-6">
+        <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2">
+          <ReviewGoogleLink />
           <ReviewFacebookLink facebook={data.settings.facebook} />
         </div>
         <div className="mt-8 grid grid-cols-1 items-start gap-6 md:grid-cols-2 xl:grid-cols-3">
