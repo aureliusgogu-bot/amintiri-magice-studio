@@ -18,7 +18,7 @@
 - Store visitor reviews in the private `review_submissions` queue via a validated public server function and insert-only database RPC; only verified admins may read/reject them or atomically approve them into `reviews`, so unmoderated text never appears publicly.
 - Keep review presentation and submission UI in the preview-only `src/features/reviews/` folder, excluded from library attach; the homepage carousel and `/recenzii` both use approved reviews from `getSiteData`, preserving the moderation system.
 - Serve portfolio images through the `/foto/$` server route from the private bucket, because the workspace blocks public buckets.
-- Resize and re-encode uploads in the browser (small ≈800px, large ≈1800px JPEG) before storing them, so files stay light and EXIF/GPS data is stripped.
+- Resize and re-encode uploads in the browser (small ≈800px, large ≈1800px WebP q78, JPEG only if the browser cannot encode WebP; converted rows keep their old JPGs in storage as backup) before storing them, so files stay light and EXIF/GPS data is stripped.
 - Gate all photo and gallery transform animations through the shared desktop/hover/reduced-motion hook; use opacity-only transitions otherwise for accessible mobile browsing.
 - Use clipped reusable parallax photo frames and native passive pointer tracking without wheel/drag interception so images stay covered and page scrolling remains available.
 - Keep contact submission entirely client-side through an encoded mailto URL because no backend is required.
