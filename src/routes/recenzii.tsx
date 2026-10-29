@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getSiteData } from "@/lib/site-data.functions";
 import { averageRatingLabel } from "@/lib/site-data";
-import { ReviewCard, ReviewFacebookLink } from "@/features/reviews/reviews";
+import { ReviewCard, ReviewFacebookLink, ReviewGoogleLink } from "@/features/reviews/reviews";
 import { VisitorReviewForm } from "@/features/reviews/visitor-review-form";
 import { FooterCredit } from "@/components/footer-credit";
 import { SITE_ORIGIN, BUSINESS_ID } from "@/lib/site-seo";
