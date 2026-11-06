@@ -16,7 +16,8 @@ export function agentRenderRequest(request: Request): Request {
   if (!["GET", "HEAD"].includes(request.method) || !prefersMarkdown(request.headers.get("accept"))) return request;
   const headers = new Headers(request.headers);
   headers.set("Accept", "text/html");
-  return new Request(request, { headers });
+  // Construct from the URL: the dev adapter may supply a different Request realm.
+  return new Request(request.url, { method: request.method, headers, signal: request.signal });
 }
 
 export function agentNotFoundResponse(request: Request, response: Response): Response {
