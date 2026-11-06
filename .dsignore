@@ -1,1 +1,4 @@
 src/features/reviews/**
+src/features/trust/**
+src/lib/trust-pages.ts
+src/lib/agent-response.ts

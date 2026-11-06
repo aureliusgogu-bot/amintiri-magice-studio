@@ -26,4 +26,12 @@ describe("Confirmed public studio information", () => {
     expect(build().vatID).toBe("52881469");
     expect(build().telephone).toEqual(["+40727113893", "+40720179744"]);
   });
+  it("exposes a contactPoint for each public contact with email and contact type", () => {
+    expect(build().contactPoint).toEqual([
+      { "@type": "ContactPoint", name: "George Constantin", telephone: "+40727113893", email: "facemceneplace@gmail.com", contactType: "customer service", availableLanguage: "ro" },
+      { "@type": "ContactPoint", name: "Petrișor Stan", telephone: "+40720179744", email: "facemceneplace@gmail.com", contactType: "customer service", availableLanguage: "ro" },
+    ]);
+    const data = { ...DEFAULT_SITE_DATA, settings: { ...DEFAULT_SITE_DATA.settings, email: "changed@example.com", people: [{ name: "Contact", phone: "+40700000000" }] } };
+    expect(build(data).contactPoint[0]).toMatchObject({ email: "changed@example.com", telephone: "+40700000000" });
+  });
 });

@@ -28,3 +28,5 @@
 - Run portfolio recommendations through a createServerFn that calls Lovable AI server-side with only photo titles/categories, so the key stays private and results map back to the local photos array.
 - Ship bundled photos as WebP with small/large srcset, the hero via preloaded CDN WebP variants, and fonts self-hosted from `src/assets/fonts`, because render-blocking Google Fonts and JPEGs dominated mobile load time.
 - Cache `getSiteData` in memory for 60s per server instance so page views don't each hit the database while admin edits still appear within a minute.
+- Keep trust pages in preview-only features and preserve homepage anchors; public /about, /contact and /privacy provide crawlable information without reshaping the portfolio.
+- Negotiate Markdown only for HTML 404 responses in the existing server wrapper, with Vary: Accept, so browsers and asset/API error behavior remain unchanged.
