@@ -28,6 +28,14 @@ Typography classes (`font-*` for families, `text-*` for sizes):
 | `font-display` | `--font-display` |
 | `text-min` | `--text-min` |
 
+## Spacing
+
+Apply with any spacing utility: `p-<name>`, `m-<name>`, `gap-<name>`, `space-<name>`, `w-<name>`, `h-<name>`, etc.
+
+| Name | CSS variable |
+|---|---|
+| — | `--footer-logo-gap` |
+
 ## Border Radius
 
 Border-radius classes:
@@ -61,5 +69,8 @@ Reference via `var(--name)` in inline styles or CSS.
 | `--vignette` |
 | `--hero-glow` |
 | `--gold-sheen` |
+| `--footer-logo-width` |
+| `--footer-credit-size` |
+| `--footer-credit-link-size` |
 | `--tap-min` |
 

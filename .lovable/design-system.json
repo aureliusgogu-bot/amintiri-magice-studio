@@ -2,7 +2,7 @@
   "meta": {
     "name": "Https Facemceneplace Com",
     "package": "@ws-1062323c948fe9abd9f7/c0abf0ef-62c9-4d0c-a176-953f5ccc36d3",
-    "version": "2.2.0",
+    "version": "2.3.0",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system_tailwind",
@@ -11,18 +11,19 @@
     ],
     "source_type": "local",
     "source_manifest": {
-      "#enrichment": "7ca89b655346f2f445f8b1c150c7a33a7624367b16302e38d60b02b2ffedd8e3",
-      ".dsignore": "9e3699d0e7e3f5fd4ae86e8f5e706d4b",
+      "#enrichment": "eefd537c1b863048740e666e26ce6bc9d1efc0cd036315e1b380ed8513dee488",
+      ".dsignore": "c4716de57b5bcd1f8b176b301f20e58a",
       ".github/workflows/ci.yml": "720d769c4391390e078e9376d907bddb",
       ".gitignore": "6d9e901a692b46a83707c245fb03bc91",
       ".lovable/meta.yaml": "954a981e8847ec1692669dbb04ae9ae9",
+      ".lovable/north-star/north-star.md": "239e9a1dabacaef03fc2f2909906fe00",
       ".lovable/plan/plan-aspect-premium-pentru-facemceneplace-2026-10-08.md": "d14c9c41772deca06704eaf292036399",
       ".lovable/project.json": "8a614b0de0ec719c6a3c839b39ebb7b9",
       ".lovable/sources.yaml": "b19e82a1dfacf00d893c4a23c9b33847",
       ".lovable/system.md": "27ec8c6baf42ba8b11bf3486f8e0439e",
       ".prettierignore": "7279a476f196a2da5f7edd18db568dc6",
       ".prettierrc": "185ef0234746ab738ac1ab6cec5e2bd9",
-      "AGENTS.md": "07624916c1a95e7ff79e9c8bea14d52e",
+      "AGENTS.md": "e8479a6bfcf44319625257d9b5fa39ce",
       "README.md": "fd20856a24f9e374ab1457701edb250a",
       "bunfig.toml": "89115995d9de72fdfc894e16b1e75297",
       "components.json": "30d3d035361ce807021f5c54620962e9",
@@ -31,90 +32,114 @@
       "drizzle/migrations/0001_is_admin_no_anon.sql": "6521de0efe2428f15e944a08c1068055",
       "drizzle/migrations/0002_visitor_review_submissions.sql": "e002884b2f464af723b99288c24b516e",
       "drizzle/migrations/0003_add_review_rating.sql": "d5933ae85f7b9e7bc5979417555310a8",
+      "drizzle/migrations/0004_close_public_settings_and_bucket.sql": "8dfb99ff5342ff4309e26c808e471135",
       "drizzle/migrations/meta/0000_snapshot.json": "ef84b9c49a7fdc9f3bf9b952885cac46",
       "drizzle/migrations/meta/0001_snapshot.json": "769945e7036be68399891b3bbe2c3a94",
       "drizzle/migrations/meta/0002_snapshot.json": "d0babe957543fb4381827b480a371eee",
       "drizzle/migrations/meta/0003_snapshot.json": "ed2aa97567250b2fd8ff489af5bdbef2",
-      "drizzle/migrations/meta/_journal.json": "45e5733ec11104ced7d2299d45cdcf6a",
+      "drizzle/migrations/meta/0004_snapshot.json": "69e74bedaecafc5bcacce93a6ebab039",
+      "drizzle/migrations/meta/_journal.json": "be3cc235cde27e4a21ca8cc5971e1c67",
       "drizzle/schema.ts": "a60267d05d7dd11572f02686241f37c6",
       "eslint.config.js": "345bdd57e188e0e4525edcd00e5003f5",
-      "package.json": "ba977e890798e2ecb012686f02ea9b69",
-      "public/favicon.ico": "9f504444f85a5af2eef9264b02ae40be",
+      "package.json": "47b22dec15c03b4ef87156581172eef3",
+      "public/apple-touch-icon.png": "a4d3adde1fab45d36c3ce3498cb40c99",
+      "public/favicon-192.png": "8cdd775ceb11f35305d7e2fb71f345a0",
+      "public/favicon-48.png": "6570b6f0e9c6c5789ffc27183e1bbe79",
+      "public/favicon-96.png": "958271016e732104ee344dc97c85e29f",
+      "public/favicon.ico": "e8356829a3b91d609edc28901e68cd10",
+      "public/favicon.png": "1c2eb5299a3f41b2af04be6a785d008c",
+      "public/llms.txt": "ba85bb9ba81697cfa91caf09630e7663",
       "public/robots.txt": "734d9768e185b4213e6b6777436eb2e8",
-      "roadmap.md": "7e2a4f74f9858ab46483c9a7e959b9f2",
-      "src/assets/botez/botez-1-large.jpg": "38b34cc283ea23f38e9fbbdce9a3b0b8",
-      "src/assets/botez/botez-1-small.jpg": "3fa7bb17d08eb087b8e64731bc7402c8",
-      "src/assets/botez/botez-2-large.jpg": "df120f4194863ab8a62a021f16d7d262",
-      "src/assets/botez/botez-2-small.jpg": "594ae8fe1fbd59fa4bd1f92464184be4",
-      "src/assets/botez/botez-3-large.jpg": "374794df1f909c98d72427db9e754cff",
-      "src/assets/botez/botez-3-small.jpg": "eb91365211db1e2df1bd8e3e8073f106",
-      "src/assets/botez/botez-4-large.jpg": "bef8edad93c4656436b715d926f59458",
-      "src/assets/botez/botez-4-small.jpg": "a6cf3af30e3d48fa16dd08e1f95847c5",
-      "src/assets/cununie/cununie-1-large.jpg": "5d7f8762db53cc2d5cf70aab13069711",
-      "src/assets/cununie/cununie-1-small.jpg": "2546087aaa249bb091f32207d8400574",
-      "src/assets/cununie/cununie-2-large.jpg": "a8773f1dd30ce17ae7969079087f6475",
-      "src/assets/cununie/cununie-2-small.jpg": "3ba8c5315b8f3e5822997721c49e255c",
-      "src/assets/cununie/cununie-3-large.jpg": "236c0775b984bd4b8807feb75f8975dd",
-      "src/assets/cununie/cununie-3-small.jpg": "4730320c7f0e8c3ea23a6f6aab247782",
-      "src/assets/cununie/cununie-4-large.jpg": "f95c80df71c4a00ca61ffb87b37fdb80",
-      "src/assets/cununie/cununie-4-small.jpg": "1e032b849aff5608410a194ee763a472",
-      "src/assets/cununie/cununie-5-large.jpg": "58a37fc13dbc9230cf56613387042a1d",
-      "src/assets/cununie/cununie-5-small.jpg": "8fb0d04a4c9f9149e40bf9e842749bef",
-      "src/assets/cununie/cununie-6-large.jpg": "c9d05445a2dc1eb189f8c3ed84c0a987",
-      "src/assets/cununie/cununie-6-small.jpg": "a40e699f16b8a1e715413305fcbee376",
-      "src/assets/cununie/cununie-7-large.jpg": "b57f691add3501f79cc7d5db6634da03",
-      "src/assets/cununie/cununie-7-small.jpg": "333129c91acd81e63bd5d6fffabe4280",
-      "src/assets/cununie/cununie-8-large.jpg": "d971cb1ce705ebec84cfd096e7378df5",
-      "src/assets/cununie/cununie-8-small.jpg": "45cca2d940f89084202df5b8b12a225c",
-      "src/assets/cununie/cununie-9-large.jpg": "421f3ceaf3fe70f8933a474f16964ce9",
-      "src/assets/cununie/cununie-9-small.jpg": "c3efa2607ae5f1831c6e923547c6b6bd",
-      "src/assets/evenimente/eveniment-1-large.jpg": "2e9a5e327b5f4296765a2e8959459033",
-      "src/assets/evenimente/eveniment-1-small.jpg": "8a7d8da466fd7877a9a8c3723f8bd423",
-      "src/assets/evenimente/eveniment-2-large.jpg": "9e71165589966115355be32c97ce8e44",
-      "src/assets/evenimente/eveniment-2-small.jpg": "bf5bf87620e78410c16d21818c62ef1b",
-      "src/assets/evenimente/eveniment-3-large.jpg": "bf1626ed8bbff7bc671444d9add83725",
-      "src/assets/evenimente/eveniment-3-small.jpg": "bd35bfc5df839859b58c1a439212e4a9",
-      "src/assets/evenimente/eveniment-4-large.jpg": "310a7c2af70a481da97f6be8785952c4",
-      "src/assets/evenimente/eveniment-4-small.jpg": "e49aab44159bf141e438c2e079d33d45",
-      "src/assets/evenimente/eveniment-5-large.jpg": "0bc9889a16e689db2cfe6cb2871017a4",
-      "src/assets/evenimente/eveniment-5-small.jpg": "4edd1b952339ab6a761cd061096e7fbe",
+      "roadmap.md": "d44f266aecf0c75cc959d4286a5014b6",
+      "src/assets/botez/botez-1-large.webp": "18f7831f380c82df820d49250e648191",
+      "src/assets/botez/botez-1-small.webp": "a9016fb07ef79534259a4f44130d4f85",
+      "src/assets/botez/botez-2-large.webp": "b2e7823e0f2c067a5aeb8f95917f1901",
+      "src/assets/botez/botez-2-small.webp": "52f03f1ac0bf31ee2b5c214099c5689e",
+      "src/assets/botez/botez-3-large.webp": "0fe981b35fcd030036b9123573769cb3",
+      "src/assets/botez/botez-3-small.webp": "793ddfe8e7bee4147d37bb0b59abe77e",
+      "src/assets/botez/botez-4-large.webp": "16aebf788113bd0fb6fd0e165ea5f44a",
+      "src/assets/botez/botez-4-small.webp": "25233c5899630e1cfbc30ad243769722",
+      "src/assets/cununie/cununie-1-large.webp": "6a845dbeb93f33a7c00958f90e666380",
+      "src/assets/cununie/cununie-1-small.webp": "25f1140993c50892e1d028ee125dc83d",
+      "src/assets/cununie/cununie-2-large.webp": "c6b36a1b3820bc6ed4a7c6269623c99c",
+      "src/assets/cununie/cununie-2-small.webp": "50e4e22e37aa877487d0e647ba6a6a0b",
+      "src/assets/cununie/cununie-3-large.webp": "40bd43e0a613f3b70e78937732021d75",
+      "src/assets/cununie/cununie-3-small.webp": "e55f528b72ac3c7a58532c895a3771b5",
+      "src/assets/cununie/cununie-4-large.webp": "cbd1b51e0b9963309cfaf4d9ea4e4e6d",
+      "src/assets/cununie/cununie-4-small.webp": "fbb6b76515c4fd813485241a0cccb6fd",
+      "src/assets/cununie/cununie-5-large.webp": "ab1f04d89e82a00a400d404a41d8bc61",
+      "src/assets/cununie/cununie-5-small.webp": "5e0906ed02b2435ed3362d4ba5642af4",
+      "src/assets/cununie/cununie-6-large.webp": "99b2e22fcc7d54305299d6352acc36ab",
+      "src/assets/cununie/cununie-6-small.webp": "40ea4d33fba4fc26e93f1105a498b787",
+      "src/assets/cununie/cununie-7-large.webp": "b69a520fe0cb7c73f310a938204871f1",
+      "src/assets/cununie/cununie-7-small.webp": "e16e55f32d65d34f5f6a0d42583325e9",
+      "src/assets/cununie/cununie-8-large.webp": "e8a7d2d9532845cb19aa1410adb89f00",
+      "src/assets/cununie/cununie-8-small.webp": "47922bb1765c6b1fc822d53d08542a46",
+      "src/assets/cununie/cununie-9-large.webp": "a15203f36877881f944d2ed8cb852464",
+      "src/assets/cununie/cununie-9-small.webp": "658bfe5a1d6584f53142d98bdeb8b6b3",
+      "src/assets/evenimente/eveniment-1-large.webp": "c7a28b8286da2c0463b82316f8b6f12e",
+      "src/assets/evenimente/eveniment-1-small.webp": "294dba27133538f3b35b17f909fd5c05",
+      "src/assets/evenimente/eveniment-2-large.webp": "dfb4a7e24c5ee0b0f25511619503f636",
+      "src/assets/evenimente/eveniment-2-small.webp": "65eee7c89d6f467ec3969725b7c7703a",
+      "src/assets/evenimente/eveniment-3-large.webp": "001b21403635d1f30f3f256fe7267700",
+      "src/assets/evenimente/eveniment-3-small.webp": "c8207181a1d78bef8715bb1d844297d8",
+      "src/assets/evenimente/eveniment-4-large.webp": "1819a31c29f8ca35f2c02c468a38e12f",
+      "src/assets/evenimente/eveniment-4-small.webp": "a9d993f9fd4fce2e6ad2d26fa35e0140",
+      "src/assets/evenimente/eveniment-5-large.webp": "2089502e8102b082dd88362369bf2f29",
+      "src/assets/evenimente/eveniment-5-small.webp": "c6ed72bbe24952a4a7853b8e042cc1b8",
+      "src/assets/fonts/dm-sans-latin-ext-wght-normal.woff2": "49935c4b623536eb645c61103b8e6cae",
+      "src/assets/fonts/dm-sans-latin-wght-normal.woff2": "7c87a648293fbb5b2924aafaa59e8aea",
+      "src/assets/fonts/manrope-latin-700-normal.woff2": "ed9e261b92db70cd782956b9cf363091",
+      "src/assets/fonts/manrope-latin-ext-700-normal.woff2": "37a83b63486c70d1552ccab2bb8e3b59",
+      "src/assets/fonts/playfair-display-latin-ext-wght-italic.woff2": "43bf186b799168be0fb8f82e96d27f65",
+      "src/assets/fonts/playfair-display-latin-ext-wght-normal.woff2": "319e6b2aad48bec980d22efb27163e79",
+      "src/assets/fonts/playfair-display-latin-wght-italic.woff2": "2175449f9d4450ae6ffa92c12e38768c",
+      "src/assets/fonts/playfair-display-latin-wght-normal.woff2": "ef05b30d6e5ca86ef9deda8c5bfa599a",
+      "src/assets/hero-1024.webp.asset.json": "4963378cb3a35a4b810a58e93f272724",
+      "src/assets/hero-1600.webp.asset.json": "db50366f142b5cb0ddec31d4ee2336b6",
+      "src/assets/hero-1920.webp.asset.json": "43e0a6ca0b93a56c6dc616dba43b7428",
+      "src/assets/hero-640.webp.asset.json": "b7a37cd2a90379bc7b616a0592d30299",
       "src/assets/hero.jpg.asset.json": "eb3903366a00f55e96f4a70a57a05477",
-      "src/assets/majorat/majorat-1-large.jpg": "796403ec7618dd1da3d7782277470617",
-      "src/assets/majorat/majorat-1-small.jpg": "c7d4c23354fa6beedc99c17c21c6b824",
-      "src/assets/majorat/majorat-2-large.jpg": "9ce1fe394836a7c038fcd8298f3a867e",
-      "src/assets/majorat/majorat-2-small.jpg": "2ae65c2a1755254cd4085610df2bb554",
-      "src/assets/majorat/majorat-3-large.jpg": "f648696cfe41bb36d253f7f210b74433",
-      "src/assets/majorat/majorat-3-small.jpg": "1c2fcd85f2cbb4bdaf213a2b44b2535d",
-      "src/assets/majorat/majorat-4-large.jpg": "ae701616dba8970d20cb92dbb354c417",
-      "src/assets/majorat/majorat-4-small.jpg": "512646af42caf95147009123196b3a7b",
-      "src/assets/majorat/majorat-5-large.jpg": "662e01ae4a7ef763e65d49bedf319578",
-      "src/assets/majorat/majorat-5-small.jpg": "fbc948f9d4d8ffd1f54513dc533582ff",
-      "src/assets/nunta/nunta-1-large.jpg": "60670a9257a9b2c73e12f4d9e8214ffd",
-      "src/assets/nunta/nunta-1-small.jpg": "7f2aa91a280ae8f8a23ba351343efed5",
-      "src/assets/nunta/nunta-2-large.jpg": "d8fd76d5ff5d3d9514d882d2f73da18c",
-      "src/assets/nunta/nunta-2-small.jpg": "8706eca00921d7dd8be3a241922f3903",
-      "src/assets/nunta/nunta-3-large.jpg": "25c99bb9b6824d469df705f0db6fbd0a",
-      "src/assets/nunta/nunta-3-small.jpg": "814edbae76fdf3999950603ee064786f",
-      "src/assets/nunta/nunta-4-large.jpg": "c82e2f291a3b713876eb9c79fd5c5484",
-      "src/assets/nunta/nunta-4-small.jpg": "1faf130fdaafb6a3fab7f9baef2d599a",
-      "src/assets/nunta/nunta-5-large.jpg": "a76647c6da1d6f9ae351081ddabd8876",
-      "src/assets/nunta/nunta-5-small.jpg": "43547fd4ade4fd6f4fcbca6cd2e68737",
-      "src/assets/nunta/nunta-6-large.jpg": "53bc2ebf3dac31b52462f638db3a26ff",
-      "src/assets/nunta/nunta-6-small.jpg": "2f6f798af619a7c85a6074100e078f7b",
-      "src/assets/nunta/nunta-7-large.jpg": "3bf79bd499d51343772518337d5ada40",
-      "src/assets/nunta/nunta-7-small.jpg": "3a53330244102524efb7dc1557b458c4",
-      "src/assets/nunta/nunta-8-large.jpg": "132a4280122d5a0e93409b65145930a3",
-      "src/assets/nunta/nunta-8-small.jpg": "b666a01ddefcf00e0376437dca2e5981",
-      "src/assets/nunta/nunta-9-large.jpg": "d17e24e0431285475a6d84385d658732",
-      "src/assets/nunta/nunta-9-small.jpg": "cf38eb18c39e0e950d1f3e004429d9f9",
-      "src/assets/qr/instagram-qr.jpg": "b0ffded3d4de34c2b8e5a1899bbc1387",
-      "src/components/admin/admin-shared.tsx": "b1fec459e9b15192ba91d587dbf647e3",
+      "src/assets/logos/george-constantin-logo-original.jpg": "6b46c900c8dcfebbc94ae9b2debcdd93",
+      "src/assets/logos/george-constantin-logo-sharp.png": "4ff78568143fc67a9011f7eab2fb41d0",
+      "src/assets/logos/george-constantin-logo-sharp.webp": "63a8b8a8d61eef8c296cf9e1989f7fe6",
+      "src/assets/logos/george-constantin-logo.png": "d7cbf31d0df83f16531716a3b7284387",
+      "src/assets/majorat/majorat-1-large.webp": "3d550614a7bb3125514e4059c990222b",
+      "src/assets/majorat/majorat-1-small.webp": "374f439b6a6a958d6cd5a8f33e3f8f9d",
+      "src/assets/majorat/majorat-2-large.webp": "d2dd296a3a9f04a7bc0721cfff467537",
+      "src/assets/majorat/majorat-2-small.webp": "1369ea1754dd39681055660915ae75f0",
+      "src/assets/majorat/majorat-3-large.webp": "4432c4df046ca5d258a812aa98b3aef5",
+      "src/assets/majorat/majorat-3-small.webp": "50e33cdbb2fab7f954757f384b27f68f",
+      "src/assets/majorat/majorat-4-large.webp": "9e2bd017f2762073a0f8b3e1679e3a04",
+      "src/assets/majorat/majorat-4-small.webp": "dd47fa3c2c3abcd09c15a78883b86b12",
+      "src/assets/majorat/majorat-5-large.webp": "ebc585c01326616324283dc4188d938f",
+      "src/assets/majorat/majorat-5-small.webp": "45703db17928ac2d106363508daed508",
+      "src/assets/nunta/nunta-1-large.webp": "162f24247b53545d34c81bd0c72e72bf",
+      "src/assets/nunta/nunta-1-small.webp": "21289e0f5f2ce02f1fd0f0219d6979fb",
+      "src/assets/nunta/nunta-2-large.webp": "26ba869d38f6cc25a6ed4446e161b1e0",
+      "src/assets/nunta/nunta-2-small.webp": "6f952dea39993298a16b7768f6bca3a4",
+      "src/assets/nunta/nunta-3-large.webp": "07ce2b2356cce0ac0e113c7c2d55983f",
+      "src/assets/nunta/nunta-3-small.webp": "d8890d3b8da53cc95e41bed7818019a8",
+      "src/assets/nunta/nunta-4-large.webp": "91fffb3423da339868fb910706c2fa39",
+      "src/assets/nunta/nunta-4-small.webp": "54b72a8799fa5f3a18e5fd193890d182",
+      "src/assets/nunta/nunta-5-large.webp": "b94833f550ec96093dcc5ee3756664cb",
+      "src/assets/nunta/nunta-5-small.webp": "d3408738a6c8c9695294b1fb36b7f176",
+      "src/assets/nunta/nunta-6-large.webp": "bd733ffab18f0bbe8406af0a5973a7b1",
+      "src/assets/nunta/nunta-6-small.webp": "3ae9aca3ad6639664a72a1dca4b0e9cb",
+      "src/assets/nunta/nunta-7-large.webp": "ef459283dbbcf20f155cc73b8d39e5b8",
+      "src/assets/nunta/nunta-7-small.webp": "b0381ea55a641241d6eb851392a88725",
+      "src/assets/nunta/nunta-8-large.webp": "4f05a03ea26003e686b45f0a7f631970",
+      "src/assets/nunta/nunta-8-small.webp": "65eea62c98d9e1abb703ccd4f3916036",
+      "src/assets/nunta/nunta-9-large.webp": "f2837dfe24a238a613d0669a9ede8920",
+      "src/assets/nunta/nunta-9-small.webp": "ff630cd94b7abb97d4e2d1d41b2ce468",
+      "src/assets/qr/instagram-qr.webp": "6fd4eabb9a0af3e9a3ea3017058713b2",
+      "src/components/admin/admin-shared.tsx": "9100209c89b44fd7fb89d2098a854bcd",
       "src/components/admin/content-tabs.tsx": "27ee35dbd95ec3be66bb8d09348c6a63",
-      "src/components/admin/photos-tab.tsx": "55d6d21064edcc6a61f1e9ed9945bb92",
-      "src/components/footer-credit.tsx": "c35dfde7f52fe7479b0f875550e1e1ab",
+      "src/components/admin/photos-tab.tsx": "3eb6706281c550410acb2924f1cf19d8",
+      "src/components/footer-credit.tsx": "466feb22cc86858fffb3580350f1cf24",
       "src/components/motion-kit.tsx": "77040776dd7d75a21251d138ec6f48fa",
-      "src/components/parallax-photo.tsx": "5ec451173183e2f3ee859c7762e27921",
-      "src/components/portfolio-gallery.tsx": "96b9fbbe1b39b29deddc25d365d8ffe1",
+      "src/components/parallax-photo.tsx": "7c12752ba63a6e3f634ca20b39d795f1",
+      "src/components/portfolio-gallery.tsx": "01de0d6acfa91bc9a91eb7ba12c69d64",
       "src/components/portfolio-recommender.tsx": "d3b363be7cf89610bbb7b34bf5f95a39",
       "src/components/ui/accordion.tsx": "55f9dda62b4e3913c9b23e5015a86aef",
       "src/components/ui/alert-dialog.tsx": "96350e949e9b7b674545430a410ab89c",
@@ -162,16 +187,19 @@
       "src/components/ui/toggle-group.tsx": "ac26383acf721d116ca8e3ab5c5355d5",
       "src/components/ui/toggle.tsx": "ee8c5adac74e7242b85b544db1a8fbad",
       "src/components/ui/tooltip.tsx": "67d71db5a1ab935695d1def497f5b8a6",
-      "src/features/reviews/reviews.tsx": "96010148a43713adc9b18d7190eb9017",
+      "src/features/reviews/reviews.tsx": "9b2169232b8ab505d1a3f363d2042290",
       "src/features/reviews/visitor-review-form.tsx": "d78361af453cf28e272435d90734189f",
+      "src/features/trust/trust-page.tsx": "97c2654e37889037853294d52701fbfe",
       "src/hooks/use-enhanced-motion.ts": "f2bd5f688f517e39fb4d014759fc0e9a",
       "src/hooks/use-mobile.tsx": "c0a0bdd4638c391a1dd06ac82074e60b",
-      "src/index.ts": "ba6b9f1ca1232e5614fd258396136834",
+      "src/index.ts": "1f03465a654d93c67a2496ab8ef29748",
       "src/integrations/supabase/auth-middleware.ts": "9877e7a04523e50505df8c4b1eb8dbf9",
       "src/integrations/supabase/client.server.ts": "6f3a33a5b0a7884940926c338ae7b4af",
       "src/integrations/supabase/client.ts": "a813c2b4fda29c2af71e9c6476af4200",
-      "src/integrations/supabase/previewAuthStorage.ts": "0a2d63e049bc63135b19c8e21cc0b1aa",
-      "src/integrations/supabase/types.ts": "08aaac4e3278218a935944ce15aacaf2",
+      "src/integrations/supabase/previewAuthStorage.ts": "315e4ae3473d92766e0d6d4d83945aef",
+      "src/integrations/supabase/types.ts": "8dd0660f19bb0dc8d7a8b6abb86e9582",
+      "src/lib/agent-response.ts": "dedce8ea7d76095c11e2aa6d4efcd5ca",
+      "src/lib/contact-links.ts": "41fef177ded7a49e0816c0e2d53e395b",
       "src/lib/error-capture.ts": "f630d9686a9a989170f22eff4de7b30d",
       "src/lib/error-page.ts": "8da0ddd7569bac2676b9a5c8edff8a36",
       "src/lib/lovable-error-reporting.ts": "920280997099588d609de792663bcbf0",
@@ -179,26 +207,35 @@
       "src/lib/recommend.server.ts": "d1a6a2dd9a29ffdbfa72fb0192c6df2b",
       "src/lib/review-schema.ts": "8166e93cd77d10dc7bb614690761fd63",
       "src/lib/review-submissions.functions.ts": "3f36271a606998dfbe6c4f32baa5d017",
-      "src/lib/site-data.functions.ts": "ad9f3ca5c4a97c9712ba723b525f8f16",
+      "src/lib/site-data.functions.ts": "87f2eb135ae308cf4462585ff1aac44d",
       "src/lib/site-data.ts": "86cf0baca620b74febbda74764614612",
+      "src/lib/site-seo.ts": "0289d3430a45d86ea215112eeae69767",
       "src/lib/sitemap.ts": "4b2ca31806f0668f03e9d3235bebf692",
+      "src/lib/trust-pages.ts": "3a87d65d5354a6222ba64dd5a4524710",
       "src/lib/utils.ts": "d9837f38cc05303254571985e3164050",
-      "src/routeTree.gen.ts": "217e726611bca15afa1503beffa694a0",
+      "src/routeTree.gen.ts": "7b4be9e01347f11f490bc01c1071351b",
       "src/router.tsx": "8f905e713b0eba7fa8148b7995a708c9",
       "src/routes/README.md": "0044790c298aeb33868a7525d79f1585",
-      "src/routes/__root.tsx": "2242e74a846f4f85911b7e47d6798ea5",
+      "src/routes/__root.tsx": "be702b9dcd5ee04542d25452bf2f1893",
+      "src/routes/about.tsx": "7f8efd3d603113dae9d9188696b37d03",
       "src/routes/admin.tsx": "7b8cef1db7747ce71030b51980e3d874",
+      "src/routes/contact.tsx": "fc900cb036a19d716e4cd57b74d06e7d",
       "src/routes/foto.$.ts": "ff84069f61e67543fd26846c2d825b8c",
-      "src/routes/index.tsx": "d01e3068e3aab67ce3b82e01efaf63da",
-      "src/routes/recenzii.tsx": "00b50e67b468c0424f24e374e8484de2",
+      "src/routes/index.tsx": "b2b0cc64f9a774a36cd098bd628c1679",
+      "src/routes/privacy.tsx": "b12f7ce1f78019334adcab9f2137f9cc",
+      "src/routes/recenzii.tsx": "2ca7e9c13e954db695315ac8e89d261d",
       "src/routes/sitemap[.]xml.ts": "a53bed3f3cf7777b80ba770f8112a848",
-      "src/server.ts": "c7bbc49bb70e318af618d92775ee0f27",
+      "src/server.ts": "1c3656f5fe3159a1bb6219e128f31d0f",
       "src/start.ts": "0502f82c58afce5012b4c102e6fe2437",
-      "src/styles.css": "938d9d6939a9f1cea3acf8494ad564f5",
-      "src/test/app-routing.test.tsx": "cd721a61f0943554f64f2e8c33c8a375",
-      "src/test/review-schema.test.ts": "e6ed1721fc3dd1414e78ae5ca4df27f8",
+      "src/styles.css": "d9ec096e4c2a0e1d50f7764dfb7c3e37",
+      "src/test/agent-files.test.ts": "a366f481969899f889e42f8ea6325a1c",
+      "src/test/agent-response.test.ts": "4bdaf83d4471de3730e873980d8b4887",
+      "src/test/app-routing.test.tsx": "fbda1928a26d9cb42d287a8daca548bc",
+      "src/test/contact-links.test.ts": "26138008108e1dbfc1b7b2112c2d7306",
+      "src/test/review-schema.test.ts": "77452022275f5ba79af3779e74011fc6",
       "src/test/reviews.test.tsx": "60819ea34121406e798e1092f219e85a",
       "src/test/setup.ts": "ef5807c07db57482ab718e40246688a2",
+      "src/test/site-seo.test.ts": "641ce0407a61527d8cb75db5d1689719",
       "supabase/config.toml": "8c19701da7deea2e0ec49ff8e6778d8e",
       "tsconfig.json": "3d34aff71739a382bec105bad1c6948f",
       "vite.config.ts": "c33473e387d641b18a596586ae38c5f5",
@@ -251,6 +288,13 @@
       {
         "name": "--destructive",
         "raw": "oklch(0.65 0.18 25)",
+        "source": "src/styles.css"
+      }
+    ],
+    "spacing": [
+      {
+        "name": "--footer-logo-gap",
+        "raw": "1rem",
         "source": "src/styles.css"
       }
     ],
@@ -339,6 +383,21 @@
       {
         "name": "--gold-sheen",
         "raw": "linear-gradient(105deg, transparent 40%, oklch(1 0 0 / 0.16) 50%, transparent 60%)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--footer-logo-width",
+        "raw": "22rem",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--footer-credit-size",
+        "raw": "0.8125rem",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--footer-credit-link-size",
+        "raw": "0.875rem",
         "source": "src/styles.css"
       },
       {
@@ -1796,184 +1855,248 @@
   ],
   "assets": [
     {
-      "file": "src/assets/botez/botez-1-large.jpg",
+      "file": "src/assets/botez/botez-1-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/botez/botez-1-small.jpg",
+      "file": "src/assets/botez/botez-1-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/botez/botez-2-large.jpg",
+      "file": "src/assets/botez/botez-2-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/botez/botez-2-small.jpg",
+      "file": "src/assets/botez/botez-2-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/botez/botez-3-large.jpg",
+      "file": "src/assets/botez/botez-3-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/botez/botez-3-small.jpg",
+      "file": "src/assets/botez/botez-3-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/botez/botez-4-large.jpg",
+      "file": "src/assets/botez/botez-4-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/botez/botez-4-small.jpg",
+      "file": "src/assets/botez/botez-4-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-1-large.jpg",
+      "file": "src/assets/cununie/cununie-1-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-1-small.jpg",
+      "file": "src/assets/cununie/cununie-1-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-2-large.jpg",
+      "file": "src/assets/cununie/cununie-2-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-2-small.jpg",
+      "file": "src/assets/cununie/cununie-2-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-3-large.jpg",
+      "file": "src/assets/cununie/cununie-3-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-3-small.jpg",
+      "file": "src/assets/cununie/cununie-3-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-4-large.jpg",
+      "file": "src/assets/cununie/cununie-4-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-4-small.jpg",
+      "file": "src/assets/cununie/cununie-4-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-5-large.jpg",
+      "file": "src/assets/cununie/cununie-5-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-5-small.jpg",
+      "file": "src/assets/cununie/cununie-5-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-6-large.jpg",
+      "file": "src/assets/cununie/cununie-6-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-6-small.jpg",
+      "file": "src/assets/cununie/cununie-6-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-7-large.jpg",
+      "file": "src/assets/cununie/cununie-7-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-7-small.jpg",
+      "file": "src/assets/cununie/cununie-7-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-8-large.jpg",
+      "file": "src/assets/cununie/cununie-8-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-8-small.jpg",
+      "file": "src/assets/cununie/cununie-8-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-9-large.jpg",
+      "file": "src/assets/cununie/cununie-9-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/cununie/cununie-9-small.jpg",
+      "file": "src/assets/cununie/cununie-9-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/evenimente/eveniment-1-large.jpg",
+      "file": "src/assets/evenimente/eveniment-1-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/evenimente/eveniment-1-small.jpg",
+      "file": "src/assets/evenimente/eveniment-1-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/evenimente/eveniment-2-large.jpg",
+      "file": "src/assets/evenimente/eveniment-2-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/evenimente/eveniment-2-small.jpg",
+      "file": "src/assets/evenimente/eveniment-2-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/evenimente/eveniment-3-large.jpg",
+      "file": "src/assets/evenimente/eveniment-3-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/evenimente/eveniment-3-small.jpg",
+      "file": "src/assets/evenimente/eveniment-3-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/evenimente/eveniment-4-large.jpg",
+      "file": "src/assets/evenimente/eveniment-4-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/evenimente/eveniment-4-small.jpg",
+      "file": "src/assets/evenimente/eveniment-4-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/evenimente/eveniment-5-large.jpg",
+      "file": "src/assets/evenimente/eveniment-5-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/evenimente/eveniment-5-small.jpg",
+      "file": "src/assets/evenimente/eveniment-5-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
+    },
+    {
+      "file": "src/assets/fonts/dm-sans-latin-ext-wght-normal.woff2",
+      "kind": "font",
+      "format": "woff2"
+    },
+    {
+      "file": "src/assets/fonts/dm-sans-latin-wght-normal.woff2",
+      "kind": "font",
+      "format": "woff2"
+    },
+    {
+      "file": "src/assets/fonts/manrope-latin-700-normal.woff2",
+      "kind": "font",
+      "format": "woff2"
+    },
+    {
+      "file": "src/assets/fonts/manrope-latin-ext-700-normal.woff2",
+      "kind": "font",
+      "format": "woff2"
+    },
+    {
+      "file": "src/assets/fonts/playfair-display-latin-ext-wght-italic.woff2",
+      "kind": "font",
+      "format": "woff2"
+    },
+    {
+      "file": "src/assets/fonts/playfair-display-latin-ext-wght-normal.woff2",
+      "kind": "font",
+      "format": "woff2"
+    },
+    {
+      "file": "src/assets/fonts/playfair-display-latin-wght-italic.woff2",
+      "kind": "font",
+      "format": "woff2"
+    },
+    {
+      "file": "src/assets/fonts/playfair-display-latin-wght-normal.woff2",
+      "kind": "font",
+      "format": "woff2"
+    },
+    {
+      "file": "src/assets/hero-1024.webp.asset.json",
+      "kind": "image",
+      "format": "webp",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/hero-1600.webp.asset.json",
+      "kind": "image",
+      "format": "webp",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/hero-1920.webp.asset.json",
+      "kind": "image",
+      "format": "webp",
+      "pointer": true
+    },
+    {
+      "file": "src/assets/hero-640.webp.asset.json",
+      "kind": "image",
+      "format": "webp",
+      "pointer": true
     },
     {
       "file": "src/assets/hero.jpg.asset.json",
@@ -1982,149 +2105,169 @@
       "pointer": true
     },
     {
-      "file": "src/assets/majorat/majorat-1-large.jpg",
-      "kind": "image",
+      "file": "src/assets/logos/george-constantin-logo-original.jpg",
+      "kind": "logo",
       "format": "jpg"
     },
     {
-      "file": "src/assets/majorat/majorat-1-small.jpg",
-      "kind": "image",
-      "format": "jpg"
+      "file": "src/assets/logos/george-constantin-logo-sharp.png",
+      "kind": "logo",
+      "format": "png"
     },
     {
-      "file": "src/assets/majorat/majorat-2-large.jpg",
-      "kind": "image",
-      "format": "jpg"
+      "file": "src/assets/logos/george-constantin-logo-sharp.webp",
+      "kind": "logo",
+      "format": "webp"
     },
     {
-      "file": "src/assets/majorat/majorat-2-small.jpg",
-      "kind": "image",
-      "format": "jpg"
+      "file": "src/assets/logos/george-constantin-logo.png",
+      "kind": "logo",
+      "format": "png"
     },
     {
-      "file": "src/assets/majorat/majorat-3-large.jpg",
+      "file": "src/assets/majorat/majorat-1-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/majorat/majorat-3-small.jpg",
+      "file": "src/assets/majorat/majorat-1-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/majorat/majorat-4-large.jpg",
+      "file": "src/assets/majorat/majorat-2-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/majorat/majorat-4-small.jpg",
+      "file": "src/assets/majorat/majorat-2-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/majorat/majorat-5-large.jpg",
+      "file": "src/assets/majorat/majorat-3-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/majorat/majorat-5-small.jpg",
+      "file": "src/assets/majorat/majorat-3-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-1-large.jpg",
+      "file": "src/assets/majorat/majorat-4-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-1-small.jpg",
+      "file": "src/assets/majorat/majorat-4-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-2-large.jpg",
+      "file": "src/assets/majorat/majorat-5-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-2-small.jpg",
+      "file": "src/assets/majorat/majorat-5-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-3-large.jpg",
+      "file": "src/assets/nunta/nunta-1-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-3-small.jpg",
+      "file": "src/assets/nunta/nunta-1-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-4-large.jpg",
+      "file": "src/assets/nunta/nunta-2-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-4-small.jpg",
+      "file": "src/assets/nunta/nunta-2-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-5-large.jpg",
+      "file": "src/assets/nunta/nunta-3-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-5-small.jpg",
+      "file": "src/assets/nunta/nunta-3-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-6-large.jpg",
+      "file": "src/assets/nunta/nunta-4-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-6-small.jpg",
+      "file": "src/assets/nunta/nunta-4-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-7-large.jpg",
+      "file": "src/assets/nunta/nunta-5-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-7-small.jpg",
+      "file": "src/assets/nunta/nunta-5-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-8-large.jpg",
+      "file": "src/assets/nunta/nunta-6-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-8-small.jpg",
+      "file": "src/assets/nunta/nunta-6-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-9-large.jpg",
+      "file": "src/assets/nunta/nunta-7-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/nunta/nunta-9-small.jpg",
+      "file": "src/assets/nunta/nunta-7-small.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
     },
     {
-      "file": "src/assets/qr/instagram-qr.jpg",
+      "file": "src/assets/nunta/nunta-8-large.webp",
       "kind": "image",
-      "format": "jpg"
+      "format": "webp"
+    },
+    {
+      "file": "src/assets/nunta/nunta-8-small.webp",
+      "kind": "image",
+      "format": "webp"
+    },
+    {
+      "file": "src/assets/nunta/nunta-9-large.webp",
+      "kind": "image",
+      "format": "webp"
+    },
+    {
+      "file": "src/assets/nunta/nunta-9-small.webp",
+      "kind": "image",
+      "format": "webp"
+    },
+    {
+      "file": "src/assets/qr/instagram-qr.webp",
+      "kind": "image",
+      "format": "webp"
     }
   ]
 }
