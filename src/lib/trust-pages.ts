@@ -4,8 +4,8 @@ export const trustPages = {
   about: {
     path: "/about",
     heading: "Despre noi",
-    title: "Despre studioul foto și video — #facemceneplace",
-    description: "Povestea #facemceneplace, studio foto și video cu peste 20 de ani de experiență în Domnești, Ilfov și România.",
+    title: "Studio foto și video în Domnești, Ilfov | #facemceneplace",
+    description: "Descoperă #facemceneplace: peste 20 de ani de fotografie și video pentru nunți, botezuri și cununii în Domnești, Ilfov și toată România.",
     paragraphs: [
       "#facemceneplace înseamnă fotografie și video pentru nunți, botezuri, cununii civile, majorate și evenimente. De peste 20 de ani, transformăm clipe în amintiri. Suntem în Domnești, Ilfov, și ne deplasăm în toată țara pentru poveștile care ne sunt încredințate.",
       "De peste 20 de ani, nu doar fotografiem și filmăm. Păstrăm emoții. Păstrăm povești. Păstrăm oameni. În tot acest timp, am învățat că cele mai frumoase momente nu se repetă. Un zâmbet, o privire, o îmbrățișare, o lacrimă de fericire… sunt clipe care trec într-o secundă, dar care pot rămâne pentru o viață.",
@@ -16,8 +16,8 @@ export const trustPages = {
   contact: {
     path: "/contact",
     heading: "Contact",
-    title: "Contact studio foto și video Domnești — #facemceneplace",
-    description: "Contactează #facemceneplace pentru foto și video la evenimentul tău: telefon, email și WhatsApp, în Domnești, Ilfov și România.",
+    title: "Contact fotograf nuntă și botez Ilfov | #facemceneplace",
+    description: "Cauți fotograf pentru nuntă, botez sau cununie? Contactează #facemceneplace prin telefon, email ori WhatsApp. Studio în Domnești, Ilfov.",
     paragraphs: [
       "Fiecare poveste începe cu un salut. Pentru fotografii și filmări la nuntă, botez, cununie civilă, majorat sau un alt eveniment, sună-ne ori scrie-ne. Spune-ne tipul evenimentului, data și localitatea, precum și ce amintire vrei să păstrăm. Disponibilitatea și oferta se discută direct cu echipa; vizitarea site-ului nu reprezintă o rezervare.",
       "Studioul #facemceneplace are sediul în Domnești, Ilfov, și se deplasează în toată România. Adresa confirmată este Strada Tudor Vladimirescu, Domnești, Ilfov 077090. Programul afișat este non-stop (24/7). Serviciile sunt oferite de FACEM CE NE PLACE S.R.L, C.U.I. 52881469.",
@@ -28,8 +28,8 @@ export const trustPages = {
   privacy: {
     path: "/privacy",
     heading: "Confidențialitate",
-    title: "Confidențialitate și date personale — #facemceneplace",
-    description: "Cum sunt folosite datele din formularul de contact și recenziile trimise pe site-ul #facemceneplace.",
+    title: "Confidențialitate și date personale | #facemceneplace",
+    description: "Află cum sunt folosite datele de contact și recenziile pe #facemceneplace și cum poți contacta studioul pentru întrebări despre datele tale.",
     paragraphs: [
       "Această pagină explică funcționarea formularelor de pe site-ul #facemceneplace, al FACEM CE NE PLACE S.R.L, C.U.I. 52881469. Pentru întrebări despre datele tale sau despre informații publicate pe site, contactează studioul la adresa de email afișată mai jos. Nu include informații sensibile în mesaje sau în recenzii.",
       "Formularul de contact solicită numele, adresa de email și un mesaj. Aceste câmpuri sunt folosite în browser pentru a pregăti un email în aplicația vizitatorului. Formularul nu trimite și nu salvează aceste câmpuri într-o bază de date a site-ului. Emailul ajunge la studio numai dacă vizitatorul confirmă trimiterea în propria aplicație; corespondența trimisă este apoi disponibilă în serviciile de email ale participanților.",
@@ -48,12 +48,15 @@ export function trustPageHead(key: TrustPageKey) {
     meta: [
       { title: page.title },
       { name: "description", content: page.description },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
       { property: "og:title", content: page.title },
       { property: "og:description", content: page.description },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "ro_RO" },
       { property: "og:url", content: `${SITE_ORIGIN}${page.path}` },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: page.title },
+      { name: "twitter:description", content: page.description },
     ],
     links: [{ rel: "canonical", href: `${SITE_ORIGIN}${page.path}` }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify({
@@ -61,6 +64,13 @@ export function trustPageHead(key: TrustPageKey) {
       "@type": key === "about" ? "AboutPage" : key === "contact" ? "ContactPage" : "WebPage",
       name: page.title, description: page.description, url: `${SITE_ORIGIN}${page.path}`,
       inLanguage: "ro", about: { "@id": BUSINESS_ID },
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "#facemceneplace", item: `${SITE_ORIGIN}/` },
+          { "@type": "ListItem", position: 2, name: page.heading, item: `${SITE_ORIGIN}${page.path}` },
+        ],
+      },
     }) }],
   };
 }
