@@ -1,9 +1,9 @@
 # Roadmap
 
-- [ ] Add negotiated Markdown 404 responses and verify status, headers and body.
-- [ ] Add llms.txt with specific agent guidance and safe public links.
-- [ ] Complete studio contactPoint structured data using public settings.
-- [ ] Add Romanian /about, /contact and /privacy trust pages, preserving the homepage; test and verify all new endpoints without publishing.
+- [x] Add negotiated Markdown 404 responses; verified HTTP 404, text/markdown, body and discovery links; browser HTML preserved.
+- [x] Add llms.txt with specific agent guidance and safe public links; verified the served file and flat format.
+- [x] Complete studio contactPoint structured data using public settings; verified live preview JSON-LD and tests.
+- [x] Add Romanian /about, /contact and /privacy trust pages, preserving the homepage; 27 tests passed, all endpoints verified on desktop/390px mobile without runtime errors; not published. Privacy retention/legal details require owner confirmation before any claims are added.
 
 - [x] Update SEO/local search information from confirmed business details; synchronized structured data with the public settings and gallery, added confirmed address/hours to Contact, and verified homepage/reviews on desktop/mobile; not published.
 
