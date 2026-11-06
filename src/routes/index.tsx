@@ -43,7 +43,7 @@ import instagramQr from "@/assets/qr/instagram-qr.webp";
 
 const title = "Fotograf nuntă și botez Domnești, Ilfov | #facemceneplace";
 const description =
-  "Fotograf nuntă, botez și cununie în Domnești, Ilfov și în toată România. #facemceneplace — foto și video, peste 20 de ani de amintiri.";
+  "Fotograf și videograf pentru nuntă, botez și cununie în Domnești, Ilfov și România. #facemceneplace: peste 20 de ani de experiență. Vezi portofoliul.";
 
 // The hero fills the screen (cover), so on tall phone screens it is wider than the viewport.
 const heroSrcSet = `${hero640.url} 640w, ${hero1024.url} 1024w, ${hero1600.url} 1600w, ${hero1920.url} 1920w`;
@@ -56,6 +56,7 @@ export const Route = createFileRoute("/")({
     meta: [
       { title },
       { name: "description", content: description },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
@@ -64,9 +65,12 @@ export const Route = createFileRoute("/")({
       { property: "og:image", content: new URL(hero.url, SITE_ORIGIN).href },
       { name: "twitter:image", content: new URL(hero.url, SITE_ORIGIN).href },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
     links: [
       { rel: "canonical", href: `${SITE_ORIGIN}/` },
+      { rel: "alternate", type: "text/plain", title: "Informații despre studio pentru asistenți AI", href: `${SITE_ORIGIN}/llms.txt` },
       {
         rel: "preload",
         as: "image",

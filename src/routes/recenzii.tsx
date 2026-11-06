@@ -10,7 +10,7 @@ import { FooterCredit } from "@/components/footer-credit";
 import { SITE_ORIGIN, BUSINESS_ID } from "@/lib/site-seo";
 
 const reviewsQuery = queryOptions({ queryKey: ["site-reviews"], queryFn: () => getSiteData() });
-const title = "Recenzii clienți — #facemceneplace";
+const title = "Recenzii fotograf nuntă și botez | #facemceneplace";
 const description =
   "Citește recenziile clienților #facemceneplace: foto și video pentru nunți, botezuri și cununii în Domnești, Ilfov și România. Lasă și tu o recenzie.";
 
@@ -20,11 +20,15 @@ export const Route = createFileRoute("/recenzii")({
     meta: [
       { title },
       { name: "description", content: description },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "ro_RO" },
       { property: "og:url", content: `${SITE_ORIGIN}/recenzii` },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
     links: [{ rel: "canonical", href: `${SITE_ORIGIN}/recenzii` }],
     scripts: [{

@@ -1,5 +1,7 @@
 # Roadmap
 
+- [x] Optimize public-page search metadata and AI-guide discovery without changing layout; verified all five public HTML heads and guide endpoint, 14 focused tests passed, build OK; awaits publishing.
+
 - [x] Add negotiated Markdown 404 responses; verified HTTP 404, text/markdown, body and discovery links; browser HTML preserved.
 - [x] Add llms.txt with specific agent guidance and safe public links; verified the served file and flat format.
 - [x] Complete studio contactPoint structured data using public settings; verified live preview JSON-LD and tests.
