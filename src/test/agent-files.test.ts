@@ -9,7 +9,9 @@ describe("Public agent discovery protocols", () => {
     expect(file.split("\n").filter((line) => /^# /.test(line))).toHaveLength(1);
     expect(file).not.toMatch(/^###/m);
     expect(file.match(/^## .+$/gm)?.at(-1)).toBe("## Optional");
-    const paths = [...file.matchAll(/^- \[[^\]]+\]\(([^)]+)\): .+$/gm)].map((match) => match[1]);
+    const links = [...file.matchAll(/^- \[[^\]]+\]\(([^)]+)\): .+$/gm)].map((match) => match[1]);
+    expect(links.every((link) => link?.startsWith("https://facemceneplace.com/"))).toBe(true);
+    const paths = links.map((link) => new URL(link ?? "").pathname);
     expect(paths).toEqual(expect.arrayContaining(["/", "/about", "/contact", "/privacy", "/recenzii", "/sitemap.xml"]));
     expect(paths.every((path) => ["/", "/about", "/contact", "/privacy", "/recenzii", "/sitemap.xml"].includes(path ?? ""))).toBe(true);
   });
