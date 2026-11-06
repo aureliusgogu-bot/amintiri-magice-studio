@@ -36,6 +36,14 @@ export function buildStudioSchema(
     description,
     url: `${SITE_ORIGIN}/`,
     email: settings.email,
+    contactPoint: settings.people.map(({ name, phone }) => ({
+      "@type": "ContactPoint",
+      name,
+      telephone: phone.startsWith("+") ? phone : `+4${phone}`,
+      email: settings.email,
+      contactType: "customer service",
+      availableLanguage: "ro",
+    })),
     areaServed: { "@type": "Country", name: "România" },
     address: STUDIO_ADDRESS,
     openingHoursSpecification: {

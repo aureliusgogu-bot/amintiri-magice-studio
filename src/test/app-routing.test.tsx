@@ -20,4 +20,9 @@ describe("App routing", () => {
     expect(match?.routeId).toBe("/recenzii");
     expect(router.routesById["/recenzii"].options.staticData?.sitemap).toBe(true);
   });
+  it.each(["/about", "/contact", "/privacy"] as const)("matches public trust page %s and includes it in the sitemap", (path) => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(router.matchRoutes(path).at(-1)?.routeId).toBe(path);
+    expect(router.routesById[path].options.staticData?.sitemap).toBe(true);
+  });
 });
