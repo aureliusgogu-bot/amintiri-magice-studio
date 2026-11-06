@@ -2,7 +2,7 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
-import { agentNotFoundResponse } from "./lib/agent-response";
+import { agentNotFoundResponse, agentRenderRequest } from "./lib/agent-response";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -49,7 +49,7 @@ export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
       const handler = await getServerEntry();
-      const response = await handler.fetch(request, env, ctx);
+      const response = await handler.fetch(agentRenderRequest(request), env, ctx);
       return agentNotFoundResponse(request, await normalizeCatastrophicSsrResponse(response));
     } catch (error) {
       console.error(error);

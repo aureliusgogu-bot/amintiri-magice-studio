@@ -4,11 +4,19 @@ export function prefersMarkdown(accept: string | null): boolean {
     const matches = (accept ?? "").split(",").map((part) => {
       const [media, ...parameters] = part.trim().toLowerCase().split(";");
       const q = parameters.find((parameter) => parameter.trim().startsWith("q="));
-      return { media: media.trim(), q: q ? Number(q.trim().slice(2)) : 1 };
+      return { media: media?.trim(), q: q ? Number(q.trim().slice(2)) : 1 };
     }).filter((entry) => entry.media === type);
     return Math.max(0, ...matches.map((entry) => Number.isFinite(entry.q) && entry.q <= 1 ? entry.q : 0));
   };
   return quality("text/markdown") > 0 && quality("text/markdown") >= quality("text/html");
+}
+
+/** Start's page renderer rejects non-HTML Accept; negotiate after it resolves status. */
+export function agentRenderRequest(request: Request): Request {
+  if (!["GET", "HEAD"].includes(request.method) || !prefersMarkdown(request.headers.get("accept"))) return request;
+  const headers = new Headers(request.headers);
+  headers.set("Accept", "text/html");
+  return new Request(request, { headers });
 }
 
 export function agentNotFoundResponse(request: Request, response: Response): Response {
